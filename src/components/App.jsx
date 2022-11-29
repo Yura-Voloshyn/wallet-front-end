@@ -10,7 +10,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      Wallet front end part
+      Wallet front end part test
     </div>
   );
 };
