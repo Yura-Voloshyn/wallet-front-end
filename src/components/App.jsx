@@ -1,3 +1,5 @@
+import Spinner from 'components/Spinner';
+
 export const App = () => {
   return (
     <div
@@ -10,6 +12,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
+      <Spinner />
       Wallet front end part
     </div>
   );
