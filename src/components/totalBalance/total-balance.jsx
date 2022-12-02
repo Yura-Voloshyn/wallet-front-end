@@ -8,7 +8,6 @@ const TotalBalanceWrapper = styled.div`
 
     padding-top: 8px;
     background-color: #ffffff;
-    outline: 1px solid black;
 `
 const Title = styled.p`
     padding-left: 40px;
@@ -22,9 +21,9 @@ const Title = styled.p`
 `
 const Balance = styled.p`
     padding-left: 40px;
-    font-family: 'Poppins';
+    font-family: "Popins";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 900;
     font-size: 30px;
     color: #000000;
     margin: 0;
