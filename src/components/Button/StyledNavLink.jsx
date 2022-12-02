@@ -1,7 +1,7 @@
 import { StyledNavLink } from './SubmitBtn.styled';
 
 const NavLink = () => {
-  return <StyledNavLink>register</StyledNavLink>;
+  return <StyledNavLink></StyledNavLink>;
 };
 
 export default NavLink;

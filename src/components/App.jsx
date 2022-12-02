@@ -1,3 +1,4 @@
+// import LoginForm from './LoginForm';
 export const App = () => {
   return (
     <div
@@ -10,6 +11,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
+      {/* <LoginForm /> */}
       Wallet front end part
     </div>
   );
