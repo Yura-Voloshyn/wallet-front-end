@@ -1,9 +1,9 @@
 import { RotatingLines } from 'react-loader-spinner';
-import { SpinnerBox } from './Spinner.styled';
+import { SpinnerWrap } from './Spinner.styled';
 
 const Spinner = () => {
   return (
-    <SpinnerBox>
+    <SpinnerWrap>
       <RotatingLines
         width="150"
         strokeColor="#C5BAFF"
@@ -11,7 +11,7 @@ const Spinner = () => {
         animationDuration="0.75"
         visible={true}
       />
-    </SpinnerBox>
+    </SpinnerWrap>
   );
 };
 
