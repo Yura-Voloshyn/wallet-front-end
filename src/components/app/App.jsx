@@ -1,4 +1,6 @@
 import { AppWrapper } from './App.styled';
-export const App = () => {
+
+const App = () => {
   return <AppWrapper>Wallet front end part</AppWrapper>;
 };
+export default App;
