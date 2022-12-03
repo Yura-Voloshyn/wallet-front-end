@@ -1,8 +1,6 @@
 import { AppWrapper } from './App.styled';
-import Home from 'pages/home';
 
-export const App = () => {
-  return <AppWrapper>
-    <Home/>
-  </AppWrapper>;
+const App = () => {
+  return <AppWrapper>Wallet front part</AppWrapper>;
 };
+export default App;
