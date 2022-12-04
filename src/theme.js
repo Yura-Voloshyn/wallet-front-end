@@ -1,5 +1,3 @@
-import '../stylesheet/fonts.css';
-
 export const stylistics = {
   colors: {
     mainBg: '#FFFFFF',
@@ -11,7 +9,7 @@ export const stylistics = {
     secondaryLightText: '#E0E0E0',
     lightTextBtn: '#FFFFFF',
     primaryBgBtn: '#24CCA7',
-    hoverBgBtn: '#2BE2BA',
+    hoverBgBtn: '#2be2ba',
     secondaryTextBtn: '#4A56E2',
     secondaryBgBtn: 'transparent',
     navIconBg: '#4A56E2',
@@ -28,8 +26,10 @@ export const stylistics = {
     otherExpens: '#00AD84',
   },
   fonts: {
-    body: 'Circe, sans-serif',
-    heading: 'Poppins, sans-serif',
+    body: 'Circe-Regular, sans-serif',
+    bodyBold: 'Circe-Bold, sans-serif',
+    heading: 'Poppins-Regular, sans-serif',
+    headingBold: 'Poppins-Bold, sans-serif',
   },
   fontSizes: {
     xs: '12px',
