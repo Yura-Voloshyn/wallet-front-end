@@ -1,4 +1,4 @@
-export const expenceTransaction = [
+export const expenceTransactions = [
   { value: "Main expenses", label: "Main expenses" },
   { value: "Products", label: "Products" },
   { value: "Car", label: "Car" },
@@ -11,7 +11,7 @@ export const expenceTransaction = [
   { value: "Entertainment", label: "Entertainment" },
 ];
 
-export const incomeTransaction = [
+export const incomeTransactions = [
   { value: "Regular income", label: "Regular income" },
   { value: "Irregular income", label: "Irregular income" },
 ];
