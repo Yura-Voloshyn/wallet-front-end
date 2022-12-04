@@ -1,3 +1,5 @@
+import '../stylesheet/fonts.css';
+
 export const stylistics = {
   colors: {
     mainBg: '#FFFFFF',
@@ -26,10 +28,8 @@ export const stylistics = {
     otherExpens: '#00AD84',
   },
   fonts: {
-    body: 'Circe-Regular, sans-serif',
-    bodyBold: 'Circe-Bold, sans-serif',
-    heading: 'Poppins-Regular, sans-serif',
-    headingBold: 'Poppins-Bold, sans-serif',
+    body: 'Circe, sans-serif',
+    heading: 'Poppins, sans-serif',
   },
   fontSizes: {
     xs: '12px',
