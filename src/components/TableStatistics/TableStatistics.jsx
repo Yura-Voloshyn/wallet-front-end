@@ -33,10 +33,8 @@ export function TableStatistics() {
       setCategoryStatistics(data);
     };
     getCategoryStatistics(testArrCategories);
-  }, [testArrCategories]);
+  }, []);
 
-
-  
   return (
     <Table className="table">
       <TableHead>
