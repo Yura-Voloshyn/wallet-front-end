@@ -6,7 +6,7 @@ const App = () => {
   return (
     <AppWrapper>
       <LoginPage />
-      <StatisticsPage />
+      {/* <StatisticsPage /> */}
     </AppWrapper>
   );
 };
