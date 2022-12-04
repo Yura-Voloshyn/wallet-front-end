@@ -1,5 +1,5 @@
 import { Diogram } from '../../components/Diogram /Diogram';
-import { SelectData } from 'components/SelectData/SelectData';
+import { SelectData } from '../../components/SelectData/SelectData';
 import { TableStatistics } from '../../components/TableStatistics/TableStatistics';
 
 import {
