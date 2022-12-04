@@ -1,15 +1,16 @@
 import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
-import { ReactComponent as email } from '../../icons/email.svg';
-import { ReactComponent as password } from '../../icons/password.svg';
-import { ReactComponent as user } from '../../icons/user.svg';
+import { ReactComponent as email } from '../../images/icons/email.svg';
+import { ReactComponent as password } from '../../images/icons/password.svg';
+import { ReactComponent as user } from '../../images/icons/user.svg';
 
 export const Div = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 320px;
+  background-color: #fff;
+  max-width: 480px;
   height: 100vh;
 `;
 

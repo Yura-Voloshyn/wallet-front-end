@@ -1,6 +1,7 @@
 import { useMedia } from 'react-use';
 // import { useLocation } from 'react-router-dom';
-
+import frameLogbig from '../../images/frameLogbig.png';
+import frameLogtab from '../../images/frameLogtab.png';
 import LoginForm from 'components/LoginForm';
 import {
   Container,
@@ -8,6 +9,7 @@ import {
   FormContainer,
   Wrapper,
   Text,
+  Frame,
 } from './LoginPage.styled';
 
 const LoginPage = () => {
@@ -28,6 +30,7 @@ const LoginPage = () => {
         <Container>
           <Wrapper>
             <ImageContainer>
+              <Frame src={frameLogtab} alt="customer orders goods" />
               <Text>Finance App</Text>
             </ImageContainer>
             <FormContainer>
@@ -40,6 +43,7 @@ const LoginPage = () => {
         <Container>
           <Wrapper>
             <ImageContainer>
+              <Frame src={frameLogbig} alt="customer orders goods" />
               <Text>Finance App</Text>
             </ImageContainer>
 

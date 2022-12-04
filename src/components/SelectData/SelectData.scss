@@ -1,0 +1,73 @@
+.dropdownWrapper {
+  display: flex;
+
+  margin-bottom: 20px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.selectMonthYear {
+  width: 280px;
+  @media (max-width: 768px) {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  @media (min-width: 768px) {
+    width: 160px;
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+}
+
+.selectMonthYearPrefix__indicator-separator {
+  display: none;
+}
+.selectMonthYearPrefix__control {
+  display: flex;
+  align-content: center;
+  height: 50px;
+  border: 1px solid black !important;
+  border-radius: 30px !important;
+  background: inherit !important;
+  padding: 8px 14px !important;
+  cursor: pointer !important;
+  background: url(../../images/statistic-arrow-dropdown/arrow.png) no-repeat right!important;
+  background-position-x: calc(100% - 20px) !important;
+  @media (min-width: 1280px) {
+    padding: 20px 14px !important;
+  }
+}
+
+.selectMonthYearPrefix__placeholder {
+  font-family: 'Circe', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: inherit !important;
+  margin-left: 0 !important;
+}
+.selectMonthYearPrefix__dropdown-indicator {
+  display: none !important;
+}
+.selectMonthYearPrefix__single-value{
+  font-weight: 700;
+  font-size: 20px;
+}
+.selectMonthYearPrefix__menu {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.selectMonthYearPrefix__menu-list::-webkit-scrollbar {
+  width: 5px;
+}
+.selectMonthYearPrefix__menu-list::-webkit-scrollbar-track {
+  background: inherit;
+}
+.selectMonthYearPrefix__menu-list::-webkit-scrollbar-thumb {
+  background: rgba(110, 120, 232, 0.8);
+  border-radius: 30px;
+}

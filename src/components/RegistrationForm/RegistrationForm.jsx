@@ -1,13 +1,15 @@
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import SubmitBtn from 'components/Button/SubmitBtn';
+import StyledNavLink from 'components/Button/StyledNavLink';
 import {
   Div,
   FormStyled,
   FormLabel,
   FormField,
-  ButtonContainer,
-  NavButton,
-  NavButtonR,
+  // ButtonContainer,
+  // NavButton,
+  // NavButtonR,
   IconEmail,
   IconPassword,
   IconUser,
@@ -84,10 +86,12 @@ const RegistrationForm = () => {
               render={msg => <ErrorText>{msg}</ErrorText>}
             />
           </FormLabel>
-          <ButtonContainer>
+          {/* <ButtonContainer>
             <NavButtonR type="submit">Register</NavButtonR>
             <NavButton type="submit">Log in</NavButton>
-          </ButtonContainer>
+          </ButtonContainer> */}
+          <SubmitBtn type="submit">register</SubmitBtn>
+          <StyledNavLink to="/login">log in</StyledNavLink>
         </FormStyled>
       </Formik>
     </Div>
