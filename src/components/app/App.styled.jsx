@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import backgroundBot from '../../images/background/Ellipse1.png';
 import backgroundTop from '../../images/background/Ellipse2.png';
+import { stylistics } from '../../theme.js';
 
 export const AppWrapper = styled.div`
   height: 100vh;
@@ -8,7 +9,8 @@ export const AppWrapper = styled.div`
   justify-content: center;
   align-items: center;
   color: '#010101';
-  background-color: #e7eaf2;
+  
+  background-color: ${stylistics.colors.loginPageBg};
 
   @media (min-width: 768px) {
     background-image: url(${backgroundBot}), url(${backgroundTop});
