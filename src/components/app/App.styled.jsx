@@ -10,7 +10,8 @@ export const AppWrapper = styled.div`
   align-items: center;
   color: '#010101';
   font-size: 10px;
-  background-color: #e7eaf2;
+  /* background-color: #e7eaf2; */
+  background-color: #fff;
 
   @media (min-width: 768px) {
     font-size: 20px;
