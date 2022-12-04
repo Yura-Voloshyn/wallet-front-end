@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import backgroundBot from '../../images/background/Ellipse1.png';
 import backgroundTop from '../../images/background/Ellipse2.png';
-import { stylistics } from '../../theme.js';
+import { stylistics } from '../../styles/styles';
 
 export const AppWrapper = styled.div`
   height: 100vh;
