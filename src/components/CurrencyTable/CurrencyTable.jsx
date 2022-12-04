@@ -47,7 +47,7 @@ const CurrencyTable = () => {
 
     getData();
   }, []);
-  // console.log(data);
+
   return (
     <CurrencyTableStyled>
       <CurrencyTableHead>
@@ -60,10 +60,10 @@ const CurrencyTable = () => {
       <CurrencyTableBody>
         {data.map(value => {
           return (
-            <CurrencyTableTr key={value.ccy}>
-              <td>{value.ccy}</td>
-              <td>{(+value.buy).toFixed(2).toString()}</td>
-              <td>{(+value.sale).toFixed(2).toString()}</td>
+            <CurrencyTableTr key={value.rateBuy}>
+              <td>{value.currencyCodeA}</td>
+              <td>{(+value.rateBuy).toFixed(2).toString()}</td>
+              <td>{(+value.rateSell).toFixed(2).toString()}</td>
             </CurrencyTableTr>
           );
         })}
