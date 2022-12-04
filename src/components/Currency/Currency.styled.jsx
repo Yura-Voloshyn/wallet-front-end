@@ -6,8 +6,8 @@ import currencyCurveDesktop from '../../images/background/desktop/currencyCurve_
 export const CurrencyWrapper = styled.div`
   width: 280px;
   height: 174px;
-  /* overflow: auto; */
-  overflow-y: visible;
+  overflow: auto;
+  /* overflow-y: visible; */
   background-color: #4a56e2;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
