@@ -1,6 +1,11 @@
 import { AppWrapper } from './App.styled';
+import LoginPage from 'pages/LoginPage';
 
 const App = () => {
-  return <AppWrapper>Wallet front part</AppWrapper>;
+  return (
+    <AppWrapper>
+      <LoginPage />
+    </AppWrapper>
+  );
 };
 export default App;
