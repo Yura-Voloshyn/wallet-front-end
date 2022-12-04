@@ -5,7 +5,6 @@ const App = () => {
   return (
     <AppWrapper>
       <LoginPage />
-
     </AppWrapper>
   );
 };
