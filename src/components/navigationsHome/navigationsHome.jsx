@@ -16,13 +16,16 @@ const Link = styled.a`
     text-decoration: none;
     color: #000000;
 `
+const Ul = styled.ul`
+    margin-top: 40px;
+`
 
 
 const NavigationsHome = () => {
 
     return (
         <div>
-            <ul>
+            <Ul>
                 <li>
                     <Link href="/">
                     <Icons src={home} alt=""/>   
@@ -33,7 +36,7 @@ const NavigationsHome = () => {
                     <Link href="/">
                     <Icons src={stat} alt=""/> 
                         Statictics</Link></li>
-            </ul>
+            </Ul>
         </div>
     )
 

@@ -8,6 +8,10 @@ const TableStyle = styled.table`
     width: 715px;
     border-collapse: collapse;
 
+    @media (max-width: 768px) {
+        width: 704px;
+    }
+
 `
 
 const Table = () => {

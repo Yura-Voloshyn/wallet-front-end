@@ -8,6 +8,10 @@ const TotalBalanceWrapper = styled.div`
 
     padding-top: 8px;
     background-color: #ffffff;
+
+    @media (max-width: 768px) {
+        max-width: 336px;
+    }
 `
 const Title = styled.p`
     padding-left: 40px;
