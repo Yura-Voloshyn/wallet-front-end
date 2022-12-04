@@ -1,13 +1,11 @@
 import { AppWrapper } from './App.styled';
-// import SubmitBtn from '../Button/SubmitBtn';
+import LoginPage from 'pages/LoginPage';
 
-// import LoginPage from './../../pages/LoginPage/LoginPage';
-export const App = () => {
+const App = () => {
   return (
     <AppWrapper>
-      {/* <SubmitBtn /> */}
-      {/* <LoginPage /> */}
-      Wallet front end part
+      <LoginPage />
+
     </AppWrapper>
   );
 };
