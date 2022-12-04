@@ -71,3 +71,14 @@ export const FormContainer = styled.div`
     padding: 52px 91px 52px 107px;
   }
 `;
+
+export const Frame = styled.img`
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    height: 250px;
+    width: 250px;
+    margin-right: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 32px;
+  }
+`;
