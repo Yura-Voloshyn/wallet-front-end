@@ -1,6 +1,6 @@
 import { Pie } from 'react-chartjs-2';
 import { ChartContainer } from './Diogram.styled';
-import Chart from 'chart.js/auto';
+// import Chart from 'chart.js/auto';
 
 export function Diogram() {
   const totalBalance = '₴ 24 000.00'; // test balance
