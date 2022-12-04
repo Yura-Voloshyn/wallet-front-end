@@ -1,4 +1,4 @@
-// import { Statistics } from 'pages/StatisticsPage/Statistics /Statistics';
+import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
 import { AppWrapper } from './App.styled';
 // import SubmitBtn from '../Button/SubmitBtn';
 
@@ -8,8 +8,8 @@ export const App = () => {
     <AppWrapper>
       {/* <SubmitBtn /> */}
       {/* <LoginPage /> */}
-      {/* <Statistics/> */}
-      Wallet front end part
+      <StatisticsPage />
+      {/* Wallet front end part */}
     </AppWrapper>
   );
 

@@ -34,6 +34,8 @@
   background: inherit !important;
   padding: 8px 14px !important;
   cursor: pointer !important;
+  background: url(../../images/statistic-arrow-dropdown/arrow.png) no-repeat right!important;
+  background-position-x: calc(100% - 20px) !important;
   @media (min-width: 1280px) {
     padding: 20px 14px !important;
   }
@@ -49,7 +51,10 @@
 .selectMonthYearPrefix__dropdown-indicator {
   display: none !important;
 }
-
+.selectMonthYearPrefix__single-value{
+  font-weight: 700;
+  font-size: 20px;
+}
 .selectMonthYearPrefix__menu {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;

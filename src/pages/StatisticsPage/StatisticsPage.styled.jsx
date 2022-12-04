@@ -23,6 +23,7 @@ export const StatisticsWrapper = styled.div`
   }
   @media (min-width: 768px) {
     align-items: flex-start;
+    
   }
 `;
 export const StatisticsLeftPartWrapp = styled.div`

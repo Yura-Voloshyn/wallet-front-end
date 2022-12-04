@@ -1,28 +1,27 @@
-import { Diogram } from 'pages/StatisticsPage/Diogram /Diogram';
-import { SelectData } from 'pages/StatisticsPage/SelectData/SelectData';
-import { CategoryStatistics } from '../CategoryStatistics/CategoryStatistics';
+import { Diogram } from 'components/Diogram /Diogram';
+import { SelectData } from 'components/SelectData/SelectData';
+import { TableStatistics } from '../../components/TableStatistics/TableStatistics';
+
 import {
   StatisticsSection,
   StatisticsTitle,
   StatisticsWrapper,
   StatisticsDataWrapper,
   StatisticsLeftPartWrapp,
-} from './Statistics.styled';
+} from './StatisticsPage.styled';
 
-export function Statistics() {
+export function StatisticsPage() {
   return (
     <StatisticsSection>
-  
       <StatisticsWrapper>
-        
         <StatisticsLeftPartWrapp>
-             <StatisticsTitle>Statistics</StatisticsTitle>
+          <StatisticsTitle>Statistics</StatisticsTitle>
           <Diogram />
         </StatisticsLeftPartWrapp>
 
         <StatisticsDataWrapper>
           <SelectData />
-          <CategoryStatistics />
+          <TableStatistics />
         </StatisticsDataWrapper>
       </StatisticsWrapper>
     </StatisticsSection>
