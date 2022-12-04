@@ -6,8 +6,8 @@ import { HiEyeOff, HiEye } from 'react-icons/hi';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 import { Logo } from 'components/Logo/Logo';
-import { ReactComponent as EmailIcon } from 'icons/email.svg';
-import { ReactComponent as PasswordIcon } from 'icons/password.svg';
+import { ReactComponent as EmailIcon } from '../../images/icons/email.svg';
+import { ReactComponent as PasswordIcon } from '../../images/icons/password.svg';
 // import Spinner from 'components/Spinner';
 import {
   FormWrap,
