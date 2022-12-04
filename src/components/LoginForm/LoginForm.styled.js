@@ -1,12 +1,13 @@
 import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
+import { stylistics } from 'styles/styles';
 
 export const FormWrap = styled.div`
   width: 320px;
   margin-left: auto;
   margin-right: auto;
   padding: 32px 20px 36px;
-  background-color: #ffffff;
+  background-color: ${stylistics.colors.mainBg};
   @media screen and (min-width: 768px) {
     width: 533px;
     height: 468px;
@@ -32,7 +33,7 @@ export const Label = styled.label`
   align-items: center;
   width: 100%;
   padding-left: 10px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${stylistics.colors.secondaryLightText};
   & + & {
     margin-top: 40px;
   }
@@ -42,23 +43,23 @@ export const Input = styled(Field)`
   width: 240px;
   padding: 8px 20px;
   border: none;
-  font-family: 'Circe-Regular', sans-serif;
+  font-family: ${stylistics.fonts.body};
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
+  font-weight: ${stylistics.fontWeights.normal};
+  font-size: ${stylistics.fontSizes.m};
   line-height: 1.5;
-  color: #000000;
+  color: ${stylistics.colors.primaryText};
   background-color: transparent;
   &:focus {
     outline: none;
   }
   ::placeholder {
-    font-family: 'Circe-Regular', sans-serif;
+    font-family: ${stylistics.fonts.body};
     font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
+    font-weight: ${stylistics.fontWeights.normal};
+    font-size: ${stylistics.fontSizes.m};
     line-height: 1.5;
-    color: #bdbdbd;
+    color: ${stylistics.colors.secondaryText};
   }
   @media screen and (min-width: 768px) {
     width: 370px;
