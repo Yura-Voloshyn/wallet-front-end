@@ -35,6 +35,8 @@ export function TableStatistics() {
     getCategoryStatistics(testArrCategories);
   }, [testArrCategories]);
 
+
+  
   return (
     <Table className="table">
       <TableHead>
