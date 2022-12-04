@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import TotalBalance from 'components/totalBalance/total-balance'
 import Table from 'components/table/table'
+import NavigationsHome from 'components/navigationsHome/navigationsHome'
 
 const HomeContainer = styled.div`
      width: 1280px;
@@ -23,6 +24,7 @@ const Home = () => {
 return (
     <HomeContainer>
         <CurrencyContainer>
+                <NavigationsHome/>
                 <TotalBalance/>
         </CurrencyContainer>
         <TableContainer>
