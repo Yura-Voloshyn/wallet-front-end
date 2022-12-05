@@ -1,22 +1,19 @@
 {
   "files": {
-    "main.css": "/wallet-front-end/static/css/main.d4832a18.css",
-    "main.js": "/wallet-front-end/static/js/main.11706a0f.js",
+    "main.css": "/wallet-front-end/static/css/main.99431137.css",
+    "main.js": "/wallet-front-end/static/js/main.340acece.js",
     "static/media/Circe-Bold.woff": "/wallet-front-end/static/media/Circe-Bold.8a1c4d2d35cdd2d6704b.woff",
     "static/media/Poppins-Regular.woff": "/wallet-front-end/static/media/Poppins-Regular.c4691d4887358ed1f5c0.woff",
     "static/media/Circe-Regular.woff": "/wallet-front-end/static/media/Circe-Regular.b3583e41e063203a7e74.woff",
     "static/media/Poppins-Bold.woff": "/wallet-front-end/static/media/Poppins-Bold.f405a6a98bef700e4867.woff",
-    "static/media/frameLogbig.png": "/wallet-front-end/static/media/frameLogbig.b023678a67deac8e26e7.png",
-    "static/media/frameLogtab.png": "/wallet-front-end/static/media/frameLogtab.64cf48e3592a8d5f7ac5.png",
-    "static/media/logo.svg": "/wallet-front-end/static/media/logo.ac62dd5b50e221df7f11767adde4b770.svg",
+    "static/media/diagram_icon.svg": "/wallet-front-end/static/media/diagram_icon.910aaa61eb51eef96ffc2da4afc91b69.svg",
     "index.html": "/wallet-front-end/index.html",
-    "static/media/password.svg": "/wallet-front-end/static/media/password.8eaaa6fe30d4fe41fcc4d961656d7115.svg",
-    "static/media/email.svg": "/wallet-front-end/static/media/email.5a58fa9a7b1c77f266dc65e36b85b886.svg",
-    "main.d4832a18.css.map": "/wallet-front-end/static/css/main.d4832a18.css.map",
-    "main.11706a0f.js.map": "/wallet-front-end/static/js/main.11706a0f.js.map"
+    "static/media/home_icon.svg": "/wallet-front-end/static/media/home_icon.7bb7687f8c8e2af95acaec211ef60ddc.svg",
+    "main.99431137.css.map": "/wallet-front-end/static/css/main.99431137.css.map",
+    "main.340acece.js.map": "/wallet-front-end/static/js/main.340acece.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4832a18.css",
-    "static/js/main.11706a0f.js"
+    "static/css/main.99431137.css",
+    "static/js/main.340acece.js"
   ]
 }
