@@ -1,0 +1,11 @@
+<svg width="0" height="0" class="hidden">
+  <symbol fill="none" xmlns="" viewBox="0 0 20 20" id="icon-plus">
+    <path d="M10 0V20" stroke="white" stroke-width="2"></path>
+    <path d="M0 10L20 10" stroke="white" stroke-width="2"></path>
+  </symbol>
+</svg>
+<svg width="0" height="0" class="hidden">
+  <symbol fill="none" xmlns="" viewBox="0 0 20 2" id="icon-minus">
+    <path d="M0 1L20 0.999999" stroke="white" stroke-width="2"></path>
+  </symbol>
+</svg>
