@@ -1,0 +1,34 @@
+[
+    {
+        "date": "04.01.19",
+        "type": "-",
+        "category": "Other",
+        "comment": "Gift for your wife",
+        "sum": "300.00",
+        "balance": "6 900.00" 
+    },
+    {
+        "date": "05.01.19",
+        "type": "+",
+        "category": "Regular Income",
+        "comment": "January bonus",
+        "sum": "8 000.00",
+        "balance": "14 900.00"
+    },
+    {
+        "date": "07.01.19",
+        "type": "-",
+        "category": "Car",
+        "comment": "Oil",
+        "sum": "1000.00",
+        "balance": "13 900.00"
+    },
+    {
+        "date": "07.01.19",
+        "type": "-",
+        "category": "Products",
+        "comment": "Vegetables for the week",
+        "sum": "280.00",
+        "balance": "13 870.00"
+    }
+ ] 
