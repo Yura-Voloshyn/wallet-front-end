@@ -1,7 +1,7 @@
 import { StyledNavLink } from './SubmitBtn.styled';
 
-const NavLink = () => {
-  return <StyledNavLink></StyledNavLink>;
+const NavLink = ({ btnText, onClick }) => {
+  return <StyledNavLink onClick={onClick}>{btnText}</StyledNavLink>;
 };
 
 export default NavLink;
