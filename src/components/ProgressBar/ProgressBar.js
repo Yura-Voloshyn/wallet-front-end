@@ -16,6 +16,6 @@ const ProgressBarLine = value => {
   );
 };
 
-ProgressBarLine(80);
+ProgressBarLine(20);
 
 export default ProgressBarLine;

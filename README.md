@@ -30,6 +30,15 @@ additionally configure the `<BrowserRouter>` component by passing the exact name
 of your repository in the `basename` prop. Slashes at the beginning and end of
 the line are required.
 
+### Endpoints
+
+https://wallet-jet.vercel.app/ - base_url
+https://wallet-jet.vercel.app/api/auth/login and register
+https://wallet-jet.vercel.app/api/transactions - GET request take all user
+transactions, POST - create new transaction
+https://wallet-jet.vercel.app/api/transactions/categories - categories list with
+ID and categori name
+
 ```jsx
 <BrowserRouter basename="/your_repo_name/">
   <App />
