@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
-import { stylistics } from 'styles/styles';
+import { stylistics } from '../../styles/styles';
 
 export const Container = styled.div`
   margin: 0 auto;
   @media screen and (max-width: 767px) {
-    max-width: 480px;
+    /* max-width: 480px; */
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
   }
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -69,5 +72,16 @@ export const FormContainer = styled.div`
     backdrop-filter: blur(50px);
     background-color: ${stylistics.colors.secondBg};
     padding: 52px 91px 52px 107px;
+  }
+`;
+
+export const Frame = styled.img`
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    height: 250px;
+    width: 250px;
+    margin-right: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 32px;
   }
 `;

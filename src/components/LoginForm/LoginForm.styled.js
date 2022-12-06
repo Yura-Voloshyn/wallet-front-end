@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
-import { stylistics } from 'styles/styles';
+import { stylistics } from '../../styles/styles';
 
 export const FormWrap = styled.div`
   width: 320px;

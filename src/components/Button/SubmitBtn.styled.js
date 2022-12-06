@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { stylistics } from '../../theme.js';
+import { stylistics } from '../../styles/styles';
 
 export const Button = styled.button`
   display: block;
