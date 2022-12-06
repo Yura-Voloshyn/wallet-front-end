@@ -1,74 +1,57 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 // import { expenseTransactions, incomeTransactions } from "./transactionTypes";
 // import { useDispatch } from "react-redux";
 // import { setTransactionModaClose } from '../../../redux/transactions/transaction-operations';
-import { createPortal } from "react-dom";
-import { TfiClose } from 'react-icons/tfi'
-import { OpenBtn } from "../Button/ButtonAddTransaction/OpenModalBtn.styled"
-import { Backdrop, TitleMod, Checkbox, Modal, CloseMod} from "./modalAddTransaction.styled"
+// import { createPortal } from "react-dom";
+// import { TfiClose } from 'react-icons/tfi'
+// import { OpenBtn } from "../Button/ButtonAddTransaction/OpenModalBtn.styled"
+import {  TitleMod} from "./modalAddTransaction.styled"
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 import 'react-datetime/css/react-datetime.css';
+import Modal from '../ModalAddTransactions/Modal';
 // import Datetime from 'react-datetime';
 
 
-const modalRoot = document.querySelector('#modal-root');
 
 
 
-
-
-// --------On (-) by default-----------
-const defaultState = {
-  date: new Date(),
-  type: false,
-  category: "",
-  comment: "",
-  sum: "",
-};
-
-const ModalAddTransactions = ({ children, onClose }) => {
+const ModalAddTransactions = ({ onClose }) => {
     
     // const dispatch = useDispatch();
 
-    const [modalIsOpen] = React.useState(false);
-    const [transaction] = useState(defaultState);
+  
 
-  const handleEscape = event => {
-    if (event.code === 'Escape') {
-      onClose();
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleEscape);
-    return () => window.removeEventListener('keydown', handleEscape);
-  });
-
-  const closeOnBackdrop = event => {
-    if (event.currentTarget === event.target) {
-      onClose();
-    }
-  };
     
 
 
 
 
-    return createPortal(
-      <Backdrop as="div" onClick={closeOnBackdrop}>
-        <OpenBtn onClick={onClose} aria-label="add"></OpenBtn>
-            <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={onClose}
-            ></Modal>
-            <CloseMod type="button" onClick={onClose}><TfiClose/></CloseMod>
+    return (
+      <Modal onClose={onClose}>
+              <button
+        type="button"
+        className="TransactionAddForm__closeBtn"
+        onClick={onClose}
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M1 1L17 17" stroke="black" />
+          <path d="M1 17L17 0.999999" stroke="black" />
+        </svg>
+      </button>
+            {/* <CloseMod type="button" onClick={onClose}><TfiClose/></CloseMod> */}
             <TitleMod as="h2">Add transaction</TitleMod>
             {/* Transactions checkbox */}
 
-            <Checkbox as="div">
+            {/* <Checkbox as="div">
           
             <label className="switch">
                 <input
@@ -77,7 +60,7 @@ const ModalAddTransactions = ({ children, onClose }) => {
                 checked={transaction.type}
                 />
            </label>
-            </Checkbox>
+            </Checkbox> */}
             {/* Calendar for date selection */}
 
             {/* Input for comment */}
@@ -88,7 +71,7 @@ const ModalAddTransactions = ({ children, onClose }) => {
               placeholder="Комментарий"
               className="descriptionInput"
               name="comment"
-              value={transaction.comment}
+              // value={transaction.comment}
             />
           </label>
 
@@ -96,11 +79,11 @@ const ModalAddTransactions = ({ children, onClose }) => {
             {/* Two modal btns */}
             <StyledNavLink btnText={'Add'}></StyledNavLink>
             <SubmitBtn onClick={onClose} btnText={'Decline'}></SubmitBtn>   
-      </Backdrop>, modalRoot)
+      </Modal>)
 }
 
 ModalAddTransactions.propTypes = {
-  children: PropTypes.node,
+  // children: PropTypes.node,
   onClose: PropTypes.func,
 };
 

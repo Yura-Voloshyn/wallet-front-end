@@ -56,3 +56,4 @@ export const TitleMod = styled.h2`
   text-align: center;
   color: ${stylistics.colors.primaryText};
 `;
+export const Checkbox = styled``;

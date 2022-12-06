@@ -2,8 +2,10 @@ import styled from '@emotion/styled'
 import TotalBalance from 'components/totalBalance/total-balance'
 import Table from 'components/table/table'
 import NavigationsHome from 'components/navigationsHome/navigationsHome'
-// import ButtonAddTransactions from '../components/Button/ButtonAddTransaction/OpenModalBtn';
-
+import ButtonAddTransactions from '../components/Button/ButtonAddTransaction/OpenModalBtn';
+// import { useDispatch } from 'react-redux'
+import ModalAddTransactions from "../components/ModalAddTransactions/modalAddTransaction"
+import { useState } from 'react';
 
 const HomeContainer = styled.div`
      width: 1280px;
@@ -35,10 +37,16 @@ const TableContainer = styled.div`
     }
 `
 
-
-
 const Home = () => {
 
+// const dispatch = useDispatch()
+    const [isModalAddTransactionOpen, setIsModalAddTransactionOpen] = useState(false);
+    const onCloseModal = () =>{
+        setIsModalAddTransactionOpen(false)
+    }
+    const onOpenModal = () =>{
+        setIsModalAddTransactionOpen(true)
+    }
 
 return (
     <HomeContainer>
@@ -49,13 +57,11 @@ return (
         <TableContainer>
             <Table/>
         </TableContainer>
-           {/* <div>
-              <ButtonAddTransactions></ButtonAddTransactions>
-             
-            </div> */}
+            <ButtonAddTransactions onOpen={onOpenModal} />
+            {isModalAddTransactionOpen && <ModalAddTransactions onClose={onCloseModal}/>}
     </HomeContainer>
 
 )
-}
+};
 
 export default Home

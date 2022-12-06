@@ -23,9 +23,9 @@ box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
 // width: 20px;
 // height: 20px;
 // `;
-export const SpanAdd = styled.span` 
- position: absolute;
+export const IconAdd = styled.span` 
+ /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   `;
