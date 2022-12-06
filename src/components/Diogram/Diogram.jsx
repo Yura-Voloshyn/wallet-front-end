@@ -1,38 +1,25 @@
-import { Pie } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import { ChartContainer } from './Diogram.styled';
-// import Chart from 'chart.js/auto';
+import { Chart, ArcElement } from 'chart.js';
+Chart.register(ArcElement);
 
-export function Diogram() {
+export function Diogram({ categoryStatistics }) {
   const totalBalance = '₴ 24 000.00'; // test balance
-  const obj = {
-    data: [150, 50, 100, 40, 20, 30, 30, 10],
-    backgroundColor: [
-      '#FED057',
-      '#FFD8D0',
-      '#FD9498',
-      '#C5BAFF',
-      '#6E78E8',
-      '#4A56E2',
-      '#81E1FF',
-
-      '#24CCA7',
-      '#00AD84',
-    ],
-  }; // test object with bgColor and size for diogram
 
   const data = {
-    type: 'doughnut',
+    type: 'Doughnut',
+    labels: categoryStatistics.map(res => ` ${res.name}`),
     datasets: [
       {
-        data: obj.data,
-        backgroundColor: obj.backgroundColor,
+        data: categoryStatistics.map(res => res.value),
+        backgroundColor: categoryStatistics.map(res => res.color),
 
         borderWidth: 0,
-        hoverOffset: 4,
+        hoverOffset: 5,
       },
     ],
   };
-
+console.log(data.labels);
   const plugins = [
     {
       beforeDraw: function (chart) {
@@ -49,13 +36,26 @@ export function Diogram() {
           textY = height / 2;
         ctx.fillText(text, textX, textY);
         ctx.save();
+        
       },
     },
   ];
+  const options = {
+    cutout: '70%',
+    animation: {
+      animateScale: true,
+      duration: 1200,
+    },
+
+    // parsing: {
+    //   xAxisName: 'name',
+    //   // yAxisKey: 'nested.value',
+    // },
+  };
 
   return (
     <ChartContainer>
-      <Pie data={data} options={{ cutout: '70%' }} plugins={plugins} />
+      <Doughnut data={data} options={options} plugins={plugins} />
     </ChartContainer>
   );
 }
