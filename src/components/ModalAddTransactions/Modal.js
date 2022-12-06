@@ -35,7 +35,7 @@ const ModalContent = styled.div`
 `;
 
 
-const modalRoot = document.querySelector('');
+const modalRoot = document.querySelector('#root');
 
 export default function Modal({ onClose, children }) {
     useEffect(() => {
