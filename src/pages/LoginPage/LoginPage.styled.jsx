@@ -4,7 +4,10 @@ import { stylistics } from '../../styles/styles';
 export const Container = styled.div`
   margin: 0 auto;
   @media screen and (max-width: 767px) {
-    max-width: 480px;
+    /* max-width: 480px; */
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
   }
   @media screen and (min-width: 768px) {
     width: 768px;

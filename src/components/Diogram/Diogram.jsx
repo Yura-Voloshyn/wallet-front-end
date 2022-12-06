@@ -19,7 +19,7 @@ export function Diogram({ categoryStatistics }) {
       },
     ],
   };
-console.log(data.labels);
+
   const plugins = [
     {
       beforeDraw: function (chart) {
@@ -46,11 +46,6 @@ console.log(data.labels);
       animateScale: true,
       duration: 1200,
     },
-
-    // parsing: {
-    //   xAxisName: 'name',
-    //   // yAxisKey: 'nested.value',
-    // },
   };
 
   return (
