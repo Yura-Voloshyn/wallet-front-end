@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // ПРОПИСАТИ API ШЛЯХ//
-axios.defaults.baseURL = '';
+axios.defaults.baseURL = 'https://wallet-jet.vercel.app/api';
 
 const token = {
   set(token) {
@@ -14,10 +14,10 @@ const token = {
 };
 
 export const userLogin = createAsyncThunk(
-  'users/login',
+  'auth/login',
   async (userData, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/users/login', userData);
+      const { data } = await axios.post('/auth/login', userData);
       token.set(data.token);
       return data;
     } catch (error) {
