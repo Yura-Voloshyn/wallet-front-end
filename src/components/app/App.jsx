@@ -3,15 +3,19 @@ import { Suspense } from 'react';
 
 import { AppWrapper } from './App.styled';
 // import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
+
 // import Currency from 'components/Currency/Currency';
 // import Home from 'pages/home';
 import LoginPage from 'pages/LoginPage';
 
+
 const App = () => {
   return (
     <AppWrapper>
+
       <LoginPage />
       {/* <Currency /> */}
+
       {/* <Home /> */}
       {/* <StatisticsPage /> */}
 
