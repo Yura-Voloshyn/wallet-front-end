@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import {
   Table,
   TableCategories,
@@ -12,29 +11,8 @@ import {
   Expenses,
   Incomes,
 } from './TableStatistics.styled';
-const testArrCategories = [
-  'Main expenses',
-  'Products',
-  'Car',
-  'Self care',
-  'Child care',
-  'Household products',
-  'Education',
-  'Leisure',
-  'Other expenses',
-  'Entertainment',
-];
 
-export function TableStatistics() {
-  const [categoryStatistics, setCategoryStatistics] = useState([]);
-
-  useEffect(() => {
-    const getCategoryStatistics = data => {
-      setCategoryStatistics(data);
-    };
-    getCategoryStatistics(testArrCategories);
-  }, []);
-
+export function TableStatistics({ categoryStatistics }) {
   return (
     <Table className="table">
       <TableHead>
@@ -44,15 +22,15 @@ export function TableStatistics() {
         </tr>
       </TableHead>
       <TableBody>
-        {categoryStatistics?.map(data => {
+        {categoryStatistics?.map(({id, name, value, color }) => {
           return (
-            <tr>
+            <tr key={id}>
               <TableCategories>
-                <Square></Square>
-                {data}
+                <Square style={{ backgroundColor: color }}></Square>
+                {name}
               </TableCategories>
 
-              <TableCategories>8 700.00</TableCategories>
+              <TableCategories>{value}</TableCategories>
             </tr>
           );
         })}
