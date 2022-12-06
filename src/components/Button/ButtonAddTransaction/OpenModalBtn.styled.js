@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { stylistics } from '../../styles/styles';
+import { stylistics } from '../../../styles/styles';
 
 export const OpenBtn = styled.button`
 position: fixed;
@@ -19,7 +19,13 @@ box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
     }
 `;
 
-export const PlusSvg = styled.PlusSvg` 
-width: 20px;
-height: 20px;
-`;
+// export const PlusSvg = styled.PlusSvg` 
+// width: 20px;
+// height: 20px;
+// `;
+export const SpanAdd = styled.span` 
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  `;
