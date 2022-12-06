@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import TotalBalance from 'components/totalBalance/total-balance'
-import Table from 'components/table/table'
+import TotalBalance from 'components/TotalBalance/Total-balance'
+import Table from 'components/Table/Table'
 import NavigationsHome from 'components/navigationsHome/navigationsHome'
 
 const HomeContainer = styled.div`
@@ -14,13 +14,10 @@ const HomeContainer = styled.div`
     }
 `
 const CurrencyContainer = styled.div`
-    height: 100vh;
-    width: 480px;
-    border-right: 1px solid #E7E5F2;
-
-    @media (max-width: 768px) {
-        border: none;
-        height: 0%;
+    @media (min-width: 768px) {
+        height: 100vh;
+        width: 480px;
+        border-right: 1px solid #E7E5F2;
     }
 `
 const TableContainer = styled.div`
@@ -30,6 +27,10 @@ const TableContainer = styled.div`
 
     @media (max-width: 768px) {
         margin-top: 20px;
+    }
+
+    @media (max-width: 320px){
+        margin-top: 32px;
     }
 `
 

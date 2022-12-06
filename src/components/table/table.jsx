@@ -1,25 +1,21 @@
-import TableHead from "./tableHead";
-import TableBody from "./tableBody";
-import styled from '@emotion/styled'
+import TableHead from "./TableHead";
+import TableBody from "./TableBody";
 import transaction from "./tableData.json"
-
-
-const TableStyle = styled.table`
-    width: 715px;
-    border-collapse: collapse;
-
-    @media (max-width: 768px) {
-        width: 704px;
-    }
-
-`
+import {TableStyle} from "./Table.styled"
+import TableMobile from "./TableMobile";
 
 const Table = () => {
     return (
+        <>
         <TableStyle>
             <TableHead/>
             <TableBody items={transaction}/>
         </TableStyle>
+
+        <TableMobile items={transaction}/>
+        </>
+
+
     )
 }
 
