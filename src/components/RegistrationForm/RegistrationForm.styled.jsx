@@ -17,6 +17,7 @@ export const Div = styled.div`
     width: 533px;
     height: 616px;
     border-radius: 20px;
+    margin: 0 auto;
   }
 `;
 
@@ -40,34 +41,47 @@ export const FormField = styled(Field)`
   align-items: center;
   border: none;
   padding-left: 42px;
-  border-bottom: 1px solid #e0e0e0; ;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 16px;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 export const IconEmail = styled(email)`
   position: absolute;
   left: 10px;
-  top: 6px;
+  top: 7px;
   width: 20px;
   height: 16px;
   fill: #e0e0e0;
+  @media screen and (min-width: 768px) {
+    top: 9px;
+  }
 `;
 
 export const IconPassword = styled(password)`
   position: absolute;
   left: 10px;
-  top: 6px;
+  top: 3px;
   width: 16px;
   height: 21px;
   fill: #e0e0e0;
+  @media screen and (min-width: 768px) {
+    top: 5px;
+  }
 `;
 
 export const IconUser = styled(user)`
   position: absolute;
   left: 10px;
-  top: 4px;
+  top: 6px;
   width: 18px;
   height: 18px;
   fill: #e0e0e0;
+  @media screen and (min-width: 768px) {
+    top: 8px;
+  }
 `;
 
 export const ErrorText = styled.p`
