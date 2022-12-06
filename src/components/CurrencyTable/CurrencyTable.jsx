@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import getCurrency from '../../services/api/getCurrency.js';
+import getCurrency from '../../services/api/getCurrency/getCurrency.js';
+import getCategories from 'services/api/getCategories/getCategories.js';
 import {
   CurrencyTableStyled,
   CurrencyTableHead,
@@ -31,6 +32,12 @@ const options = ['Currency', 'Purchase', 'Sale'];
 //     sale: '0.00',
 //   },
 // ];
+const categories = async () => {
+  const apiCategories = await getCategories();
+  console.log(apiCategories);
+};
+categories();
+
 const CurrencyTable = () => {
   const [data, setData] = useState([]);
 
