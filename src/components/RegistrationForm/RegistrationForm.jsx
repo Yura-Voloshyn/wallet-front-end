@@ -85,10 +85,10 @@ const RegistrationForm = () => {
               render={msg => <ErrorText>{msg}</ErrorText>}
             />
           </FormLabel>
-          <SubmitBtn type="submit">register</SubmitBtn>
-          <StyledNavLink to="/login">log in</StyledNavLink>
+          <SubmitBtn btnText={'register'} />
         </FormStyled>
       </Formik>
+      <StyledNavLink to="/login" btnText={'log in'} />
     </Div>
   );
 };
