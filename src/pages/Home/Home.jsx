@@ -2,8 +2,19 @@
 import Table from 'components/Table/table'
 import NavigationsHome from 'components/navigationsHome/navigationsHome'
 import { HomeContainer, CurrencyContainer,  TableContainer} from './Home.styled'
+import ButtonAddTransactions from '../components/Button/ButtonAddTransaction/OpenModalBtn';
+import ModalAddTransactions from "../components/ModalAddTransactions/modalAddTransaction"
+import { useState } from 'react';
+
 
 const Home = () => {
+        const [isModalAddTransactionOpen, setIsModalAddTransactionOpen] = useState(false);
+    const onCloseModal = () =>{
+        setIsModalAddTransactionOpen(false)
+    }
+    const onOpenModal = () =>{
+        setIsModalAddTransactionOpen(true)
+    }
 return (
     <HomeContainer>
         <CurrencyContainer>
@@ -13,7 +24,8 @@ return (
         <TableContainer>
             <Table/>
         </TableContainer>
-
+       <ButtonAddTransactions onOpen={onOpenModal} />
+            {isModalAddTransactionOpen && <ModalAddTransactions onClose={onCloseModal}/>}
     </HomeContainer>
 
 )
