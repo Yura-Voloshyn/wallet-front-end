@@ -6,6 +6,7 @@ import ButtonAddTransactions from '../components/Button/ButtonAddTransaction/Ope
 import ModalAddTransactions from "../components/ModalAddTransactions/modalAddTransaction"
 import { useState } from 'react';
 
+
 const HomeContainer = styled.div`
      width: 1280px;
      display: flex;
@@ -62,4 +63,5 @@ return (
 )
 };
 
-export default Home;
+
+export default Home

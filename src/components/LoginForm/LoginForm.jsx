@@ -1,6 +1,8 @@
 import { Formik, ErrorMessage } from 'formik';
-// import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { userLogin } from 'redux/auth/authOperation';
 import schema from 'helpers';
 import { HiEyeOff, HiEye } from 'react-icons/hi';
 import SubmitBtn from 'components/Button/SubmitBtn';
@@ -8,7 +10,7 @@ import StyledNavLink from 'components/Button/StyledNavLink';
 import { Logo } from 'components/Logo/Logo';
 import { ReactComponent as EmailIcon } from '../../images/icons/email.svg';
 import { ReactComponent as PasswordIcon } from '../../images/icons/password.svg';
-// import Spinner from 'components/Spinner';
+import Spinner from 'components/Spinner';
 import {
   FormWrap,
   LogoWrap,
@@ -25,17 +27,17 @@ const initialValues = {
 
 const LoginForm = () => {
   const [isHidePassword, setIsHidePassword] = useState(true);
-  // const { isLoading } = useSelector(state => state.auth);
+  const { isLoading } = useSelector(state => state.auth);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const handleSubmit = (values, { resetForm }) => {
-    // dispatch(userLogin(values));
+    dispatch(userLogin(values));
     resetForm();
   };
 
   return (
     <FormWrap>
-      {/* {isLoading && <Spinner />} */}
+      {isLoading && <Spinner />}
       <LogoWrap>
         <Logo />
       </LogoWrap>
@@ -44,34 +46,40 @@ const LoginForm = () => {
         onSubmit={handleSubmit}
         validationSchema={schema.login}
       >
-        <StyledForm autoComplete="off">
-          <Label>
-            <EmailIcon />
-            <Input type="email" name="email" placeholder="E-mail" />
-            <ErrorMessage
-              name="email"
-              render={msg => <ErrorMsg>{msg}</ErrorMsg>}
+        {({ isValid, dirty }) => (
+          <StyledForm autoComplete="off">
+            <Label>
+              <EmailIcon />
+              <Input type="email" name="email" placeholder="E-mail" />
+              <ErrorMessage
+                name="email"
+                render={msg => <ErrorMsg>{msg}</ErrorMsg>}
+              />
+            </Label>
+            <Label>
+              <PasswordIcon />
+              <Input
+                type={isHidePassword ? 'password' : 'text'}
+                name="password"
+                placeholder="Password"
+              />
+              {isHidePassword ? (
+                <HiEye onClick={() => setIsHidePassword(false)} />
+              ) : (
+                <HiEyeOff onClick={() => setIsHidePassword(true)} />
+              )}
+              <ErrorMessage
+                name="password"
+                render={msg => <ErrorMsg>{msg}</ErrorMsg>}
+              />
+            </Label>
+            <SubmitBtn
+              type="submit"
+              disabled={!(isValid && dirty)}
+              btnText={'log in'}
             />
-          </Label>
-          <Label>
-            <PasswordIcon />
-            <Input
-              type={isHidePassword ? 'password' : 'text'}
-              name="password"
-              placeholder="Password"
-            />
-            {isHidePassword ? (
-              <HiEye onClick={() => setIsHidePassword(false)} />
-            ) : (
-              <HiEyeOff onClick={() => setIsHidePassword(true)} />
-            )}
-            <ErrorMessage
-              name="password"
-              render={msg => <ErrorMsg>{msg}</ErrorMsg>}
-            />
-          </Label>
-          <SubmitBtn btnText={'log in'} />
-        </StyledForm>
+          </StyledForm>
+        )}
       </Formik>
       <StyledNavLink to="/register" btnText={'register'} />
     </FormWrap>
