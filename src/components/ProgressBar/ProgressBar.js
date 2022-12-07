@@ -29,16 +29,67 @@ const ProgressBarLine = password => {
   // if (true) {
   //   const width = style.barCompletedWell;
   // }
-  return (
-    <ProgressBar
-      completed={`${password}`}
-      className={style.wrapper}
-      barContainerClassName={style.container}
-      completedClassName={style.barCompleted}
-      labelClassName={style.label}
-      isLabelVisible={false}
-    />
-  );
+  const pas = 4;
+  if (pas === 0) {
+    return (
+      <ProgressBar
+        completed={`${password}`}
+        className={style.wrapper}
+        barContainerClassName={style.container}
+        completedClassName={style.barCompletedBad}
+        labelClassName={style.label}
+        isLabelVisible={false}
+      />
+    );
+  }
+  if (pas === 1) {
+    return (
+      <ProgressBar
+        completed={`${password}`}
+        className={style.wrapper}
+        barContainerClassName={style.container}
+        completedClassName={style.barCompletedNotBad}
+        labelClassName={style.label}
+        isLabelVisible={false}
+      />
+    );
+  }
+  if (pas === 2) {
+    return (
+      <ProgressBar
+        completed={`${password}`}
+        className={style.wrapper}
+        barContainerClassName={style.container}
+        completedClassName={style.barCompletedNormal}
+        labelClassName={style.label}
+        isLabelVisible={false}
+      />
+    );
+  }
+  if (pas === 3) {
+    return (
+      <ProgressBar
+        completed={`${password}`}
+        className={style.wrapper}
+        barContainerClassName={style.container}
+        completedClassName={style.barCompletedWell}
+        labelClassName={style.label}
+        isLabelVisible={false}
+      />
+    );
+  }
+  if (pas === 4) {
+    return (
+      <ProgressBar
+        completed={`${password}`}
+        className={style.wrapper}
+        barContainerClassName={style.container}
+        completedClassName={style.barCompletedVeryWell}
+        labelClassName={style.label}
+        isLabelVisible={false}
+      />
+    );
+  }
 };
 
 export default ProgressBarLine;
