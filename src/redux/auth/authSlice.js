@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { userLogin } from './authOperation';
+import { signup } from './authOperation';
 
 const initialState = {
-  user: { email: null },
-  token: null,
+  user: { name: '', email: '' },
+  token: '',
   isLoggedIn: false,
   isLoading: false,
   isError: null,
@@ -13,6 +14,21 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: builder => {
+    builder.addCase(signup.pending, (state, action) => {
+      state.isLoading = true;
+      state.isError = null;
+    });
+    builder.addCase(signup.fulfilled, (state, action) => {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isLoggedIn = true;
+      state.isLoading = false;
+      state.isError = null;
+    });
+    builder.addCase(signup.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = action.payload;
+    });
     builder.addCase(userLogin.fulfilled, (state, action) => {
       state.user = action.payload.user;
       state.token = action.payload.token;
