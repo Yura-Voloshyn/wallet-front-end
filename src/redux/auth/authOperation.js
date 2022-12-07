@@ -32,10 +32,10 @@ export const signup = createAsyncThunk(
 );
 
 export const userLogin = createAsyncThunk(
-  'users/login',
+  'auth/login',
   async (userData, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/users/login', userData);
+      const { data } = await axios.post('/auth/login', userData);
       token.set(data.token);
       return data;
     } catch (error) {
