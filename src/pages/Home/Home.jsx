@@ -1,4 +1,4 @@
-import TotalBalance from 'components/TotalBalance/Total-balance'
+// import TotalBalance from 'components/TotalBalance/Total-balance'
 import Table from 'components/Table/table'
 import NavigationsHome from 'components/navigationsHome/navigationsHome'
 import { HomeContainer, CurrencyContainer,  TableContainer} from './Home.styled'
@@ -8,7 +8,7 @@ return (
     <HomeContainer>
         <CurrencyContainer>
                 <NavigationsHome/>
-                <TotalBalance/>
+                {/* <TotalBalance/> */}
         </CurrencyContainer>
         <TableContainer>
             <Table/>

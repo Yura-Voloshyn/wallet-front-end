@@ -1,5 +1,3 @@
-
-
 import { TotalBalanceWrapper } from "./Total-balance.styled"
 import { Title } from "chart.js/dist/types"
 import { Balance } from "./Total-balance.styled"
