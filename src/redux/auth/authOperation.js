@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as api from '../../api/auth';
+import * as api from '../../services/api/auth';
 
 // ПРОПИСАТИ API ШЛЯХ// ======> ця логіка в файлі api/auth
 axios.defaults.baseURL = 'https://wallet-jet.vercel.app/api';
