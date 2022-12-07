@@ -50,7 +50,6 @@ const RegistrationForm = () => {
   const result = [];
   // const [isHidePassword, setIsHidePassword] = useState(true);
   const handleSubmit = (e, { resetForm }) => {
-    console.log('password OK', e.password === e.confirm);
     if (e.password === e.confirm) {
       result.push({
         email: e.email,
@@ -65,6 +64,7 @@ const RegistrationForm = () => {
       };
       onRegister(result[0]);
       Notify.success('Registration success');
+      console.log('Registration success');
       resetForm();
       return;
     }
