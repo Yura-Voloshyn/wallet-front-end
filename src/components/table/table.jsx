@@ -1,5 +1,5 @@
-import TableHead from "./TableHead";
-import TableBody from "./TableBody";
+import TableHead from "./tableHead";
+import TableBody from "./tableBody";
 import transaction from "./tableData.json"
 import {TableStyle} from "./Table.styled"
 import TableMobile from "./TableMobile";

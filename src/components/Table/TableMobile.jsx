@@ -1,12 +1,5 @@
 import styled from '@emotion/styled'
 
-const Trm = styled.tr`
-    display:flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 140px;
-    vertical-align: middle;
-`
 const Table = styled.table`
 
     display: flex;
@@ -20,34 +13,55 @@ const Table = styled.table`
         display: none;
     }
 `
+
+const Trm = styled.tr`
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 140px;
+    & td:last-child {
+        border: none;
+    }
+`
+
 const Td = styled.td`
+display: flex;
+align-items: center;
     font-family: 'Circe';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     padding-right: 20px;
+    justify-content: end;
     text-align: end;
     height: 43px;
+    border-bottom: 1px solid #DCDCDF;
 
 `
 
 const Tdh = styled.td`
+display: flex;
+align-items: center;
     height: 43px;
     font-family: 'Circe';
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     padding-left: 15px;
+    border-bottom: 1px solid #DCDCDF;
 `
 const Tds = styled.td`
+display: flex;
+align-items: center;
     font-family: 'Circe';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     padding-right: 20px;
-    text-align: end;
+    justify-content: end;
     height: 43px;
-    color: ${color => color.color}
+    color: ${color => color.color};
+    border-bottom: 1px solid #DCDCDF;
 `
 
 const TableMobile = ({items}) => {

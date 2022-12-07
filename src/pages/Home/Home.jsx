@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import TotalBalance from 'components/TotalBalance/Total-balance'
-import Table from 'components/Table/Table'
+import TotalBalance from 'components/TotalBalance/total-balance'
+import Table from 'components/Table/table'
 import NavigationsHome from 'components/navigationsHome/navigationsHome'
 
 const HomeContainer = styled.div`
