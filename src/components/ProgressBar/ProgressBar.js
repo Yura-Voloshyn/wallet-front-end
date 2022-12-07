@@ -26,9 +26,9 @@ const ProgressBarLine = password => {
   // console.log('ooo', ooo);
   // const res = ooo.typeOf();
   // console.log(res);
-  if (true) {
-    const width = style.barCompletedWell;
-  }
+  // if (true) {
+  //   const width = style.barCompletedWell;
+  // }
   return (
     <ProgressBar
       completed={`${password}`}
