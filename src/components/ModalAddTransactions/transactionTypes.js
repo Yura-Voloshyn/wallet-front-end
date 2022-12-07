@@ -11,7 +11,6 @@ export const expenseTransactions = [
   { value: "Entertainment", label: "Entertainment" },
 ];
 
-export const incomeTransactions = [
-  { value: "Regular income", label: "Regular income" },
-  { value: "Irregular income", label: "Irregular income" },
-];
+// export const incomeTransactions = [
+//   { value: "Income", label: "Regular income," },
+// ];

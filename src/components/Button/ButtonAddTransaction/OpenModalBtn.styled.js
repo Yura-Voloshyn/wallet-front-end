@@ -3,29 +3,29 @@ import { stylistics } from '../../../styles/styles';
 
 export const OpenBtn = styled.button`
 position: fixed;
-right: 50px;
-bottom: 40px;
 display: block;
+text-align: center;
+right: 20px;
+bottom: 30px;
 min-width: 44px;
 height: 44px;
-text-align: center;
+border-radius: 50%;
+border: none;
 cursor: pointer;
-border-radius: 50px;
-background-color: ${stylistics.colors.primaryBgBtn};
+background: ${stylistics.colors.primaryBgBtn};
 box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
-    :hover,
-    :focus {
-      background-color: ${stylistics.colors.primaryBgBtn};
-    }
+
+  @media screen and (min-width: 767px) and (max-width: 1279px) {
+    right: 40px;
+    bottom: 40px;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 85px;
+    bottom: 40px;
+  }
 `;
 
-// export const PlusSvg = styled.PlusSvg` 
-// width: 20px;
-// height: 20px;
-// `;
-export const IconAdd = styled.span` 
- /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  `;
+
+
