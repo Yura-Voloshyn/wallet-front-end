@@ -2,18 +2,16 @@ import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
+import { Logo } from 'components/Logo/Logo';
+import ProgressBarLine from '../ProgressBar/ProgressBar';
 import {
   Div,
   FormStyled,
   FormLabel,
   FormField,
-  // ButtonContainer,
-  // NavButton,
-  // NavButtonR,
   IconEmail,
   IconPassword,
   IconUser,
-  // DivLine,
   ErrorText,
 } from './RegistrationForm.styled';
 
@@ -47,6 +45,7 @@ const RegistrationForm = () => {
 
   return (
     <Div>
+      <Logo />
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
@@ -76,8 +75,8 @@ const RegistrationForm = () => {
               name="confirm"
               placeholder="Confirm password"
             />
+            <ProgressBarLine />
           </FormLabel>
-          {/* <DivLine></DivLine> */}
           <FormLabel>
             <IconUser />
             <FormField type="text" name="name" placeholder="First name" />
@@ -86,14 +85,10 @@ const RegistrationForm = () => {
               render={msg => <ErrorText>{msg}</ErrorText>}
             />
           </FormLabel>
-          {/* <ButtonContainer>
-            <NavButtonR type="submit">Register</NavButtonR>
-            <NavButton type="submit">Log in</NavButton>
-          </ButtonContainer> */}
-          <SubmitBtn type="submit">register</SubmitBtn>
-          <StyledNavLink to="/login">log in</StyledNavLink>
+          <SubmitBtn btnText={'register'} />
         </FormStyled>
       </Formik>
+      <StyledNavLink to="/login" btnText={'log in'} />
     </Div>
   );
 };
