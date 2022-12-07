@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import getCurrency from '../../services/api/getCurrency/getCurrency.js';
-import getCategories from 'services/api/getCategories/getCategories.js';
+// import getCategories from 'services/api/getCategories/getCategories.js';
 import {
   CurrencyTableStyled,
   CurrencyTableHead,
@@ -8,7 +8,18 @@ import {
   CurrencyHeadItem,
   CurrencyTableBody,
 } from './CurrencyTable.styled';
+
 const options = ['Currency', 'Purchase', 'Sale'];
+
+// const Categories = () => {
+//   const categories = useSelector(getFilteredCategories);
+
+//   const dispatch = useDispatch();
+
+//   useEffect(() => {
+//     dispatch(fetchCategories());
+//   }, [dispatch]);
+// };
 
 // const data = fetchCurrency();
 // console.log(data);
@@ -32,11 +43,11 @@ const options = ['Currency', 'Purchase', 'Sale'];
 //     sale: '0.00',
 //   },
 // ];
-const categories = async () => {
-  const apiCategories = await getCategories();
-  console.log(apiCategories);
-};
-categories();
+// const categories = async () => {
+//   const apiCategories = await getCategories();
+//   console.log(apiCategories);
+// };
+// categories();
 
 const CurrencyTable = () => {
   const [data, setData] = useState([]);
