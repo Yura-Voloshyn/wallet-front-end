@@ -5,7 +5,7 @@ import ProgressBar from '@ramonak/react-progress-bar';
 import style from '../ProgressBar/progress-bar.module.css';
 
 const ProgressBarLine = password => {
-  console.log(password);
+  // console.log(password);
   // const result = zxcvbn(password);
   // console.log('result', result);
 
@@ -24,11 +24,11 @@ const ProgressBarLine = password => {
   // }
   // const ooo = `${width}`;
   // console.log('ooo', ooo);
-  // // const res = ooo.typeOf();
-  // // console.log(res);
+  // const res = ooo.typeOf();
+  // console.log(res);
   return (
     <ProgressBar
-      completed={password}
+      completed={`${password}`}
       className={style.wrapper}
       barContainerClassName={style.container}
       completedClassName={style.barCompleted}

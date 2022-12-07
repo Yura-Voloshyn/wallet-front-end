@@ -9,7 +9,7 @@ import { Logo } from 'components/Logo/Logo';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import { HiEyeOff, HiEye } from 'react-icons/hi';
 // import { ReactComponent as PasswordIcon } from '../../images/icons/password.svg';
-// import ProgressBarLine from '../ProgressBar/ProgressBar';
+import ProgressBarLine from '../ProgressBar/ProgressBar';
 
 import {
   Div,
@@ -115,7 +115,7 @@ const RegistrationForm = () => {
               name="confirm"
               placeholder="Confirm password"
             />
-            {/* <ProgressBarLine password={20} /> */}
+            <ProgressBarLine password={80} />
           </FormLabel>
           <FormLabel>
             <IconUser />
