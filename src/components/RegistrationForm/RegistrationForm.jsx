@@ -1,14 +1,14 @@
-import { React, useState } from 'react';
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+import { React } from 'react';
 import { signup } from '../../redux/auth/authOperation';
 import { useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 import { Logo } from 'components/Logo/Logo';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { HiEyeOff, HiEye } from 'react-icons/hi';
+// import { ReactComponent as PasswordIcon } from '../../images/icons/password.svg';
 // import ProgressBarLine from '../ProgressBar/ProgressBar';
 
 import {
@@ -37,78 +37,39 @@ const schema = yup.object().shape({
 });
 
 const RegistrationForm = () => {
-  const dispatch = useDispatch();
-  // const navigate = useNavigate();
   const initialValues = {
     email: '',
     password: '',
+    confirm: '',
     name: '',
   };
-  const [state, setState] = useState({ ...initialValues });
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [name, setName] = useState('');
+  // const [state, setState] = useState({ ...initialValues });
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+
   const result = [];
-  // const handleChange = ({ target }) => {
-  //   const { name, value, type, checked } = target;
-  //   const newValue = type === 'checkbox' ? checked : value;
-  //   setState(prevState => ({
-  //     ...prevState,
-  //     [name]: newValue,
-  //   }));
-  // };
-  // const dispatch = useDispatch();
-  const handleSubmit = e => {
-    // e.preventDefault();
-    console.log('e', e);
-    result.push({
-      email: e.email,
-      password: e.password,
-      name: e.name,
-    });
-    console.log('result', result[0]);
-    setState({ ...result[0] });
-    console.log('state', state);
+  // const [isHidePassword, setIsHidePassword] = useState(true);
+  const handleSubmit = (e, { resetForm }) => {
+    console.log('password OK', e.password === e.confirm);
+    if (e.password === e.confirm) {
+      result.push({
+        email: e.email,
+        password: e.password,
+        name: e.name,
+      });
+      // setState({ ...result[0] });
 
-    const onRegister = data => {
-      console.log('data', data);
-      dispatch(signup(data));
-    };
-    onRegister(result[0]);
-    // setState({ ...initialValues });
-    // const dispatch = useDispatch();
-    // useEffect(() => dispatch(signup(result[0])));
-
-    // const handleSubmit = (values, { resetForm }) => {
-    //   console.log('values.confirm', values.confirm);
-    //   console.log('values.password', values.password);
-    //   console.log('values.name', values.name);
-    //   if (values.confirm !== values.password) {
-    //     console.log('Password ERROR');
-    //     return;
-    //   }
-    //   if (values.confirm === values.password) {
-    //     console.log('Password OK', values.confirm === values.password);
-    //     setEmail(values.email);
-    //     setPassword(values.password);
-    //     setName(values.name);
-
-    // result.push({
-    //   email: email,
-    //   password: password,
-    //   name: name,
-    // });
-    //     console.log('result', result[0]);
-    //     // signUp(result[0]);
-
-    //     console.log('email', email);
-    //     console.log('password', password);
-    //     console.log('name', name);
-    //     resetForm();
-    //     return;
-    //   }
-    //   // setPassword(values.password);
-    // };
+      const onRegister = data => {
+        console.log('data', data);
+        dispatch(signup(data));
+      };
+      onRegister(result[0]);
+      Notify.success('Registration success');
+      resetForm();
+      return;
+    }
+    Notify.warning('Password wrong');
+    console.log('Password wrong');
   };
   return (
     <Div>
@@ -130,11 +91,18 @@ const RegistrationForm = () => {
           <FormLabel>
             <IconPassword />
             <FormField
-              // onInput={evt => setPassword(evt.target.value)}
+              // onInput={evt => setState(...state, password => evt.target.value)}
+              // type={isHidePassword ? 'password' : 'text'}
               type="password"
               name="password"
               placeholder="Password"
             />
+            {/* <PasswordIcon />
+            {isHidePassword ? (
+              <HiEye onClick={() => setIsHidePassword(false)} />
+            ) : (
+              <HiEyeOff onClick={() => setIsHidePassword(true)} />
+            )} */}
             <ErrorMessage
               name="password"
               render={msg => <ErrorText>{msg}</ErrorText>}

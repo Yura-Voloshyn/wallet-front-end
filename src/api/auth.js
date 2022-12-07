@@ -13,9 +13,7 @@ const setToken = token => {
 };
 
 export const signup = async data => {
-  console.log('data api', data);
   const { data: result } = await instance.post('/api/auth/register', data);
-  console.log('result.data.token', result.data.token);
   setToken(result.data.token);
   return result;
 };
