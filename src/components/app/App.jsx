@@ -1,32 +1,49 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
+import { useSelector } from 'react-redux';
 
 import { AppWrapper } from './App.styled';
 // import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
 
 // import Currency from 'components/Currency/Currency';
+import TotalBalance from 'components/totalBalance/total-balance';
 // import Home from 'pages/Home/Home';
-import LoginPage from 'pages/LoginPage';
-
+// import LoginPage from 'pages/LoginPage';
+import { UserRoutes } from 'UserRoutes';
+import { Header } from 'components/Header/Header';
+import { Navigation } from 'components/Navigation/Navigation';
 
 const App = () => {
+  const isLogin = useSelector(state => state.auth.isLoggedIn);
+
   return (
-    <AppWrapper>
+    <>
+      <AppWrapper>
+        {isLogin && (
+          <>
+            <Header />
+            <Navigation />
+            <TotalBalance />
+            {/* <Currency /> */}
+          </>
+        )}
 
-      <LoginPage />
-      {/* <Currency /> */}
+        <UserRoutes />
+        {/* <LoginPage /> */}
+        {/* <Currency /> */}
 
-      {/* <Home /> */}
-      {/* <StatisticsPage /> */}
+        {/* <Home /> */}
+        {/* <StatisticsPage /> */}
 
-      <Suspense fallback={null}>
+        {/* <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<LoginPage />} />
         </Routes>
-      </Suspense>
-    </AppWrapper>
+      </Suspense> */}
+      </AppWrapper>
+    </>
   );
 };
 export default App;
