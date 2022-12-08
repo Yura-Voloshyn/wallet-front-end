@@ -1,3 +1,4 @@
+// import { useEffect, useState } from 'react';
 import {
   Table,
   TableCategories,
@@ -22,15 +23,15 @@ export function TableStatistics({ categoryStatistics }) {
         </tr>
       </TableHead>
       <TableBody>
-        {categoryStatistics?.map(({id, name, value, color }) => {
+        {categoryStatistics?.map(({ id, category, sum, color }) => {
           return (
             <tr key={id}>
               <TableCategories>
                 <Square style={{ backgroundColor: color }}></Square>
-                {name}
+                {category}
               </TableCategories>
 
-              <TableCategories>{value}</TableCategories>
+              <TableCategories>{sum}</TableCategories>
             </tr>
           );
         })}
