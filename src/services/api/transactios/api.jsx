@@ -9,3 +9,25 @@ export const getTransactions = async () => {
   
     return data;
   };
+
+  //post
+export const addTransaction = async() => {
+        const { data } = await axios.post(`${instance}/transactions`);
+      
+        return data;
+};
+
+export const fetchTransactionsByCategory = async()=>{
+      const { data } = await axios.get(
+        `${instance}/transactions/categories`
+      );
+      return data;
+  };
+
+const transOperations = {
+  getTransactions,
+  addTransaction,
+  fetchTransactionsByCategory,
+};
+
+export default transOperations;

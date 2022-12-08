@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState, useCallback } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { TitleMod, TransactionAddForm, CheckboxWrapper, AddTransIcon, AddExpsIcon, SelectWrapper, InputSumWrapper, FormSum, DateIcon, TextForm, SumInput, ChooseIcon, CommentInput, CheckboxSpan } from "./modalAddTransaction.styled"
-import {fetchTransactions} from '../../redux/transaction/transactionOperation';
+import { transOperations, transSelectors } from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
 import Switch from 'react-switch';
 import Select from 'react-select';
@@ -28,105 +28,100 @@ const ModalAddTransactions = ({ onClose }) => {
 //   sum: "",
 // };
 
-    
-    useEffect(() => {
-    dispatch(fetchTransactions.getCategories());
-  }, [dispatch]);
+useEffect(() => {
+   dispatch(transOperations.getCategories());
+}, [dispatch]);
 
-  // const transactionCategories = useSelector(
-  //   transactionSlice.getTransactionCategories,
-  // );
+const transCategories = useSelector(
+  transSelectors.getTransactionCategories,
+);
 
-  // const optionSelect = transactionCategories.map(e => {
-  //   return {
-  //     value: e,
-  //     label: e,
-  //   };
-  // });
+const selection = transCategories.map(e => {
+  return {
+    value: e,
+    label: e,
+  };
+});
 
-
-
-  const [defaultState, setFullState] = useState({
+const [defaultState, setFullState] = useState({
   date: new Date(),
   type: false,
   category: "",
   comment: "",
   sum: "",
-  });
+});
 
-  const { category, comment, sum, checked } = defaultState;
+const { category, comment, sum, checked } = defaultState;
 
-  useEffect(() => {
-    if (checked) {
-      setFullState(prev => ({
-        ...prev,
-      }));
-      return;
-    }
+useEffect(() => {
+  if (checked) {
+   setFullState(prev => ({
+    ...prev,
+  }));
+  return;
+}
 
-    setFullState(prev => ({
-      ...prev,
-    }));
-  }, [checked]);
+  setFullState(prev => ({
+    ...prev,
+  }));
+}, [checked]);
 
-  const handleChangeCheckbox = nextChecked => {
-    setFullState(prev => ({
-      ...prev,
-      checked: nextChecked,
-      value: null,
-      label: '',
-    }));
-  };
+const handleChangeCheckbox = nextChecked => {
+  setFullState(prev => ({
+    ...prev,
+    checked: nextChecked,
+    value: null,
+    label: '',
+  }));
+};
 
 
-  const onChangeSelect = e => {
-    setFullState(prev => ({
-      ...prev,
-      category: e.value,
-    }));
-  };
+const onChangeSelect = e => {
+  setFullState(prev => ({
+    ...prev,
+    category: e.value,
+  }));
+};
 
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setFullState(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+const handleChange = e => {
+  const { name, value } = e.target;
+  setFullState(prev => ({
+    ...prev,
+    [name]: value,
+  }));
+};
 
   //subtracting the day to get actual date
-// moment.locale('ua');
+// moment.locale('ua'); 
+let startDay = moment.locale('ua').subtract(1, 'day');
+let today = function (current) {
+  return current.isAfter(startDay);
+};
+
+const handleSubmit = useCallback(
+  e => {
+    e.preventDefault();
+
+    (async function () {
+      const userSum = Number(sum);
+      await dispatch(
+        transOperations.addTransaction({
+          sum: Number(userSum),
+          comment,
+          type: !checked ? 'income' : 'expense',
+          category,
+        }),
+      );
+    })();
+
+    onClose();
+  },
+  [checked, comment, sum, category, onClose, dispatch],
+);
   
-  let startday = moment.locale('ua').subtract(1, 'day');
-  let today = function (current) {
-    return current.isAfter(startday);
-  };
-
-  const handleSubmit = useCallback(
-    e => {
-      e.preventDefault();
-
-      (async function () {
-        const userSum = Number(sum);
-        await dispatch(
-          fetchTransactions.addTransaction({
-            sum: Number(userSum),
-            comment,
-            type: !checked ? 'income' : 'expense',
-            category,
-          }),
-        );
-      })();
-
-      onClose();
-    },
-    [checked, comment, sum, category, onClose, dispatch],
-  );
+let income;
   
-  let optionIncome;
-  
-
-    return (
+  return (
       <Modal onClose={onClose}>
         <button
           type="button"
@@ -198,7 +193,7 @@ const ModalAddTransactions = ({ onClose }) => {
             <Select
               name="selectedOption"
               onChange={onChangeSelect}
-              // options={optionSelect}
+              options={selection}
               placeholder="Choose category"
             />
             <ChooseIcon as="svg"
@@ -218,7 +213,7 @@ const ModalAddTransactions = ({ onClose }) => {
             <Select
               name="selectedOption"
               onChange={onChangeSelect}
-              options={optionIncome}
+              options={income}
             />
             <ChooseIcon as="svg"
               id="arrow-icon"

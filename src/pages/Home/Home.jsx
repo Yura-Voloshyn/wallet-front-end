@@ -2,8 +2,8 @@
 import Table from 'components/Table/table'
 import NavigationsHome from 'components/navigationsHome/navigationsHome'
 import { HomeContainer, CurrencyContainer,  TableContainer} from './Home.styled'
-import ButtonAddTransactions from '../components/Button/ButtonAddTransaction/OpenModalBtn';
-import ModalAddTransactions from "../components/ModalAddTransactions/modalAddTransaction"
+import ButtonAddTransactions from '../../components/Button/ButtonAddTransaction/OpenModalBtn';
+import ModalAddTransactions from "../../components/ModalAddTransactions/modalAddTransaction"
 import { useState } from 'react';
 
 
