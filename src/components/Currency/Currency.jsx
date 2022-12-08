@@ -7,7 +7,6 @@ import { getFilteredCategories } from 'redux/categories/categories-selectors.js'
 
 const Currency = () => {
   const categories = useSelector(getFilteredCategories);
-  console.log(categories);
   const dispatch = useDispatch();
 
   useEffect(() => {
