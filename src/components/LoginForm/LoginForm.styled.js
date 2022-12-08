@@ -47,7 +47,7 @@ export const Input = styled(Field)`
   font-style: normal;
   font-weight: ${stylistics.fontWeights.normal};
   font-size: ${stylistics.fontSizes.m};
-  line-height: 1.5;
+  line-height: ${stylistics.lineHeights.body};
   color: ${stylistics.colors.primaryText};
   background-color: transparent;
   &:focus {
@@ -58,7 +58,7 @@ export const Input = styled(Field)`
     font-style: normal;
     font-weight: ${stylistics.fontWeights.normal};
     font-size: ${stylistics.fontSizes.m};
-    line-height: 1.5;
+    line-height: ${stylistics.lineHeights.body};
     color: ${stylistics.colors.secondaryText};
   }
   @media screen and (min-width: 768px) {
@@ -71,6 +71,6 @@ export const ErrorMsg = styled.div`
   right: 0;
   bottom: -35px;
   padding: 4px 5px;
-  color: #f21407;
+  color: ${stylistics.colors.expenseColor};
   background-color: transparent;
 `;

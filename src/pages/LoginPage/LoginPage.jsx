@@ -65,12 +65,11 @@ const LoginPage = () => {
             </ImageContainer>
 
             <FormContainer>
-              <LoginForm />
-              {/* {location.pathname === '/login' ? (
+              {location.pathname === '/login' ? (
                 <LoginForm />
               ) : (
                 <RegistrationForm />
-              )} */}
+              )}
             </FormContainer>
           </Wrapper>
         </Container>
