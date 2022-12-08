@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { signup } from '../../redux/auth/authOperation';
 import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
@@ -7,8 +7,7 @@ import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 import { Logo } from 'components/Logo/Logo';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// import { HiEyeOff, HiEye } from 'react-icons/hi';
-// import { ReactComponent as PasswordIcon } from '../../images/icons/password.svg';
+import { IconContext } from 'react-icons';
 import ProgressBarLine from '../ProgressBar/ProgressBar';
 
 import {
@@ -20,6 +19,8 @@ import {
   IconPassword,
   IconUser,
   ErrorText,
+  HiEyeStyle,
+  HiEyeOffStyle,
 } from './RegistrationForm.styled';
 
 const schema = yup.object().shape({
@@ -43,33 +44,59 @@ const RegistrationForm = () => {
     confirm: '',
     name: '',
   };
-  // const [state, setState] = useState({ ...initialValues });
+
+  const result = [];
+  const [isHidePassword, setIsHidePassword] = useState(true);
+  const [isHideConfirm, setIsHideConfirm] = useState(true);
+  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   // const navigate = useNavigate();
 
-  const result = [];
-  // const [isHidePassword, setIsHidePassword] = useState(true);
   const handleSubmit = (e, { resetForm }) => {
+    Notify.init({
+      width: '180px',
+      position: 'center',
+      distance: '50px',
+      opacity: 1,
+      borderRadius: '50px',
+      timeout: 2000,
+      success: {
+        background: 'rgba(36, 204, 167, 1)',
+        textColor: '#fff',
+        childClassName: 'success',
+        notiflixIconColor: '#fff',
+        fontAwesomeClassName: 'fas fa-check-circle',
+        fontAwesomeIconColor: '#fff)',
+        messageFontSize: '20px',
+      },
+      warning: {
+        background: 'rgba(253, 148, 152, 1)',
+        textColor: '#fff',
+        childClassName: 'info',
+        notiflixIconColor: '#fff',
+        fontAwesomeIconColor: '#fff',
+        messageFontSize: '20px',
+      },
+    });
+
     if (e.password === e.confirm) {
       result.push({
         email: e.email,
         password: e.password,
         name: e.name,
       });
-      // setState({ ...result[0] });
 
       const onRegister = data => {
-        console.log('data', data);
         dispatch(signup(data));
       };
       onRegister(result[0]);
+
       Notify.success('Registration success');
-      console.log('Registration success');
       resetForm();
+      setPassword('');
       return;
     }
     Notify.warning('Password wrong');
-    console.log('Password wrong');
   };
   return (
     <Div>
@@ -91,18 +118,30 @@ const RegistrationForm = () => {
           <FormLabel>
             <IconPassword />
             <FormField
-              // onInput={evt => setState(...state, password => evt.target.value)}
-              // type={isHidePassword ? 'password' : 'text'}
-              type="password"
+              onInput={evt => setPassword(evt.target.value)}
+              type={isHidePassword ? 'password' : 'text'}
               name="password"
               placeholder="Password"
             />
-            {/* <PasswordIcon />
             {isHidePassword ? (
-              <HiEye onClick={() => setIsHidePassword(false)} />
+              <IconContext.Provider
+                value={{
+                  size: '20px',
+                  color: 'rgba(224, 224, 224, 1)',
+                }}
+              >
+                <HiEyeStyle onClick={() => setIsHidePassword(false)} />
+              </IconContext.Provider>
             ) : (
-              <HiEyeOff onClick={() => setIsHidePassword(true)} />
-            )} */}
+              <IconContext.Provider
+                value={{
+                  size: '20px',
+                  color: 'rgba(224, 224, 224, 1)',
+                }}
+              >
+                <HiEyeOffStyle onClick={() => setIsHidePassword(true)} />
+              </IconContext.Provider>
+            )}
             <ErrorMessage
               name="password"
               render={msg => <ErrorText>{msg}</ErrorText>}
@@ -111,11 +150,30 @@ const RegistrationForm = () => {
           <FormLabel>
             <IconPassword />
             <FormField
-              type="password"
+              type={isHideConfirm ? 'password' : 'text'}
               name="confirm"
               placeholder="Confirm password"
             />
-            <ProgressBarLine password={80} />
+            {isHideConfirm ? (
+              <IconContext.Provider
+                value={{
+                  size: '20px',
+                  color: 'rgba(224, 224, 224, 1)',
+                }}
+              >
+                <HiEyeStyle onClick={() => setIsHideConfirm(false)} />
+              </IconContext.Provider>
+            ) : (
+              <IconContext.Provider
+                value={{
+                  size: '20px',
+                  color: 'rgba(224, 224, 224, 1)',
+                }}
+              >
+                <HiEyeOffStyle onClick={() => setIsHideConfirm(true)} />
+              </IconContext.Provider>
+            )}
+            <ProgressBarLine password={password} />
           </FormLabel>
           <FormLabel>
             <IconUser />
