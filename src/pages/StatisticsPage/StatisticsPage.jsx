@@ -14,6 +14,7 @@ import {
 export function StatisticsPage() {
   const [categoryStatistics, setCategoryStatistics] = useState([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const testArrCategories = [
     { id: 1, name: 'Main expenses', value: '8700.00', color: '#FED057' },
     { id: 2, name: 'Products', value: '3800.74', color: '#FFD8D0' },
@@ -31,7 +32,7 @@ export function StatisticsPage() {
       setCategoryStatistics(data);
     };
     getCategoryStatistics(testArrCategories);
-  }, []);
+  }, [testArrCategories]);
 
   return (
     <StatisticsSection>
@@ -49,4 +50,3 @@ export function StatisticsPage() {
     </StatisticsSection>
   );
 }
-

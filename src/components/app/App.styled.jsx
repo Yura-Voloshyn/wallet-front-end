@@ -4,13 +4,13 @@ import backgroundTop from '../../images/background/Ellipse2.png';
 import { stylistics } from '../../styles/styles';
 
 export const AppWrapper = styled.div`
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: '#010101';
-  
+
   background-color: ${stylistics.colors.loginPageBg};
+
+  @media (min-width: 321px) {
+    height: 100vh;
+  }
 
   @media (min-width: 768px) {
     background-image: url(${backgroundBot}), url(${backgroundTop});

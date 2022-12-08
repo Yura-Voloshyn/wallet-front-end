@@ -17,4 +17,10 @@ export const signup = async data => {
   return result;
 };
 
+export const userLogin = async data => {
+  const { data: result } = await instance.post('api/auth/login', data);
+  setToken(result.data.token);
+  return result;
+};
+
 export default instance;

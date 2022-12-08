@@ -4,10 +4,9 @@ import { stylistics } from '../../styles/styles';
 export const Container = styled.div`
   margin: 0 auto;
   @media screen and (max-width: 767px) {
-    /* max-width: 480px; */
     width: 100vw;
     height: 100vh;
-    background-color: #fff;
+    background-color: ${stylistics.colors.mainBg};
   }
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -54,12 +53,29 @@ export const ImageContainer = styled.div`
     margin-right: 66px;
   }
 `;
+
+export const Frame = styled.img`
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    height: 250px;
+    width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-right: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 435px;
+    height: 419px;
+    margin-right: 38px;
+    margin-bottom: 32px;
+  }
+`;
+
 export const Text = styled.p`
   font-family: ${stylistics.fonts.headingBold};
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
-  line-height: 1.5;
+  line-height: ${stylistics.lineHeights.body};
   color: ${stylistics.colors.primaryText};
 `;
 export const FormContainer = styled.div`
@@ -72,16 +88,5 @@ export const FormContainer = styled.div`
     backdrop-filter: blur(50px);
     background-color: ${stylistics.colors.secondBg};
     padding: 52px 91px 52px 107px;
-  }
-`;
-
-export const Frame = styled.img`
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    height: 250px;
-    width: 250px;
-    margin-right: 40px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 32px;
   }
 `;
