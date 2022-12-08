@@ -23,15 +23,15 @@ export function TableStatistics({ categoryStatistics }) {
         </tr>
       </TableHead>
       <TableBody>
-        {categoryStatistics?.map(({ id, category, sum, color }) => {
+        {categoryStatistics?.map(({ id, name, value, color }) => {
           return (
             <tr key={id}>
               <TableCategories>
                 <Square style={{ backgroundColor: color }}></Square>
-                {category}
+                {name}
               </TableCategories>
 
-              <TableCategories>{sum}</TableCategories>
+              <TableCategories>{value}</TableCategories>
             </tr>
           );
         })}

@@ -1,12 +1,17 @@
-// import { Navigate, Route, Routes } from 'react-router-dom';
-// import { Suspense } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { Suspense } from 'react';
 
 import { AppWrapper } from './App.styled';
 import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
 
 // import Currency from 'components/Currency/Currency';
+
 // import Home from 'pages/home';
 // import LoginPage from 'pages/LoginPage';
+
+// import Home from 'pages/Home/Home';
+import LoginPage from 'pages/LoginPage';
+
 
 
 const App = () => {

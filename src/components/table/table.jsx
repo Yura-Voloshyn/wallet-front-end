@@ -1,25 +1,39 @@
-import TableHead from "./tableHead";
-import TableBody from "./tableBody";
-import styled from '@emotion/styled'
-import transaction from "./tableData.json"
+// import TableHead from "./tableHead";
+// import TableBody from "./tableBody";
+// import transaction from "./tableData.json"
+// import {TableStyle} from "./Table.styled"
+// import TableMobile from "./TableMobile";
+
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
+import { fetchTransactions } from "redux/transaction/transactionOperation";
+import { useDispatch } from "react-redux";
 
 
-const TableStyle = styled.table`
-    width: 715px;
-    border-collapse: collapse;
-
-    @media (max-width: 768px) {
-        width: 704px;
-    }
-
-`
 
 const Table = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchTransactions());
+    }, [dispatch]);
+
+    const transactions = useSelector(state => state.transactions)
+
     return (
-        <TableStyle>
+        <>
+
+        {console.log(transactions)}
+        {/* <TableStyle>
             <TableHead/>
             <TableBody items={transaction}/>
         </TableStyle>
+
+        <TableMobile items={transaction}/> */}
+        </>
+
+
     )
 }
 
