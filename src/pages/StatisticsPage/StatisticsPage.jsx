@@ -20,47 +20,9 @@ export function StatisticsPage() {
   //   const result = transactions
   //     .map(res => res)
   //     .filter(res => res.type === false);
-  //   setCategoryStatistics(result);
-  // }, []);
-
-  // const sumOfCategories = () => {
-  //   for (let i = 0; i < categoryStatistics.length - 1; i++) {
-  //     let el1 = categoryStatistics[i];
-  //     for (let j = i + 1; j < categoryStatistics.length; j++) {
-  //       const el2 = categoryStatistics[j];
-
-  //       if (el1.category === el2.category) {
-  //        const summary = Object.keys(el1).filter(res => res === 'sum').toString()
-
-  //       }
-  //     }
-  //   }
-
-  //   console.log(categoryStatistics);
-  // };
-  // sumOfCategories();
-  // useEffect(() => {
-  //   const result = transactions
-  //     .map(res => res)
-  //     .filter(res => res.type === false);
 
   //   // let newObj = {};
-  //   // for (const res in result) {
-  //   //   const element = result[res];
-
-  //   //   if (element.category === newObj.category) {
-  //   //     newObj.sum = element.sum + newObj.sum;
-  //   //   } else {
-  //   //     // newObj.push(...newObj,{
-  //   //     //   category: element.category,
-  //   //     //   sum: element.sum,
-  //   //     // }) ;
-  //   //     newObj.category = element.category
-  //   //      newObj.sum = element.sum;
-  //   //   }
-
-  //   // }
-  //   //  console.log(newObj);
+ 
 
   //   let newObj = { category: null, sum: null };
   //   for (let i = 0; i < result.length - 1; i++) {
@@ -84,6 +46,7 @@ export function StatisticsPage() {
   //   setCategoryStatistics(result);
   // }, []);
   
+
   const testArrCategories = [
     { id: 1, name: 'Main expenses', value: '8700.00', color: '#FED057' },
     { id: 2, name: 'Products', value: '3800.74', color: '#FFD8D0' },
@@ -101,8 +64,13 @@ export function StatisticsPage() {
       setCategoryStatistics(data);
     };
     getCategoryStatistics(testArrCategories);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+ 
+
+
   return (
     <StatisticsSection>
       <StatisticsWrapper>
