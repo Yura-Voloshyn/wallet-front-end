@@ -14,13 +14,13 @@ import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 
 
-
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
     
 const dispatch = useDispatch();
-  
-//   const defaultState = {
+// const categories = useSelector(transOperations.fetchTransactionsByCategory);
+
+// const defaultState = {
 //   date: new Date(),
 //   type: false,
 //   category: "",
@@ -31,7 +31,6 @@ const dispatch = useDispatch();
 useEffect(() => {
    dispatch(transOperations.fetchTransactionsByCategory());
 }, [dispatch]);
-
 
 const transCategories = useSelector(
   transSelectors.getTransactionCategories,
@@ -51,58 +50,44 @@ const [defaultState, setFullState] = useState({
   comment: "",
   sum: "",
 });
-
+ 
 const { category, comment, sum, checked } = defaultState;
 
 useEffect(() => {
   if (checked) {
-   setFullState(prev => ({
-    ...prev,
+   setFullState(items => ({
+    ...items,
   }));
   return;
-}
-
-  setFullState(prev => ({
-    ...prev,
-  }));
-}, [checked]);
+}}, [checked]);
 
 const handleChangeCheckbox = nextChecked => {
-  setFullState(prev => ({
-    ...prev,
+  setFullState(items => ({
+    ...items,
     checked: nextChecked,
     value: null,
     label: '',
   }));
 };
 
-
 const onChangeSelect = e => {
-  setFullState(prev => ({
-    ...prev,
+  setFullState(items => ({
+    ...items,
     category: e.value,
   }));
 };
 
 const handleChange = e => {
   const { name, value } = e.target;
-  setFullState(prev => ({
-    ...prev,
+  setFullState(items => ({
+    ...items,
     [name]: value,
   }));
-};
-
-  //subtracting the day to get actual date
-// moment.locale('ua'); 
-let startDay = moment.locale('ua').subtract(1, 'day');
-let today = function (current) {
-  return current.isAfter(startDay);
 };
 
 const handleSubmit = useCallback(
   e => {
     e.preventDefault();
-
     (async function () {
       const userSum = Number(sum);
       await dispatch(
@@ -114,12 +99,16 @@ const handleSubmit = useCallback(
         }),
       );
     })();
-
     onClose();
   },
-  [checked, comment, sum, category, onClose, dispatch],
+  [category, comment, sum, checked, onClose, dispatch],
 );
-  
+  //subtracting the day to get actual date
+// moment.locale('ua'); 
+let startDay = moment.locale('ua').subtract(1, 'day');
+let today = function (current) {
+  return current.isAfter(startDay);
+};  
 let income;
   
   return (

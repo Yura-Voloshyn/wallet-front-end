@@ -12,14 +12,14 @@ export const getTransactions = async () => {
 
   //post
 export const addTransaction = async() => {
-        const { data } = await axios.post(`/transactions`);
+        const { data } = await axios.post(`${instance}/transactions`);
       
         return data;
 };
 
 export const fetchTransactionsByCategory = async()=>{
       const { data } = await axios.get(
-        `/transactions/categories`
+        `${instance}/transactions/categories`
       );
       return data;
   };
