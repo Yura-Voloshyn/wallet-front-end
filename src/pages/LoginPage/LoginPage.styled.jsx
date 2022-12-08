@@ -54,6 +54,21 @@ export const ImageContainer = styled.div`
     margin-right: 66px;
   }
 `;
+
+export const Frame = styled.img`
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    height: 250px;
+    width: 250px;
+    margin-right: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 435px;
+    height: 419px;
+    margin-right: 38px;
+    margin-bottom: 32px;
+  }
+`;
+
 export const Text = styled.p`
   font-family: ${stylistics.fonts.headingBold};
   font-style: normal;
@@ -72,16 +87,5 @@ export const FormContainer = styled.div`
     backdrop-filter: blur(50px);
     background-color: ${stylistics.colors.secondBg};
     padding: 52px 91px 52px 107px;
-  }
-`;
-
-export const Frame = styled.img`
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    height: 250px;
-    width: 250px;
-    margin-right: 40px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 32px;
   }
 `;
