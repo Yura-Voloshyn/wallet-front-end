@@ -18,8 +18,8 @@ import StyledNavLink from 'components/Button/StyledNavLink';
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
     
-  const dispatch = useDispatch();
-
+const dispatch = useDispatch();
+  
 //   const defaultState = {
 //   date: new Date(),
 //   type: false,
@@ -29,8 +29,9 @@ const ModalAddTransactions = ({ onClose }) => {
 // };
 
 useEffect(() => {
-   dispatch(transOperations.getCategories());
+   dispatch(transOperations.fetchTransactionsByCategory());
 }, [dispatch]);
+
 
 const transCategories = useSelector(
   transSelectors.getTransactionCategories,
