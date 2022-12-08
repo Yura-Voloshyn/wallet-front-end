@@ -1,3 +1,4 @@
+// import { useEffect, useState } from 'react';
 import {
   Table,
   TableCategories,
@@ -22,7 +23,7 @@ export function TableStatistics({ categoryStatistics }) {
         </tr>
       </TableHead>
       <TableBody>
-        {categoryStatistics?.map(({id, name, value, color }) => {
+        {categoryStatistics?.map(({ id, name, value, color }) => {
           return (
             <tr key={id}>
               <TableCategories>

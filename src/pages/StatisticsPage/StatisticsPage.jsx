@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+// import { useSelector } from 'react-redux';
 import { Diogram } from '../../components/Diogram/Diogram';
 import { SelectData } from '../../components/SelectData/SelectData';
 import { TableStatistics } from '../../components/TableStatistics/TableStatistics';
@@ -13,8 +14,37 @@ import {
 
 export function StatisticsPage() {
   const [categoryStatistics, setCategoryStatistics] = useState([]);
+  // const transactions = useSelector(store => store.transactions.transactions);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // useEffect(() => {
+  //   const result = transactions
+  //     .map(res => res)
+  //     .filter(res => res.type === false);
+
+  //   // let newObj = {};
+
+  //   let newObj = { category: null, sum: null };
+  //   for (let i = 0; i < result.length - 1; i++) {
+  //     for (let j = i + 1; j < result.length; j++) {
+  //       if (result[i].category === result[j].category) {
+  //         newObj.category = result[i].category;
+  //         newObj.sum = result[i].sum + result[j].sum;
+
+  //         if (newObj.category === result[i].category && newObj.category === result[j].category) {
+
+  //           result.splice(j, 1);
+  //           result.splice(i, 1 , newObj);
+  //         }
+  //       }
+  //     }
+
+  //   }
+
+  //   console.log(result);
+  //   // console.log(result);
+  //   setCategoryStatistics(result);
+  // }, []);
+
   const testArrCategories = [
     { id: 1, name: 'Main expenses', value: '8700.00', color: '#FED057' },
     { id: 2, name: 'Products', value: '3800.74', color: '#FFD8D0' },
@@ -32,20 +62,25 @@ export function StatisticsPage() {
       setCategoryStatistics(data);
     };
     getCategoryStatistics(testArrCategories);
-  }, [testArrCategories]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <StatisticsSection>
       <StatisticsWrapper>
-        <StatisticsLeftPartWrapp>
-          <StatisticsTitle>Statistics</StatisticsTitle>
-          <Diogram categoryStatistics={categoryStatistics} />
-        </StatisticsLeftPartWrapp>
-
-        <StatisticsDataWrapper>
-          <SelectData />
-          <TableStatistics categoryStatistics={categoryStatistics} />
-        </StatisticsDataWrapper>
+        {categoryStatistics !== undefined && (
+          <>
+            <StatisticsLeftPartWrapp>
+              <StatisticsTitle>Statistics</StatisticsTitle>
+              <Diogram categoryStatistics={categoryStatistics} />
+            </StatisticsLeftPartWrapp>
+            <StatisticsDataWrapper>
+              <SelectData />
+              <TableStatistics categoryStatistics={categoryStatistics} />
+            </StatisticsDataWrapper>
+          </>
+        )}
       </StatisticsWrapper>
     </StatisticsSection>
   );
