@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from "react-redux";
-import { transactionOperation,TitleMod, TransactionAddForm, CheckboxWrapper, AddTransIcon, AddExpsIcon, SelectWrapper, InputSumWrapper, FormSum, DateIcon, TextForm, SumInput, ChooseIcon, CommentInput } from "./modalAddTransaction.styled"
-// import {transactionOperation,} from '../../redux/transactions';
+import { TitleMod, TransactionAddForm, CheckboxWrapper, AddTransIcon, AddExpsIcon, SelectWrapper, InputSumWrapper, FormSum, DateIcon, TextForm, SumInput, ChooseIcon, CommentInput, CheckboxSpan } from "./modalAddTransaction.styled"
+import {fetchTransactions} from '../../redux/transaction/transactionOperation';
 import Modal from '../ModalAddTransactions/Modal';
 import Switch from 'react-switch';
 import Select from 'react-select';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
-import 'moment/locale/ua';
+// import 'moment/locale/ua';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 
@@ -29,9 +29,9 @@ const ModalAddTransactions = ({ onClose }) => {
 // };
 
     
-  //   useEffect(() => {
-  //   dispatch(transactionOperation.getCategories());
-  // }, [dispatch]);
+    useEffect(() => {
+    dispatch(fetchTransactions.getCategories());
+  }, [dispatch]);
 
   // const transactionCategories = useSelector(
   //   transactionSlice.getTransactionCategories,
@@ -44,10 +44,7 @@ const ModalAddTransactions = ({ onClose }) => {
   //   };
   // });
 
-  const optionIncome = [
-    { value: "Основной", label: "Основной" },
-    { value: "Дополнительный", label: "Дополнительный"}
-  ]
+
 
   const [defaultState, setFullState] = useState({
   date: new Date(),
@@ -98,7 +95,9 @@ const ModalAddTransactions = ({ onClose }) => {
   };
 
   //subtracting the day to get actual date
-  let startday = moment().subtract(1, 'day');
+// moment.locale('ua');
+  
+  let startday = moment.locale('ua').subtract(1, 'day');
   let today = function (current) {
     return current.isAfter(startday);
   };
@@ -110,7 +109,7 @@ const ModalAddTransactions = ({ onClose }) => {
       (async function () {
         const userSum = Number(sum);
         await dispatch(
-          transactionOperation.addTransaction({
+          fetchTransactions.addTransaction({
             sum: Number(userSum),
             comment,
             type: !checked ? 'income' : 'expense',
@@ -124,11 +123,8 @@ const ModalAddTransactions = ({ onClose }) => {
     [checked, comment, sum, category, onClose, dispatch],
   );
   
+  let optionIncome;
   
-  
-
-
-
 
     return (
       <Modal onClose={onClose}>
@@ -153,15 +149,14 @@ const ModalAddTransactions = ({ onClose }) => {
         
       <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
-          <span className={`checkbox__span ${!checked && 'active-income'}`}>
+          <CheckboxSpan as="span">
             Income
-          </span>
+          </CheckboxSpan>
           <Switch
             name="checked"
             value={checked}
             onChange={handleChangeCheckbox}
             checked={checked}
-            className="Checkbox__button"
             height={40}
             width={80}
             handleDiameter={44}
@@ -193,9 +188,9 @@ const ModalAddTransactions = ({ onClose }) => {
               </AddExpsIcon>
             }
           />
-          <span className={`Checkbox__span ${checked && 'active-spend'}`}>
-            Расход
-          </span>
+          <CheckboxSpan as="span">
+            Expense
+          </CheckboxSpan>
         </CheckboxWrapper>
 
         {checked && (
@@ -224,7 +219,6 @@ const ModalAddTransactions = ({ onClose }) => {
               name="selectedOption"
               onChange={onChangeSelect}
               options={optionIncome}
-              placeholder="Choose category"
             />
             <ChooseIcon as="svg"
               id="arrow-icon"
@@ -246,7 +240,7 @@ const ModalAddTransactions = ({ onClose }) => {
               value={sum}
               onChange={handleChange}
               type="text"
-              maxLength="6"
+              maxLength="7"
               placeholder="0.00"
               pattern="^[ 0-9]+$"
               required
@@ -260,8 +254,8 @@ const ModalAddTransactions = ({ onClose }) => {
             closeOnSelect={true}
             isValidDate={today}
             inputProps={{
-          placeholder: "MM-DD-YYYY HH:mm",
-          required: true
+            placeholder: "MM-DD-YYYY HH:mm",
+            required: true
         }}
           />
           <DateIcon as="svg"

@@ -120,3 +120,7 @@ export const CommentInput = styled.input`
   padding-left: 20px;
   padding-bottom: 5px;
 `;
+
+export const CheckboxSpan = styled.span`
+  
+`;
