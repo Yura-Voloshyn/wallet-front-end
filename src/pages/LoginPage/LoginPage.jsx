@@ -5,7 +5,7 @@ import frameLogtab from '../../images/frameLogtab.png';
 import frameRegbig from '../../images/frameRegbig.png';
 import frameRegtab from '../../images/frameRegtab.png';
 import LoginForm from 'components/LoginForm';
-import RegistrationForm from 'components/RegistrationForm';
+import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
 import {
   Container,
   ImageContainer,
