@@ -10,25 +10,28 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { authReducer } from './auth';
 
-const authPersistConfig = {
-  key: 'auth',
+import authReducer from './auth/authSlice';
+import transactionsSlice from './transaction/transactionSlice'
+const persistConfig = {
+  key: 'token',
   storage,
   whitelist: ['token'],
 };
 
+const persistedReducer = persistReducer(persistConfig, authReducer);
+const transactionReducer = persistReducer(persistConfig, transactionsSlice);
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistedReducer,
+    transactions: transactionReducer,
   },
-  middleware: getDefaultMiddleware => [
-    ...getDefaultMiddleware({
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  ],
 });
 
 export const persistor = persistStore(store);

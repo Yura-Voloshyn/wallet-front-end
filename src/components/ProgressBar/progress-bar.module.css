@@ -1,4 +1,5 @@
 .wrapper {
+  position: relative;
   box-sizing: content-box;
   height: 0px;
   margin: 0;
@@ -18,16 +19,76 @@
   border: 2px solid rgba(229, 241, 239, 1);
 }
 
-.barCompleted {
+.barCompletedBad {
   box-sizing: content-box;
   position: absolute;
   top: -1.8px;
   left: -1px;
   border-radius: 50px;
-  background-color: rgba(36, 204, 167, 1);
-  width: 80%;
+  width: 0%;
   height: 100%;
   height: 2px;
+  background-color: rgba(229, 241, 239, 1);
+  border: 2px solid rgba(229, 241, 239, 1);
+  color: transparent;
+  overflow: hidden;
+}
+
+.barCompletedNotBad {
+  box-sizing: content-box;
+  position: absolute;
+  top: -1.8px;
+  left: -1px;
+  border-radius: 50px;
+  width: 20%;
+  height: 100%;
+  height: 2px;
+  background-color: rgba(253, 148, 152, 1);
+  border: 2px solid rgba(253, 148, 152, 1);
+  color: transparent;
+  overflow: hidden;
+}
+
+.barCompletedNormal {
+  box-sizing: content-box;
+  position: absolute;
+  top: -1.8px;
+  left: -1px;
+  border-radius: 50px;
+  width: 40%;
+  height: 100%;
+  height: 2px;
+  background-color: rgba(254, 208, 87, 1);
+  border: 2px solid rgba(254, 208, 87, 1);
+  color: transparent;
+  overflow: hidden;
+}
+
+.barCompletedWell {
+  box-sizing: content-box;
+  position: absolute;
+  top: -1.8px;
+  left: -1px;
+  border-radius: 50px;
+  width: 70%;
+  height: 100%;
+  height: 2px;
+  background-color: rgba(36, 204, 167, 1);
+  border: 2px solid rgba(36, 204, 167, 1);
+  color: transparent;
+  overflow: hidden;
+}
+
+.barCompletedVeryWell {
+  box-sizing: content-box;
+  position: absolute;
+  top: -1.8px;
+  left: -1px;
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  height: 2px;
+  background-color: rgba(36, 204, 167, 1);
   border: 2px solid rgba(36, 204, 167, 1);
   color: transparent;
   overflow: hidden;

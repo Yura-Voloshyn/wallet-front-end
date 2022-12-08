@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-const TotalBalanceWrapper = styled.div`
+export const TotalBalanceWrapper = styled.div`
     margin-top: 28px;
     max-width: 395px;
     height: 80px;
@@ -12,8 +12,11 @@ const TotalBalanceWrapper = styled.div`
     @media (max-width: 768px) {
         max-width: 336px;
     }
+    @media (max-width: 320px){
+        max-width: 280px;
+    }
 `
-const Title = styled.p`
+export const Title = styled.p`
     padding-left: 40px;
     font-family: 'Circe';
     font-style: normal;
@@ -23,7 +26,7 @@ const Title = styled.p`
     color: #A6A6A6;
     margin: 0 0 12px 0;
 `
-const Balance = styled.p`
+export const Balance = styled.p`
     padding-left: 40px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -32,15 +35,3 @@ const Balance = styled.p`
     color: #000000;
     margin: 0;
 `
-
-const TotalBalance = () => {
-    return (
-        <TotalBalanceWrapper>
-            <Title>Your balance</Title>
-            <Balance>₴ 24 000.00</Balance>
-
-        </TotalBalanceWrapper>
-    )
-}
-
-export default TotalBalance
