@@ -14,6 +14,8 @@ import logoutIcon from '../../images/icons/logout-icon.svg';
 export const Header = () => {
   const [isShowModalLogout, setIsShowModalLogout] = useState(false);
 
+  const handleCloseModal = () => setIsShowModalLogout(false);
+
   return (
     <HeaderWrapper>
       <Logo />
@@ -26,7 +28,7 @@ export const Header = () => {
         </LogoutBtn>
       </UserMenu>
 
-      {isShowModalLogout && <ModalLogout />}
+      {isShowModalLogout && <ModalLogout onClose={handleCloseModal} />}
     </HeaderWrapper>
   );
 };
