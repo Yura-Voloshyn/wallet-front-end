@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { Diogram } from '../../components/Diogram/Diogram';
 import { SelectData } from '../../components/SelectData/SelectData';
 import { TableStatistics } from '../../components/TableStatistics/TableStatistics';
@@ -22,7 +22,6 @@ export function StatisticsPage() {
   //     .filter(res => res.type === false);
 
   //   // let newObj = {};
- 
 
   //   let newObj = { category: null, sum: null };
   //   for (let i = 0; i < result.length - 1; i++) {
@@ -45,7 +44,6 @@ export function StatisticsPage() {
   //   // console.log(result);
   //   setCategoryStatistics(result);
   // }, []);
-  
 
   const testArrCategories = [
     { id: 1, name: 'Main expenses', value: '8700.00', color: '#FED057' },
@@ -65,11 +63,8 @@ export function StatisticsPage() {
     };
     getCategoryStatistics(testArrCategories);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
- 
-
 
   return (
     <StatisticsSection>

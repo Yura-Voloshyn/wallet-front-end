@@ -1,6 +1,6 @@
 // import { Navigate, Route, Routes } from 'react-router-dom';
 // import { Suspense } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import { AppWrapper } from './App.styled';
 // import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
@@ -15,9 +15,8 @@ import { AppWrapper } from './App.styled';
 // import { Header } from 'components/Header/Header';
 // import { Navigation } from 'components/Navigation/Navigation';
 
-
 const App = () => {
-  const isLogin = useSelector(state => state.auth.isLoggedIn);
+  // const isLogin = useSelector(state => state.auth.isLoggedIn);
 
   return (
     <>
@@ -30,7 +29,6 @@ const App = () => {
             <Currency />
           </>
         )} */}
-
 
         {/* <UserRoutes /> */}
         {/* <LoginPage /> */}
@@ -47,10 +45,8 @@ const App = () => {
           <Route path="/register" element={<LoginPage />} />
         </Routes>
       </Suspense> */}
-
       </AppWrapper>
     </>
-
   );
 };
 export default App;
