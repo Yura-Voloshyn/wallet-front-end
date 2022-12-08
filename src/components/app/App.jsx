@@ -11,7 +11,7 @@ import { AppWrapper } from './App.styled';
 
 // import Home from 'pages/Home/Home';
 // import LoginPage from 'pages/LoginPage';
-// import { UserRoutes } from 'UserRoutes';
+import { UserRoutes } from 'UserRoutes';
 // import { Header } from 'components/Header/Header';
 // import { Navigation } from 'components/Navigation/Navigation';
 
@@ -30,7 +30,7 @@ const App = () => {
           </>
         )} */}
 
-        {/* <UserRoutes /> */}
+        <UserRoutes />
         {/* <LoginPage /> */}
         {/* <Currency /> */}
 
