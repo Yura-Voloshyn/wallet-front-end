@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { userLogin } from 'redux/auth/authOperation';
 import schema from 'helpers';
+import { IconContext } from 'react-icons';
 import { HiEyeOff, HiEye } from 'react-icons/hi';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
@@ -64,9 +65,23 @@ const LoginForm = () => {
                 placeholder="Password"
               />
               {isHidePassword ? (
-                <HiEye onClick={() => setIsHidePassword(false)} />
+                <IconContext.Provider
+                  value={{
+                    size: '20px',
+                    color: 'rgba(224, 224, 224, 1)',
+                  }}
+                >
+                  <HiEye onClick={() => setIsHidePassword(false)} />
+                </IconContext.Provider>
               ) : (
-                <HiEyeOff onClick={() => setIsHidePassword(true)} />
+                <IconContext.Provider
+                  value={{
+                    size: '20px',
+                    color: 'rgba(224, 224, 224, 1)',
+                  }}
+                >
+                  <HiEyeOff onClick={() => setIsHidePassword(true)} />
+                </IconContext.Provider>
               )}
               <ErrorMessage
                 name="password"
