@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import getCurrency from '../../services/api/getCurrency.js';
+import getCurrency from '../../services/api/getCurrency/getCurrency';
 import {
   CurrencyTableStyled,
   CurrencyTableHead,
