@@ -1,21 +1,48 @@
-import { Overlay, Content, Text } from './ModalLogout.styled';
+import { useEffect } from 'react';
+import { Overlay, Content, Text, BtnWrapper } from './ModalLogout.styled';
 import { ModaLogoutBtn } from './ModaLogoutBtn';
 
-export const ModalLogout = () => {
+export const ModalLogout = ({ onClose }) => {
+  useEffect(() => {
+    window.addEventListener('keydown', handleEscPress);
+
+    return () => {
+      window.removeEventListener('keydown', handleEscPress);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleEscPress = e => {
+    if (e.code === 'Escape') {
+      onClose();
+    }
+  };
+
+  const handleOverlayClick = e => {
+    if (e.currentTarget === e.target) {
+      onClose();
+    }
+  };
+
   return (
-    <Overlay>
+    <Overlay onClick={handleOverlayClick}>
       <Content>
         <Text>Do you really want to log out?</Text>
-        <ModaLogoutBtn
-          bgColor="#24CCA7"
-          text="Yes, Log Out"
-          onClick={() => console.log('Logout')}
-        />
-        <ModaLogoutBtn
-          bgColor="#FFFFFF"
-          text="Cancel"
-          onClick={() => console.log('Cancel')}
-        />
+
+        <BtnWrapper>
+          <ModaLogoutBtn
+            bgColor="#24CCA7"
+            textColor="#FFFFFF"
+            text="Yes, Log Out"
+            onClick={() => console.log('Logout')}
+          />
+          <ModaLogoutBtn
+            bgColor="#FFFFFF"
+            textColor="#24CCA7"
+            text="Cancel"
+            onClick={onClose}
+          />
+        </BtnWrapper>
       </Content>
     </Overlay>
   );

@@ -10,20 +10,22 @@ export const Button = styled.button`
   text-align: center;
   font-family: ${stylistics.fonts.body};
   font-size: ${stylistics.fontSizes.m};
-  color: ${stylistics.colors.lightTextBtn};
+  color: ${props => props.textColor};
   background-color: ${props => props.bgColor};
+  border: 1px solid ${stylistics.colors.leisureExpens};
+  transition: all 300ms linear;
 
   :hover,
   :focus {
-    background-color: ${stylistics.colors.mainBg};
-    color: ${stylistics.colors.primaryBgBtn};
-    border: 1px solid ${stylistics.colors.primaryBgBtn};
+    background-color: ${stylistics.colors.hoverBgBtn};
+    color: ${stylistics.colors.lightTextBtn};
+    border: 1px solid ${stylistics.colors.hoverBgBtn};
   }
 `;
 
-export const ModaLogoutBtn = ({ onClick, text, bgColor }) => {
+export const ModaLogoutBtn = ({ onClick, text, bgColor, textColor }) => {
   return (
-    <Button onClick={onClick} bgColor={bgColor}>
+    <Button onClick={onClick} bgColor={bgColor} textColor={textColor}>
       {text}
     </Button>
   );

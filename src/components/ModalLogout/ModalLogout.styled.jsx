@@ -34,3 +34,13 @@ export const Text = styled.p`
   font-size: ${stylistics.fontSizes.s};
   color: ${stylistics.colors.primaryText};
 `;
+
+export const BtnWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
