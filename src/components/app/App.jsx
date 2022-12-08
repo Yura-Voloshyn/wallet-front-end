@@ -1,12 +1,12 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { Suspense } from 'react';
+// import { Navigate, Route, Routes } from 'react-router-dom';
+// import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 
 import { AppWrapper } from './App.styled';
 // import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
 
 // import Currency from 'components/Currency/Currency';
-import TotalBalance from 'components/totalBalance/total-balance';
+import TotalBalance from 'components/TotalBalance/TotalBalance';
 // import Home from 'pages/Home/Home';
 // import LoginPage from 'pages/LoginPage';
 import { UserRoutes } from 'UserRoutes';
