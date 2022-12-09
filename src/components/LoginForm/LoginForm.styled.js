@@ -24,35 +24,30 @@ export const LogoWrap = styled.div`
 export const StyledForm = styled(Form)`
   width: 100%;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Label = styled.label`
   position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  padding-left: 10px;
-  border-bottom: 1px solid ${stylistics.colors.secondaryLightText};
-  & + & {
-    margin-top: 40px;
-  }
+  display: block;
+  box-sizing: content-box;
+  margin-bottom: 40px;
 `;
 
 export const Input = styled(Field)`
-  width: 240px;
-  padding: 8px 20px;
+  width: 238px;
+  padding: 8px;
+  padding-right: auto;
+  display: flex;
+  align-items: center;
   border: none;
-  font-family: ${stylistics.fonts.body};
-  font-style: normal;
-  font-weight: ${stylistics.fontWeights.normal};
-  font-size: ${stylistics.fontSizes.m};
-  line-height: ${stylistics.lineHeights.body};
-  color: ${stylistics.colors.primaryText};
-  background-color: transparent;
-  &:focus {
-    outline: none;
-  }
+  padding-left: 42px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 16px;
+  margin: 0;
   ::placeholder {
     font-family: ${stylistics.fonts.body};
     font-style: normal;
@@ -62,7 +57,8 @@ export const Input = styled(Field)`
     color: ${stylistics.colors.secondaryText};
   }
   @media screen and (min-width: 768px) {
-    width: 370px;
+    font-size: 18px;
+    width: 409px;
   }
 `;
 
