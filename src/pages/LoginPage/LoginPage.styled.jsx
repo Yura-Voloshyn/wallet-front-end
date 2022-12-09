@@ -78,6 +78,7 @@ export const Text = styled.p`
   color: ${stylistics.colors.primaryText};
 `;
 export const FormContainer = styled.div`
+  padding: auto 0;
   @media screen and (min-width: 1280px) {
     width: auto;
     height: 100vh;
@@ -86,6 +87,8 @@ export const FormContainer = styled.div`
     justify-content: center;
     backdrop-filter: blur(50px);
     background-color: ${stylistics.colors.secondBg};
-    padding: 52px 91px 52px 107px;
+    padding: auto;
+    padding-left: 107px;
+    padding-right: 107px;
   }
 `;
