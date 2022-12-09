@@ -4,7 +4,8 @@ First we clone repo from "Dev" branch (NOT MAIN) - this is a development branch.
 git clone https://github.com/Yura-Voloshyn/wallet-front-end.git
 
 To sync your local branch with dev use this command: |git checkout dev|, |git
-pull| Then create new branch - |git checkout -b "branch-name"|
+pull| then create new branch - |git checkout -b "branch-name"|, switch to new
+branch |git checkout "branch-name"|
 
 Every feature or bugfix performed in a separate branch - feature/feature-name
 and bugfix/bugfix-name
@@ -28,6 +29,15 @@ If your application uses the `react-router-dom` library for routing, you must
 additionally configure the `<BrowserRouter>` component by passing the exact name
 of your repository in the `basename` prop. Slashes at the beginning and end of
 the line are required.
+
+### Endpoints
+
+https://wallet-jet.vercel.app/ - base_url
+https://wallet-jet.vercel.app/api/auth/login and register
+https://wallet-jet.vercel.app/api/transactions - GET request take all user
+transactions, POST - create new transaction
+https://wallet-jet.vercel.app/api/transactions/categories - categories list with
+ID and categori name
 
 ```jsx
 <BrowserRouter basename="/your_repo_name/">
