@@ -1,5 +1,5 @@
 import TotalBalance from 'components/TotalBalance/TotalBalance';
-import Table from 'components/table/table';
+import Table from 'components/Table/table';
 import NavigationsHome from 'components/navigationsHome/navigationsHome';
 import {
   HomeContainer,
