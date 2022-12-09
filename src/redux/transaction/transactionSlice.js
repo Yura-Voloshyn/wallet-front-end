@@ -23,7 +23,7 @@ const transactionsSlice = createSlice({
       store.items = payload;
     },
     [fetchTransactions.rejected]: (store, { payload }) => {
-      store.loading = false;
+      // store.loading = false;
       store.error = payload;
     },
   },

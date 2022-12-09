@@ -7,7 +7,7 @@ import { store, persistor } from './redux/store';
 
 import App from 'components/App/App.jsx';
 import './index.css';
-
+// basename = '/wallet-front-end';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
