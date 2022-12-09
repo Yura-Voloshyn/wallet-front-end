@@ -1,8 +1,26 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState, useCallback } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { TitleMod, TransactionAddForm, CheckboxWrapper, AddTransIcon, AddExpsIcon, SelectWrapper, InputSumWrapper, FormSum, DateIcon, TextForm, SumInput, ChooseIcon, CommentInput, CheckboxSpan } from "./modalAddTransaction.styled"
-import { transOperations, transSelectors } from '../../services/api/transactios';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  TitleMod,
+  TransactionAddForm,
+  CheckboxWrapper,
+  AddTransIcon,
+  AddExpsIcon,
+  SelectWrapper,
+  InputSumWrapper,
+  FormSum,
+  DateIcon,
+  TextForm,
+  SumInput,
+  ChooseIcon,
+  CommentInput,
+  CheckboxSpan,
+} from './modalAddTransaction.styled';
+import {
+  transOperations,
+  transSelectors,
+} from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
 import Switch from 'react-switch';
 import Select from 'react-select';
@@ -13,110 +31,108 @@ import moment from 'moment';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 
-
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
-    
-const dispatch = useDispatch();
-// const categories = useSelector(transOperations.fetchTransactionsByCategory);
+  const dispatch = useDispatch();
+  const categories = useSelector(transOperations.fetchTransactionsByCategory);
+  console.log(categories);
 
-// const defaultState = {
-//   date: new Date(),
-//   type: false,
-//   category: "",
-//   comment: "",
-//   sum: "",
-// };
+  // const defaultState = {
+  //   date: new Date(),
+  //   type: false,
+  //   category: "",
+  //   comment: "",
+  //   sum: "",
+  // };
 
-useEffect(() => {
-   dispatch(transOperations.fetchTransactionsByCategory());
-}, [dispatch]);
+  useEffect(() => {
+    dispatch(transOperations.fetchTransactionsByCategory());
+  }, [dispatch]);
 
-const transCategories = useSelector(
-  transSelectors.getTransactionCategories,
-);
+  const transCategories = useSelector(transSelectors.getTransactionCategories);
 
-const selection = transCategories.map(e => {
-  return {
-    value: e,
-    label: e,
+  const selection = transCategories.map(e => {
+    return {
+      value: e,
+      label: e,
+    };
+  });
+
+  const [defaultState, setFullState] = useState({
+    date: new Date(),
+    type: false,
+    category: '',
+    comment: '',
+    sum: '',
+  });
+
+  const { category, comment, sum, checked } = defaultState;
+
+  useEffect(() => {
+    if (checked) {
+      setFullState(items => ({
+        ...items,
+      }));
+      return;
+    }
+  }, [checked]);
+
+  const handleChangeCheckbox = nextChecked => {
+    setFullState(items => ({
+      ...items,
+      checked: nextChecked,
+      value: null,
+      label: '',
+    }));
   };
-});
 
-const [defaultState, setFullState] = useState({
-  date: new Date(),
-  type: false,
-  category: "",
-  comment: "",
-  sum: "",
-});
- 
-const { category, comment, sum, checked } = defaultState;
+  const onChangeSelect = e => {
+    setFullState(items => ({
+      ...items,
+      category: e.value,
+    }));
+  };
 
-useEffect(() => {
-  if (checked) {
-   setFullState(items => ({
-    ...items,
-  }));
-  return;
-}}, [checked]);
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFullState(items => ({
+      ...items,
+      [name]: value,
+    }));
+  };
 
-const handleChangeCheckbox = nextChecked => {
-  setFullState(items => ({
-    ...items,
-    checked: nextChecked,
-    value: null,
-    label: '',
-  }));
-};
-
-const onChangeSelect = e => {
-  setFullState(items => ({
-    ...items,
-    category: e.value,
-  }));
-};
-
-const handleChange = e => {
-  const { name, value } = e.target;
-  setFullState(items => ({
-    ...items,
-    [name]: value,
-  }));
-};
-
-const handleSubmit = useCallback(
-  e => {
-    e.preventDefault();
-    (async function () {
-      const userSum = Number(sum);
-      await dispatch(
-        transOperations.addTransaction({
-          sum: Number(userSum),
-          comment,
-          type: !checked ? 'income' : 'expense',
-          category,
-        }),
-      );
-    })();
-    onClose();
-  },
-  [category, comment, sum, checked, onClose, dispatch],
-);
+  const handleSubmit = useCallback(
+    e => {
+      e.preventDefault();
+      (async function () {
+        const userSum = Number(sum);
+        await dispatch(
+          transOperations.addTransaction({
+            sum: Number(userSum),
+            comment,
+            type: !checked ? 'income' : 'expense',
+            category,
+          })
+        );
+      })();
+      onClose();
+    },
+    [category, comment, sum, checked, onClose, dispatch]
+  );
   //subtracting the day to get actual date
-// moment.locale('ua'); 
-let startDay = moment.locale('ua').subtract(1, 'day');
-let today = function (current) {
-  return current.isAfter(startDay);
-};  
-let income;
-  
+  // moment.locale('ua');
+  let startDay = moment.locale('ua').subtract(1, 'day');
+  let today = function (current) {
+    return current.isAfter(startDay);
+  };
+  let income;
+
   return (
-      <Modal onClose={onClose}>
-        <button
-          type="button"
-          className="TransactionAddForm__closeBtn"
-          onClick={onClose}
+    <Modal onClose={onClose}>
+      <button
+        type="button"
+        className="TransactionAddForm__closeBtn"
+        onClick={onClose}
       >
         <svg
           width="18"
@@ -128,15 +144,13 @@ let income;
           <path d="M1 1L17 17" stroke="black" />
           <path d="M1 17L17 0.999999" stroke="black" />
         </svg>
-       </button>
-        
+      </button>
+
       <TitleMod as="h2">Add transaction</TitleMod>
-        
+
       <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
-          <CheckboxSpan as="span">
-            Income
-          </CheckboxSpan>
+          <CheckboxSpan as="span">Income</CheckboxSpan>
           <Switch
             name="checked"
             value={checked}
@@ -148,7 +162,8 @@ let income;
             onHandleColor="#FF6596"
             offHandleColor="#24cca7"
             checkedHandleIcon={
-              <AddTransIcon as="svg"
+              <AddTransIcon
+                as="svg"
                 id="add-icon"
                 width="20"
                 height="2"
@@ -160,7 +175,8 @@ let income;
               </AddTransIcon>
             }
             noncheckedHandleIcon={
-              <AddExpsIcon as="svg"
+              <AddExpsIcon
+                as="svg"
                 id="spend-icon"
                 width="20"
                 height="20"
@@ -173,9 +189,7 @@ let income;
               </AddExpsIcon>
             }
           />
-          <CheckboxSpan as="span">
-            Expense
-          </CheckboxSpan>
+          <CheckboxSpan as="span">Expense</CheckboxSpan>
         </CheckboxWrapper>
 
         {checked && (
@@ -186,7 +200,8 @@ let income;
               options={selection}
               placeholder="Choose category"
             />
-            <ChooseIcon as="svg"
+            <ChooseIcon
+              as="svg"
               id="arrow-icon"
               width="20"
               height="11"
@@ -205,7 +220,8 @@ let income;
               onChange={onChangeSelect}
               options={income}
             />
-            <ChooseIcon as="svg"
+            <ChooseIcon
+              as="svg"
               id="arrow-icon"
               width="20"
               height="11"
@@ -220,7 +236,8 @@ let income;
 
         <InputSumWrapper as="div">
           <FormSum as="label">
-            <SumInput as="input"
+            <SumInput
+              as="input"
               name="sum"
               value={sum}
               onChange={handleChange}
@@ -239,23 +256,24 @@ let income;
             closeOnSelect={true}
             isValidDate={today}
             inputProps={{
-            placeholder: "MM-DD-YYYY HH:mm",
-            required: true
-        }}
+              placeholder: 'MM-DD-YYYY HH:mm',
+              required: true,
+            }}
           />
-          <DateIcon as="svg"
+          <DateIcon
+            as="svg"
             id="calendar-icon"
             width="26"
             height="30"
             viewBox="0 0 26 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-          >
-          </DateIcon>
+          ></DateIcon>
         </InputSumWrapper>
 
         <TextForm as="label">
-          <CommentInput as="input"
+          <CommentInput
+            as="input"
             name="comment"
             value={comment}
             type="text"
@@ -264,17 +282,16 @@ let income;
             pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+([-'\s][a-zA-Zа-яА-ЯІіЇїҐґ]+)*$"
           ></CommentInput>
         </TextForm>
-            {/* Two modal btns */}
-          <StyledNavLink btnText={'Add'}></StyledNavLink>
-          <SubmitBtn onClick={onClose} btnText={'Decline'}></SubmitBtn> 
-      </TransactionAddForm>  
- </Modal>)
-}
+        {/* Two modal btns */}
+        <StyledNavLink btnText={'Add'}></StyledNavLink>
+        <SubmitBtn onClick={onClose} btnText={'Decline'}></SubmitBtn>
+      </TransactionAddForm>
+    </Modal>
+  );
+};
 
 ModalAddTransactions.propTypes = {
   onClose: PropTypes.func,
 };
 
 export default ModalAddTransactions;
-
-

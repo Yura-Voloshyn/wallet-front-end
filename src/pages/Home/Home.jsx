@@ -7,7 +7,7 @@ import {
   TableContainer,
 } from './Home.styled';
 import ButtonAddTransactions from '../../components/Button/ButtonAddTransaction/OpenModalBtn';
-import ModalAddTransactions from '../../components/ModalAddTransactions/modalAddTransaction';
+import ModalAddTransactions from '../../components/ModalAddTransactions/modalAddTransaction.jsx';
 import { useState } from 'react';
 
 const Home = () => {

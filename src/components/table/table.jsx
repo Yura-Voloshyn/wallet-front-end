@@ -5,36 +5,31 @@
 // import TableMobile from "./TableMobile";
 
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
-import { fetchTransactions } from "redux/transaction/transactionOperation";
-import { useDispatch } from "react-redux";
-
-
+import { fetchTransactions } from 'redux/transaction/transactionOperation';
+import { useDispatch } from 'react-redux';
 
 const Table = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchTransactions());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchTransactions());
+  }, [dispatch]);
 
-    const transactions = useSelector(state => state.transactions)
+  // const transactions = useSelector(state => state.transactions)
 
-    return (
-        <>
-
-        {console.log(transactions)}
-        {/* <TableStyle>
+  return (
+    <>
+      {/* {console.log(transactions)} */}
+      {/* <TableStyle>
             <TableHead/>
             <TableBody items={transaction}/>
         </TableStyle>
 
         <TableMobile items={transaction}/> */}
-        </>
+    </>
+  );
+};
 
-
-    )
-}
-
-export default Table
+export default Table;

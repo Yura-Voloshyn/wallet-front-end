@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://wallet-jet.vercel.app/',
+  baseURL: 'https://wallet-jet.vercel.app',
 });
 
 const setToken = token => {
@@ -18,7 +18,7 @@ export const signup = async data => {
 };
 
 export const userLogin = async data => {
-  const { data: result } = await instance.post('api/auth/login', data);
+  const { data: result } = await instance.post('/api/auth/login', data);
   setToken(result.data.token);
   return result;
 };
