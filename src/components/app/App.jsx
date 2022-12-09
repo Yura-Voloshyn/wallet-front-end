@@ -3,7 +3,7 @@
 // import { useSelector } from 'react-redux';
 
 import { AppWrapper } from './App.styled';
-// import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
+import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
 
 // import Currency from 'components/Currency/Currency';
 
@@ -35,7 +35,7 @@ const App = () => {
         {/* <Currency /> */}
 
         {/* <Home /> */}
-        {/* <StatisticsPage /> */}
+        <StatisticsPage />
 
         {/* <Suspense fallback={null}>
 
