@@ -11,29 +11,31 @@ export const Div = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  width: 100vw;
-  height: 100vh;
-
+  width: 320px;
+  margin: 0 auto;
+  padding: 32px 20px 36px;
+  background-color: ${stylistics.colors.mainBg};
   @media screen and (min-width: 768px) {
     width: 533px;
-    height: 616px;
-    padding: 40px 62px;
+    padding: 40px 58px 66px 65px;
     border-radius: 20px;
-    margin: 0 auto;
   }
 `;
 
 export const FormStyled = styled(Form)`
-  margin-top: 60px;
-  background-color: #fff;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const FormLabel = styled.label`
   position: relative;
   display: block;
   box-sizing: content-box;
-  margin-bottom: 40px;
+  margin-top: 40px;
 `;
 
 export const FormField = styled(Field)`

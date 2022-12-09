@@ -4,13 +4,11 @@ import { stylistics } from '../../styles/styles';
 
 export const FormWrap = styled.div`
   width: 320px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding: 32px 20px 36px;
   background-color: ${stylistics.colors.mainBg};
   @media screen and (min-width: 768px) {
     width: 533px;
-    height: 468px;
     padding: 40px 58px 66px 65px;
     border-radius: 20px;
   }
@@ -23,7 +21,7 @@ export const LogoWrap = styled.div`
 
 export const StyledForm = styled(Form)`
   width: 100%;
-  margin-top: 60px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +32,7 @@ export const Label = styled.label`
   position: relative;
   display: block;
   box-sizing: content-box;
-  margin-bottom: 40px;
+  margin-top: 40px;
 `;
 
 export const Input = styled(Field)`
