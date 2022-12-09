@@ -10,6 +10,11 @@ import {
 
 const options = ['Currency', 'Purchase', 'Sale'];
 
+const convertCurrencyCode = {
+  840: 'USD',
+  978: 'EUR',
+};
+
 // const Categories = () => {
 //   const categories = useSelector(getFilteredCategories);
 
@@ -78,7 +83,7 @@ const CurrencyTable = () => {
         {data.map(value => {
           return (
             <CurrencyTableTr key={value.rateBuy}>
-              <td>{value.currencyCodeA}</td>
+              <td>{convertCurrencyCode[value.currencyCodeA]}</td>
               <td>{(+value.rateBuy).toFixed(2).toString()}</td>
               <td>{(+value.rateSell).toFixed(2).toString()}</td>
             </CurrencyTableTr>

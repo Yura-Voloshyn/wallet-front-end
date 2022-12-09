@@ -20,7 +20,7 @@ const transactionsSlice = createSlice({
     [fetchTransactions.fulfilled]: (store, { payload }) => {
       console.log(payload);
       store.loading = false;
-      store.items.push(payload);
+      store.items = payload;
     },
     [fetchTransactions.rejected]: (store, { payload }) => {
       store.loading = false;
