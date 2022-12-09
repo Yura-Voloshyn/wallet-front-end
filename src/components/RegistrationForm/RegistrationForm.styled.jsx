@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
+import { stylistics } from '../../styles/styles';
 import { ReactComponent as email } from '../../images/icons/email.svg';
 import { ReactComponent as password } from '../../images/icons/password.svg';
 import { ReactComponent as user } from '../../images/icons/user.svg';
@@ -45,6 +46,14 @@ export const FormField = styled(Field)`
   padding-left: 42px;
   border-bottom: 1px solid #e0e0e0;
   font-size: 16px;
+  ::placeholder {
+    font-family: ${stylistics.fonts.body};
+    font-style: normal;
+    font-weight: ${stylistics.fontWeights.normal};
+    font-size: ${stylistics.fontSizes.m};
+    line-height: ${stylistics.lineHeights.body};
+    color: ${stylistics.colors.secondaryText};
+  }
   @media screen and (min-width: 768px) {
     font-size: 18px;
     width: 409px;
