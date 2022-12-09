@@ -1,6 +1,6 @@
-import TotalBalance from 'components/TotalBalance/TotalBalance';
+// import TotalBalance from 'components/TotalBalance/TotalBalance';
 import Table from 'components/Table/Table';
-import NavigationsHome from 'components/navigationsHome/navigationsHome';
+// import { Navigation } from 'components/Navigation/Navigation';
 import {
   HomeContainer,
   CurrencyContainer,
@@ -11,8 +11,8 @@ const Home = () => {
   return (
     <HomeContainer>
       <CurrencyContainer>
-        <NavigationsHome />
-        <TotalBalance />
+        {/* <Navigation /> */}
+        {/* <TotalBalance /> */}
       </CurrencyContainer>
       <TableContainer>
         <Table />

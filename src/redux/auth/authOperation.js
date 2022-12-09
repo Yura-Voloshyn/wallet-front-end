@@ -77,3 +77,20 @@ export const logout = createAsyncThunk(
 //     }
 //   }
 // );
+export const current = createAsyncThunk(
+  'auth/current',
+  async (_, { rejectWithValue, getState }) => {
+    try {
+      const { auth } = getState();
+      const result = await api.getCurrent(auth.token);
+      return result;
+    } catch ({ response }) {
+      const { status, statusText } = response;
+      const error = {
+        status,
+        message: statusText,
+      };
+      return rejectWithValue(error);
+    }
+  }
+);
