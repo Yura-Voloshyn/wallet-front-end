@@ -24,7 +24,6 @@ export const Div = styled.div`
 
 export const FormStyled = styled(Form)`
   margin-top: 20px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

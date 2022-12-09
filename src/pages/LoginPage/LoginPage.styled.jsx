@@ -89,6 +89,6 @@ export const FormContainer = styled.div`
     background-color: ${stylistics.colors.secondBg};
     padding: auto;
     padding-left: 107px;
-    padding-right: 107px;
+    padding-right: auto;
   }
 `;

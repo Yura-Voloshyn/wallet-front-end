@@ -20,7 +20,6 @@ export const LogoWrap = styled.div`
 `;
 
 export const StyledForm = styled(Form)`
-  width: 100%;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
