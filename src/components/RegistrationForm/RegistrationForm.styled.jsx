@@ -57,7 +57,7 @@ export const FormField = styled(Field)`
     color: ${stylistics.colors.secondaryText};
   }
   @media screen and (min-width: 768px) {
-    font-size: 18px;
+    font-size: ${stylistics.fontSizes.m};
     width: 409px;
   }
 `;
@@ -68,7 +68,7 @@ export const IconEmail = styled(email)`
   top: 7px;
   width: 20px;
   height: 16px;
-  fill: #e0e0e0;
+  fill: ${stylistics.colors.secondaryLightText};
   @media screen and (min-width: 768px) {
     top: 9px;
   }
@@ -78,9 +78,9 @@ export const IconPassword = styled(password)`
   position: absolute;
   left: 10px;
   top: 3px;
-  width: 16px;
+  width: ${stylistics.fontSizes.s};
   height: 21px;
-  fill: #e0e0e0;
+  fill: ${stylistics.colors.secondaryLightText};
   @media screen and (min-width: 768px) {
     top: 5px;
   }
@@ -92,7 +92,7 @@ export const IconUser = styled(user)`
   top: 6px;
   width: 18px;
   height: 18px;
-  fill: #e0e0e0;
+  fill: ${stylistics.colors.secondaryLightText};
   @media screen and (min-width: 768px) {
     top: 8px;
   }
@@ -102,7 +102,7 @@ export const ProgressText = styled.p`
   position: absolute;
   top: 60px;
   left: 10px;
-  font-size: 14px;
+  font-size: ${stylistics.fontSizes.xs};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,8 +110,8 @@ export const ProgressText = styled.p`
 
 export const ErrorText = styled.p`
   font-weight: 200;
-  font-size: 13px;
-  color: red;
+  font-size: ${stylistics.fontSizes.xs};
+  color: ${stylistics.colors.expenseColor};
 `;
 
 export const HiEyeStyle = styled(HiEye)`
