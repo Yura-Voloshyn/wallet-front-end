@@ -8,8 +8,6 @@ import { IconContext } from 'react-icons';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 import { Logo } from 'components/Logo/Logo';
-import { ReactComponent as EmailIcon } from '../../images/icons/email.svg';
-import { ReactComponent as PasswordIcon } from '../../images/icons/password.svg';
 import Spinner from 'components/Spinner';
 import {
   FormWrap,
@@ -20,6 +18,8 @@ import {
   ErrorMsg,
 } from './LoginForm.styled';
 import {
+  IconEmail,
+  IconPassword,
   HiEyeStyle,
   HiEyeOffStyle,
 } from '../RegistrationForm/RegistrationForm.styled';
@@ -53,7 +53,7 @@ const LoginForm = () => {
         {({ isValid, dirty }) => (
           <StyledForm autoComplete="off">
             <Label>
-              <EmailIcon />
+              <IconEmail />
               <Input type="email" name="email" placeholder="E-mail" />
               <ErrorMessage
                 name="email"
@@ -61,7 +61,7 @@ const LoginForm = () => {
               />
             </Label>
             <Label>
-              <PasswordIcon />
+              <IconPassword />
               <Input
                 type={isHidePassword ? 'password' : 'text'}
                 name="password"
