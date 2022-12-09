@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useEffect, useState, useCallback } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 import {
   TitleMod,
   TransactionAddForm,
@@ -17,10 +17,10 @@ import {
   CommentInput,
   CheckboxSpan,
 } from './modalAddTransaction.styled';
-import {
-  transOperations,
-  transSelectors,
-} from '../../services/api/transactios';
+// import {
+//   transOperations,
+//   transSelectors,
+// } from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
 import Switch from 'react-switch';
 import Select from 'react-select';
@@ -33,99 +33,99 @@ import StyledNavLink from 'components/Button/StyledNavLink';
 
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
-  const dispatch = useDispatch();
-  const categories = useSelector(transOperations.fetchTransactionsByCategory);
-  console.log(categories);
+  // const dispatch = useDispatch();
+  // const categories = useSelector(transOperations.fetchTransactionsByCategory);
+  // console.log(categories);
 
-  // const defaultState = {
+  // // const defaultState = {
+  // //   date: new Date(),
+  // //   type: false,
+  // //   category: "",
+  // //   comment: "",
+  // //   sum: "",
+  // // };
+
+  // useEffect(() => {
+  //   dispatch(transOperations.fetchTransactionsByCategory());
+  // }, [dispatch]);
+
+  // const transCategories = useSelector(transSelectors.getTransactionCategories);
+
+  // const selection = transCategories.map(e => {
+  //   return {
+  //     value: e,
+  //     label: e,
+  //   };
+  // });
+
+  // const [defaultState, setFullState] = useState({
   //   date: new Date(),
   //   type: false,
-  //   category: "",
-  //   comment: "",
-  //   sum: "",
+  //   category: '',
+  //   comment: '',
+  //   sum: '',
+  // });
+
+  // const { category, comment, sum, checked } = defaultState;
+
+  // useEffect(() => {
+  //   if (checked) {
+  //     setFullState(items => ({
+  //       ...items,
+  //     }));
+  //     return;
+  //   }
+  // }, [checked]);
+
+  // const handleChangeCheckbox = nextChecked => {
+  //   setFullState(items => ({
+  //     ...items,
+  //     checked: nextChecked,
+  //     value: null,
+  //     label: '',
+  //   }));
   // };
 
-  useEffect(() => {
-    dispatch(transOperations.fetchTransactionsByCategory());
-  }, [dispatch]);
+  // const onChangeSelect = e => {
+  //   setFullState(items => ({
+  //     ...items,
+  //     category: e.value,
+  //   }));
+  // };
 
-  const transCategories = useSelector(transSelectors.getTransactionCategories);
+  // const handleChange = e => {
+  //   const { name, value } = e.target;
+  //   setFullState(items => ({
+  //     ...items,
+  //     [name]: value,
+  //   }));
+  // };
 
-  const selection = transCategories.map(e => {
-    return {
-      value: e,
-      label: e,
-    };
-  });
-
-  const [defaultState, setFullState] = useState({
-    date: new Date(),
-    type: false,
-    category: '',
-    comment: '',
-    sum: '',
-  });
-
-  const { category, comment, sum, checked } = defaultState;
-
-  useEffect(() => {
-    if (checked) {
-      setFullState(items => ({
-        ...items,
-      }));
-      return;
-    }
-  }, [checked]);
-
-  const handleChangeCheckbox = nextChecked => {
-    setFullState(items => ({
-      ...items,
-      checked: nextChecked,
-      value: null,
-      label: '',
-    }));
-  };
-
-  const onChangeSelect = e => {
-    setFullState(items => ({
-      ...items,
-      category: e.value,
-    }));
-  };
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setFullState(items => ({
-      ...items,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = useCallback(
-    e => {
-      e.preventDefault();
-      (async function () {
-        const userSum = Number(sum);
-        await dispatch(
-          transOperations.addTransaction({
-            sum: Number(userSum),
-            comment,
-            type: !checked ? 'income' : 'expense',
-            category,
-          })
-        );
-      })();
-      onClose();
-    },
-    [category, comment, sum, checked, onClose, dispatch]
-  );
+  // const handleSubmit = useCallback(
+  //   e => {
+  //     e.preventDefault();
+  //     (async function () {
+  //       const userSum = Number(sum);
+  //       await dispatch(
+  //         transOperations.addTransaction({
+  //           sum: Number(userSum),
+  //           comment,
+  //           type: !checked ? 'income' : 'expense',
+  //           category,
+  //         })
+  //       );
+  //     })();
+  //     onClose();
+  //   },
+  //   [category, comment, sum, checked, onClose, dispatch]
+  // );
   //subtracting the day to get actual date
   // moment.locale('ua');
-  let startDay = moment.locale('ua').subtract(1, 'day');
-  let today = function (current) {
-    return current.isAfter(startDay);
-  };
-  let income;
+  // let startDay = moment.locale('ua').subtract(1, 'day');
+  // let today = function (current) {
+  //   return current.isAfter(startDay);
+  // };
+  // let income;
 
   return (
     <Modal onClose={onClose}>
@@ -147,15 +147,15 @@ const ModalAddTransactions = ({ onClose }) => {
       </button>
 
       <TitleMod as="h2">Add transaction</TitleMod>
-
-      <TransactionAddForm onSubmit={handleSubmit}>
+{/* onSubmit={handleSubmit} */}
+      <TransactionAddForm >    
         <CheckboxWrapper as="div">
           <CheckboxSpan as="span">Income</CheckboxSpan>
           <Switch
             name="checked"
-            value={checked}
-            onChange={handleChangeCheckbox}
-            checked={checked}
+            // value={checked}
+            // onChange={handleChangeCheckbox}
+            // checked={checked}
             height={40}
             width={80}
             handleDiameter={44}
@@ -192,12 +192,13 @@ const ModalAddTransactions = ({ onClose }) => {
           <CheckboxSpan as="span">Expense</CheckboxSpan>
         </CheckboxWrapper>
 
-        {checked && (
+        {/* {checked && ( */}
+        {(
           <SelectWrapper as="div">
             <Select
               name="selectedOption"
-              onChange={onChangeSelect}
-              options={selection}
+              // onChange={onChangeSelect}
+              // options={selection}
               placeholder="Choose category"
             />
             <ChooseIcon
@@ -213,12 +214,13 @@ const ModalAddTransactions = ({ onClose }) => {
             </ChooseIcon>
           </SelectWrapper>
         )}
-        {!checked && (
+        {/* {!checked && ( */}
+        {(
           <SelectWrapper as="div">
             <Select
               name="selectedOption"
-              onChange={onChangeSelect}
-              options={income}
+              // onChange={onChangeSelect}
+              // options={income}
             />
             <ChooseIcon
               as="svg"
@@ -239,8 +241,8 @@ const ModalAddTransactions = ({ onClose }) => {
             <SumInput
               as="input"
               name="sum"
-              value={sum}
-              onChange={handleChange}
+              // value={sum}
+              // onChange={handleChange}
               type="text"
               maxLength="7"
               placeholder="0.00"
@@ -254,7 +256,7 @@ const ModalAddTransactions = ({ onClose }) => {
             initialValue={moment()}
             timeFormat={false}
             closeOnSelect={true}
-            isValidDate={today}
+            // isValidDate={today}
             inputProps={{
               placeholder: 'MM-DD-YYYY HH:mm',
               required: true,
@@ -275,9 +277,9 @@ const ModalAddTransactions = ({ onClose }) => {
           <CommentInput
             as="input"
             name="comment"
-            value={comment}
+            // value={comment}
             type="text"
-            onChange={handleChange}
+            // onChange={handleChange}
             placeholder="Leave your comment here"
             pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+([-'\s][a-zA-Zа-яА-ЯІіЇїҐґ]+)*$"
           ></CommentInput>
