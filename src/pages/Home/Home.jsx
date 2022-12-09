@@ -3,17 +3,17 @@ import Table from 'components/Table/Table';
 // import { Navigation } from 'components/Navigation/Navigation';
 import {
   HomeContainer,
-  CurrencyContainer,
+  // CurrencyContainer,
   TableContainer,
 } from './Home.styled';
 
 const Home = () => {
   return (
     <HomeContainer>
-      <CurrencyContainer>
+      {/* <CurrencyContainer> */}
         {/* <Navigation /> */}
         {/* <TotalBalance /> */}
-      </CurrencyContainer>
+      {/* </CurrencyContainer> */}
       <TableContainer>
         <Table />
       </TableContainer>
