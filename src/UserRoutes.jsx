@@ -19,7 +19,7 @@ export const UserRoutes = () => {
         </Route>
 
         <Route element={<PublicRoute />}>
-          <Route path="/" element={<Navigate to="/register" />} />
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<LoginPage />} />
         </Route>
