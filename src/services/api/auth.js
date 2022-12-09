@@ -23,4 +23,10 @@ export const userLogin = async data => {
   return result;
 };
 
+export const logout = async () => {
+  const data = await instance.get('/api/auth/logout');
+  setToken();
+  return data;
+};
+
 export default instance;
