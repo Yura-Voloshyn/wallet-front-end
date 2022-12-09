@@ -1,11 +1,8 @@
-import axios from 'axios';
+import instance from "../auth";
 
-const instance = axios.create({
-  baseURL: 'https://wallet-jet.vercel.app/api',
-});
 
 export const getTransactions = async () => {
-  const data = await instance.get('/transactions');
+  const data = await instance.get('/api/transactions');
 
   return data;
 };
