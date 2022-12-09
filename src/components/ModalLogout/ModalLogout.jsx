@@ -1,8 +1,13 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { logout } from 'redux/auth/authOperation';
 import { Overlay, Content, Text, BtnWrapper } from './ModalLogout.styled';
-import { ModaLogoutBtn } from './ModaLogoutBtn';
+import { ModaLogoutBtn } from './ModaLogoutBtn/ModaLogoutBtn';
 
 export const ModalLogout = ({ onClose }) => {
+  const dispatch = useDispatch();
+  const onLogout = () => dispatch(logout());
+
   useEffect(() => {
     window.addEventListener('keydown', handleEscPress);
 
@@ -34,7 +39,7 @@ export const ModalLogout = ({ onClose }) => {
             bgColor="#24CCA7"
             textColor="#FFFFFF"
             text="Yes, Log Out"
-            onClick={() => console.log('Logout')}
+            onClick={onLogout}
           />
           <ModaLogoutBtn
             bgColor="#FFFFFF"
