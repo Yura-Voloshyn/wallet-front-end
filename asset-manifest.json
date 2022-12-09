@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/wallet-front-end/static/css/main.375d41ba.css",
-    "main.js": "/wallet-front-end/static/js/main.36a68270.js",
-    "static/css/651.9f89537a.chunk.css": "/wallet-front-end/static/css/651.9f89537a.chunk.css",
-    "static/js/651.258b5cea.chunk.js": "/wallet-front-end/static/js/651.258b5cea.chunk.js",
+    "main.js": "/wallet-front-end/static/js/main.f0126128.js",
+    "static/css/651.db970b34.chunk.css": "/wallet-front-end/static/css/651.db970b34.chunk.css",
+    "static/js/651.948c549a.chunk.js": "/wallet-front-end/static/js/651.948c549a.chunk.js",
     "static/css/294.51c2fabb.chunk.css": "/wallet-front-end/static/css/294.51c2fabb.chunk.css",
     "static/js/294.cad5844a.chunk.js": "/wallet-front-end/static/js/294.cad5844a.chunk.js",
     "static/js/803.545990ac.chunk.js": "/wallet-front-end/static/js/803.545990ac.chunk.js",
@@ -28,9 +28,9 @@
     "static/media/home-icon.svg": "/wallet-front-end/static/media/home-icon.e876a65eb5555615875780a0b61bfb7a.svg",
     "static/media/email.svg": "/wallet-front-end/static/media/email.5a58fa9a7b1c77f266dc65e36b85b886.svg",
     "main.375d41ba.css.map": "/wallet-front-end/static/css/main.375d41ba.css.map",
-    "main.36a68270.js.map": "/wallet-front-end/static/js/main.36a68270.js.map",
-    "651.9f89537a.chunk.css.map": "/wallet-front-end/static/css/651.9f89537a.chunk.css.map",
-    "651.258b5cea.chunk.js.map": "/wallet-front-end/static/js/651.258b5cea.chunk.js.map",
+    "main.f0126128.js.map": "/wallet-front-end/static/js/main.f0126128.js.map",
+    "651.db970b34.chunk.css.map": "/wallet-front-end/static/css/651.db970b34.chunk.css.map",
+    "651.948c549a.chunk.js.map": "/wallet-front-end/static/js/651.948c549a.chunk.js.map",
     "294.51c2fabb.chunk.css.map": "/wallet-front-end/static/css/294.51c2fabb.chunk.css.map",
     "294.cad5844a.chunk.js.map": "/wallet-front-end/static/js/294.cad5844a.chunk.js.map",
     "803.545990ac.chunk.js.map": "/wallet-front-end/static/js/803.545990ac.chunk.js.map",
@@ -39,6 +39,6 @@
   },
   "entrypoints": [
     "static/css/main.375d41ba.css",
-    "static/js/main.36a68270.js"
+    "static/js/main.f0126128.js"
   ]
 }
