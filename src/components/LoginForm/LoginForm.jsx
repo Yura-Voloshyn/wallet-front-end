@@ -96,7 +96,7 @@ const LoginForm = () => {
           </StyledForm>
         )}
       </Formik>
-      <StyledNavLink to="/register" btnText={'register'} />
+      <StyledNavLink btnText={'register'} to={'/register'} />
     </FormWrap>
   );
 };
