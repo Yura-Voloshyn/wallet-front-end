@@ -1,22 +1,24 @@
-// import TotalBalance from 'components/TotalBalance/Total-balance'
-import Table from 'components/Table/table'
-import NavigationsHome from 'components/navigationsHome/navigationsHome'
-import { HomeContainer, CurrencyContainer,  TableContainer} from './Home.styled'
+import TotalBalance from 'components/TotalBalance/TotalBalance';
+import Table from 'components/Table/table';
+import NavigationsHome from 'components/navigationsHome/navigationsHome';
+import {
+  HomeContainer,
+  CurrencyContainer,
+  TableContainer,
+} from './Home.styled';
 
 const Home = () => {
-return (
+  return (
     <HomeContainer>
-        <CurrencyContainer>
-                <NavigationsHome/>
-                {/* <TotalBalance/> */}
-        </CurrencyContainer>
-        <TableContainer>
-            <Table/>
-        </TableContainer>
-
+      <CurrencyContainer>
+        <NavigationsHome />
+        <TotalBalance />
+      </CurrencyContainer>
+      <TableContainer>
+        <Table />
+      </TableContainer>
     </HomeContainer>
+  );
+};
 
-)
-}
-
-export default Home
+export default Home;

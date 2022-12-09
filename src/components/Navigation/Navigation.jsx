@@ -9,7 +9,7 @@ import { ReactComponent as MoneyIcon } from 'images/icons/money_icon.svg';
 export const Navigation = () => {
   return (
     <MainNav>
-      <Link to="/">
+      <Link to="/home">
         <HomeIcon />
         <span>Home</span>
       </Link>
