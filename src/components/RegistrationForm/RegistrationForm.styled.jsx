@@ -17,6 +17,7 @@ export const Div = styled.div`
   @media screen and (min-width: 768px) {
     width: 533px;
     height: 616px;
+    padding: 40px 62px;
     border-radius: 20px;
     margin: 0 auto;
   }
@@ -46,6 +47,7 @@ export const FormField = styled(Field)`
   font-size: 16px;
   @media screen and (min-width: 768px) {
     font-size: 18px;
+    width: 409px;
   }
 `;
 
@@ -105,9 +107,17 @@ export const HiEyeStyle = styled(HiEye)`
   position: absolute;
   top: 10px;
   left: 260px;
+  @media screen and (min-width: 768px) {
+    top: 10px;
+    left: 430px;
+  } ;
 `;
 export const HiEyeOffStyle = styled(HiEyeOff)`
   position: absolute;
   top: 10px;
   left: 260px;
+  @media screen and (min-width: 768px) {
+    top: 10px;
+    left: 430px;
+  } ;
 `;

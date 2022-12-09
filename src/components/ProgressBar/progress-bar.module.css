@@ -11,7 +11,7 @@
 .container {
   box-sizing: content-box;
   position: relative;
-  width: 285px;
+  width: 100%;
 
   background-color: rgba(229, 241, 239, 1);
   border-radius: 50px;
