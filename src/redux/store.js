@@ -15,6 +15,7 @@ import categoriesReducer from './categories/categories-slice';
 
 import authReducer from './auth/authSlice';
 import transactionsSlice from './transaction/transactionSlice';
+
 const persistConfig = {
   key: 'token',
   storage,
@@ -23,6 +24,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, authReducer);
 const transactionReducer = persistReducer(persistConfig, transactionsSlice);
+
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,
