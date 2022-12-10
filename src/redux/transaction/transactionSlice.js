@@ -19,11 +19,11 @@ const transactionsSlice = createSlice({
     },
     [fetchTransactions.fulfilled]: (store, { payload }) => {
       store.loading = false;
-      store.transactions = [...payload.data.data.result]
+      store.transactions = [...payload.data.data.result];
     },
     [fetchTransactions.rejected]: (store, { payload }) => {
       store.loading = false;
-      store.error = payload.massege;
+      store.error = payload.message;
     },
   },
 });
