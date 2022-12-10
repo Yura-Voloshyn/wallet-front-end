@@ -57,8 +57,9 @@ export const Square = styled.div`
   width: 24px;
   height: 24px;
   margin-right: 15px;
-  
+
   margin-left: 20px;
+ 
 `;
 
 export const TableCategories = styled.td`
