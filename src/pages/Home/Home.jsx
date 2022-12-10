@@ -1,5 +1,5 @@
 // import TotalBalance from 'components/TotalBalance/TotalBalance';
-import Table from 'components/Table/Table';
+// import { Table } from 'components/Table/Table';
 // import { Navigation } from 'components/Navigation/Navigation';
 import {
   HomeContainer,
@@ -22,12 +22,10 @@ const Home = () => {
   return (
     <HomeContainer>
       {/* <CurrencyContainer> */}
-        {/* <Navigation /> */}
-        {/* <TotalBalance /> */}
+      {/* <Navigation /> */}
+      {/* <TotalBalance /> */}
       {/* </CurrencyContainer> */}
-      <TableContainer>
-        <Table />
-      </TableContainer>
+      <TableContainer>{/* <Table /> */}</TableContainer>
       <ButtonAddTransactions onOpen={onOpenModal} />
       {isModalAddTransactionOpen && (
         <ModalAddTransactions onClose={onCloseModal} />

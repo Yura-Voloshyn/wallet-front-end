@@ -19,14 +19,18 @@ import {
 } from './modalAddTransaction.styled';
 import {
   transOperations,
-  transSelectors,
+  // transSelectors,
 } from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
 import Switch from 'react-switch';
 import Select from 'react-select';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
-import moment from 'moment';
+// import moment from 'moment-timezone';
+// import moment from 'moment';
+
+import { getFilteredCategories } from 'redux/categories/categories-selectors';
+import { fetchCategories } from 'redux/categories/categories-operations';
 // import 'moment/locale/ua';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
@@ -44,17 +48,18 @@ const ModalAddTransactions = ({ onClose }) => {
   // //   comment: "",
   // //   sum: "",
   // // };
+  const categories = useSelector(getFilteredCategories);
 
   useEffect(() => {
-    dispatch(transOperations.fetchTransactionsByCategory());
+    dispatch(fetchCategories());
   }, [dispatch]);
 
-  const transCategories = useSelector(transSelectors.getTransactionCategories);
+  // const transCategories = useSelector(transSelectors.getTransactionCategories);
 
-  const selection = transCategories.map(e => {
+  const selection = categories.items.map(e => {
     return {
-      value: e,
-      label: e,
+      value: e.name,
+      label: e.name,
     };
   });
 
@@ -76,8 +81,8 @@ const ModalAddTransactions = ({ onClose }) => {
       }));
       return;
     }
-     setFullState(items => ({
-       ...items,
+    setFullState(items => ({
+      ...items,
     }));
   }, [checked]);
 
@@ -121,14 +126,15 @@ const ModalAddTransactions = ({ onClose }) => {
       })();
       onClose();
     },
-    [ category, comment, sum, checked, onClose, dispatch]
+    [category, comment, sum, checked, onClose, dispatch]
   );
   //subtracting the day to get actual date
-  moment.locale('ua');
-  let startDay = moment.locale('ua').subtract(1, 'day');
-  let today = function (current) {
-    return current.isAfter(startDay);
-  };
+
+  // moment.locale();
+  // let startDay = moment.locale().subtract(1, 'day');
+  // let today = function (current) {
+  //   return current.isAfter(startDay);
+  // };
   let income;
 
   return (
@@ -152,7 +158,7 @@ const ModalAddTransactions = ({ onClose }) => {
 
       <TitleMod as="h2">Add transaction</TitleMod>
 
-      <TransactionAddForm onSubmit={handleSubmit}>    
+      <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
           <CheckboxSpan as="span">Income</CheckboxSpan>
           <Switch
@@ -197,7 +203,7 @@ const ModalAddTransactions = ({ onClose }) => {
         </CheckboxWrapper>
 
         {/* {checked && ( */}
-        {checked &&(
+        {checked && (
           <SelectWrapper as="div">
             <Select
               name="selectedOption"
@@ -219,7 +225,7 @@ const ModalAddTransactions = ({ onClose }) => {
           </SelectWrapper>
         )}
         {/* {!checked && ( */}
-        {!checked &&(
+        {!checked && (
           <SelectWrapper as="div">
             <Select
               name="selectedOption"
@@ -257,10 +263,10 @@ const ModalAddTransactions = ({ onClose }) => {
 
           <Datetime
             locale="ua"
-            initialValue={moment()}
+            // initialValue={}
             timeFormat={false}
             closeOnSelect={true}
-            isValidDate={today}
+            // isValidDate={today}
             inputProps={{
               placeholder: 'MM-DD-YYYY HH:mm',
               required: true,
