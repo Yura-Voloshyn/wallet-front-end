@@ -52,14 +52,14 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
 
-  const handleSubmit = (e, { resetForm }) => {
+  const handleSubmit = async (e, { resetForm }) => {
     Notify.init({
       width: '180px',
       position: 'center',
       distance: '50px',
       opacity: 1,
       borderRadius: '50px',
-      timeout: 2000,
+      timeout: 3000,
       success: {
         background: 'rgba(36, 204, 167, 1)',
         textColor: '#fff',
@@ -89,12 +89,19 @@ const RegistrationForm = () => {
       const onRegister = data => {
         dispatch(signup(data));
       };
-      onRegister(result[0]);
+
+      const res = await onRegister(result[0]);
+      if (res === undefined) {
+        Notify.warning(`User with email: ${result[0].email} is alredy exist`);
+        resetForm();
+        setPassword('');
+        return;
+      }
 
       Notify.success('Registration success');
       resetForm();
       setPassword('');
-      return;
+      return res;
     }
     Notify.warning('Password wrong');
   };
