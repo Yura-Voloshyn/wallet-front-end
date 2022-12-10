@@ -26,9 +26,8 @@ export const UserRoutes = () => {
         <Route element={<PrivateRoute />}>
           <Route path="/home" element={<MainPage />} />
           <Route path="/diagram" element={<MainPage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
-
-        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Suspense>
   );
