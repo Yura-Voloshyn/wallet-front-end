@@ -1,22 +1,18 @@
-// import { useEffect, useState } from 'react';
-import './TableStatistics.scss' 
+import './TableStatistics.scss';
 import {
   Table,
   TableCategories,
-  Square,
   TableFoot,
   TableHead,
   TableHeadName,
   TableBody,
-  FootRaw,
   FootTitle,
   Expenses,
   Incomes,
+  NoTransactions,
 } from './TableStatistics.styled';
 
-export function TableStatistics({ categoryStatistics, incomeAndExpense }) {
-  
-
+export function TableStatistics({ categoryStatistics }) {
   return (
     <Table className="table">
       <TableHead>
@@ -26,43 +22,38 @@ export function TableStatistics({ categoryStatistics, incomeAndExpense }) {
         </tr>
       </TableHead>
       <TableBody>
-        {categoryStatistics?.map(({ _id, totalSum }) => {
+        {categoryStatistics.data.totalCategories.length === 0 && (
+          <tr>
+            <NoTransactions>No transactions</NoTransactions>
+          </tr>
+        )}
+        {categoryStatistics.data.totalCategories.map(({ _id, totalSum }) => {
           const forStyle = _id.replace(/\s+/g, '').toLowerCase();
-          
           let firtsCapLetter = _id.split('');
           firtsCapLetter[0] = firtsCapLetter[0].toUpperCase();
           firtsCapLetter = firtsCapLetter.join('');
-
-         
-
           return (
             <tr key={_id}>
               <TableCategories>
                 <div className={`square ${forStyle}`}></div>
                 {firtsCapLetter}
               </TableCategories>
-
               <TableCategories>{totalSum}</TableCategories>
             </tr>
           );
         })}
       </TableBody>
-      
-        {incomeAndExpense.data.map(({owner, totalIncome, totalExpense }) => {
-          return (
-            <TableFoot key={owner}>
-              <FootRaw>
-                <FootTitle>Expenses:</FootTitle>
-                <Expenses>{totalExpense}</Expenses>
-              </FootRaw>
-              <FootRaw>
-                <FootTitle>Income:</FootTitle>
-                <Incomes>{totalIncome}</Incomes>
-              </FootRaw>
-            </TableFoot>
-          );
-        })}
-      
+
+      <TableFoot key={categoryStatistics.data.owner}>
+        <tr>
+          <FootTitle>Expenses:</FootTitle>
+          <Expenses>{categoryStatistics.data.totalExpense}</Expenses>
+        </tr>
+        <tr>
+          <FootTitle>Income:</FootTitle>
+          <Incomes>{categoryStatistics.data.totalIncome}</Incomes>
+        </tr>
+      </TableFoot>
     </Table>
   );
 }

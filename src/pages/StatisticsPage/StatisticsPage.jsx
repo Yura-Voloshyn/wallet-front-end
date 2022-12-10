@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Diogram } from '../../components/Diogram/Diogram';
 import { SelectData } from '../../components/SelectData/SelectData';
 import { TableStatistics } from '../../components/TableStatistics/TableStatistics';
-
+import { statistics } from 'redux/statistics/statisticsOperation';
 import {
   StatisticsSection,
   StatisticsTitle,
@@ -12,50 +12,41 @@ import {
   StatisticsDataWrapper,
   StatisticsLeftPartWrapp,
 } from './StatisticsPage.styled';
+import Spinner from 'components/Spinner';
 
 export function StatisticsPage() {
-  const [categoryStatistics, setCategoryStatistics] = useState(null);
-  const statistics = useSelector(store => store.statistics);
-  const totalCategories = statistics.data.map(res => res.totalCategories);
+  const currentMonth = new Date().getMonth() + 1;
+  const currentYear = new Date().getFullYear();
 
-  
+  const [data, setData] = useState({
+    month: currentMonth,
+    year: currentYear,
+  });
 
+  const dispatch = useDispatch();
   useEffect(() => {
-    totalCategories.forEach(element => {
-    setCategoryStatistics(element);
-    });
-   
-  }, []);
+    console.log(data);
+    dispatch(statistics(data));
+  }, [data, dispatch]);
 
-  
-
-  // const testArrCategories = [
-  //   { id: 1, name: 'Main expenses',  color: '#FED057' },
-  //   { id: 2, name: 'Products', color: '#FFD8D0' },
-  //   { id: 3, name: 'Car',  color: '#FD9498' },
-  //   { id: 4, name: 'Self care',  color: '#C5BAFF' },
-  //   { id: 5, name: 'Child care',  color: '#6E78E8' },
-  //   { id: 6, name: 'Household products',  color: '#4A56E2' },
-  //   { id: 7, name: 'Education',  color: '#81E1FF' },
-  //   { id: 8, name: 'Leisure',  color: '#24CCA7' },
-  //   { id: 9, name: 'Other expenses',  color: '#00AD84' },
-  // ];
-
-  
+  const statisticsStore = useSelector(store => store.statistics);
 
   return (
     <StatisticsSection>
       <StatisticsWrapper>
-        {categoryStatistics !== null && (
+        {statisticsStore.isLoading === true && <Spinner/>}
+        {statisticsStore.data.length !== 0 && (
           <>
             <StatisticsLeftPartWrapp>
               <StatisticsTitle>Statistics</StatisticsTitle>
-              <Diogram categoryStatistics={categoryStatistics} />
+              <Diogram
+                categoryStatistics={statisticsStore.data.totalCategories}
+              />
             </StatisticsLeftPartWrapp>
             <StatisticsDataWrapper>
-              <SelectData />
+              <SelectData setData={setData} />
               <TableStatistics
-                categoryStatistics={categoryStatistics}
+                categoryStatistics={statisticsStore}
                 incomeAndExpense={statistics}
               />
             </StatisticsDataWrapper>

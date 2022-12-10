@@ -9,7 +9,7 @@ const getCurrency = async () => {
     },
     mode: 'no-cors',
   });
-  return res.data.slice(0, 3);
+  return res.data.slice(0, 2);
 };
 
 // function getCurrency() {

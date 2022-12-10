@@ -10,9 +10,14 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 import statisticsSlice from './statistics/statisticsSlice';
+
+import categoriesReducer from './categories/categories-slice';
+
 import authReducer from './auth/authSlice';
-// import transactionsSlice from './transaction/transactionSlice'
+import transactionsSlice from './transaction/transactionSlice';
+
 const persistConfig = {
   key: 'token',
   storage,
@@ -21,17 +26,28 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, authReducer);
 const statisticsReducer = persistReducer(persistConfig, statisticsSlice);
-// const transactionReducer = persistReducer(persistConfig, transactionsSlice);
+const transactionReducer = persistReducer(persistConfig, transactionsSlice);
 export const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    // transactions: transactionReducer,
+
     statistics: statisticsReducer,
+
+    categories: categoriesReducer,
+    transactions: transactionReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActions: [
+          FLUSH,
+          REHYDRATE,
+          PAUSE,
+          PERSIST,
+          PURGE,
+          REGISTER,
+          'statistics/transactions/fulfilled',
+        ],
       },
     }),
 });

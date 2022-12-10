@@ -5,12 +5,9 @@ import { useState } from 'react';
 import { userLogin } from 'redux/auth/authOperation';
 import schema from 'helpers';
 import { IconContext } from 'react-icons';
-import { HiEyeOff, HiEye } from 'react-icons/hi';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 import { Logo } from 'components/Logo/Logo';
-import { ReactComponent as EmailIcon } from '../../images/icons/email.svg';
-import { ReactComponent as PasswordIcon } from '../../images/icons/password.svg';
 import Spinner from 'components/Spinner';
 import {
   FormWrap,
@@ -20,6 +17,12 @@ import {
   Input,
   ErrorMsg,
 } from './LoginForm.styled';
+import {
+  IconEmail,
+  IconPassword,
+  HiEyeStyle,
+  HiEyeOffStyle,
+} from '../RegistrationForm/RegistrationForm.styled';
 
 const initialValues = {
   email: '',
@@ -50,7 +53,7 @@ const LoginForm = () => {
         {({ isValid, dirty }) => (
           <StyledForm autoComplete="off">
             <Label>
-              <EmailIcon />
+              <IconEmail />
               <Input type="email" name="email" placeholder="E-mail" />
               <ErrorMessage
                 name="email"
@@ -58,7 +61,7 @@ const LoginForm = () => {
               />
             </Label>
             <Label>
-              <PasswordIcon />
+              <IconPassword />
               <Input
                 type={isHidePassword ? 'password' : 'text'}
                 name="password"
@@ -71,7 +74,7 @@ const LoginForm = () => {
                     color: 'rgba(224, 224, 224, 1)',
                   }}
                 >
-                  <HiEye onClick={() => setIsHidePassword(false)} />
+                  <HiEyeStyle onClick={() => setIsHidePassword(false)} />
                 </IconContext.Provider>
               ) : (
                 <IconContext.Provider
@@ -80,7 +83,7 @@ const LoginForm = () => {
                     color: 'rgba(224, 224, 224, 1)',
                   }}
                 >
-                  <HiEyeOff onClick={() => setIsHidePassword(true)} />
+                  <HiEyeOffStyle onClick={() => setIsHidePassword(true)} />
                 </IconContext.Provider>
               )}
               <ErrorMessage
@@ -96,7 +99,7 @@ const LoginForm = () => {
           </StyledForm>
         )}
       </Formik>
-      <StyledNavLink to="/register" btnText={'register'} />
+      <StyledNavLink btnText={'register'} to={'/register'} />
     </FormWrap>
   );
 };

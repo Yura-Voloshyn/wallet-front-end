@@ -162,3 +162,12 @@ export const Tds = styled.td`
     color: ${color => color.color};
     border-bottom: 1px solid #DCDCDF;
 `
+export const TableText = styled.p`
+     font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    color: rgba(255, 101, 150, 1);
+    text-align: center;
+    padding-top: 20px;
+`

@@ -1,23 +1,8 @@
 import Select from 'react-select';
-import './SelectData.scss'
- import { YEAR, MONTH } from 'helpers/selectData';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { statistics } from 'redux/statistics/statisticsOperation';
-export function SelectData() {
-  const currentMonth = new Date().getMonth() + 1;
-  const currentYear = new Date().getFullYear(); 
- const dispatch = useDispatch()
-  const [data, setData] = useState({
-    month: currentMonth.toString(),
-    year: currentYear.toString(),
-  });
-  
-  useEffect(() => {
+import './SelectData.scss';
+import { YEAR, MONTH } from 'helpers/selectData';
 
-    dispatch(statistics(data));
-  }, [data]);
-  
+export function SelectData({ setData }) {
   return (
     <div className="dropdownWrapper">
       <Select
@@ -26,7 +11,9 @@ export function SelectData() {
         className="selectMonthYear"
         classNamePrefix="selectMonthYearPrefix"
         placeholder="Month"
-        onChange={month => setData(prev => ({ ...prev, month: month.value }))}
+        onChange={month =>
+          setData(prev => ({ ...prev, month: Number(month.value) }))
+        }
       />
       <Select
         options={YEAR}
@@ -34,7 +21,9 @@ export function SelectData() {
         className="selectMonthYear"
         classNamePrefix="selectMonthYearPrefix"
         placeholder="Year"
-        onChange={year => setData(prev => ({ ...prev, year: year.value }))}
+        onChange={year =>
+          setData(prev => ({ ...prev, year: Number(year.value) }))
+        }
       />
     </div>
   );

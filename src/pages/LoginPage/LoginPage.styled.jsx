@@ -43,6 +43,7 @@ export const ImageContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin: 0 auto;
     margin-bottom: 50px;
   }
   @media screen and (min-width: 1280px) {
@@ -56,7 +57,6 @@ export const ImageContainer = styled.div`
 
 export const Frame = styled.img`
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    height: 250px;
     width: 260px;
     margin-left: auto;
     margin-right: auto;
@@ -64,7 +64,6 @@ export const Frame = styled.img`
   }
   @media screen and (min-width: 1280px) {
     max-width: 435px;
-    height: 419px;
     margin-right: 38px;
     margin-bottom: 32px;
   }
@@ -79,6 +78,7 @@ export const Text = styled.p`
   color: ${stylistics.colors.primaryText};
 `;
 export const FormContainer = styled.div`
+  padding: auto 0;
   @media screen and (min-width: 1280px) {
     width: auto;
     height: 100vh;
@@ -87,6 +87,7 @@ export const FormContainer = styled.div`
     justify-content: center;
     backdrop-filter: blur(50px);
     background-color: ${stylistics.colors.secondBg};
-    padding: 52px 91px 52px 107px;
+    padding: auto;
+    padding: 0 107px;
   }
 `;

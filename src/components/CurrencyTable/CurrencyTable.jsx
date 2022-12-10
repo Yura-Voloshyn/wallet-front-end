@@ -7,7 +7,23 @@ import {
   CurrencyHeadItem,
   CurrencyTableBody,
 } from './CurrencyTable.styled';
+
 const options = ['Currency', 'Purchase', 'Sale'];
+
+const convertCurrencyCode = {
+  840: 'USD',
+  978: 'EUR',
+};
+
+// const Categories = () => {
+//   const categories = useSelector(getFilteredCategories);
+
+//   const dispatch = useDispatch();
+
+//   useEffect(() => {
+//     dispatch(fetchCategories());
+//   }, [dispatch]);
+// };
 
 // const data = fetchCurrency();
 // console.log(data);
@@ -31,6 +47,12 @@ const options = ['Currency', 'Purchase', 'Sale'];
 //     sale: '0.00',
 //   },
 // ];
+// const categories = async () => {
+//   const apiCategories = await getCategories();
+//   console.log(apiCategories);
+// };
+// categories();
+
 const CurrencyTable = () => {
   const [data, setData] = useState([]);
 
@@ -61,7 +83,7 @@ const CurrencyTable = () => {
         {data.map(value => {
           return (
             <CurrencyTableTr key={value.rateBuy}>
-              <td>{value.currencyCodeA}</td>
+              <td>{convertCurrencyCode[value.currencyCodeA]}</td>
               <td>{(+value.rateBuy).toFixed(2).toString()}</td>
               <td>{(+value.rateSell).toFixed(2).toString()}</td>
             </CurrencyTableTr>

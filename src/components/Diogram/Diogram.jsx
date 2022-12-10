@@ -4,6 +4,7 @@ import { Chart, ArcElement } from 'chart.js';
 Chart.register(ArcElement);
 
 export function Diogram({ categoryStatistics }) {
+ 
   const totalBalance = '₴ 24 000.00'; // test balance
   const arrToCheck = [
     { name: 'Main expenses', color: '#FED057' },
@@ -26,18 +27,19 @@ export function Diogram({ categoryStatistics }) {
         categoryWithColor.push({
           name: arr.name,
           color: arr.color,
+          value:name.totalSum
         });
       }
     }
   }
   
-
+  
   const data = {
     type: 'Doughnut',
 
     datasets: [
       {
-        data: categoryStatistics.map(res => res.totalSum),
+        data: categoryWithColor.map(res => res.value),
 
         backgroundColor: categoryWithColor.map(res => res.color),
 

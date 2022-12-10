@@ -1,10 +1,9 @@
-import getStatistics from "services/api/getStatistics/getStatistics";
+import getStatistics from 'services/api/getStatistics/getStatistics';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const statistics = createAsyncThunk(
   'statistics/transactions',
-   async (data, { rejectWithValue }) => {
-     console.log(data)
+  async (data, { rejectWithValue }) => {
     try {
       const result = await getStatistics(data);
       return result;
