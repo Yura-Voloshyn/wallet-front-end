@@ -18,13 +18,12 @@ const transactionsSlice = createSlice({
       store.error = null;
     },
     [fetchTransactions.fulfilled]: (store, { payload }) => {
-      // console.log(payload);
       store.loading = false;
-      store.items = payload;
+      store.transactions = [...payload.data.data.result];
     },
     [fetchTransactions.rejected]: (store, { payload }) => {
       store.loading = false;
-      store.error = payload;
+      store.error = payload.message;
     },
   },
 });
