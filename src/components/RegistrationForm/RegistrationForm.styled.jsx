@@ -11,12 +11,14 @@ export const Div = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: content-box;
   width: 320px;
   margin: 0 auto;
   padding: 32px 20px 36px;
   background-color: ${stylistics.colors.mainBg};
   @media screen and (min-width: 768px) {
-    width: 533px;
+    box-sizing: content-box;
+    width: 410px;
     padding: 40px 58px 66px 65px;
     border-radius: 20px;
   }
@@ -35,6 +37,10 @@ export const FormLabel = styled.label`
   display: block;
   box-sizing: content-box;
   margin-top: 40px;
+  width: 289px;
+  @media screen and (min-width: 768px) {
+    width: 409px;
+  }
 `;
 
 export const FormField = styled(Field)`
@@ -45,6 +51,8 @@ export const FormField = styled(Field)`
   align-items: center;
   border: none;
   padding-left: 42px;
+  box-sizing: content-box;
+  margin: 0;
   border-bottom: 1px solid #e0e0e0;
   font-size: 16px;
   ::placeholder {
@@ -57,7 +65,7 @@ export const FormField = styled(Field)`
   }
   @media screen and (min-width: 768px) {
     font-size: ${stylistics.fontSizes.m};
-    width: 409px;
+    width: 365px;
   }
 `;
 
@@ -119,7 +127,7 @@ export const HiEyeStyle = styled(HiEye)`
   left: 260px;
   @media screen and (min-width: 768px) {
     top: 10px;
-    left: 430px;
+    left: 385px;
   } ;
 `;
 export const HiEyeOffStyle = styled(HiEyeOff)`
@@ -128,6 +136,6 @@ export const HiEyeOffStyle = styled(HiEyeOff)`
   left: 260px;
   @media screen and (min-width: 768px) {
     top: 10px;
-    left: 430px;
+    left: 385px;
   } ;
 `;

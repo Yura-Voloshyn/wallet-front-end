@@ -8,7 +8,8 @@ export const FormWrap = styled.div`
   padding: 32px 20px 36px;
   background-color: ${stylistics.colors.mainBg};
   @media screen and (min-width: 768px) {
-    width: 533px;
+    box-sizing: content-box;
+    width: 410px;
     padding: 40px 58px 66px 65px;
     border-radius: 20px;
   }
@@ -55,7 +56,7 @@ export const Input = styled(Field)`
   }
   @media screen and (min-width: 768px) {
     font-size: 18px;
-    width: 409px;
+    width: 365px;
   }
 `;
 
