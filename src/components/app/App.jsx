@@ -22,7 +22,7 @@ const App = () => {
           </>
         )}
         <UserRoutes /> */}
-        <StatisticsPage/>
+        {/* <StatisticsPage/> */}
       </AppWrapper>
     </>
   );
