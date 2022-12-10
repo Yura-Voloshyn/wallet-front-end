@@ -6,6 +6,7 @@ import {
   TitleMod,
   TransactionAddForm,
   CheckboxWrapper,
+  IncomeChoosen,
   AddTransIcon,
   AddExpsIcon,
   SelectWrapper,
@@ -136,7 +137,7 @@ const ModalAddTransactions = ({ onClose }) => {
   // let today = function (current) {
   //   return current.isAfter(startDay);
   // };
-  let income;
+
 
   return (
     <Modal onClose={onClose}>
@@ -160,8 +161,11 @@ const ModalAddTransactions = ({ onClose }) => {
 
       <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
-          <CheckboxSpan as="span">Income</CheckboxSpan>
+          <IncomeChoosen as="div">
+            <CheckboxSpan as="span" >Income</CheckboxSpan>
+            </IncomeChoosen>
           <Switch
+            style={{  margin: '0 15px 20px 15px'}}
             name="checked"
             value={checked}
             onChange={handleChangeCheckbox}
@@ -202,35 +206,15 @@ const ModalAddTransactions = ({ onClose }) => {
           <CheckboxSpan as="span">Expense</CheckboxSpan>
         </CheckboxWrapper>
 
-        {/* {checked && ( */}
+    
         {checked && (
           <SelectWrapper as="div">
             <Select
-              name="selectedOption"
+              name="option"
               onChange={onChangeSelect}
               options={selection}
               placeholder="Choose category"
-            />
-            <ChooseIcon
-              as="svg"
-              id="arrow-icon"
-              width="20"
-              height="11"
-              viewBox="0 0 20 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M1 1L10 10L19 1" stroke="black" />
-            </ChooseIcon>
-          </SelectWrapper>
-        )}
-        {/* {!checked && ( */}
-        {!checked && (
-          <SelectWrapper as="div">
-            <Select
-              name="selectedOption"
-              onChange={onChangeSelect}
-              options={income}
+              styles = {{}}
             />
             <ChooseIcon
               as="svg"
@@ -252,10 +236,10 @@ const ModalAddTransactions = ({ onClose }) => {
               as="input"
               name="sum"
               value={sum}
-              onChange={handleChange}
               type="text"
-              maxLength="7"
               placeholder="0.00"
+              onChange={handleChange}
+              maxLength="7"
               pattern="^[ 0-9]+$"
               required
             ></SumInput>
@@ -268,8 +252,8 @@ const ModalAddTransactions = ({ onClose }) => {
             closeOnSelect={true}
             // isValidDate={today}
             inputProps={{
-              placeholder: 'MM-DD-YYYY HH:mm',
-              required: true,
+            placeholder: 'MM-DD-YYYY',
+            required: true,
             }}
           />
           <DateIcon
@@ -287,9 +271,9 @@ const ModalAddTransactions = ({ onClose }) => {
           <CommentInput
             as="input"
             name="comment"
-            value={comment}
             type="text"
             onChange={handleChange}
+            value={comment}
             placeholder="Leave your comment here"
             pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+([-'\s][a-zA-Zа-яА-ЯІіЇїҐґ]+)*$"
           ></CommentInput>
