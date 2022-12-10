@@ -88,7 +88,6 @@ export const FormContainer = styled.div`
     backdrop-filter: blur(50px);
     background-color: ${stylistics.colors.secondBg};
     padding: auto;
-    padding-left: 107px;
-    padding-right: auto;
+    padding: 0 107px;
   }
 `;
