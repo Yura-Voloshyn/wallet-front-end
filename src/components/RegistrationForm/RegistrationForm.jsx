@@ -186,7 +186,7 @@ const RegistrationForm = () => {
           <SubmitBtn type="submit" btnText={'register'} />
         </FormStyled>
       </Formik>
-      <StyledNavLink to="/login" btnText={'log in'} />
+      <StyledNavLink btnText={'login'} to={'/login'} />
     </Div>
   );
 };

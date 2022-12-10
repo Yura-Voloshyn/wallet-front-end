@@ -1,9 +1,9 @@
-import TotalBalance from 'components/TotalBalance/TotalBalance';
-import Table from 'components/Table/table';
-import NavigationsHome from 'components/navigationsHome/navigationsHome';
+// import TotalBalance from 'components/TotalBalance/TotalBalance';
+import Table from 'components/Table/Table';
+// import { Navigation } from 'components/Navigation/Navigation';
 import {
   HomeContainer,
-  CurrencyContainer,
+  // CurrencyContainer,
   TableContainer,
 } from './Home.styled';
 import ButtonAddTransactions from '../../components/Button/ButtonAddTransaction/OpenModalBtn';
@@ -21,10 +21,10 @@ const Home = () => {
   };
   return (
     <HomeContainer>
-      <CurrencyContainer>
-        <NavigationsHome />
-        <TotalBalance />
-      </CurrencyContainer>
+      {/* <CurrencyContainer> */}
+        {/* <Navigation /> */}
+        {/* <TotalBalance /> */}
+      {/* </CurrencyContainer> */}
       <TableContainer>
         <Table />
       </TableContainer>
