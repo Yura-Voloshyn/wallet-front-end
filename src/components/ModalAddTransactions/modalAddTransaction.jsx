@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  CloseAddModal,
   TitleMod,
   TransactionAddForm,
   CheckboxWrapper,
@@ -114,7 +115,7 @@ const ModalAddTransactions = ({ onClose }) => {
     e => {
       e.preventDefault();
       (async function () {
-        const userSum = Number(sum);
+        const userSum = Number(sum).toFixed(3);
         await dispatch(
           transOperations.addTransaction({
             sum: Number(userSum),
@@ -139,9 +140,8 @@ const ModalAddTransactions = ({ onClose }) => {
 
   return (
     <Modal onClose={onClose}>
-      <button
+      <CloseAddModal as="button"
         type="button"
-        className="TransactionAddForm__closeBtn"
         onClick={onClose}
       >
         <svg
@@ -154,7 +154,7 @@ const ModalAddTransactions = ({ onClose }) => {
           <path d="M1 1L17 17" stroke="black" />
           <path d="M1 17L17 0.999999" stroke="black" />
         </svg>
-      </button>
+      </CloseAddModal>
 
       <TitleMod as="h2">Add transaction</TitleMod>
 

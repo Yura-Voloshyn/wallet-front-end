@@ -1,10 +1,22 @@
 import styled from '@emotion/styled';
 import { stylistics } from '../../styles/styles';
 
-export const Modal = styled.div`  
-  outline: none;
+// export const Modal = styled.div`
+//   outline: none;
+//   border: none;
+//   /* padding: 20px 11px; */
+// `;
+export const CloseAddModal = styled.button`
+  position: absolute;
+  display: flex;
+  cursor: pointer;
+  right: 20px;
+  top: 20px;
+  background-color: #fff;
   border: none;
-  padding: 20px 11px;
+    @media screen and (max-width: 767px) {
+    display: none;
+  }
 `;
 
 export const TitleMod = styled.h2`
@@ -12,23 +24,31 @@ export const TitleMod = styled.h2`
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
+  font-size: 24px;
   line-height: 1.5;
   display: flex;
   align-items: center;
   text-align: center;
   color: ${stylistics.colors.primaryText};
+    @media screen and (min-width: 768px) {
+    font-size: 30px;
+    line-height: 26px;
+  }
 `;
-export const Checkbox = styled``;
 
 export const TransactionAddForm = styled.form`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
-  justify-content: center;
-  margin-bottom: 40px;
-  margin-top: 0;
-  color: #000;
 `;
+
+export const Checkbox = styled`
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+`;
+
+
 
 export const CheckboxWrapper = styled.div`
     margin-bottom: 40px;
