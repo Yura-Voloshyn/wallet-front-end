@@ -1,16 +1,15 @@
-// import { useEffect, useState } from 'react';
+import './TableStatistics.scss';
 import {
   Table,
   TableCategories,
-  Square,
   TableFoot,
   TableHead,
   TableHeadName,
   TableBody,
-  FootRaw,
   FootTitle,
   Expenses,
   Incomes,
+  NoTransactions,
 } from './TableStatistics.styled';
 
 export function TableStatistics({ categoryStatistics }) {
@@ -23,28 +22,49 @@ export function TableStatistics({ categoryStatistics }) {
         </tr>
       </TableHead>
       <TableBody>
-        {categoryStatistics?.map(({ id, name, value, color }) => {
+        {categoryStatistics.data.totalCategories.length === 0 && (
+          <tr>
+            <NoTransactions>No transactions</NoTransactions>
+          </tr>
+        )}
+        {categoryStatistics.data.totalCategories.map(({ _id, totalSum }) => {
+          const forStyle = _id.replace(/\s+/g, '').toLowerCase();
+          let firtsCapLetter = _id.split('');
+          firtsCapLetter[0] = firtsCapLetter[0].toUpperCase();
+          firtsCapLetter = firtsCapLetter.join('');
           return (
-            <tr key={id}>
+            <tr key={_id}>
               <TableCategories>
-                <Square style={{ backgroundColor: color }}></Square>
-                {name}
+                <div className={`square ${forStyle}`}></div>
+                {firtsCapLetter}
               </TableCategories>
-
-              <TableCategories>{value}</TableCategories>
+              <TableCategories>
+                {Number.isInteger(totalSum)
+                  ? `${totalSum}.00`
+                  : Math.round(totalSum * 100) / 100}
+              </TableCategories>
             </tr>
           );
         })}
       </TableBody>
-      <TableFoot>
-        <FootRaw>
+
+      <TableFoot key={categoryStatistics.data.owner}>
+        <tr>
           <FootTitle>Expenses:</FootTitle>
-          <Expenses>22 549.24</Expenses>
-        </FootRaw>
-        <FootRaw>
+          <Expenses>
+            {Number.isInteger(categoryStatistics.data.totalExpense)
+              ? `${categoryStatistics.data.totalExpense}.00`
+              : Math.round(categoryStatistics.data.totalExpense * 100) / 100}
+          </Expenses>
+        </tr>
+        <tr>
           <FootTitle>Income:</FootTitle>
-          <Incomes>27 350.00</Incomes>
-        </FootRaw>
+          <Incomes>
+            {Number.isInteger(categoryStatistics.data.totalIncome)
+              ? `${categoryStatistics.data.totalIncome}.00`
+              : Math.round(categoryStatistics.data.totalIncome * 100) / 100}
+          </Incomes>
+        </tr>
       </TableFoot>
     </Table>
   );

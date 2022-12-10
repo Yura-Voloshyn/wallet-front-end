@@ -57,8 +57,9 @@ export const Square = styled.div`
   width: 24px;
   height: 24px;
   margin-right: 15px;
-  
+
   margin-left: 20px;
+ 
 `;
 
 export const TableCategories = styled.td`
@@ -90,11 +91,7 @@ export const TableFoot = styled.tfoot`
   }
 `;
 
-export const FootRaw = styled.tr`
 
-  
-  
-`;
 
 export const FootTitle = styled.th`
   padding-left: 20px;
@@ -118,6 +115,17 @@ export const Incomes = styled.td`
   color: #24cca7;
 
   @media (min-width: 768px) {
+    padding-right: 20px;
+  }
+`;
+
+export const NoTransactions = styled.td`
+  color: red;
+  vertical-align: baseline;
+  align-items: center;
+  
+  &:last-child {
+    text-align: right;
     padding-right: 20px;
   }
 `;
