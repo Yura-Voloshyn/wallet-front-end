@@ -58,6 +58,7 @@ const ModalAddTransactions = ({ onClose }) => {
 
   // const transCategories = useSelector(transSelectors.getTransactionCategories);
 
+  //-----------styles for expensions categories selection
   const selection = categories.items.map(e => {
     return {
       value: e.name,
@@ -124,7 +125,7 @@ const ModalAddTransactions = ({ onClose }) => {
     e => {
       e.preventDefault();
       (async function () {
-        const userSum = Number(sum).toFixed(3);
+        const userSum = Number(sum).toFixed(2);
         await dispatch(
           transOperations.addTransaction({
             sum: Number(userSum),
@@ -173,7 +174,7 @@ const ModalAddTransactions = ({ onClose }) => {
             <CheckboxSpan as="span" >Income</CheckboxSpan>
             </IncomeChoosen>
           <Switch
-            style={{  margin: '0 15px 20px 15px'}}
+            styles={{  margin: '0 15px 20px 15px'}}
             name="checked"
             value={checked}
             onChange={handleChangeCheckbox}
@@ -221,9 +222,20 @@ const ModalAddTransactions = ({ onClose }) => {
               name="option"
               onChange={onChangeSelect}
               placeholder="Select a category"
-              style = {{ boxShadow: `none`,
-                       borderRadius: 20,
-                backgroundColor: `inherit`
+              style = {{ 
+                //        borderRadius: 20,
+                // backgroundColor: `inherit`,
+                    '@media screen and (min-width: 320px)': {
+      maxHeight: 352,
+    },
+    '@media screen and (min-width: 768px)': {
+      maxHeight: 411,
+    },
+    padding: 0,
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                borderRadius: 20,
+    backdropFilter: 'blur(25px)',
+    boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
               }}
               options={selection}
             />
