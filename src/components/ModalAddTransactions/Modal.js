@@ -20,16 +20,16 @@ const ModalContent = styled.div`
   width: 100%;
   min-height: 540px;
   top: 60px;
-  padding: 20px 10px 40px 10px;
+  padding: 20px 10px 50px 10px;
   background-color: #fff;
 
   @media screen and (min-width: 768px) {
-    max-height: 620px;
+    max-height: 603px;
     max-width: 540px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 40px 65px 60px 65px;
+    padding: 40px 73px 60px 73px;
     border-radius: 20px;
   }
 `;

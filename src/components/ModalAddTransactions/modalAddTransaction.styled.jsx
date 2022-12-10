@@ -1,11 +1,6 @@
 import styled from '@emotion/styled';
 import { stylistics } from '../../styles/styles';
 
-// export const Modal = styled.div`
-//   outline: none;
-//   border: none;
-//   /* padding: 20px 11px; */
-// `;
 export const CloseAddModal = styled.button`
   position: absolute;
   display: flex;
@@ -20,15 +15,14 @@ export const CloseAddModal = styled.button`
 `;
 
 export const TitleMod = styled.h2`
+  align-items: center;
+  text-align: center;
   font-family: ${stylistics.fonts.heading};
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
   font-size: 24px;
   line-height: 1.5;
   display: flex;
-  align-items: center;
-  text-align: center;
   color: ${stylistics.colors.primaryText};
     @media screen and (min-width: 768px) {
     font-size: 30px;
@@ -47,11 +41,7 @@ export const CheckboxWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
-// export const Checkbox = styled`
-//   margin-bottom: 40px;
-//   display: flex;
-//   align-items: center;
-// `;
+
 export const CheckboxSpan = styled.span`
   font-weight: 700;
   font-style: 16px;
@@ -62,7 +52,6 @@ export const CheckboxSpan = styled.span`
 export const IncomeChoosen = styled.div`
 color: ${stylistics.colors.primaryBgBtn}
 `;
-
 
 export const AddTransIcon = styled.svg`
   width: 20px;
@@ -87,6 +76,20 @@ export const SelectWrapper = styled.div`
   @media screen and (max-width: 767px) {
     margin-bottom: 40px;
 }
+    /* border: none; */
+   
+
+
+  /* @media screen and (min-width: 320px) {
+    maxHeight: 352;
+} */
+  /* @media screen and (min-width: 768px) {
+    maxHeight: 411;
+}
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
 `;
 
 export const ChooseIcon = styled.svg`

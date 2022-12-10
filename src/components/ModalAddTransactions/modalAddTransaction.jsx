@@ -64,7 +64,15 @@ const ModalAddTransactions = ({ onClose }) => {
       label: e.name,
     };
   });
+  selection.style=(state)=>({  paddingLeft: 20,
+                          paddingTop: 13,
+                          height: 44,
+                          border: 'none',
+    cursor: 'pointer',
+    color: state.isSelected || state.isFocused ? '#FF6596' : '#000000',
+    backgroundColor: state.isSelected || state.isFocused ? '#FFFFFF' : 'inherit',})
 
+  
   const [defaultState, setFullState] = useState({
     date: '',
     type: false,
@@ -212,9 +220,12 @@ const ModalAddTransactions = ({ onClose }) => {
             <Select
               name="option"
               onChange={onChangeSelect}
+              placeholder="Select a category"
+              style = {{ boxShadow: `none`,
+                       borderRadius: 20,
+                backgroundColor: `inherit`
+              }}
               options={selection}
-              placeholder="Choose category"
-              styles = {{}}
             />
             <ChooseIcon
               as="svg"
