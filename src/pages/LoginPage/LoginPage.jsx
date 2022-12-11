@@ -1,5 +1,6 @@
 import { useMedia } from 'react-use';
 import { useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import frameLogbig from '../../images/frameLogbig.png';
 import frameLogtab from '../../images/frameLogtab.png';
 import frameRegbig from '../../images/frameRegbig.png';
@@ -32,7 +33,13 @@ const LoginPage = () => {
         <Wrapper>
           {location.pathname === '/login' ? (
             <Container>
-              <LoginImage image={frameLogtab} />
+              <motion.div
+                initial={{ scale: 1.25, opacity: 0.75 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.75 }}
+              >
+                <LoginImage image={frameLogtab} />
+              </motion.div>
               <FormContainer>
                 {location.pathname === '/login' ? (
                   <LoginForm />
@@ -43,7 +50,13 @@ const LoginPage = () => {
             </Container>
           ) : (
             <Container>
-              <RegisterImage image={frameRegtab} />
+              <motion.div
+                initial={{ scale: 1.25, opacity: 0.75 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.75 }}
+              >
+                <RegisterImage image={frameRegtab} />
+              </motion.div>
               <FormContainer>
                 {location.pathname === '/login' ? (
                   <LoginForm />
@@ -60,9 +73,21 @@ const LoginPage = () => {
         <Container>
           <Wrapper>
             {location.pathname === '/login' ? (
-              <LoginImage image={frameLogbig} />
+              <motion.div
+                initial={{ scale: 1.25, opacity: 0.75 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.75 }}
+              >
+                <LoginImage image={frameLogbig} />
+              </motion.div>
             ) : (
-              <RegisterImage image={frameRegbig} />
+              <motion.div
+                initial={{ scale: 1.25, opacity: 0.75 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.75 }}
+              >
+                <RegisterImage image={frameRegbig} />
+              </motion.div>
             )}
             <FormContainer>
               {location.pathname === '/login' ? (
