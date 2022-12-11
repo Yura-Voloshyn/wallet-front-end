@@ -1,18 +1,18 @@
 import styled from '@emotion/styled'
 
 export const TableStyle = styled.table`
-    display: none;
-    @media (min-width: 321px) {
-        display: block;
-    }
-    width: 715px;
-    border-collapse: collapse;
+  display: none;
+  @media (min-width: 321px) {
+    display: block;
+  }
+  width: 715px;
+  border-collapse: collapse;
 
-    @media (max-width: 768px) {
-        width: 704px;
-    }
-
-`
+  @media (max-width: 768px) {
+    width: 704px;
+   
+  }
+`;
 export const Tr = styled.tr`
     height: 58px;
  
