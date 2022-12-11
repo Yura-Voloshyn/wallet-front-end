@@ -1,7 +1,6 @@
 import { ImageContainer, Text, Frame } from './LoginPage.styled';
 
 const LoginImage = ({ image }) => {
-  console.log(image);
   return (
     <ImageContainer>
       <Frame src={image} alt="customer goods" />
