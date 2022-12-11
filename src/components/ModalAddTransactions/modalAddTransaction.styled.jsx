@@ -129,27 +129,22 @@ export const SumInput = styled.input`
   border-bottom: 1px solid ${stylistics.colors.secondaryText};
   cursor: pointer;
   width: 190px;
-
-  &:hover {
-    border-color: ${stylistics.colors.secondaryTextBtn};
-  }
-
-  &:focus {
-    border-color: ${stylistics.colors.secondaryTextBtn};
-  }
-    @media screen and (max-width: 767px) {
-    width: 280px;
-  }
-  width: 190px;
   height: 34px;
   font-size: 18px;
   line-height: 27px;
   font-weight: 400;
-  padding-left: 20px;
-
+  
+    @media screen and (max-width: 767px) {
+    width: 280px;
+    padding-left: 20px;
+  }
   &::placeholder {
     color: ${stylistics.colors.secondaryText};
-    padding-bottom: 10px;
+    padding-bottom: 8px;
+    @media screen and (min-width: 767px) {
+    text-align: center;
+    /* padding-left: 0px; */
+    }
   }
 `;
 
@@ -181,7 +176,9 @@ export const CommentInput = styled.input`
   color: ${stylistics.colors.secondaryLightText};
 `;
 
+export const TwoBtns = styled.div`
 
+`;
 
 
 //--------Styles for changing initial Select from react-----------

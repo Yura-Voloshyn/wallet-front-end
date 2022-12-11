@@ -18,6 +18,7 @@ import {
   ChooseIcon,
   CommentInput,
   CheckboxSpan,
+  TwoBtns,
   initialSelectStyles,
 } from './modalAddTransaction.styled';
 import {
@@ -62,10 +63,10 @@ const ModalAddTransactions = ({ onClose }) => {
   // const transCategories = useSelector(transSelectors.getTransactionCategories);
 
   //-----------styles for expensions categories selection
-  const selection = categories.items.map(e => {
+  const selection = categories.items.map(evt => {
     return {
-      value: e.name,
-      label: e.name,
+      value: evt.name,
+      label: evt.name,
     };
   });
   // selection.style=(state)=>({  paddingLeft: 20,
@@ -109,15 +110,15 @@ const ModalAddTransactions = ({ onClose }) => {
     }));
   };
 
-  const onChangeSelect = e => {
+  const onChangeSelect = evt => {
     setFullState(items => ({
       ...items,
-      category: e.value,
+      category: evt.value,
     }));
   };
 
-  const handleChange = e => {
-    const { name, value } = e.target;
+  const handleChange = evt => {
+    const { name, value } = evt.target;
     setFullState(items => ({
       ...items,
       [name]: value,
@@ -125,8 +126,8 @@ const ModalAddTransactions = ({ onClose }) => {
   };
 
   const handleSubmit = useCallback(
-    e => {
-      e.preventDefault();
+    evt => {
+      evt.preventDefault();
       (async function () {
         const userSum = Number(sum).toFixed(2);
         await dispatch(
@@ -291,8 +292,9 @@ const ModalAddTransactions = ({ onClose }) => {
           ></CommentInput>
         </TextForm>
         {/* Two modal btns */}
+        <TwoBtns as="div">
         <StyledNavLink btnText={'Add'}></StyledNavLink>
-        <SubmitBtn onClick={onClose} btnText={'Decline'}></SubmitBtn>
+        <SubmitBtn onClick={onClose} btnText={'Decline'}></SubmitBtn></TwoBtns>
       </TransactionAddForm>
     </Modal>
   );

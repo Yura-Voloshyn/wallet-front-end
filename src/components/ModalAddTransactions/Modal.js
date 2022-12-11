@@ -17,6 +17,8 @@ const ModalBackdrop = styled.div`
 
 const ModalContent = styled.div`
   position: absolute;
+  /* box-sizing: content-box; */
+  margin: 0 auto;
   width: 100%;
   min-height: 540px;
   top: 60px;
