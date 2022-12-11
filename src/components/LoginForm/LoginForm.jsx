@@ -2,6 +2,7 @@ import { Formik, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { userLogin } from 'redux/auth/authOperation';
 import schema from 'helpers';
 import { IconContext } from 'react-icons';
@@ -34,8 +35,24 @@ const LoginForm = () => {
   const { isLoading } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(userLogin(values));
+  // const handleSubmit = (values, { resetForm }) => {
+  //   dispatch(userLogin(values));
+
+  //   resetForm();
+  // };
+
+  const handleSubmit = async (values, { resetForm }) => {
+    const res = await dispatch(userLogin(values));
+
+    if (res.error && res.payload === 401) {
+      Notify.warning('Sorry, something is wrong, please, try again');
+      return;
+    } else if (res.error) {
+      Notify.warning('Email or password is wrong');
+      return;
+    }
+    Notify.success('Login success');
+
     resetForm();
   };
 
