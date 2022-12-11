@@ -92,7 +92,9 @@ const RegistrationForm = () => {
 
       const res = await onRegister(result[0]);
       if (res === undefined) {
-        Notify.warning(`User with email: ${result[0].email} is alredy exist`);
+        Notify.warning(
+          `User with email: " ${result[0].email} " is alredy exist`
+        );
         resetForm();
         setPassword('');
         return;

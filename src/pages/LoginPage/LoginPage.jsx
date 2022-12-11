@@ -6,14 +6,9 @@ import frameRegbig from '../../images/frameRegbig.png';
 import frameRegtab from '../../images/frameRegtab.png';
 import LoginForm from 'components/LoginForm';
 import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
-import {
-  Container,
-  ImageContainer,
-  FormContainer,
-  Wrapper,
-  Text,
-  Frame,
-} from './LoginPage.styled';
+import LoginImage from './LoginImage';
+import RegisterImage from './RegisterImage';
+import { Container, FormContainer, Wrapper } from './LoginPage.styled';
 
 const LoginPage = () => {
   const isWideMobie = useMedia('(max-width: 767px)');
@@ -34,36 +29,41 @@ const LoginPage = () => {
         </Container>
       ) : null}
       {isWideTablet ? (
-        <Container>
-          <Wrapper>
-            <ImageContainer>
-              <Frame
-                src={location.pathname === '/login' ? frameLogtab : frameRegtab}
-                alt="customer goods"
-              />
-              <Text>Finance App</Text>
-            </ImageContainer>
-            <FormContainer>
-              {location.pathname === '/login' ? (
-                <LoginForm />
-              ) : (
-                <RegistrationForm />
-              )}
-            </FormContainer>
-          </Wrapper>
-        </Container>
+        <Wrapper>
+          {location.pathname === '/login' ? (
+            <Container>
+              <LoginImage image={frameLogtab} />
+              <FormContainer>
+                {location.pathname === '/login' ? (
+                  <LoginForm />
+                ) : (
+                  <RegistrationForm />
+                )}
+              </FormContainer>
+            </Container>
+          ) : (
+            <Container>
+              <RegisterImage image={frameRegtab} />
+              <FormContainer>
+                {location.pathname === '/login' ? (
+                  <LoginForm />
+                ) : (
+                  <RegistrationForm />
+                )}
+              </FormContainer>
+            </Container>
+          )}
+        </Wrapper>
       ) : null}
+
       {isWideСomputer ? (
         <Container>
           <Wrapper>
-            <ImageContainer>
-              <Frame
-                src={location.pathname === '/login' ? frameLogbig : frameRegbig}
-                alt="customer goods"
-              />
-              <Text>Finance App</Text>
-            </ImageContainer>
-
+            {location.pathname === '/login' ? (
+              <LoginImage image={frameLogbig} />
+            ) : (
+              <RegisterImage image={frameRegbig} />
+            )}
             <FormContainer>
               {location.pathname === '/login' ? (
                 <LoginForm />
