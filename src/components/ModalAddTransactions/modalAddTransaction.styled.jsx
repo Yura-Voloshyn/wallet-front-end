@@ -148,14 +148,23 @@ export const SumInput = styled.input`
   }
 `;
 
+export const Calendar = styled.div`
+  /* outline: none;
+  border: none;
+  border-bottom: 1px solid #BDBDBD; */
+`;
+
 export const DateIcon = styled.svg`
-  position: absolute;
-  right: 20px;
-  top: 7px;
-  width: 24px;
-  height: 24px;
-  fill: ${stylistics.colors.houseExpens};
-  pointer-events: none;
+    @media screen and (max-width: 767px) {
+      top: 78px;
+    }
+    width: 24px;
+    height: 24px;
+    fill: ${stylistics.colors.houseExpens};
+    position: absolute;
+    right: 20px;
+    top: 7px;
+    pointer-events: none;
 `;
 
 export const TextForm = styled.label`

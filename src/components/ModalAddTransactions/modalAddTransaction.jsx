@@ -19,6 +19,7 @@ import {
   CommentInput,
   CheckboxSpan,
   TwoBtns,
+  
   initialSelectStyles,
 } from './modalAddTransaction.styled';
 import {
@@ -32,10 +33,11 @@ import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 // import moment from 'moment-timezone';
 // import moment from 'moment';
+// import moment from 'moment-timezone/builds/moment-timezone-with-data-2012-2022';
 
 import { getFilteredCategories } from 'redux/categories/categories-selectors';
 import { fetchCategories } from 'redux/categories/categories-operations';
-// import 'moment/locale/ua';
+import 'moment/locale/ua';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 
@@ -144,6 +146,13 @@ const ModalAddTransactions = ({ onClose }) => {
     [category, comment, sum, checked, onClose, dispatch]
   );
 
+//  let now = moment();
+//   moment.locale('ua');
+  
+  let startDay = moment.locale('ua').subtract(1, 'day');
+  let today = function (current) {
+    return current.isAfter(startDay);
+  };
 
   return (
     <Modal onClose={onClose}>
@@ -246,25 +255,32 @@ const ModalAddTransactions = ({ onClose }) => {
               as="input"
               name="sum"
               value={sum}
-              type="text"
+              required
+              min="0.00"
+              step="0.01"
+              type="number"
               placeholder="0.00"
               onChange={handleChange}
-              maxLength="7"
+              maxLength="6"
               pattern="^[ 0-9]+$"
-              required
+              
             ></SumInput>
           </FormSum>
-
+          
           <Datetime
             locale="ua"
             // initialValue={}
             timeFormat={false}
+            // dateFormat="dd/MM/yyyy"
             closeOnSelect={true}
-            // isValidDate={today}
+            isValidDate={today}
             inputProps={{
             placeholder: 'MM-DD-YYYY',
             required: true,
-            }}
+              }}
+  //             styles={{  outline: `none`,
+  // border: `none`,
+  // borderBottom: `1px solid #BDBDBD`}}
           />
           <DateIcon
             as="svg"
@@ -288,6 +304,8 @@ const ModalAddTransactions = ({ onClose }) => {
             onChange={handleChange}
             value={comment}
             placeholder="Comment"
+            minRows={1}
+            maxRows={3}
             pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+([-'\s][a-zA-Zа-яА-ЯІіЇїҐґ]+)*$"
           ></CommentInput>
         </TextForm>
