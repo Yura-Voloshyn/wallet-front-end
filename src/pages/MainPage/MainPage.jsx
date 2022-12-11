@@ -12,7 +12,8 @@ const MainPage = () => {
   return (
     <>
       <Header />
-      <Navigation />
+      <Media query="(max-width: 768px)" render={() => <Navigation />} />
+      {/* <Navigation /> */}
       {/* <TotalBalance /> */}
       {/* <Currency /> */}
       {location.pathname === '/home' && <Home />}

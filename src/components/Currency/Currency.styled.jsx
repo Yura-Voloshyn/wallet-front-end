@@ -5,8 +5,7 @@ import currencyCurveDesktop from '../../images/background/desktop/currencyCurve_
 
 export const CurrencyWrapper = styled.div`
   @media (max-width: 768px) {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0 auto;
     margin-top: 20px;
   }
   width: 280px;
