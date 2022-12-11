@@ -6,7 +6,6 @@ import {
   TitleMod,
   TransactionAddForm,
   CheckboxWrapper,
-  IncomeChoosen,
   AddTransIcon,
   AddExpsIcon,
   SelectWrapper,
@@ -18,7 +17,10 @@ import {
   ChooseIcon,
   CommentInput,
   CheckboxSpan,
+  ActiveInc,
+  ActiveExp,
   TwoBtns,
+  MySwitch,
   // CalendarIcon,
   CalendarDiv,
   DataPickerWrapper,
@@ -30,7 +32,7 @@ import {
   // transSelectors,
 } from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
-import Switch from 'react-switch';
+// import Switch from 'react-switch';
 import Select from 'react-select';
 // import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
@@ -51,13 +53,6 @@ const ModalAddTransactions = ({ onClose }) => {
   // const categories = useSelector(transOperations.fetchTransactionsByCategory);
   // console.log(categories);
 
-  // // const defaultState = {
-  // //   date: new Date(),
-  // //   type: false,
-  // //   category: "",
-  // //   comment: "",
-  // //   sum: "",
-  // // };
   const categories = useSelector(getFilteredCategories);
 
   useEffect(() => {
@@ -72,6 +67,7 @@ const ModalAddTransactions = ({ onClose }) => {
       label: evt.name,
     };
   });
+
 
    const [selectedDate, setSelectedDate] = useState(new Date());
   const handleDateChange = evt => {
@@ -145,6 +141,8 @@ const ModalAddTransactions = ({ onClose }) => {
   );
 
   
+
+  
   return (
     <Modal onClose={onClose}>
       <CloseAddModal as="button"
@@ -167,11 +165,9 @@ const ModalAddTransactions = ({ onClose }) => {
 
       <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
-          <IncomeChoosen as="div">
-            <CheckboxSpan as="span" style={{marginRight: "20px"}}>Income</CheckboxSpan>
-            </IncomeChoosen>
-          <Switch
-            styles={{ margin: '0 15px 20px 15px'}}
+             <CheckboxSpan className={` ${!checked && ActiveInc}`} style={{marginRight: "20px"}}>Income</CheckboxSpan>
+          <MySwitch
+            // styles={{ margin: '0 15px 20px 15px'}}
             name="checked"
             value={checked}
             onChange={handleChangeCheckbox}
@@ -209,7 +205,7 @@ const ModalAddTransactions = ({ onClose }) => {
               </AddExpsIcon>
             }
           />
-          <CheckboxSpan as="span" style={{marginLeft: "20px"}}>Expense</CheckboxSpan>
+          <CheckboxSpan className={` ${checked && ActiveExp}`} style={{marginLeft: "20px"}}>Expense</CheckboxSpan>
         </CheckboxWrapper>
 
     
@@ -246,11 +242,13 @@ const ModalAddTransactions = ({ onClose }) => {
               as="input"
               name="sum"
               value={sum}
+              // title="Add sum"
               required
               min="0.00"
               step="0.01"
               type="number"
               placeholder="0.00"
+              autoComplete="off"
               onChange={handleChange}
               maxLength="6"
               pattern="^[ 0-9]+$"
@@ -298,16 +296,21 @@ const ModalAddTransactions = ({ onClose }) => {
             type="text"
             onChange={handleChange}
             value={comment}
+            // title="Add comment"
             placeholder="Comment"
-            minRows={1}
-            maxRows={3}
+            autoComplete="off"
+            maxLength="500"
+            // resize= "none"
+            // minRows={1}
+            // maxRows={3}
+            required={false}
             pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+([-'\s][a-zA-Zа-яА-ЯІіЇїҐґ]+)*$"
           ></CommentInput>
         </TextForm>
         {/* Two modal btns */}
         <TwoBtns as="div">
         <SubmitBtn btnText={'Add'}></SubmitBtn>
-        <StyledNavLink onClick={onClose} btnText={'Decline'}></StyledNavLink></TwoBtns>
+        <StyledNavLink onClick={onClose} btnText={'Cancel'}></StyledNavLink></TwoBtns>
       </TransactionAddForm>
     </Modal>
   );

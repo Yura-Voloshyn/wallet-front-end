@@ -3,7 +3,17 @@ import { stylistics } from '../../styles/styles';
 import Datetime from 'react-datetime';
 // import DatePicker from 'react-datepicker';
 // import 'react-datetime/css/react-datetime.css';
+import Switch from 'react-switch';
 
+
+
+export const MySwitch = styled(Switch)`
+    margin: 0 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 6px 15px rgba(156, 156, 158, 0.5);
+`
 
 export const CloseAddModal = styled.button`
   position: absolute;
@@ -56,6 +66,12 @@ export const IncomeChoosen = styled.div`
 color: ${stylistics.colors.primaryBgBtn}
 `;
 
+export const ActiveInc = styled.span`
+  color: #24cca7;
+`
+export const ActiveExp = styled.span`
+   color: #ff6596;
+`
 export const AddTransIcon = styled.svg`
   width: 20px;
   height: 20px;
@@ -192,8 +208,8 @@ export const DateIcon = styled.svg`
 `;
 
 export const TextForm = styled.label`
-  margin-bottom: 50px;
-  margin-top: 30px;
+  /* margin-bottom: 50px; */
+  margin-top: 40px;
 `;
 
 export const CommentInput = styled.input`
@@ -205,8 +221,17 @@ export const CommentInput = styled.input`
   padding-bottom: 5px;
   outline: none;
   border: none;
+  resize: none;
+  display: block;
+  position: relative;
+  /* min-height: 74px; */
   border-bottom: 1px solid #BDBDBD;
   color: ${stylistics.colors.secondaryLightText};
+  @media screen and (max-width: 767px) {
+     height: 84px;
+    }
+
+  /* resize: none; */
 `;
 
 export const TwoBtns = styled.div`
