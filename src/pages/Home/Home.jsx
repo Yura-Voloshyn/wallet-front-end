@@ -1,6 +1,6 @@
 
 // import TotalBalance from 'components/TotalBalance/TotalBalance';
-// import Table from 'components/Table/Table';
+import Table from 'components/Table/Table';
 // import { Navigation } from 'components/Navigation/Navigation';
 
 import {
@@ -17,7 +17,7 @@ const Home = () => {
         {/* <TotalBalance /> */}
       {/* </CurrencyContainer> */}
       <TableContainer>
-        {/* <Table /> */}
+        <Table />
       </TableContainer>
     </HomeContainer>
   );

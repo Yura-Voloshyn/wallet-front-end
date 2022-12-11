@@ -15,7 +15,7 @@ const TableMobile = ({items}) => {
                         </Trm>
                         <Trm>
                             <Tdm>{date}</Tdm>
-                            <Tdm>{type}</Tdm>
+                            <Tdm>{type === true ? "+" : "-"}</Tdm>
                             <Tdm>{category}</Tdm>
                             <Tdm>{comment}</Tdm>
                             <Tds color={color}>{`${sum},00`}</Tds>

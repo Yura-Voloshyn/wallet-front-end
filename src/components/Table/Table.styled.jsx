@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const TableStyle = styled.table`
     display: none;
-    @media (min-width: 321px) {
+    @media (min-width: 768px) {
         display: block;
     }
     width: 715px;
@@ -108,7 +108,7 @@ export const TableMob = styled.table`
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 1);
 
-    @media (min-width: 321px) {
+    @media (min-width: 768px) {
         display: none;
     }
 `
