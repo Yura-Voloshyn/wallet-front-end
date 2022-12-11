@@ -1,21 +1,23 @@
 import styled from '@emotion/styled'
 
 export const TotalBalanceWrapper = styled.div`
+  margin-top: 28px;
+  width: 280px;
+  margin-top: 12px;
+  height: 80px;
+  border-radius: 30px;
+
+  padding-top: 8px;
+  background-color: #ffffff;
+
+  @media (min-width: 768px) {
+    width: 336px;
     margin-top: 28px;
-    max-width: 395px;
-    height: 80px;
-    border-radius: 30px;
-
-    padding-top: 8px;
-    background-color: #ffffff;
-
-    @media (max-width: 768px) {
-        max-width: 336px;
-    }
-    @media (max-width: 320px){
-        max-width: 280px;
-    }
-`
+  }
+  @media (min-width: 1280px) {
+    width: 395px;
+  }
+`;
 export const Title = styled.p`
     padding-left: 40px;
     font-family: 'Circe';

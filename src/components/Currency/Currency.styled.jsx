@@ -18,6 +18,7 @@ export const CurrencyWrapper = styled.div`
     width: 336px;
     height: 182px;
     background-image: url(${currencyCurveTablet});
+    margin-top: 32px;
   }
   @media (min-width: 1280px) {
     width: 393px;
