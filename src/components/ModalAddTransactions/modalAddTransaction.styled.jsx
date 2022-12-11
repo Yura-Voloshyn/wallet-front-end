@@ -191,16 +191,13 @@ flex-direction: row;
 height: 32px;
 border: none;
 outline: none;
-/* max-width: 280px; */
 background-color: #fff;
 padding: 18px 20px 18px 10px;
 outline: none;
 border: none;
-/* margin-bottom: 8px; */
 
-/* border: 1px solid #E0E0E0;
-border-radius: 3px; */
-/* autoclose: true; */
+
+
 `;
 
 export const DateIcon = styled.svg`
