@@ -19,7 +19,10 @@ import {
   CommentInput,
   CheckboxSpan,
   TwoBtns,
-  
+  // CalendarIcon,
+  CalendarDiv,
+  DataPickerWrapper,
+  MyTimePicker,
   initialSelectStyles,
 } from './modalAddTransaction.styled';
 import {
@@ -29,15 +32,14 @@ import {
 import Modal from '../ModalAddTransactions/Modal';
 import Switch from 'react-switch';
 import Select from 'react-select';
-import Datetime from 'react-datetime';
+// import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 // import moment from 'moment-timezone';
 // import moment from 'moment';
 // import moment from 'moment-timezone/builds/moment-timezone-with-data-2012-2022';
-
+// import 'moment/locale/ua';
 import { getFilteredCategories } from 'redux/categories/categories-selectors';
 import { fetchCategories } from 'redux/categories/categories-operations';
-// import 'moment/locale/ua';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 
@@ -64,7 +66,6 @@ const ModalAddTransactions = ({ onClose }) => {
 
   // const transCategories = useSelector(transSelectors.getTransactionCategories);
 
-  //-----------styles for expensions categories selection
   const selection = categories.items.map(evt => {
     return {
       value: evt.name,
@@ -76,7 +77,6 @@ const ModalAddTransactions = ({ onClose }) => {
   const handleDateChange = evt => {
     setSelectedDate(String(evt._d));
   };
-  // date: moment(selectedDate).format(),
 
   const [defaultState, setFullState] = useState({
     date: selectedDate,
@@ -133,7 +133,6 @@ const ModalAddTransactions = ({ onClose }) => {
         await dispatch(
           transOperations.addTransaction({
             sum: Number(userSum),
-
             comment,
             type: !checked ? 'income' : 'expense',
             category,
@@ -145,11 +144,7 @@ const ModalAddTransactions = ({ onClose }) => {
     [category, comment, sum, checked, onClose, dispatch]
   );
 
-//  let now = moment();
-//   moment.locale('ua');
   
-
-
   return (
     <Modal onClose={onClose}>
       <CloseAddModal as="button"
@@ -262,42 +257,39 @@ const ModalAddTransactions = ({ onClose }) => {
               
             ></SumInput>
           </FormSum>
-          
-          <Datetime
-            locale="ua"
-            type="date"
-            // initialValue={}
-            value= {selectedDate}
-            selected={selectedDate}
-          onChange={handleDateChange}
-            timeFormat={false}
-            dateFormat="DD.MM.YYYY"
-            closeOnSelect={true}
-            // isValidDate={today}
-            // inputProps={{
-            // placeholder: 'MM-DD-YYYY',
-            // required: true,
-            //   }}
-            required
-            inputDate={{
-              outline: "none",
-              border: "none",
-              borderBottom: "1px solid #bdbdbd",
-              cursor: "pointer",
-              width: "280px",
-            }} />
-          <DateIcon
-            as="svg"
-            id="calendar-icon"
-            width="26"
-            height="30"
-            viewBox="0 0 26 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          ></DateIcon>
-<path d="M6 9H4V11H6V9ZM10 9H8V11H10V9ZM14 9H12V11H14V9ZM16 2H15V0H13V2H5V0H3V2H2C0.89 2 0.00999999 2.9 0.00999999 4L0 18C0 19.1 0.89 20 2 20H16C17.1 20 18 19.1 18 18V4C18 2.9 17.1 2 16 2ZM16 18H2V7H16V18Z" fill="#4A56E2"/>
 
-        </InputSumWrapper>
+          <CalendarDiv>
+           <DataPickerWrapper as="label" direction="row">
+              <MyTimePicker
+                locale="ua"
+                type="date"
+                closeOnSelect={true}
+                value= {selectedDate}
+                selected={selectedDate}
+                onChange={handleDateChange}
+                timeFormat={false}
+                dateFormat="DD.MM.YYYY"
+                required
+               />
+              <DateIcon
+                as="svg"
+                // id="calendar-icon"
+                width="26"
+                height="30"
+                viewBox="0 0 26 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              ></DateIcon>
+                  <g filter="url(#filter0_d_4_1061)">
+                    <svg>
+                      <path
+                        d="M10 11H8V13H10V11ZM14 11H12V13H14V11ZM18 11H16V13H18V11ZM20 4H19V2H17V4H9V2H7V4H6C4.89 4 4.01 4.9 4.01 6L4 20C4 21.1 4.89 22 6 22H20C21.1 22 22 21.1 22 20V6C22 4.9 21.1 4 20 4ZM20 20H6V9H20V20Z"
+                        fill="#4A56E2"
+                      /></svg>
+                  </g>
+              </DataPickerWrapper>
+          </CalendarDiv>
+          </InputSumWrapper>
 
         <TextForm as="label">
           <CommentInput
@@ -314,8 +306,8 @@ const ModalAddTransactions = ({ onClose }) => {
         </TextForm>
         {/* Two modal btns */}
         <TwoBtns as="div">
-        <StyledNavLink btnText={'Add'}></StyledNavLink>
-        <SubmitBtn onClick={onClose} btnText={'Decline'}></SubmitBtn></TwoBtns>
+        <SubmitBtn btnText={'Add'}></SubmitBtn>
+        <StyledNavLink onClick={onClose} btnText={'Decline'}></StyledNavLink></TwoBtns>
       </TransactionAddForm>
     </Modal>
   );

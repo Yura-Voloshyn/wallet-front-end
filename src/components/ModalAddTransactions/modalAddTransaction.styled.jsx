@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 import { stylistics } from '../../styles/styles';
+import Datetime from 'react-datetime';
+// import DatePicker from 'react-datepicker';
 // import 'react-datetime/css/react-datetime.css';
+
 
 export const CloseAddModal = styled.button`
   position: absolute;
@@ -80,20 +83,6 @@ export const SelectWrapper = styled.div`
   @media screen and (max-width: 767px) {
     margin-bottom: 40px;
 }
-    /* border: none; */
-   
-
-
-  /* @media screen and (min-width: 320px) {
-    maxHeight: 352;
-} */
-  /* @media screen and (min-width: 768px) {
-    maxHeight: 411;
-}
-    padding: 0;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 20;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
 `;
 
 export const ChooseIcon = styled.svg`
@@ -144,20 +133,54 @@ export const SumInput = styled.input`
     padding-bottom: 8px;
     @media screen and (min-width: 767px) {
     text-align: center;
-    /* padding-left: 0px; */
     }
   }
 `;
 
-export const Calendar = styled.div`
-  /* outline: none;
-  border: none;
-  border-bottom: 1px solid #BDBDBD; */
+export const CalendarIcon = styled.svg`
+ /* margin-bottom: 10px; */
+ /* margin-left: 10px; */
+ /* cursor: 'pointer', */
+`;
+
+export const MyTimePicker = styled(Datetime)`
+outline: none;
+border: none;
+width: 100%;
+border-bottom: 1px solid #E0E0E0;
+
+
+`;
+
+export const CalendarDiv = styled.div`
+width: 100%;
+/* padding: 10px; */
+@media screen and (min-width: 768px){
+width: 200px;
+}
+`;
+
+export const DataPickerWrapper = styled.label`
+display: flex;
+flex-direction: row;
+height: 32px;
+border: none;
+outline: none;
+/* max-width: 280px; */
+background-color: #fff;
+padding: 18px 20px 18px 10px;
+outline: none;
+border: none;
+/* margin-bottom: 8px; */
+
+/* border: 1px solid #E0E0E0;
+border-radius: 3px; */
+/* autoclose: true; */
 `;
 
 export const DateIcon = styled.svg`
     @media screen and (max-width: 767px) {
-      top: 78px;
+      top: 80px;
     }
     width: 24px;
     height: 24px;
