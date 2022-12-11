@@ -35,11 +35,6 @@ const LoginForm = () => {
   const { isLoading } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
-  // const handleSubmit = (values, { resetForm }) => {
-  //   dispatch(userLogin(values));
-
-  //   resetForm();
-  // };
 
   const handleSubmit = async (values, { resetForm }) => {
     const res = await dispatch(userLogin(values));
