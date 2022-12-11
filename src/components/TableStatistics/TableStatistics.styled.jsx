@@ -119,13 +119,9 @@ export const Incomes = styled.td`
   }
 `;
 
-export const NoTransactions = styled.td`
+export const NoTransactions = styled.p`
   color: red;
-  vertical-align: baseline;
-  align-items: center;
-  
-  &:last-child {
-    text-align: right;
-    padding-right: 20px;
-  }
+  text-align: center;
+  margin-top:15px;
+  font-size: 20px;
 `;
