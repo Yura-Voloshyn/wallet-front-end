@@ -17,8 +17,6 @@ import {
   ChooseIcon,
   CommentInput,
   CheckboxSpan,
-  // ActiveInc,
-  // ActiveExp,
   TwoBtns,
   MySwitch,
   // CalendarIcon,
@@ -192,7 +190,7 @@ const ModalAddTransactions = ({ onClose }) => {
                                 <path d="M0 1L20 0.999999" stroke="white" strokeWidth="2" />
               </AddTransIcon>
             }
-            noncheckedHandleIcon={
+            uncheckedHandleIcon={
               <AddExpsIcon
                 as="svg"
                 id="spend-icon"
@@ -216,10 +214,6 @@ const ModalAddTransactions = ({ onClose }) => {
               name="option"
               onChange={onChangeSelect}
               placeholder="Select a category"
-              // style = {{ boxShadow: `none`,
-              //          borderRadius: 20,
-              //   backgroundColor: `inherit`,
-              // }}
               styles={initialSelectStyles}
               options={selection}
             />
@@ -277,13 +271,13 @@ const ModalAddTransactions = ({ onClose }) => {
                 viewBox="0 0 26 30"
                 fill="none"
               ></DateIcon>
-                  <g filter="url(#filter0_d_4_1061)">
+                  
                     <svg>
                       <path
                         d="M10 11H8V13H10V11ZM14 11H12V13H14V11ZM18 11H16V13H18V11ZM20 4H19V2H17V4H9V2H7V4H6C4.89 4 4.01 4.9 4.01 6L4 20C4 21.1 4.89 22 6 22H20C21.1 22 22 21.1 22 20V6C22 4.9 21.1 4 20 4ZM20 20H6V9H20V20Z"
                         fill="#4A56E2"
                       /></svg>
-                  </g>
+                  
               </DataPickerWrapper>
           </CalendarDiv>
           </InputSumWrapper>

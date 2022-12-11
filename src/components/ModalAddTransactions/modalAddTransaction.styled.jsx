@@ -79,11 +79,6 @@ export const CheckboxSpan = styled.span`
 `;
 
 
-
-export const IncomeChoosen = styled.div`
-color: ${stylistics.colors.primaryBgBtn}
-`;
-
 export const AddTransIcon = styled.svg`
   width: 20px;
   height: 20px;
@@ -219,6 +214,7 @@ export const DateIcon = styled.svg`
     right: 20px;
     top: 7px;
     pointer-events: none;
+    vertical-align: baseline;
 `;
 
 export const TextForm = styled.label`
