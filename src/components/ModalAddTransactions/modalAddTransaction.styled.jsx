@@ -11,6 +11,7 @@ export const MySwitch = styled(Switch)`
     margin: 0 20px;
   margin-left: 15px;
   margin-right: 15px;
+  background-color: none;
   border: 1px solid #e0e0e0;
   box-shadow: 0px 6px 15px rgba(156, 156, 158, 0.5);
 `
@@ -160,12 +161,23 @@ export const CalendarIcon = styled.svg`
 `;
 
 export const MyTimePicker = styled(Datetime)`
-outline: none;
-border: none;
-width: 100%;
-border-bottom: 1px solid #E0E0E0;
-
-
+/* width: 100%; */
+width: 280px;
+height: 34px;
+padding-left: 20px;
+font-weight: 400;
+font-size: 18px;
+line-height: 27px;
+color: #000000;
+  @media screen and (min-width: 767px) {
+    margin-left: 35px;
+    width: 190px;
+}
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #E0E0E0;
+  cursor: pointer;
+  width: 280px;
 `;
 
 export const CalendarDiv = styled.div`
