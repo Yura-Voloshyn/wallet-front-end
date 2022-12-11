@@ -55,9 +55,14 @@ export const TransactionAddForm = styled.form`
 `;
 
 export const CheckboxWrapper = styled.div`
-  margin-bottom: 40px;
+  /* margin-bottom: 40px;
   display: flex;
+  align-items: center; */
+  width: 280px;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
+  margin-bottom: 40px;
 `;
 
 export const CheckboxSpan = styled.span`
@@ -65,6 +70,12 @@ export const CheckboxSpan = styled.span`
   font-style: 16px;
   line-height: 24px;
   color: ${stylistics.colors.secondaryLightText};
+  &.active-i{
+    color: #24CCA7;
+  }
+  &.active-e{
+    color: #FF6596;
+  }
 `;
 
 
@@ -73,12 +84,6 @@ export const IncomeChoosen = styled.div`
 color: ${stylistics.colors.primaryBgBtn}
 `;
 
-export const ActiveInc = styled.span`
-  color: #24cca7;
-`
-export const ActiveExp = styled.span`
-   color: #ff6596;
-`
 export const AddTransIcon = styled.svg`
   width: 20px;
   height: 20px;
@@ -86,6 +91,7 @@ export const AddTransIcon = styled.svg`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+ 
 `;
 
 export const AddExpsIcon = styled.svg`

@@ -36,15 +36,11 @@ import Modal from '../ModalAddTransactions/Modal';
 import Select from 'react-select';
 // import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
-// import moment from 'moment-timezone';
-// import moment from 'moment';
-// import moment from 'moment-timezone/builds/moment-timezone-with-data-2012-2022';
-// import 'moment/locale/ua';
 import { getFilteredCategories } from 'redux/categories/categories-selectors';
 import { fetchCategories } from 'redux/categories/categories-operations';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
-
+// import styles from 'components/ModalAddTransactions/'
 
 
 //-------------Modal for new transaction adding------------
@@ -140,7 +136,11 @@ const ModalAddTransactions = ({ onClose }) => {
     [category, comment, sum, checked, onClose, dispatch]
   );
 
-  
+
+
+
+
+
 
   
   return (
@@ -154,7 +154,6 @@ const ModalAddTransactions = ({ onClose }) => {
           height="18"
           viewBox="0 0 18 18"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M1 1L17 17" stroke="black" />
           <path d="M1 17L17 0.999999" stroke="black" />
@@ -165,7 +164,7 @@ const ModalAddTransactions = ({ onClose }) => {
 
       <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
-            <CheckboxSpan style={{ marginRight: "20px" }}>Income</CheckboxSpan>
+            <CheckboxSpan className={`${!checked && 'active-i'}`} style={{ marginRight: "20px" }}>Income</CheckboxSpan>
           <MySwitch
             // style={{backgroundColor: '#FFf', margin: '0 15px 20px 15px'}}
             styles={{ margin: '0 15px 20px 15px' }}
@@ -174,6 +173,7 @@ const ModalAddTransactions = ({ onClose }) => {
             name="checked"
             value={checked}
             onChange={handleChangeCheckbox}
+          
             checked={checked}
             height={40}
             width={80}
@@ -185,12 +185,11 @@ const ModalAddTransactions = ({ onClose }) => {
                 as="svg"
                 id="add-icon"
                 width="20"
-                height="2"
+                height="20"
                 viewBox="0 0 20 2"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M0 1L20 0.999999" stroke="white" strokeWidth="2" />
+                                <path d="M0 1L20 0.999999" stroke="white" strokeWidth="2" />
               </AddTransIcon>
             }
             noncheckedHandleIcon={
@@ -201,14 +200,13 @@ const ModalAddTransactions = ({ onClose }) => {
                 height="20"
                 viewBox="0 0 20 20"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M10 0V20" stroke="white" strokeWidth="2" />
                 <path d="M0 10L20 10" stroke="white" strokeWidth="2" />
               </AddExpsIcon>
             }
           />
-          <CheckboxSpan style={{marginLeft: "20px"}}>Expense</CheckboxSpan>
+          <CheckboxSpan className={`${checked && 'active-e'}`} style={{marginLeft: "20px"}}>Expense</CheckboxSpan>
         </CheckboxWrapper>
 
     
@@ -229,10 +227,9 @@ const ModalAddTransactions = ({ onClose }) => {
               as="svg"
               id="arrow-icon"
               width="20"
-              height="11"
+              height="2"
               viewBox="0 0 20 11"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg"
             >
               <path d="M1 1L10 10L19 1" stroke="black" />
             </ChooseIcon>
@@ -279,7 +276,6 @@ const ModalAddTransactions = ({ onClose }) => {
                 height="30"
                 viewBox="0 0 26 30"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
               ></DateIcon>
                   <g filter="url(#filter0_d_4_1061)">
                     <svg>
