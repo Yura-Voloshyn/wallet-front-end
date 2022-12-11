@@ -21,6 +21,7 @@ export const HomeContainer = styled.div`
   }
 `;
 export const CurrencyContainer = styled.div`
+  
   @media (min-width: 1280px) {
     height: 100vh;
     padding-right: 70px;

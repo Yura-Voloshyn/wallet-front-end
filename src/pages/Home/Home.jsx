@@ -20,7 +20,7 @@ const Home = () => {
     <HomeContainer>
       <CurrencyContainer>
         <OnTanbletWrapper>
-          <Navigation />
+          {/* <Navigation /> */}
 
           <TotalBalance />
         </OnTanbletWrapper>

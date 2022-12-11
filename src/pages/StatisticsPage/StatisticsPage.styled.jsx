@@ -20,6 +20,7 @@ export const StatisticsWrapper = styled.div`
   align-items: center;
   @media (max-width: 768px) {
     flex-direction: column;
+    margin-top:40px;
   }
   @media (min-width: 768px) {
     align-items: flex-start;
