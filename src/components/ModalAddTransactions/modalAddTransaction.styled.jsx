@@ -8,6 +8,7 @@ import Switch from 'react-switch';
 
 
 export const MySwitch = styled(Switch)`
+
     margin: 0 20px;
   margin-left: 15px;
   margin-right: 15px;
@@ -15,6 +16,9 @@ export const MySwitch = styled(Switch)`
   border: 1px solid #e0e0e0;
   box-shadow: 0px 6px 15px rgba(156, 156, 158, 0.5);
 `
+// .react-switch-bg {
+//   background: #fff;
+// }
 
 export const CloseAddModal = styled.button`
   position: absolute;
@@ -62,6 +66,8 @@ export const CheckboxSpan = styled.span`
   line-height: 24px;
   color: ${stylistics.colors.secondaryLightText};
 `;
+
+
 
 export const IncomeChoosen = styled.div`
 color: ${stylistics.colors.primaryBgBtn}
@@ -161,23 +167,13 @@ export const CalendarIcon = styled.svg`
 `;
 
 export const MyTimePicker = styled(Datetime)`
-/* width: 100%; */
-width: 280px;
-height: 34px;
-padding-left: 20px;
-font-weight: 400;
-font-size: 18px;
-line-height: 27px;
-color: #000000;
-  @media screen and (min-width: 767px) {
-    margin-left: 35px;
-    width: 190px;
-}
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #E0E0E0;
-  cursor: pointer;
-  width: 280px;
+outline: none;
+border: none;
+width: 100%;
+border-bottom: 1px solid #E0E0E0;
+
+
+
 `;
 
 export const CalendarDiv = styled.div`

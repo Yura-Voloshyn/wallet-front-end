@@ -17,8 +17,8 @@ import {
   ChooseIcon,
   CommentInput,
   CheckboxSpan,
-  ActiveInc,
-  ActiveExp,
+  // ActiveInc,
+  // ActiveExp,
   TwoBtns,
   MySwitch,
   // CalendarIcon,
@@ -165,9 +165,12 @@ const ModalAddTransactions = ({ onClose }) => {
 
       <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
-             <CheckboxSpan className={` ${!checked && ActiveInc}`} style={{marginRight: "20px"}}>Income</CheckboxSpan>
+            <CheckboxSpan style={{ marginRight: "20px" }}>Income</CheckboxSpan>
           <MySwitch
-            // styles={{ margin: '0 15px 20px 15px'}}
+            // style={{backgroundColor: '#FFf', margin: '0 15px 20px 15px'}}
+            styles={{ margin: '0 15px 20px 15px' }}
+            onColor={'#fff'}
+            offColor={'#fff'}
             name="checked"
             value={checked}
             onChange={handleChangeCheckbox}
@@ -205,7 +208,7 @@ const ModalAddTransactions = ({ onClose }) => {
               </AddExpsIcon>
             }
           />
-          <CheckboxSpan className={` ${checked && ActiveExp}`} style={{marginLeft: "20px"}}>Expense</CheckboxSpan>
+          <CheckboxSpan style={{marginLeft: "20px"}}>Expense</CheckboxSpan>
         </CheckboxWrapper>
 
     
