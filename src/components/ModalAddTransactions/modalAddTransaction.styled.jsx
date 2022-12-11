@@ -15,18 +15,17 @@ export const CloseAddModal = styled.button`
 `;
 
 export const TitleMod = styled.h2`
-  align-items: center;
   text-align: center;
   font-family: ${stylistics.fonts.heading};
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  line-height: 1.5;
-  display: flex;
+  line-height: 36px;
+  margin-bottom: 42px;
   color: ${stylistics.colors.primaryText};
     @media screen and (min-width: 768px) {
     font-size: 30px;
-    line-height: 26px;
+    line-height: 45px;
   }
 `;
 
@@ -73,6 +72,10 @@ export const AddExpsIcon = styled.svg`
 export const SelectWrapper = styled.div`
   position: relative;
   margin-bottom: 30px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #BDBDBD;
+  color: ${stylistics.colors.secondaryLightText};
   @media screen and (max-width: 767px) {
     margin-bottom: 40px;
 }
@@ -165,15 +168,93 @@ export const TextForm = styled.label`
   margin-top: 30px;
 `;
 
-
-
-
-
 export const CommentInput = styled.input`
-  width: 410px;
+  width: 400px;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
   padding-left: 20px;
   padding-bottom: 5px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #BDBDBD;
+  color: ${stylistics.colors.secondaryLightText};
 `;
+
+
+
+
+//--------Styles for changing initial Select from react-----------
+/* import Creatable, { useCreatable } from 'react-select/creatable';
+const filterOption = (candidate, input) => {
+  return candidate.data.__isNew__ || candidate.label.includes(input);
+}; */
+export const initialSelectStyles = {
+  option: (items, state) => ({
+    ...items,
+    paddingLeft: 20,
+    paddingTop: 13,
+    height: 44,
+    border: 'none',
+    cursor: 'pointer',
+        color: state.isSelected || state.isFocused ? '#FF6596' : '#000000',
+    backgroundColor:
+      state.isSelected || state.isFocused ? '#FFFFFF' : 'inherit',
+  }),
+  menu: items => ({
+    ...items,
+    borderRadius: 20,
+    boxShadow: 'none',
+    backgroundColor: 'inherit',
+  }),
+  menuList: items => ({
+    ...items,
+    '@media screen and (min-width: 320px)': {
+      maxHeight: 352,
+    },
+    '@media screen and (min-width: 768px)': {
+      maxHeight: 411,
+    },
+    padding: 0,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    filter:
+      'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+  }),
+  control: () => ({
+    '@media screen and (min-width: 320px)': {
+      width: 280,
+    },
+    '@media screen and (min-width: 768px)': {
+      width: 408,
+    },
+    height: 34,
+  }),
+  placeholder: items => ({
+    ...items,
+    fontSize: 18,
+    lineHeight: 1.44,
+    color: '#BDBDBD',
+  }),
+  valueContainer: items => ({
+    ...items,
+    maxHeight: 34,
+    paddingLeft: 20,
+    paddingBottom: 10,
+  }),
+  indicatorsContainer: () => ({
+    display: 'none',
+  }),
+  container: items => ({
+    ...items,
+    cursor: 'pointer',
+    borderBottom: '1px solid #BDBDBD',
+  }),
+  singleValue: (items, state) => {
+    const opacity = state.isDisabled ? 0.5 : 1;
+    const transition = 'opacity 150ms';
+    return { ...items, opacity, transition };
+  },
+};
+
+/* export default initialSelectStyles; */

@@ -18,6 +18,7 @@ import {
   ChooseIcon,
   CommentInput,
   CheckboxSpan,
+  initialSelectStyles,
 } from './modalAddTransaction.styled';
 import {
   transOperations,
@@ -36,6 +37,8 @@ import { fetchCategories } from 'redux/categories/categories-operations';
 // import 'moment/locale/ua';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
+
+
 
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
@@ -65,13 +68,13 @@ const ModalAddTransactions = ({ onClose }) => {
       label: e.name,
     };
   });
-  selection.style=(state)=>({  paddingLeft: 20,
-                          paddingTop: 13,
-                          height: 44,
-                          border: 'none',
-    cursor: 'pointer',
-    color: state.isSelected || state.isFocused ? '#FF6596' : '#000000',
-    backgroundColor: state.isSelected || state.isFocused ? '#FFFFFF' : 'inherit',})
+  // selection.style=(state)=>({  paddingLeft: 20,
+  //                         paddingTop: 13,
+  //                         height: 44,
+  //                         border: 'none',
+  //   cursor: 'pointer',
+  //   color: state.isSelected || state.isFocused ? '#FF6596' : '#000000',
+  //   backgroundColor: state.isSelected || state.isFocused ? '#FFFFFF' : 'inherit',})
 
   
   const [defaultState, setFullState] = useState({
@@ -139,13 +142,6 @@ const ModalAddTransactions = ({ onClose }) => {
     },
     [category, comment, sum, checked, onClose, dispatch]
   );
-  //subtracting the day to get actual date
-
-  // moment.locale();
-  // let startDay = moment.locale().subtract(1, 'day');
-  // let today = function (current) {
-  //   return current.isAfter(startDay);
-  // };
 
 
   return (
@@ -171,10 +167,10 @@ const ModalAddTransactions = ({ onClose }) => {
       <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
           <IncomeChoosen as="div">
-            <CheckboxSpan as="span" >Income</CheckboxSpan>
+            <CheckboxSpan as="span" style={{marginRight: "20px"}}>Income</CheckboxSpan>
             </IncomeChoosen>
           <Switch
-            styles={{  margin: '0 15px 20px 15px'}}
+            styles={{ margin: '0 15px 20px 15px'}}
             name="checked"
             value={checked}
             onChange={handleChangeCheckbox}
@@ -212,7 +208,7 @@ const ModalAddTransactions = ({ onClose }) => {
               </AddExpsIcon>
             }
           />
-          <CheckboxSpan as="span">Expense</CheckboxSpan>
+          <CheckboxSpan as="span" style={{marginLeft: "20px"}}>Expense</CheckboxSpan>
         </CheckboxWrapper>
 
     
@@ -222,21 +218,11 @@ const ModalAddTransactions = ({ onClose }) => {
               name="option"
               onChange={onChangeSelect}
               placeholder="Select a category"
-              style = {{ 
-                //        borderRadius: 20,
-                // backgroundColor: `inherit`,
-                    '@media screen and (min-width: 320px)': {
-      maxHeight: 352,
-    },
-    '@media screen and (min-width: 768px)': {
-      maxHeight: 411,
-    },
-    padding: 0,
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
-                borderRadius: 20,
-    backdropFilter: 'blur(25px)',
-    boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
-              }}
+              // style = {{ boxShadow: `none`,
+              //          borderRadius: 20,
+              //   backgroundColor: `inherit`,
+              // }}
+              styles={initialSelectStyles}
               options={selection}
             />
             <ChooseIcon
@@ -297,7 +283,7 @@ const ModalAddTransactions = ({ onClose }) => {
             type="text"
             onChange={handleChange}
             value={comment}
-            placeholder="Leave your comment here"
+            placeholder="Comment"
             pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+([-'\s][a-zA-Zа-яА-ЯІіЇїҐґ]+)*$"
           ></CommentInput>
         </TextForm>
