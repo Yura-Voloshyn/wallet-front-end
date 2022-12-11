@@ -18,6 +18,7 @@ export const CurrencyContainer = styled.div`
     }
 `
 export const TableContainer = styled.div`
+    height: 100vh;
     margin-top: 46px;
     margin-left: 480px;
 
