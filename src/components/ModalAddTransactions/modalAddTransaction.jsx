@@ -139,7 +139,6 @@ const ModalAddTransactions = ({ onClose }) => {
 
 
 
-
   
   return (
     <Modal onClose={onClose}>
@@ -255,6 +254,7 @@ const ModalAddTransactions = ({ onClose }) => {
               <MyTimePicker
                 locale="ua"
                 type="date"
+               
                 closeOnSelect={true}
                 value= {selectedDate}
                 selected={selectedDate}
