@@ -37,7 +37,7 @@ import 'react-datetime/css/react-datetime.css';
 
 import { getFilteredCategories } from 'redux/categories/categories-selectors';
 import { fetchCategories } from 'redux/categories/categories-operations';
-import 'moment/locale/ua';
+// import 'moment/locale/ua';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 
@@ -149,10 +149,7 @@ const ModalAddTransactions = ({ onClose }) => {
 //  let now = moment();
 //   moment.locale('ua');
   
-  let startDay = moment.locale('ua').subtract(1, 'day');
-  let today = function (current) {
-    return current.isAfter(startDay);
-  };
+ 
 
   return (
     <Modal onClose={onClose}>
@@ -273,11 +270,17 @@ const ModalAddTransactions = ({ onClose }) => {
             timeFormat={false}
             // dateFormat="dd/MM/yyyy"
             closeOnSelect={true}
-            isValidDate={today}
-            inputProps={{
-            placeholder: 'MM-DD-YYYY',
-            required: true,
-              }}
+            // isValidDate={today}
+            // inputProps={{
+            // placeholder: 'MM-DD-YYYY',
+            // required: true,
+            //   }}
+            required
+            inputDate={{  outline: "none",
+                border: "none",
+                borderBottom: "1px solid #bdbdbd",
+                cursor: "pointer",
+                width: "190px"}}
   //             styles={{  outline: `none`,
   // border: `none`,
   // borderBottom: `1px solid #BDBDBD`}}
