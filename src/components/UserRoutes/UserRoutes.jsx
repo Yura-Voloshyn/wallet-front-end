@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import { PrivateRoute } from 'components/PrivateRoute';
 import { PublicRoute } from 'components/PublicRoute';
 import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
-import Home from 'pages/Home/Home';
-import Currency from 'components/Currency/Currency';
+// import Home from 'pages/Home/Home';
+// import Currency from 'components/Currency/Currency';
 
 const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
 const MainPage = lazy(() => import('../../pages/MainPage/MainPage'));
