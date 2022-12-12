@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
 
 export const TotalBalanceWrapper = styled.div`
-  margin-top: 28px;
   width: 280px;
   margin-top: 12px;
   height: 80px;
   border-radius: 30px;
+  margin-right: auto;
+  margin-left: auto;
 
   padding-top: 8px;
   background-color: #ffffff;

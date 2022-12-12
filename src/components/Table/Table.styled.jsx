@@ -17,20 +17,17 @@ export const TableStyle = styled.table`
 
     ::-webkit-scrollbar {
         width: 2px; /* ширина для вертикального скролла */
-}
+    }
 
-/* ползунок скроллбара */
-::-webkit-scrollbar-thumb {
-  /* background-color: #843465;
-  border-radius: 9em; */
-  box-shadow: inset 1px 1px 10px #f3faf7;
-}
+    /* ползунок скроллбара */
+    ::-webkit-scrollbar-thumb {
+    /* background-color: #843465;
+    border-radius: 9em; */
+    box-shadow: inset 1px 1px 10px #f3faf7;
+    }
 
-`;
+    `;
 
-export  const Tablebody = styled.tbody`
-
-`;
 
 export const Tr = styled.tr`
     height: 58px;
@@ -123,6 +120,8 @@ export const TableMob = styled.table`
     width: 280px;
     border-left: 5px solid ${color => color.color};
     margin-bottom: 8px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 1);
 
