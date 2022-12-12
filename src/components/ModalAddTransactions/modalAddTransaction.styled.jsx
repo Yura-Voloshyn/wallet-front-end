@@ -220,7 +220,8 @@ export const TextForm = styled.label`
 `;
 
 export const CommentInput = styled.input`
-  /* width: 400px; */
+  width: 394px;
+  height: 32px;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
@@ -231,13 +232,11 @@ export const CommentInput = styled.input`
   resize: none;
   display: block;
   position: relative;
-  /* min-height: 74px; */
   border-bottom: 1px solid #BDBDBD;
   color: ${stylistics.colors.secondaryLightText};
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
      height: 84px;
-     max-width: 280px;
-     
+     max-width: 240px;
     }
 
   /* resize: none; */
