@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Logo } from 'components/Logo/Logo';
 import { ModalLogout } from 'components/ModalLogout/ModalLogout';
 import {
@@ -13,6 +14,7 @@ import logoutIcon from '../../images/icons/logout-icon.svg';
 
 export const Header = () => {
   const [isShowModalLogout, setIsShowModalLogout] = useState(false);
+  const username = useSelector(state => state.auth.user.name);
 
   const handleCloseModal = () => setIsShowModalLogout(false);
 
@@ -21,7 +23,7 @@ export const Header = () => {
       <Logo />
 
       <UserMenu>
-        <Username>Name</Username>
+        <Username>{username}</Username>
         <LogoutBtn onClick={() => setIsShowModalLogout(true)}>
           <Logout src={logoutIcon} alt="logout" />
           <LogoutText>Exit</LogoutText>

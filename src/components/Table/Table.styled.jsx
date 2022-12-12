@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 
 export const TableStyle = styled.table`
+
     max-height: 60vh;
     overflow-y: auto;
     display: none;
@@ -25,11 +26,12 @@ export const TableStyle = styled.table`
   box-shadow: inset 1px 1px 10px #f3faf7;
 }
 
-`
+`;
 
 export  const Tablebody = styled.tbody`
 
-` 
+`;
+
 export const Tr = styled.tr`
     height: 58px;
     border-radius: 30px;
