@@ -28,7 +28,7 @@ const Home = () => {
           <TotalBalance />
         </OnTanbletWrapper>
 
-        <Currency />
+        <Media query="(min-width: 768px)" render={() => <Currency />} />
       </CurrencyContainer>
 
       {location.pathname === '/home' && (

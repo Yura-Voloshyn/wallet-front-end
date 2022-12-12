@@ -44,32 +44,32 @@ export const Tr = styled.tr`
             background-color: rgba(255, 255, 255, 1);
         }
 
-        & th:nth-child(1) {
+        & th:nth-of-type(1) {
             border-radius: 30px 0 0 30px;
             width: 110px;
             padding-left: 20px;
             text-align: start;
         }
 
-        & th:nth-child(2) {
+        & th:nth-of-type(2) {
             width: 84px;
             text-align: start;
         }
 
-        & th:nth-child(3) {
+        & th:nth-of-type(3) {
             width: 146px;
             text-align: start;
         }
 
-        & th:nth-child(4) {
+        & th:nth-of-type(4) {
             width: 161px;
             text-align: start;
         }
-        & th:nth-child(5) {
+        & th:nth-of-type(5) {
             width: 93px;
             text-align: end;
         }
-        & th:nth-child(6) {
+        & th:nth-of-type(6) {
             border-radius: 0 30px 30px 0;
             width: 110px;
             padding-right: 20px;
@@ -92,26 +92,26 @@ box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
     font-size: 16px;
     line-height: 24px;
     }
-    & td:nth-child(1) {
+    & td:nth-of-type(1) {
     padding-left: 20px;
     text-align: start;
     }
-    & td:nth-child(2) {
+    & td:nth-of-type(2) {
     padding-left: 20px;
     text-align: start;
     }
-    & td:nth-child(3) {
+    & td:nth-of-type(3) {
     text-align: start;
     }
-    & td:nth-child(4) {
+    & td:nth-of-type(4) {
     text-align: start;
     }
-    & td:nth-child(5) {
+    & td:nth-of-type(5) {
     font-family: 'Circe Bold';
     text-align: end;
     color: ${color => color.color};
     }
-    & td:nth-child(6) {
+    & td:nth-of-type(6) {
     padding-right: 20px;
     text-align: end;
     }
