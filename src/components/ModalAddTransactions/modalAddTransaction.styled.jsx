@@ -149,8 +149,6 @@ export const SumInput = styled.input`
   
     @media screen and (max-width: 767px) {
     min-width: 258px;
-    /* height: 32px; */
-    
   }
   &::placeholder {
     color: ${stylistics.colors.secondaryText};
@@ -236,7 +234,7 @@ export const CommentInput = styled.input`
   display: block;
   position: relative;
   border-bottom: 1px solid #BDBDBD;
-  color: ${stylistics.colors.secondaryLightText};
+  color: ${stylistics.colors.primaryText};
   @media screen and (max-width: 768px) {
      height: 84px;
      max-width: 240px;
