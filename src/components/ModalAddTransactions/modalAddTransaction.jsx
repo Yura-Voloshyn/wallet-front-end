@@ -39,7 +39,6 @@ import { getFilteredCategories } from 'redux/categories/categories-selectors';
 import { fetchCategories } from 'redux/categories/categories-operations';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
-// import styles from 'components/ModalAddTransactions/'
 
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
@@ -154,7 +153,6 @@ const ModalAddTransactions = ({ onClose }) => {
             Income
           </CheckboxSpan>
           <MySwitch
-            // style={{backgroundColor: '#FFf', margin: '0 15px 20px 15px'}}
             styles={{ margin: '0 15px 20px 15px' }}
             onColor={'#fff'}
             offColor={'#fff'}
@@ -292,8 +290,8 @@ const ModalAddTransactions = ({ onClose }) => {
         </TextForm>
         {/* Two modal btns */}
         <TwoBtns as="div">
-          <SubmitBtn btnText={'Add'}></SubmitBtn>
-          <StyledNavLink onClick={onClose} btnText={'Cancel'}></StyledNavLink>
+          <SubmitBtn btnText={'Add'} minWidth={"300px"}></SubmitBtn>
+          <StyledNavLink onClick={onClose} btnText={'Cancel'} minWidth={"300px"}></StyledNavLink>
         </TwoBtns>
       </TransactionAddForm>
     </Modal>

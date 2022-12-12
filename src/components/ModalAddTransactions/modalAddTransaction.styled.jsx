@@ -1,24 +1,18 @@
 import styled from '@emotion/styled';
 import { stylistics } from '../../styles/styles';
 import Datetime from 'react-datetime';
-// import DatePicker from 'react-datepicker';
-// import 'react-datetime/css/react-datetime.css';
 import Switch from 'react-switch';
 
 
 
 export const MySwitch = styled(Switch)`
-
-    margin: 0 20px;
+  margin: 0 20px;
   margin-left: 15px;
   margin-right: 15px;
   background-color: none;
   border: 1px solid #e0e0e0;
   box-shadow: 0px 6px 15px rgba(156, 156, 158, 0.5);
 `
-// .react-switch-bg {
-//   background: #fff;
-// }
 
 export const CloseAddModal = styled.button`
   position: absolute;
@@ -40,8 +34,12 @@ export const TitleMod = styled.h2`
   font-weight: 400;
   font-size: 24px;
   line-height: 36px;
-  margin-bottom: 42px;
+  margin-bottom: 40px;
+  /* margin-top: 4px; */
   color: ${stylistics.colors.primaryText};
+    /* @media screen and (max-width: 767px){
+    margin-top: 20px;
+  } */
     @media screen and (min-width: 768px) {
     font-size: 30px;
     line-height: 45px;
@@ -217,6 +215,8 @@ export const DateIcon = styled.svg`
 export const TextForm = styled.label`
   /* margin-bottom: 50px; */
   margin-top: 40px;
+  /* max-width: 280px;
+  max-height: 84px; */
 `;
 
 export const CommentInput = styled.input`
@@ -236,13 +236,16 @@ export const CommentInput = styled.input`
   color: ${stylistics.colors.secondaryLightText};
   @media screen and (max-width: 767px) {
      height: 84px;
+     max-width: 280px;
     }
 
   /* resize: none; */
 `;
 
 export const TwoBtns = styled.div`
-
+&.btn-width{
+  max-width: 300px;
+}
 `;
 
 

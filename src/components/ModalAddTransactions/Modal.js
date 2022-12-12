@@ -19,19 +19,20 @@ const ModalContent = styled.div`
   position: absolute;
   /* box-sizing: content-box; */
   margin: 0 auto;
-  width: 100%;
+  /* width: 100%;  */
   min-height: 540px;
   top: 60px;
-  padding: 20px 10px 50px 10px;
   background-color: #fff;
-
+  @media screen and (max-width: 767px){
+    padding: 0px 10px 145px 10px;
+  }
   @media screen and (min-width: 768px) {
-    max-height: 603px;
+    height: 603px;
     max-width: 540px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 40px 73px 60px 73px;
+    padding: 20px 20px 60px 20px;
     border-radius: 20px;
   }
 `;
