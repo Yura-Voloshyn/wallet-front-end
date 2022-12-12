@@ -186,6 +186,9 @@ input,
     line-height: 1.5;
     border: none;
   }
+     @media screen and (max-width: 768px) {
+      margin-bottom: 40px;
+    }
 `;
 
 export const DateIcon = styled.svg`
