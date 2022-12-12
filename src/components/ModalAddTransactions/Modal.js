@@ -21,7 +21,7 @@ const ModalContent = styled.div`
   max-height: 540px;
   top: 60px;
   background-color: #fff;
-  @media screen and (max-width: 767px){
+  @media screen and (max-width: 768px){
     max-height: 600px;
     width: 100%; 
     padding: 20px 10px 74px 10px;
