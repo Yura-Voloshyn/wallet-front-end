@@ -17,18 +17,18 @@ const ModalBackdrop = styled.div`
 
 const ModalContent = styled.div`
   position: absolute;
-  /* box-sizing: content-box; */
   margin: 0 auto;
-  /* width: 100%;  */
-  min-height: 540px;
+  max-height: 540px;
   top: 60px;
   background-color: #fff;
   @media screen and (max-width: 767px){
-    padding: 0px 10px 145px 10px;
+    max-height: 600px;
+    width: 100%; 
+    padding: 20px 10px 74px 10px;
   }
   @media screen and (min-width: 768px) {
-    height: 603px;
-    max-width: 540px;
+    max-height: 508px;
+    min-width: 500px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

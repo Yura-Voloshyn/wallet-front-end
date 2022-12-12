@@ -214,13 +214,13 @@ export const DateIcon = styled.svg`
 
 export const TextForm = styled.label`
   /* margin-bottom: 50px; */
-  margin-top: 40px;
+  /* margin-top: 40px; */
   /* max-width: 280px;
   max-height: 84px; */
 `;
 
 export const CommentInput = styled.input`
-  width: 400px;
+  /* width: 400px; */
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
@@ -237,15 +237,15 @@ export const CommentInput = styled.input`
   @media screen and (max-width: 767px) {
      height: 84px;
      max-width: 280px;
+     
     }
 
   /* resize: none; */
 `;
 
 export const TwoBtns = styled.div`
-&.btn-width{
-  max-width: 300px;
-}
+
+
 `;
 
 

@@ -17,7 +17,7 @@ import {
   ChooseIcon,
   CommentInput,
   CheckboxSpan,
-  TwoBtns,
+ 
   MySwitch,
   // CalendarIcon,
   CalendarDiv,
@@ -289,10 +289,10 @@ const ModalAddTransactions = ({ onClose }) => {
           ></CommentInput>
         </TextForm>
         {/* Two modal btns */}
-        <TwoBtns as="div">
+       
           <SubmitBtn btnText={'Add'} minWidth={"300px"}></SubmitBtn>
           <StyledNavLink onClick={onClose} btnText={'Cancel'} minWidth={"300px"}></StyledNavLink>
-        </TwoBtns>
+     
       </TransactionAddForm>
     </Modal>
   );
