@@ -1,6 +1,7 @@
 import TableHead from './TableHead';
 import TableBody from './TableBody';
-import { TableStyle, TableText } from './Table.styled';
+import TableNothingTransactions from './TableNothingText';
+import { TableStyle } from './Table.styled';
 import TableMobile from './TableMobile';
 
 import { useEffect } from 'react';
@@ -24,7 +25,7 @@ const Table = () => {
       {transactions.length === 0 ? (
         <TableStyle>
           <TableHead />
-          <TableText>Sorry, you havn't transactions</TableText>
+          <TableNothingTransactions text={"Sorry, you havn't transactions"}/>
         </TableStyle>
       ) : (
         <>
