@@ -133,6 +133,12 @@ const ModalAddTransactions = ({ onClose }) => {
     [category, comment, sum, checked, onClose, dispatch]
   );
 
+ let smallSum = document.querySelector('#sumarization');
+  smallSum.oninput = function(){
+  this.value = this.value.substr(0, 6);
+}
+ 
+
   return (
     <Modal onClose={onClose}>
       <CloseAddModal as="button" type="button" onClick={onClose}>
@@ -225,18 +231,19 @@ const ModalAddTransactions = ({ onClose }) => {
           <FormSum as="label">
             <SumInput
               as="input"
+              id="sumarization"
               name="sum"
               value={sum}
-              // title="Add sum"
               required
-              min="0.00"
-              step="0.01"
+              min="0.01"
+              // step="1"
+              pattern="\d*"
               type="number"
               placeholder="0.00"
               autoComplete="off"
               onChange={handleChange}
               maxLength="6"
-              pattern="^[ 0-9]+$"
+              // pattern="^[ 0-9]+$"
             ></SumInput>
           </FormSum>
 
