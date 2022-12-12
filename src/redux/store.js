@@ -48,6 +48,7 @@ export const store = configureStore({
           PURGE,
           REGISTER,
           'statistics/transactions/fulfilled',
+          'transactions/fulfilled',
         ],
       },
     }),

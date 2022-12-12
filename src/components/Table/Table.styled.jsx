@@ -86,26 +86,26 @@ export const Trb = styled.tr`
     font-size: 16px;
     line-height: 24px;
   }
-  & td::nth-of-type(1) {
+  & td:nth-of-type(1) {
     padding-left: 20px;
     text-align: start;
   }
-  & td::nth-of-type(2) {
+  & td:nth-of-type(2) {
     padding-left: 20px;
     text-align: start;
   }
-  & td::nth-of-type(3) {
+  & td:nth-of-type(3) {
     text-align: start;
   }
-  & td::nth-of-type(4) {
+  & td:nth-of-type(4) {
     text-align: start;
   }
-  & td::nth-of-type(5) {
+  & td:nth-of-type(5) {
     font-family: 'Circe Bold';
     text-align: end;
     color: ${color => color.color};
   }
-  & td::nth-of-type(6) {
+  & td:nth-of-type(6) {
     padding-right: 20px;
     text-align: end;
   }
