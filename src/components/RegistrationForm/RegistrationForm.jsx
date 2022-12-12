@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import regEx from '../RegistrationForm/regEx';
 import { signup } from '../../redux/auth/authOperation';
 import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
@@ -24,16 +25,25 @@ import {
 } from './RegistrationForm.styled';
 
 const schema = yup.object().shape({
-  email: yup.string().min(2).required(),
+  email: yup
+    .string()
+    .min(2)
+    .matches(regEx.email, 'type valid email')
+    .required(),
   password: yup
     .string()
     .min(6, 'must min length 6')
     .max(12, 'must max length 12')
+    .matches(regEx.password, `Password must contain "123","A and b","# % *`)
     .required(),
   name: yup
     .string()
     .min(1, 'must min length 1')
     .max(12, 'must max length 12')
+    .matches(
+      regEx.name,
+      'the name can contain letters and numbers without spaces'
+    )
     .required(),
 });
 
@@ -45,12 +55,10 @@ const RegistrationForm = () => {
     name: '',
   };
 
-  const result = [];
   const [isHidePassword, setIsHidePassword] = useState(true);
   const [isHideConfirm, setIsHideConfirm] = useState(true);
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   const handleSubmit = async (e, { resetForm }) => {
     Notify.init({
@@ -79,34 +87,28 @@ const RegistrationForm = () => {
       },
     });
 
-    if (e.password === e.confirm) {
-      result.push({
-        email: e.email,
-        password: e.password,
-        name: e.name,
-      });
+    const { email, password, name } = e;
 
-      const onRegister = data => {
-        dispatch(signup(data));
-      };
-
-      const res = await onRegister(result[0]);
-      if (res === undefined) {
-        Notify.warning(
-          `User with email: " ${result[0].email} " is alredy exist`
-        );
-        resetForm();
-        setPassword('');
+    if (password !== e.confirm) {
+      Notify.warning('Please, confirm password.');
+      return;
+    }
+    if (password === e.confirm) {
+      const res = await dispatch(signup({ email, password, name }));
+      if (res.error && res.payload.status === 409) {
+        Notify.warning(`User with email: " ${email} " is alredy exist`);
+        return;
+      } else if (res.error) {
+        Notify.warning('Please check, if it`s written correctly.');
         return;
       }
-
       Notify.success('Registration success');
       resetForm();
       setPassword('');
       return res;
     }
-    Notify.warning('Password wrong');
   };
+
   return (
     <Div>
       <Logo />
@@ -115,85 +117,91 @@ const RegistrationForm = () => {
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        <FormStyled autoComplete="off">
-          <FormLabel>
-            <IconEmail />
-            <FormField type="email" name="email" placeholder="E-mail" />
-            <ErrorMessage
-              name="email"
-              render={msg => <ErrorText>{msg}</ErrorText>}
+        {({ isValid, dirty }) => (
+          <FormStyled autoComplete="off">
+            <FormLabel>
+              <IconEmail />
+              <FormField type="email" name="email" placeholder="E-mail" />
+              <ErrorMessage
+                name="email"
+                render={msg => <ErrorText>{msg}</ErrorText>}
+              />
+            </FormLabel>
+            <FormLabel>
+              <IconPassword />
+              <FormField
+                onInput={evt => setPassword(evt.target.value)}
+                type={isHidePassword ? 'password' : 'text'}
+                name="password"
+                placeholder="Password"
+              />
+              {isHidePassword ? (
+                <IconContext.Provider
+                  value={{
+                    size: '20px',
+                    color: 'rgba(224, 224, 224, 1)',
+                  }}
+                >
+                  <HiEyeStyle onClick={() => setIsHidePassword(false)} />
+                </IconContext.Provider>
+              ) : (
+                <IconContext.Provider
+                  value={{
+                    size: '20px',
+                    color: 'rgba(224, 224, 224, 1)',
+                  }}
+                >
+                  <HiEyeOffStyle onClick={() => setIsHidePassword(true)} />
+                </IconContext.Provider>
+              )}
+              <ErrorMessage
+                name="password"
+                render={msg => <ErrorText>{msg}</ErrorText>}
+              />
+            </FormLabel>
+            <FormLabel>
+              <IconPassword />
+              <FormField
+                type={isHideConfirm ? 'password' : 'text'}
+                name="confirm"
+                placeholder="Confirm password"
+              />
+              {isHideConfirm ? (
+                <IconContext.Provider
+                  value={{
+                    size: '20px',
+                    color: 'rgba(224, 224, 224, 1)',
+                  }}
+                >
+                  <HiEyeStyle onClick={() => setIsHideConfirm(false)} />
+                </IconContext.Provider>
+              ) : (
+                <IconContext.Provider
+                  value={{
+                    size: '20px',
+                    color: 'rgba(224, 224, 224, 1)',
+                  }}
+                >
+                  <HiEyeOffStyle onClick={() => setIsHideConfirm(true)} />
+                </IconContext.Provider>
+              )}
+              <ProgressBarLine password={password} />
+            </FormLabel>
+            <FormLabel>
+              <IconUser />
+              <FormField type="text" name="name" placeholder="First name" />
+              <ErrorMessage
+                name="name"
+                render={msg => <ErrorText>{msg}</ErrorText>}
+              />
+            </FormLabel>
+            <SubmitBtn
+              type="submit"
+              disabled={!(isValid && dirty)}
+              btnText={'register'}
             />
-          </FormLabel>
-          <FormLabel>
-            <IconPassword />
-            <FormField
-              onInput={evt => setPassword(evt.target.value)}
-              type={isHidePassword ? 'password' : 'text'}
-              name="password"
-              placeholder="Password"
-            />
-            {isHidePassword ? (
-              <IconContext.Provider
-                value={{
-                  size: '20px',
-                  color: 'rgba(224, 224, 224, 1)',
-                }}
-              >
-                <HiEyeStyle onClick={() => setIsHidePassword(false)} />
-              </IconContext.Provider>
-            ) : (
-              <IconContext.Provider
-                value={{
-                  size: '20px',
-                  color: 'rgba(224, 224, 224, 1)',
-                }}
-              >
-                <HiEyeOffStyle onClick={() => setIsHidePassword(true)} />
-              </IconContext.Provider>
-            )}
-            <ErrorMessage
-              name="password"
-              render={msg => <ErrorText>{msg}</ErrorText>}
-            />
-          </FormLabel>
-          <FormLabel>
-            <IconPassword />
-            <FormField
-              type={isHideConfirm ? 'password' : 'text'}
-              name="confirm"
-              placeholder="Confirm password"
-            />
-            {isHideConfirm ? (
-              <IconContext.Provider
-                value={{
-                  size: '20px',
-                  color: 'rgba(224, 224, 224, 1)',
-                }}
-              >
-                <HiEyeStyle onClick={() => setIsHideConfirm(false)} />
-              </IconContext.Provider>
-            ) : (
-              <IconContext.Provider
-                value={{
-                  size: '20px',
-                  color: 'rgba(224, 224, 224, 1)',
-                }}
-              >
-                <HiEyeOffStyle onClick={() => setIsHideConfirm(true)} />
-              </IconContext.Provider>
-            )}
-            <ProgressBarLine password={password} />
-          </FormLabel>
-          <FormLabel>
-            <IconUser />
-            <FormField type="text" name="name" placeholder="First name" />
-            <ErrorMessage
-              name="name"
-              render={msg => <ErrorText>{msg}</ErrorText>}
-            />
-          </FormLabel>
-          <SubmitBtn type="submit" btnText={'register'} />
-        </FormStyled>
+          </FormStyled>
+        )}
       </Formik>
       <StyledNavLink btnText={'login'} to={'/login'} />
     </Div>
