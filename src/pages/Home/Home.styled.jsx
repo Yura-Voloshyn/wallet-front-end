@@ -55,7 +55,7 @@ export const TableContainer = styled.div`
 
     height: 100vh;
     
-    margin-left: 480px; // ??
+   
 
   margin-top: 32px;
 
