@@ -86,8 +86,6 @@ export const TableFoot = styled.tfoot`
   }
 `;
 
-export const FootRaw = styled.tr``;
-
 export const FootTitle = styled.th`
   padding-left: 20px;
   text-align: left;
@@ -112,4 +110,11 @@ export const Incomes = styled.td`
   @media (min-width: 768px) {
     padding-right: 20px;
   }
+`;
+
+export const NoTransactions = styled.p`
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 20px;
 `;

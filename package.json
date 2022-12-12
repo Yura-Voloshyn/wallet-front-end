@@ -17,6 +17,7 @@
     "date-fns": "^2.29.3",
     "formik": "^2.2.9",
     "moment": "^2.29.4",
+    "framer-motion": "^7.6.19",
     "notiflix": "^3.2.5",
     "react": "^18.1.0",
     "react-calendar": "^4.0.0",
