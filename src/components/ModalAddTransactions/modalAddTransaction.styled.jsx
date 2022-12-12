@@ -178,6 +178,14 @@ background-color: #fff;
 padding: 18px 20px 18px 10px;
 outline: none;
 border: none;
+line-height: 0;
+input,
+  textarea {
+    padding: 0 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    border: none;
+  }
 `;
 
 export const DateIcon = styled.svg`
