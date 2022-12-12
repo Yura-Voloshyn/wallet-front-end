@@ -70,7 +70,7 @@ const ModalAddTransactions = ({ onClose }) => {
     type: false,
     category: '',
     comment: '',
-    sum: 'required|above:0',
+    sum: '',
     checked: true,
   });
   const { category, comment, sum, checked } = defaultState;
