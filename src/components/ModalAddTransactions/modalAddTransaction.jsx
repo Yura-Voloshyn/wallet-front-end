@@ -17,7 +17,6 @@ import {
   ChooseIcon,
   CommentInput,
   CheckboxSpan,
- 
   MySwitch,
   // CalendarIcon,
   CalendarDiv,
@@ -32,7 +31,6 @@ import { postTransaction } from 'redux/transaction/transactionOperation';
 // } from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
 import Select from 'react-select';
-// import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import { getFilteredCategories } from 'redux/categories/categories-selectors';
 import { fetchCategories } from 'redux/categories/categories-operations';
@@ -131,14 +129,10 @@ const ModalAddTransactions = ({ onClose }) => {
     },
     [category, comment, sum, checked, onClose, dispatch]
   );
-
 //  let smallSum = document.querySelector('#sumarization');
 //   smallSum.oninput = function(){
 //     this.value = this.value.substr(0, 7);
 // }
-
-
-
   return (
     <Modal onClose={onClose}>
       <CloseAddModal as="button" type="button" onClick={onClose}>
@@ -213,6 +207,7 @@ const ModalAddTransactions = ({ onClose }) => {
               placeholder="Select a category"
               styles={initialSelectStyles}
               options={selection}
+              required
             />
             <ChooseIcon
               as="svg"
@@ -235,7 +230,6 @@ const ModalAddTransactions = ({ onClose }) => {
               name="sum"
               value={sum}
               required
-              min="0.01"
               step="1.00"
               type="number"
               placeholder="0.00"
@@ -243,7 +237,7 @@ const ModalAddTransactions = ({ onClose }) => {
               onChange={handleChange}
               maxLength="6"
               pattern="^[ 0-9]{1,6}"
-              autofocus
+              autoFocus
             ></SumInput>
           </FormSum>
 
@@ -258,7 +252,7 @@ const ModalAddTransactions = ({ onClose }) => {
                 onChange={handleDateChange}
                 timeFormat={false}
                 dateFormat="DD.MM.YYYY"
-                required
+                required={true}
               />
               <DateIcon
                 as="svg"
@@ -284,7 +278,6 @@ const ModalAddTransactions = ({ onClose }) => {
             type="text"
             onChange={handleChange}
             value={comment}
-            // title="Add comment"
             placeholder="Comment"
             autoComplete="off"
             maxLength="500"
@@ -296,10 +289,8 @@ const ModalAddTransactions = ({ onClose }) => {
           ></CommentInput>
         </TextForm>
         {/* Two modal btns */}
-       
           <SubmitBtn btnText={'Add'} minWidth={"300px"}></SubmitBtn>
           <StyledNavLink onClick={onClose} btnText={'Cancel'} minWidth={"300px"}></StyledNavLink>
-     
       </TransactionAddForm>
     </Modal>
   );
