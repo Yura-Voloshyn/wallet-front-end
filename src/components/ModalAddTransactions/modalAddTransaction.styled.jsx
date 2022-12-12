@@ -181,15 +181,15 @@ border: none;
 `;
 
 export const DateIcon = styled.svg`
-    @media screen and (max-width: 767px) {
-      top: 80px;
+    @media screen and (max-width: 768px) {
+      top: 95px;
     }
     width: 24px;
     height: 24px;
     fill: ${stylistics.colors.houseExpens};
     position: absolute;
     right: 20px;
-    top: 7px;
+    /* top: 7px; */
     pointer-events: none;
     vertical-align: baseline;
 `;
