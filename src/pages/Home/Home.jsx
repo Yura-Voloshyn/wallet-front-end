@@ -1,7 +1,9 @@
+
 import TotalBalance from 'components/TotalBalance/TotalBalance';
 import Table from 'components/Table/Table';
 import { Navigation } from 'components/Navigation/Navigation';
 import { useLocation } from 'react-router-dom';
+
 
 import {
   HomeContainer,
