@@ -31,7 +31,6 @@ import { postTransaction } from 'redux/transaction/transactionOperation';
 //   // transSelectors,
 // } from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
-// import Switch from 'react-switch';
 import Select from 'react-select';
 // import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
@@ -67,11 +66,11 @@ const ModalAddTransactions = ({ onClose }) => {
   };
 
   const [defaultState, setFullState] = useState({
-    date: '12.12.2022',
+    date: 'selectedDate',
     type: false,
     category: '',
     comment: '',
-    sum: '',
+    sum: 'required|above:0',
     checked: true,
   });
   const { category, comment, sum, checked } = defaultState;
@@ -133,11 +132,12 @@ const ModalAddTransactions = ({ onClose }) => {
     [category, comment, sum, checked, onClose, dispatch]
   );
 
- let smallSum = document.querySelector('#sumarization');
-  smallSum.oninput = function(){
-  this.value = this.value.substr(0, 6);
-}
- 
+//  let smallSum = document.querySelector('#sumarization');
+//   smallSum.oninput = function(){
+//     this.value = this.value.substr(0, 7);
+// }
+
+
 
   return (
     <Modal onClose={onClose}>
@@ -236,14 +236,14 @@ const ModalAddTransactions = ({ onClose }) => {
               value={sum}
               required
               min="0.01"
-              // step="1"
-              pattern="\d*"
+              step="1.00"
               type="number"
               placeholder="0.00"
               autoComplete="off"
               onChange={handleChange}
               maxLength="6"
-              // pattern="^[ 0-9]+$"
+              pattern="^[ 0-9]{1,6}"
+              autofocus
             ></SumInput>
           </FormSum>
 
