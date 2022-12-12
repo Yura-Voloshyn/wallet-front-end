@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getTransactions } from 'services/api/transactios/api';
 
 export const fetchTransactions = createAsyncThunk(
-  'transactions/fetch',
+  'transactions',
   async (_, thunkAPI) => {
     try {
       const data = await getTransactions();

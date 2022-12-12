@@ -10,15 +10,13 @@ export const MainNav = styled.nav`
 
   @media (min-width: 768px) {
     margin-top: 40px;
-    padding-left: 32px;
+    
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
   }
 
-  @media (min-width: 1280px) {
-    padding-left: 16px;
-  }
+ 
 `;
 
 export const Link = styled(NavLink)`

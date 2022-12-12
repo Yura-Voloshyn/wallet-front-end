@@ -57,8 +57,9 @@ export const Square = styled.div`
   width: 24px;
   height: 24px;
   margin-right: 15px;
-  
+
   margin-left: 20px;
+ 
 `;
 
 export const TableCategories = styled.td`
@@ -90,11 +91,7 @@ export const TableFoot = styled.tfoot`
   }
 `;
 
-export const FootRaw = styled.tr`
 
-  
-  
-`;
 
 export const FootTitle = styled.th`
   padding-left: 20px;
@@ -120,4 +117,11 @@ export const Incomes = styled.td`
   @media (min-width: 768px) {
     padding-right: 20px;
   }
+`;
+
+export const NoTransactions = styled.p`
+  color: red;
+  text-align: center;
+  margin-top:15px;
+  font-size: 20px;
 `;

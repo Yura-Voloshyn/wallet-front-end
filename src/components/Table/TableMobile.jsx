@@ -6,7 +6,7 @@ const TableMobile = ({items}) => {
     return (
         <div>
             {items.map(({date, type, category, comment, sum, balance}) => {
-                const color = type === "+" ? "rgba(36, 204, 167, 1)" : "rgba(255, 101, 150, 1)";
+                const color = type  ? "rgba(36, 204, 167, 1)" : "rgba(255, 101, 150, 1)";
                 
                 return (
                     <TableMob color={color}>
@@ -15,11 +15,11 @@ const TableMobile = ({items}) => {
                         </Trm>
                         <Trm>
                             <Tdm>{date}</Tdm>
-                            <Tdm>{type}</Tdm>
+                            <Tdm>{type === true ? "+" : "-"}</Tdm>
                             <Tdm>{category}</Tdm>
                             <Tdm>{comment}</Tdm>
-                            <Tds color={color}>{sum}</Tds>
-                            <Tdm>{balance}</Tdm>
+                            <Tds color={color}>{`${sum},00`}</Tds>
+                            <Tdm>{`${balance},00`}</Tdm>
                         </Trm>
                     </TableMob>
                         )    

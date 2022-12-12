@@ -4,6 +4,10 @@ import currencyCurveTablet from '../../images/background/tablet/currencyCurve_ta
 import currencyCurveDesktop from '../../images/background/desktop/currencyCurve_desktop1x.png';
 
 export const CurrencyWrapper = styled.div`
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
   width: 280px;
   height: 174px;
   overflow: auto;
@@ -18,6 +22,7 @@ export const CurrencyWrapper = styled.div`
     width: 336px;
     height: 182px;
     background-image: url(${currencyCurveTablet});
+    margin-top: 32px;
   }
   @media (min-width: 1280px) {
     width: 393px;
