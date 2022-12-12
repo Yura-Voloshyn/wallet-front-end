@@ -176,7 +176,7 @@ border: none;
 outline: none;
 background-color: #fff;
 /* padding: 18px 20px 18px 10px; */
-padding: 18px 0px 0px 0px;
+padding: 0;
 outline: none;
 border: none;
 /* line-height: 0; */
@@ -191,6 +191,7 @@ input,
       margin-bottom: 40px;
       min-width: 280px;
       height: 32px;
+      padding: 18px 0px 0px 0px;
     }
 `;
 
