@@ -33,7 +33,6 @@ export const TableHead = styled.thead`
   }
 `;
 export const TableHeadName = styled.th`
-  
   background-color: transparent;
 `;
 
@@ -47,7 +46,6 @@ export const TableBody = styled.tbody`
     line-height: 1.13;
     padding-top: 15px;
     padding-bottom: 15px;
-   
   }
 `;
 
@@ -59,7 +57,6 @@ export const Square = styled.div`
   margin-right: 15px;
 
   margin-left: 20px;
- 
 `;
 
 export const TableCategories = styled.td`
@@ -76,12 +73,10 @@ export const TableCategories = styled.td`
     &:last-child {
       padding-right: 20px;
     }
-    
   }
 `;
 
 export const TableFoot = styled.tfoot`
-  
   th,
   td {
     font-family: Circe, sans-serif;
@@ -90,8 +85,6 @@ export const TableFoot = styled.tfoot`
     line-height: 1.5;
   }
 `;
-
-
 
 export const FootTitle = styled.th`
   padding-left: 20px;
@@ -122,6 +115,6 @@ export const Incomes = styled.td`
 export const NoTransactions = styled.p`
   color: red;
   text-align: center;
-  margin-top:15px;
+  margin-top: 15px;
   font-size: 20px;
 `;

@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 export const HomeContainer = styled.div`
   display: flex;
   background-color: rgba(255, 255, 255, 0.4);
-
   padding-left: 20px;
   padding-right: 20px;
   @media (max-width: 768px) {
@@ -21,7 +20,6 @@ export const HomeContainer = styled.div`
     padding-right: 16px;
   }
 `;
-
 export const CurrencyContainer = styled.div`
   @media (min-width: 1280px) {
     height: 100vh;

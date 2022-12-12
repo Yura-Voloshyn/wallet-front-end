@@ -31,6 +31,7 @@ export function StatisticsPage() {
 
   const statisticsStore = useSelector(store => store.statistics);
 
+
   return (
     <StatisticsSection>
       <StatisticsWrapper>
