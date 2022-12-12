@@ -1,3 +1,4 @@
+
 import TotalBalance from 'components/TotalBalance/TotalBalance';
 import Table from 'components/Table/Table';
 import { Navigation } from 'components/Navigation/Navigation';
@@ -6,6 +7,7 @@ import { useState } from 'react';
 import Currency from 'components/Currency/Currency';
 import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
 import Media from 'react-media';
+
 
 import {
   HomeContainer,
