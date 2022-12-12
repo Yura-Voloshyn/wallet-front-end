@@ -6,10 +6,10 @@ export const getTransactions = async () => {
 };
 
 //post
-export const addTransaction = async () => {
-  const { data } = await instance.post('/api/transactions');
+export const addTransaction = async data => {
+  const { data: result } = await instance.post('/api/transactions', data);
 
-  return data;
+  return result;
 };
 
 export const fetchTransactionsByCategory = async () => {

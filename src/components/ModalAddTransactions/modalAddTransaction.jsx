@@ -25,10 +25,11 @@ import {
   MyTimePicker,
   initialSelectStyles,
 } from './modalAddTransaction.styled';
-import {
-  transOperations,
-  // transSelectors,
-} from '../../services/api/transactios';
+import { postTransaction } from 'redux/transaction/transactionOperation';
+// import {
+//   transOperations,
+//   // transSelectors,
+// } from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
 // import Switch from 'react-switch';
 import Select from 'react-select';
@@ -39,7 +40,6 @@ import { fetchCategories } from 'redux/categories/categories-operations';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
 // import styles from 'components/ModalAddTransactions/'
-
 
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
@@ -62,21 +62,19 @@ const ModalAddTransactions = ({ onClose }) => {
     };
   });
 
-
-   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const handleDateChange = evt => {
     setSelectedDate(String(evt._d));
   };
 
   const [defaultState, setFullState] = useState({
-    date: selectedDate,
+    date: '12.12.2022',
     type: false,
     category: '',
     comment: '',
     sum: '',
     checked: true,
   });
-
   const { category, comment, sum, checked } = defaultState;
 
   useEffect(() => {
@@ -120,38 +118,26 @@ const ModalAddTransactions = ({ onClose }) => {
       evt.preventDefault();
       (async function () {
         const userSum = Number(sum).toFixed(2);
-        await dispatch(
-          transOperations.addTransaction({
+        const res = await dispatch(
+          postTransaction({
+            date: '12.12.2022',
             sum: Number(userSum),
             comment,
-            type: !checked ? 'income' : 'expense',
+            type: !checked ? true : false,
             category,
           })
         );
+        console.log(res);
       })();
       onClose();
     },
     [category, comment, sum, checked, onClose, dispatch]
   );
 
-
-
-
-
-
-  
   return (
     <Modal onClose={onClose}>
-      <CloseAddModal as="button"
-        type="button"
-        onClick={onClose}
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-        >
+      <CloseAddModal as="button" type="button" onClick={onClose}>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M1 1L17 17" stroke="black" />
           <path d="M1 17L17 0.999999" stroke="black" />
         </svg>
@@ -161,7 +147,12 @@ const ModalAddTransactions = ({ onClose }) => {
 
       <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
-            <CheckboxSpan className={`${!checked && 'active-i'}`} style={{ marginRight: "20px" }}>Income</CheckboxSpan>
+          <CheckboxSpan
+            className={`${!checked && 'active-i'}`}
+            style={{ marginRight: '20px' }}
+          >
+            Income
+          </CheckboxSpan>
           <MySwitch
             // style={{backgroundColor: '#FFf', margin: '0 15px 20px 15px'}}
             styles={{ margin: '0 15px 20px 15px' }}
@@ -170,7 +161,6 @@ const ModalAddTransactions = ({ onClose }) => {
             name="checked"
             value={checked}
             onChange={handleChangeCheckbox}
-          
             checked={checked}
             height={40}
             width={80}
@@ -186,7 +176,7 @@ const ModalAddTransactions = ({ onClose }) => {
                 viewBox="0 0 20 2"
                 fill="none"
               >
-                                <path d="M0 1L20 0.999999" stroke="white" strokeWidth="2" />
+                <path d="M0 1L20 0.999999" stroke="white" strokeWidth="2" />
               </AddTransIcon>
             }
             uncheckedHandleIcon={
@@ -203,10 +193,14 @@ const ModalAddTransactions = ({ onClose }) => {
               </AddExpsIcon>
             }
           />
-          <CheckboxSpan className={`${checked && 'active-e'}`} style={{marginLeft: "20px"}}>Expense</CheckboxSpan>
+          <CheckboxSpan
+            className={`${checked && 'active-e'}`}
+            style={{ marginLeft: '20px' }}
+          >
+            Expense
+          </CheckboxSpan>
         </CheckboxWrapper>
 
-    
         {checked && (
           <SelectWrapper as="div">
             <Select
@@ -245,24 +239,22 @@ const ModalAddTransactions = ({ onClose }) => {
               onChange={handleChange}
               maxLength="6"
               pattern="^[ 0-9]+$"
-              
             ></SumInput>
           </FormSum>
 
           <CalendarDiv>
-           <DataPickerWrapper as="label" direction="row">
+            <DataPickerWrapper as="label" direction="row">
               <MyTimePicker
                 locale="ua"
                 type="date"
-               
                 closeOnSelect={true}
-                value= {selectedDate}
+                value={selectedDate}
                 selected={selectedDate}
                 onChange={handleDateChange}
                 timeFormat={false}
                 dateFormat="DD.MM.YYYY"
                 required
-               />
+              />
               <DateIcon
                 as="svg"
                 // id="calendar-icon"
@@ -271,14 +263,14 @@ const ModalAddTransactions = ({ onClose }) => {
                 viewBox="0 0 26 30"
                 fill="none"
               >
-                      <path
-                        d="M10 11H8V13H10V11ZM14 11H12V13H14V11ZM18 11H16V13H18V11ZM20 4H19V2H17V4H9V2H7V4H6C4.89 4 4.01 4.9 4.01 6L4 20C4 21.1 4.89 22 6 22H20C21.1 22 22 21.1 22 20V6C22 4.9 21.1 4 20 4ZM20 20H6V9H20V20Z"
-                        fill="#4A56E2"
-                      />
-                  </DateIcon>
-              </DataPickerWrapper>
+                <path
+                  d="M10 11H8V13H10V11ZM14 11H12V13H14V11ZM18 11H16V13H18V11ZM20 4H19V2H17V4H9V2H7V4H6C4.89 4 4.01 4.9 4.01 6L4 20C4 21.1 4.89 22 6 22H20C21.1 22 22 21.1 22 20V6C22 4.9 21.1 4 20 4ZM20 20H6V9H20V20Z"
+                  fill="#4A56E2"
+                />
+              </DateIcon>
+            </DataPickerWrapper>
           </CalendarDiv>
-          </InputSumWrapper>
+        </InputSumWrapper>
 
         <TextForm as="label">
           <CommentInput
@@ -300,8 +292,9 @@ const ModalAddTransactions = ({ onClose }) => {
         </TextForm>
         {/* Two modal btns */}
         <TwoBtns as="div">
-        <SubmitBtn btnText={'Add'}></SubmitBtn>
-        <StyledNavLink onClick={onClose} btnText={'Cancel'}></StyledNavLink></TwoBtns>
+          <SubmitBtn btnText={'Add'}></SubmitBtn>
+          <StyledNavLink onClick={onClose} btnText={'Cancel'}></StyledNavLink>
+        </TwoBtns>
       </TransactionAddForm>
     </Modal>
   );
