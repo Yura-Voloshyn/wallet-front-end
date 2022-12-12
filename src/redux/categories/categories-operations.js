@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as api from '../../services/api/getCategories/getCategories';
 
 export const fetchCategories = createAsyncThunk(
-  'categories/fetch',
+  'categories',
   async (_, thunkAPI) => {
     try {
       const data = await api.getCategories();

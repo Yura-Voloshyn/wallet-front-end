@@ -1,17 +1,14 @@
 import styled from '@emotion/styled';
 
 export const HomeContainer = styled.div`
-
-     display: flex;
-     background-color: rgba(255, 255, 255, 0.4);
-     
-
-    @media (max-width: 768px) {
-        display: block;
-    }
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.4);
   padding-left: 20px;
   padding-right: 20px;
-  @media (min-width: 768px) and (max-width: 1280px) {
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+  @media (max-width: 1280px) {
     flex-direction: column;
   }
   @media (min-width: 768px) {
@@ -22,13 +19,8 @@ export const HomeContainer = styled.div`
     padding-left: 16px;
     padding-right: 16px;
   }
-  @media (max-width: 768px) {
-    display: block;
-  }
 `;
-
 export const CurrencyContainer = styled.div`
-  
   @media (min-width: 1280px) {
     height: 100vh;
     padding-right: 70px;
@@ -52,10 +44,7 @@ export const OnTanbletWrapper = styled.div`
 `;
 
 export const TableContainer = styled.div`
-
-    height: 100vh;
-    
-   
+  height: 100vh;
 
   margin-top: 32px;
 
@@ -70,7 +59,6 @@ export const TableContainer = styled.div`
     margin-top: 46px;
   }
 `;
-
 
 export const StatisticsContainer = styled.div`
   margin-top: 40px;
