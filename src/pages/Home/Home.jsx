@@ -12,6 +12,7 @@ import {
 } from './Home.styled';
 import Currency from 'components/Currency/Currency';
 import { StatisticsPage } from 'pages/StatisticsPage/StatisticsPage';
+import Media from 'react-media';
 
 const Home = () => {
   const location = useLocation();
@@ -20,7 +21,7 @@ const Home = () => {
     <HomeContainer>
       <CurrencyContainer>
         <OnTanbletWrapper>
-          <Navigation />
+          <Media query="(min-width: 768px)" render={() => <Navigation />} />
 
           <TotalBalance />
         </OnTanbletWrapper>

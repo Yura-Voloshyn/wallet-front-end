@@ -1,6 +1,6 @@
 import Select from 'react-select';
 import './SelectData.scss';
-import { YEAR, MONTH } from 'helpers/selectData';
+import { YEARS, MONTH } from 'helpers/selectData';
 
 export function SelectData({ setData }) {
   return (
@@ -14,9 +14,10 @@ export function SelectData({ setData }) {
         onChange={month =>
           setData(prev => ({ ...prev, month: Number(month.value) }))
         }
+        isSearchable={false}
       />
       <Select
-        options={YEAR}
+        options={YEARS}
         name="year"
         className="selectMonthYear"
         classNamePrefix="selectMonthYearPrefix"
@@ -24,6 +25,7 @@ export function SelectData({ setData }) {
         onChange={year =>
           setData(prev => ({ ...prev, year: Number(year.value) }))
         }
+        isSearchable={false}
       />
     </div>
   );

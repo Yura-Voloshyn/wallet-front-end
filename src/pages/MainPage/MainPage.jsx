@@ -12,6 +12,7 @@ const MainPage = () => {
   return (
     <>
       <Header />
+      <Media query="(max-width: 768px)" render={() => <Navigation />} />
       {/* <Navigation /> */}
       {/* <TotalBalance /> */}
       {/* <Currency /> */}
@@ -22,6 +23,9 @@ const MainPage = () => {
 
       {location.pathname === '/diagram' && (
         <Media query="(max-width: 767px)" render={() => <StatisticsPage />} />
+      )}
+      {location.pathname === '/currency' && (
+        <Media query="(max-width: 767px)" render={() => <Currency />} />
       )}
     </>
   );
