@@ -138,14 +138,14 @@ export const SumInput = styled.input`
   line-height: 27px;
   font-weight: 400;
   
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
     min-width: 258px;
   }
   &::placeholder {
     color: ${stylistics.colors.secondaryText};
     padding-bottom: 8px;
     padding-left: 20px;
-    @media screen and (min-width: 767px) {
+    @media screen and (min-width: 768px) {
     text-align: center;
     }
   }
@@ -175,10 +175,11 @@ height: 32px;
 border: none;
 outline: none;
 background-color: #fff;
-padding: 18px 20px 18px 10px;
+/* padding: 18px 20px 18px 10px; */
+padding: 18px 0px 0px 0px;
 outline: none;
 border: none;
-line-height: 0;
+/* line-height: 0; */
 input,
   textarea {
     padding: 0 20px;
@@ -188,6 +189,8 @@ input,
   }
      @media screen and (max-width: 768px) {
       margin-bottom: 40px;
+      min-width: 280px;
+      height: 32px;
     }
 `;
 
@@ -227,10 +230,14 @@ export const CommentInput = styled.input`
   position: relative;
   border-bottom: 1px solid #BDBDBD;
   color: ${stylistics.colors.primaryText};
+      &::placeholder{
+    color: ${stylistics.colors.secondaryText};
+    }
   @media screen and (max-width: 768px) {
      height: 84px;
      max-width: 240px;
     }
+
   /* resize: none; */
 `;
 
