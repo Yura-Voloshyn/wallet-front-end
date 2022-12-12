@@ -35,11 +35,7 @@ export const TitleMod = styled.h2`
   font-size: 24px;
   line-height: 36px;
   margin-bottom: 40px;
-  /* margin-top: 4px; */
   color: ${stylistics.colors.primaryText};
-    /* @media screen and (max-width: 767px){
-    margin-top: 20px;
-  } */
     @media screen and (min-width: 768px) {
     font-size: 30px;
     line-height: 45px;
@@ -53,9 +49,6 @@ export const TransactionAddForm = styled.form`
 `;
 
 export const CheckboxWrapper = styled.div`
-  /* margin-bottom: 40px;
-  display: flex;
-  align-items: center; */
   width: 280px;
   display: flex;
   justify-content: space-around;
@@ -76,7 +69,6 @@ export const CheckboxSpan = styled.span`
   }
 `;
 
-
 export const AddTransIcon = styled.svg`
   width: 20px;
   height: 20px;
@@ -84,7 +76,6 @@ export const AddTransIcon = styled.svg`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
- 
 `;
 
 export const AddExpsIcon = styled.svg`
@@ -171,9 +162,6 @@ outline: none;
 border: none;
 width: 100%;
 border-bottom: 1px solid #E0E0E0;
-
-
-
 `;
 
 export const CalendarDiv = styled.div`
@@ -194,9 +182,6 @@ background-color: #fff;
 padding: 18px 20px 18px 10px;
 outline: none;
 border: none;
-
-
-
 `;
 
 export const DateIcon = styled.svg`
@@ -239,15 +224,12 @@ export const CommentInput = styled.input`
      height: 84px;
      max-width: 240px;
     }
-
   /* resize: none; */
 `;
 
 export const TwoBtns = styled.div`
 
-
 `;
-
 
 //--------Styles for changing initial Select from react-----------
 /* import Creatable, { useCreatable } from 'react-select/creatable';
@@ -322,4 +304,3 @@ export const initialSelectStyles = {
   },
 };
 
-/* export default initialSelectStyles; */
