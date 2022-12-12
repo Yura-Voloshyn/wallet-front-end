@@ -12,12 +12,11 @@ export const TableHead = styled.thead`
   font-weight: 700;
   font-size: 18px;
 
-  @media (min-width: 768px) {
-    padding: 15px 30px;
-  }
-
   th {
-    padding: 15px 0px 16px 0px;
+    padding: 15px 0px 15px 0px;
+    @media (min-width: 768px) {
+      padding: 15px 30px;
+    }
   }
 
   th:first-of-type {
