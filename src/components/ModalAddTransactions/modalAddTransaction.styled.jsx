@@ -139,7 +139,7 @@ export const SumInput = styled.input`
   font-weight: 400;
   
     @media screen and (max-width: 768px) {
-    min-width: 258px;
+    min-width: 280px;
   }
   &::placeholder {
     color: ${stylistics.colors.secondaryText};
