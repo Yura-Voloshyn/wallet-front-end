@@ -118,7 +118,7 @@ export const ChooseIcon = styled.svg`
 `;
  
 export const InputSumWrapper = styled.div`
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     display: grid;
   }
   position: relative;
@@ -127,8 +127,9 @@ export const InputSumWrapper = styled.div`
 `;
 
 export const FormSum = styled.label`
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     margin-bottom: 40px;
+
   }
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -140,19 +141,21 @@ export const SumInput = styled.input`
   border: none;
   border-bottom: 1px solid ${stylistics.colors.secondaryText};
   cursor: pointer;
-  width: 190px;
-  height: 34px;
+  max-width: 188px; 
+  height: 32px; 
   font-size: 18px;
   line-height: 27px;
   font-weight: 400;
   
     @media screen and (max-width: 767px) {
-    width: 280px;
-    padding-left: 20px;
+    min-width: 258px;
+    /* height: 32px; */
+    
   }
   &::placeholder {
     color: ${stylistics.colors.secondaryText};
     padding-bottom: 8px;
+    padding-left: 20px;
     @media screen and (min-width: 767px) {
     text-align: center;
     }
