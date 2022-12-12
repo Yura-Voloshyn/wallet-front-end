@@ -91,7 +91,7 @@ export const SelectWrapper = styled.div`
   margin-bottom: 30px;
   outline: none;
   border: none;
-  border-bottom: 1px solid #BDBDBD;
+  /* border-bottom: 1px solid #BDBDBD; */
   color: ${stylistics.colors.secondaryLightText};
   @media screen and (max-width: 767px) {
     margin-bottom: 40px;
@@ -151,11 +151,7 @@ export const SumInput = styled.input`
   }
 `;
 
-export const CalendarIcon = styled.svg`
- /* margin-bottom: 10px; */
- /* margin-left: 10px; */
- /* cursor: 'pointer', */
-`;
+
 
 export const MyTimePicker = styled(Datetime)`
 outline: none;
@@ -227,9 +223,6 @@ export const CommentInput = styled.input`
   /* resize: none; */
 `;
 
-export const TwoBtns = styled.div`
-
-`;
 
 //--------Styles for changing initial Select from react-----------
 /* import Creatable, { useCreatable } from 'react-select/creatable';

@@ -230,13 +230,18 @@ const ModalAddTransactions = ({ onClose }) => {
               name="sum"
               value={sum}
               required
-              step="1.00"
+              // step="1.00"
+              title="input proper values, like: 0.50, 5.55, 50.50"
+                step="0.01"
+                min="0.01"
               type="number"
+              inputMode="numeric"
+    // pattern="[0-9]{5}"
               placeholder="0.00"
               autoComplete="off"
               onChange={handleChange}
               maxLength="6"
-              pattern="^[ 0-9]{1,6}"
+              pattern="/^\d+$/"
               autoFocus
             ></SumInput>
           </FormSum>
