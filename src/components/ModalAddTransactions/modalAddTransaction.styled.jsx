@@ -145,10 +145,12 @@ export const SumInput = styled.input`
     color: ${stylistics.colors.secondaryText};
     padding-bottom: 8px;
     padding-left: 20px;
+    font-weight: 700;
     @media screen and (min-width: 768px) {
     text-align: center;
     }
   }
+
 `;
 
 
@@ -184,7 +186,7 @@ input,
   textarea {
     padding: 0 20px;
     font-weight: 400;
-    line-height: 1.5;
+    /* line-height: 1.5; */
     border: none;
   }
      @media screen and (max-width: 768px) {
@@ -244,10 +246,7 @@ export const CommentInput = styled.input`
 
 
 //--------Styles for changing initial Select from react-----------
-/* import Creatable, { useCreatable } from 'react-select/creatable';
-const filterOption = (candidate, input) => {
-  return candidate.data.__isNew__ || candidate.label.includes(input);
-}; */
+
 export const initialSelectStyles = {
   option: (items, state) => ({
     ...items,
