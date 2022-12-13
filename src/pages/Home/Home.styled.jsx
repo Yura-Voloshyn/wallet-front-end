@@ -24,10 +24,8 @@ export const CurrencyContainer = styled.div`
   @media (min-width: 1280px) {
     height: 100vh;
     padding-right: 70px;
-    margin-right: 70px;
     border-right: 1px solid #e7e5f2;
-    box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
-      1px 0px 0px rgba(255, 255, 255, 0.6);
+    box-shadow: 1px 0px 0px rgb(255 255 255 / 60%);
   }
   @media (min-width: 768px) and (max-width: 1280px) {
     display: flex;
@@ -57,6 +55,7 @@ export const TableContainer = styled.div`
   }
   @media (min-width: 1280px) {
     margin-top: 46px;
+    margin-left:auto;
   }
 `;
 
@@ -72,5 +71,6 @@ export const StatisticsContainer = styled.div`
   }
   @media (min-width: 1280px) {
     margin-top: 32px;
+    margin-left: auto;
   }
 `;
