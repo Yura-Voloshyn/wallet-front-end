@@ -222,6 +222,7 @@ export const DateIcon = styled.svg`
     right: 20px;
     pointer-events: none;
     vertical-align: baseline;
+    top: 3px;
 `;
 
 export const TextForm = styled.label`
