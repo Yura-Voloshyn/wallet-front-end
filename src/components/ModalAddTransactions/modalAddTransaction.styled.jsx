@@ -213,7 +213,7 @@ input,
 
 export const DateIcon = styled.svg`
     @media screen and (max-width: 768px) {
-      top: 95px;
+      top: 19px;
     }
     width: 24px;
     height: 24px;
