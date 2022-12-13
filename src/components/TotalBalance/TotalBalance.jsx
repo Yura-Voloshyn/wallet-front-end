@@ -1,15 +1,12 @@
 import { TotalBalanceWrapper, Balance, Title } from './TotalBalance.styled';
-import { useSelector } from 'react-redux';
-// import { Title } from 'chart.js/dist/types';
-
+import { useTotalSum } from 'components/TotalSumContextProvider/TotalSumContextProvider';
 const TotalBalance = () => {
-  
-  const { transactions } = useSelector(state => state.transactions)
+  const { balance } = useTotalSum();
 
   return (
     <TotalBalanceWrapper>
       <Title>Your balance</Title>
-      <Balance>{transactions.length === 0 ? '0,00' : `₴ ${transactions[0].balance},00`}</Balance>
+      <Balance>{balance}</Balance>
     </TotalBalanceWrapper>
   );
 };

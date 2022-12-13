@@ -40,14 +40,17 @@ const Home = () => {
       </CurrencyContainer>
 
       {location.pathname === '/home' && (
-        <TableContainer>
-          <Table />
-        </TableContainer>
+        <>
+          <TableContainer>
+            <Table />
+          </TableContainer>
+          <ButtonAddTransactions onOpen={onOpenModal} />
+          {isModalAddTransactionOpen && (
+            <ModalAddTransactions onClose={onCloseModal} />
+          )}
+        </>
       )}
-      <ButtonAddTransactions onOpen={onOpenModal} />
-      {isModalAddTransactionOpen && (
-        <ModalAddTransactions onClose={onCloseModal} />
-      )}
+
       {location.pathname === '/home/diagram' && (
         <StatisticsContainer>
           <StatisticsPage />
