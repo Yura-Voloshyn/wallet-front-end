@@ -123,8 +123,8 @@ const ModalAddTransactions = ({ onClose }) => {
             date: '12.12.2022',
             sum: Number(userSum),
             comment,
-            type: !checked ? true : false,
-            category,
+            type: !checked,
+            category: category || 'Income',
           })
         );
         console.log(res);
