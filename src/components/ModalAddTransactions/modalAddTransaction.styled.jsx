@@ -143,7 +143,7 @@ export const SumInput = styled.input`
   font-size: 18px;
   line-height: 27px;
   font-weight: 400;
-  /* margin-right: 32px; */
+  margin-right: 32px;
   padding: 0;
   
     @media screen and (max-width: 768px) {
@@ -157,7 +157,7 @@ export const SumInput = styled.input`
     font-weight: 700;
     @media screen and (min-width: 768px) {
     text-align: center;
-    margin-right: 32px;
+    /* margin-right: 32px; */
     text-align: center;
     }
   }
@@ -247,7 +247,7 @@ export const CommentInput = styled.input`
   border-bottom: 1px solid #E0E0E0;
   color: ${stylistics.colors.primaryText};
   /* input, textarea{
-  padding-left: 20px;
+  padding: 0px;
   } */
       &::placeholder{
     color: ${stylistics.colors.secondaryText};
@@ -256,11 +256,10 @@ export const CommentInput = styled.input`
     }
   @media screen and (max-width: 768px) {
      height: 84px;
-     max-width: 240px;
+     max-width: 260px;
      margin-right: 0;
            &::placeholder{
-    
-    padding-left: 20px;
+    /* padding-left: 20px; */
     /* padding-bottom: 5px; */
     }
     }
