@@ -36,9 +36,7 @@ import StyledNavLink from 'components/Button/StyledNavLink';
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
   const dispatch = useDispatch();
-  // const categories = useSelector(transOperations.fetchTransactionsByCategory);
-  // console.log(categories);
-  // const momentDate = moment().format('DD.MM.YYYY');
+
   const categories = useSelector(getFilteredCategories);
 
   useEffect(() => {

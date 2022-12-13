@@ -130,7 +130,7 @@ export const FormSum = styled.label`
 export const SumInput = styled.input`
   outline: none;
   border: none;
-  border-bottom: 1px solid ${stylistics.colors.secondaryText};
+  border-bottom: 1px solid ${stylistics.colors.secondaryLightText};
   cursor: pointer;
   max-width: 188px; 
   height: 32px; 
@@ -138,6 +138,8 @@ export const SumInput = styled.input`
   line-height: 27px;
   font-weight: 400;
   margin-right: 32px;
+  padding: 0;
+  text-align: center;
     @media screen and (max-width: 768px) {
     min-width: 280px;
   }
@@ -157,7 +159,7 @@ outline: none;
 border: none;
 width: 100%;
 
-border-bottom: 1px solid #BDBDBD;
+border-bottom: 1px solid #E0E0E0;
 `;
 
 export const CalendarDiv = styled.div`
@@ -165,21 +167,21 @@ width: 100%;
 margin-bottom: 40px;
 max-width: 188px; 
   height: 30px; 
-  /* border-bottom: 0.3px solid #BDBDBD; */
+  /* border-bottom: 0.3px solid #E0E0E0; */
   /* &::after{
     border-bottom: 1px solid #E0E0E0;
   } */
   
 @media screen and (min-width: 768px){
 width: 200px;
-margin-bottom: 40px;
+/* margin-bottom: 40px; */
 }
 `;
 
 export const DataPickerWrapper = styled.label`
 display: flex;
 position: relative;
-margin-bottom: 8px;
+/* margin-bottom: 8px; */
 flex-direction: row;
 height: 30px;
 border: none;
@@ -226,19 +228,19 @@ export const TextForm = styled.label`
 `;
 
 export const CommentInput = styled.input`
-  width: 364px;
+  width: 390px;
   height: 32px;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
-  padding: 0;
-  /* padding-bottom: 5px; */
+   padding-left: 20px;
+  padding-bottom: 5px;
   outline: none;
   border: none;
   resize: none;
   display: block;
   position: relative;
-  border-bottom: 1px solid #BDBDBD;
+  border-bottom: 1px solid #E0E0E0;
   color: ${stylistics.colors.primaryText};
   /* input, textarea{
   padding-left: 20px;
