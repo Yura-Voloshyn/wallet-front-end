@@ -158,7 +158,6 @@ export const MyTimePicker = styled(Datetime)`
 outline: none;
 border: none;
 width: 100%;
-
 border-bottom: 1px solid #E0E0E0;
 `;
 
@@ -167,11 +166,8 @@ width: 100%;
 margin-bottom: 40px;
 max-width: 188px; 
   height: 30px; 
-  /* border-bottom: 0.3px solid #E0E0E0; */
-  /* &::after{
-    border-bottom: 1px solid #E0E0E0;
-  } */
   
+  /* border-bottom: 0.3px solid #E0E0E0; */ 
 @media screen and (min-width: 768px){
 width: 200px;
 /* margin-bottom: 40px; */
@@ -183,7 +179,7 @@ display: flex;
 position: relative;
 /* margin-bottom: 8px; */
 flex-direction: row;
-height: 30px;
+height: 32px;
 border: none;
 outline: none;
 background-color: #fff;
@@ -247,8 +243,8 @@ export const CommentInput = styled.input`
   } */
       &::placeholder{
     color: ${stylistics.colors.secondaryText};
-    padding-left: 20px;
-    padding-bottom: 8px;
+    /* padding-left: 20px; */
+    padding-bottom: 5px;
     }
   @media screen and (max-width: 768px) {
      height: 84px;
