@@ -157,7 +157,7 @@ outline: none;
 border: none;
 width: 100%;
 
-border-bottom: 0.5px solid #E0E0E0;
+border-bottom: 1px solid #BDBDBD;
 `;
 
 export const CalendarDiv = styled.div`
@@ -165,7 +165,7 @@ width: 100%;
 margin-bottom: 40px;
 max-width: 188px; 
   height: 30px; 
-  border-bottom: 0.3px solid #E0E0E0;
+  /* border-bottom: 0.3px solid #BDBDBD; */
   /* &::after{
     border-bottom: 1px solid #E0E0E0;
   } */
@@ -226,13 +226,13 @@ export const TextForm = styled.label`
 `;
 
 export const CommentInput = styled.input`
-  width: 394px;
+  width: 364px;
   height: 32px;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
-  padding-left: 20px;
-  padding-bottom: 5px;
+  padding: 0;
+  /* padding-bottom: 5px; */
   outline: none;
   border: none;
   resize: none;
@@ -240,8 +240,13 @@ export const CommentInput = styled.input`
   position: relative;
   border-bottom: 1px solid #BDBDBD;
   color: ${stylistics.colors.primaryText};
+  /* input, textarea{
+  padding-left: 20px;
+  } */
       &::placeholder{
     color: ${stylistics.colors.secondaryText};
+    padding-left: 20px;
+    padding-bottom: 8px;
     }
   @media screen and (max-width: 768px) {
      height: 84px;

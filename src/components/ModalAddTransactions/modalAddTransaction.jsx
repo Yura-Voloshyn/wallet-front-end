@@ -264,7 +264,6 @@ const ModalAddTransactions = ({ onClose }) => {
               />
               <DateIcon
                 as="svg"
-                // id="calendar-icon"
                 width="26"
                 height="30"
                 viewBox="0 0 26 30"
