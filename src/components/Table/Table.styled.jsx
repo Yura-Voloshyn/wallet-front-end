@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const TableStyle = styled.table`
-  max-height: 60vh;
+  height: 344px;
   overflow-y: auto;
   display: none;
   @media (min-width: 768px) {
@@ -72,6 +72,13 @@ export const Tr = styled.tr`
     text-align: end;
   }
 `;
+
+export const Tbody = styled.tbody`
+  & tr:last-child{
+    border-bottom: none;
+    box-shadow: none;
+  }
+`
 
 export const Trb = styled.tr`
   height: 52px;
@@ -172,12 +179,15 @@ export const Tds = styled.td`
   color: ${color => color.color};
   border-bottom: 1px solid #dcdcdf;
 `;
-export const TableText = styled.p`
-  font-family: 'Poppins', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  color: rgba(255, 101, 150, 1);
-  text-align: center;
-  padding-top: 20px;
+export const TableText = styled.tr`
+  & td {
+    padding-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+
 `;
