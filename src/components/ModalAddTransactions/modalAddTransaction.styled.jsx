@@ -179,7 +179,7 @@ display: flex;
 position: relative;
 /* margin-bottom: 8px; */
 flex-direction: row;
-height: 32px;
+height: 33px;
 border: none;
 outline: none;
 background-color: #fff;
@@ -187,7 +187,6 @@ background-color: #fff;
 padding: 0;
 outline: none;
 border: none;
-/* line-height: 0; */
 input,
   textarea {
     padding: 0 20px;
