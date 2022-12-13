@@ -10,7 +10,7 @@ export const TotalSumContextProvider = ({ children }) => {
   const { transactions } = useSelector(state => state.transactions);
 
   useEffect(() => {
-    dispatch(fetchTransactions());
+   
 
     return transactions.length === 0
       ? setBalance('0,00')
