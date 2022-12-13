@@ -138,7 +138,7 @@ const ModalAddTransactions = ({ onClose }) => {
       <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
           <CheckboxSpan
-            className={`${!checked && 'active-i'}`}
+            className={`${!checked && 'active-i'} "right"`}
             // style={{ marginRight: '20px' }}
           >
             Income
@@ -183,7 +183,7 @@ const ModalAddTransactions = ({ onClose }) => {
             }
           />
           <CheckboxSpan
-            className={`${checked && 'active-e'}`}
+            className={`${checked && 'active-e'}"left"`}
             // style={{ marginLeft: '20px' }}
           >
             Expense

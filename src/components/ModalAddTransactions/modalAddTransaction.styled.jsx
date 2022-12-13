@@ -51,11 +51,13 @@ export const TransactionAddForm = styled.form`
 export const CheckboxWrapper = styled.div`
 @media screen and (min-width: 768px){
   width: 280px;
-
+/* justify-content: space-around; */
 }
   display: flex;
-  /* justify-content: space-around; */
+  justify-content: center;
+  /* justify-content: space-between; */
   align-items: center;
+  /* text-align: center; */
   margin-bottom: 40px;
   @media screen and (max-width: 768px){
 max-width:257px;
@@ -69,9 +71,21 @@ export const CheckboxSpan = styled.span`
   color: ${stylistics.colors.secondaryLightText};
   &.active-i{
     color: #24CCA7;
+    
+    /* .right{
+      @media screen and (min-width: 768px){
+      margin-right: 20px;
+    }
+    } */
   }
   &.active-e{
     color: #FF6596;
+    
+    /* .left{
+      @media screen and (min-width: 768px){
+      margin-left: 20px;
+    }
+  } */
   }
 `;
 
