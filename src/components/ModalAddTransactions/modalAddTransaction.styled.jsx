@@ -175,7 +175,7 @@ display: flex;
 position: relative;
 margin-bottom: 8px;
 flex-direction: row;
-height: 32px;
+height: 30px;
 border: none;
 outline: none;
 background-color: #fff;
