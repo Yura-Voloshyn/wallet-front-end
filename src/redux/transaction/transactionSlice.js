@@ -31,7 +31,7 @@ const transactionsSlice = createSlice({
     },
     [postTransaction.fulfilled]: (store, { payload }) => {
       store.loading = false;
-      store.transactions = [...store.transactions, payload.data];
+      store.transactions = [payload.data, ...store.transactions];
     },
     [postTransaction.rejected]: (store, { payload }) => {
       store.loading = false;
