@@ -156,14 +156,20 @@ export const MyTimePicker = styled(Datetime)`
 outline: none;
 border: none;
 width: 100%;
-border-bottom: 1px solid #E0E0E0;
+
+border-bottom: 0.5px solid #E0E0E0;
 `;
 
 export const CalendarDiv = styled.div`
 width: 100%; 
 margin-bottom: 40px;
 max-width: 188px; 
-  height: 32px; 
+  height: 30px; 
+  border-bottom: 0.3px solid #E0E0E0;
+  /* &::after{
+    border-bottom: 1px solid #E0E0E0;
+  } */
+  
 @media screen and (min-width: 768px){
 width: 200px;
 margin-bottom: 40px;
