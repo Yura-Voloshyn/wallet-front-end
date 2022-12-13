@@ -19,17 +19,12 @@ import {
   CommentInput,
   CheckboxSpan,
   MySwitch,
-  // CalendarIcon,
   CalendarDiv,
   DataPickerWrapper,
   MyTimePicker,
   initialSelectStyles,
 } from './modalAddTransaction.styled';
 import { postTransaction } from 'redux/transaction/transactionOperation';
-// import {
-//   transOperations,
-//   // transSelectors,
-// } from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
 import Select from 'react-select';
 import 'react-datetime/css/react-datetime.css';
@@ -49,8 +44,6 @@ const ModalAddTransactions = ({ onClose }) => {
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
-
-  // const transCategories = useSelector(transSelectors.getTransactionCategories);
 
   const selection = categories.items.map(evt => {
     return {
@@ -142,10 +135,7 @@ const ModalAddTransactions = ({ onClose }) => {
     },
     [onClose, sum, dispatch, selectedDate, comment, checked, category]
   );
-  //  let smallSum = document.querySelector('#sumarization');
-  //   smallSum.oninput = function(){
-  //     this.value = this.value.substr(0, 7);
-  // }
+
   return (
     <Modal onClose={onClose}>
       <CloseAddModal as="button" type="button" onClick={onClose}>
@@ -245,7 +235,7 @@ const ModalAddTransactions = ({ onClose }) => {
               required
               // step="1.00"
               title="input proper values, like: 0.50, 5.55, 50.50"
-              step="0.01"
+              // step="0.01"
               min="0.01"
               type="number"
               inputMode="numeric"

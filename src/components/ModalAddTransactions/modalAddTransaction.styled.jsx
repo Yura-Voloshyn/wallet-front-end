@@ -123,7 +123,7 @@ export const FormSum = styled.label`
 
   }
   @media screen and (min-width: 768px) {
-    margin-bottom: 0;
+    margin-bottom: 40px;
   }
 `;
 
@@ -137,7 +137,7 @@ export const SumInput = styled.input`
   font-size: 18px;
   line-height: 27px;
   font-weight: 400;
-  
+  margin-right: 32px;
     @media screen and (max-width: 768px) {
     min-width: 280px;
   }
@@ -150,10 +150,7 @@ export const SumInput = styled.input`
     text-align: center;
     }
   }
-
 `;
-
-
 
 export const MyTimePicker = styled(Datetime)`
 outline: none;
@@ -163,15 +160,20 @@ border-bottom: 1px solid #E0E0E0;
 `;
 
 export const CalendarDiv = styled.div`
-width: 100%;
-/* padding: 10px; */
+width: 100%; 
+margin-bottom: 40px;
+max-width: 188px; 
+  height: 32px; 
 @media screen and (min-width: 768px){
 width: 200px;
+margin-bottom: 40px;
 }
 `;
 
 export const DataPickerWrapper = styled.label`
 display: flex;
+position: relative;
+margin-bottom: 8px;
 flex-direction: row;
 height: 32px;
 border: none;
@@ -186,11 +188,11 @@ input,
   textarea {
     padding: 0 20px;
     font-weight: 400;
-    /* line-height: 1.5; */
+    line-height: 1.5;
     border: none;
   }
      @media screen and (max-width: 768px) {
-      margin-bottom: 40px;
+      /* margin-bottom: 40px; */
       min-width: 280px;
       height: 32px;
       padding: 18px 0px 0px 0px;
@@ -206,7 +208,6 @@ export const DateIcon = styled.svg`
     fill: ${stylistics.colors.houseExpens};
     position: absolute;
     right: 20px;
-    /* top: 7px; */
     pointer-events: none;
     vertical-align: baseline;
 `;
