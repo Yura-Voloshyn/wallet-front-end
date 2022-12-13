@@ -23,7 +23,7 @@ const Table = () => {
     <>
       {/* {console.log(transactions)} */}
       {transactions.length === 0 ? (
-        <TableStyle>
+        <TableStyle id='table'>
           <TableHead />
           <TableNothingTransactions text={"Sorry, you havn't transactions"}/>
         </TableStyle>

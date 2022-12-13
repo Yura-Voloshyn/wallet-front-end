@@ -1,4 +1,5 @@
 import { Trb, Tbody } from './Table.styled';
+import ReadMoreComment from './ReadMoreComment';
 import { nanoid } from 'nanoid';
 const TableBody = ({ items }) => {
   return (
@@ -11,7 +12,7 @@ const TableBody = ({ items }) => {
             <td>{date}</td>
             <td>{type === true ? '+' : '-'}</td>
             <td>{category}</td>
-            <td>{comment}</td>
+            <td>{<ReadMoreComment text={comment}/>}</td>
             <td>{`${sum},00`}</td>
             <td>{`${balance},00`}</td>
           </Trb>
