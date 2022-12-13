@@ -49,11 +49,17 @@ export const TransactionAddForm = styled.form`
 `;
 
 export const CheckboxWrapper = styled.div`
+@media screen and (min-width: 768px){
   width: 280px;
+
+}
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
   margin-bottom: 40px;
+  @media screen and (max-width: 768px){
+max-width:257px;
+  } 
 `;
 
 export const CheckboxSpan = styled.span`
@@ -137,11 +143,12 @@ export const SumInput = styled.input`
   font-size: 18px;
   line-height: 27px;
   font-weight: 400;
-  margin-right: 32px;
+  /* margin-right: 32px; */
   padding: 0;
-  text-align: center;
+  
     @media screen and (max-width: 768px) {
     min-width: 280px;
+    margin: 0;
   }
   &::placeholder {
     color: ${stylistics.colors.secondaryText};
@@ -149,6 +156,8 @@ export const SumInput = styled.input`
     padding-left: 20px;
     font-weight: 700;
     @media screen and (min-width: 768px) {
+    text-align: center;
+    margin-right: 32px;
     text-align: center;
     }
   }
@@ -248,6 +257,12 @@ export const CommentInput = styled.input`
   @media screen and (max-width: 768px) {
      height: 84px;
      max-width: 240px;
+     margin-right: 0;
+           &::placeholder{
+    
+    padding-left: 20px;
+    /* padding-bottom: 5px; */
+    }
     }
 
   /* resize: none; */

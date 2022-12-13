@@ -50,16 +50,6 @@ const ModalAddTransactions = ({ onClose }) => {
     };
   });
 
-  // const options = {
-  //   year: 'numeric',
-  //   month: 'short',
-  //   day: 'numeric',
-  // };
-  // const date = new Date().toLocaleDateString('en-US', options);
-  // const [selectedDate, setSelectedDate] = useState(date);
-  // const handleDateChange = evt => {
-  //   setSelectedDate(String(evt._d));
-  // };
 
   const [selectedDate, setSelectedDate] = useState(
     moment().format('DD.MM.YYYY')
@@ -149,7 +139,7 @@ const ModalAddTransactions = ({ onClose }) => {
         <CheckboxWrapper as="div">
           <CheckboxSpan
             className={`${!checked && 'active-i'}`}
-            style={{ marginRight: '20px' }}
+            // style={{ marginRight: '20px' }}
           >
             Income
           </CheckboxSpan>
@@ -194,7 +184,7 @@ const ModalAddTransactions = ({ onClose }) => {
           />
           <CheckboxSpan
             className={`${checked && 'active-e'}`}
-            style={{ marginLeft: '20px' }}
+            // style={{ marginLeft: '20px' }}
           >
             Expense
           </CheckboxSpan>
