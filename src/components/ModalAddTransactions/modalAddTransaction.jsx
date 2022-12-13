@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 import {
   CloseAddModal,
   TitleMod,
@@ -17,7 +18,6 @@ import {
   ChooseIcon,
   CommentInput,
   CheckboxSpan,
-  TwoBtns,
   MySwitch,
   // CalendarIcon,
   CalendarDiv,
@@ -31,22 +31,19 @@ import { postTransaction } from 'redux/transaction/transactionOperation';
 //   // transSelectors,
 // } from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
-// import Switch from 'react-switch';
 import Select from 'react-select';
-// import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import { getFilteredCategories } from 'redux/categories/categories-selectors';
 import { fetchCategories } from 'redux/categories/categories-operations';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
-// import styles from 'components/ModalAddTransactions/'
 
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
   const dispatch = useDispatch();
   // const categories = useSelector(transOperations.fetchTransactionsByCategory);
   // console.log(categories);
-
+  // const momentDate = moment().format('DD.MM.YYYY');
   const categories = useSelector(getFilteredCategories);
 
   useEffect(() => {
@@ -62,13 +59,25 @@ const ModalAddTransactions = ({ onClose }) => {
     };
   });
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const handleDateChange = evt => {
-    setSelectedDate(String(evt._d));
-  };
+  // const options = {
+  //   year: 'numeric',
+  //   month: 'short',
+  //   day: 'numeric',
+  // };
+  // const date = new Date().toLocaleDateString('en-US', options);
+  // const [selectedDate, setSelectedDate] = useState(date);
+  // const handleDateChange = evt => {
+  //   setSelectedDate(String(evt._d));
+  // };
 
+  const [selectedDate, setSelectedDate] = useState(
+    moment().format('DD.MM.YYYY')
+  );
+  const handleDateChange = evt => {
+    setSelectedDate(moment(evt._d).format('DD.MM.YYYY'));
+  };
   const [defaultState, setFullState] = useState({
-    date: '12.12.2022',
+    date: selectedDate,
     type: false,
     category: '',
     comment: '',
@@ -120,7 +129,7 @@ const ModalAddTransactions = ({ onClose }) => {
         const userSum = Number(sum).toFixed(2);
         const res = await dispatch(
           postTransaction({
-            date: '12.12.2022',
+            date: selectedDate,
             sum: Number(userSum),
             comment,
             type: !checked,
@@ -131,9 +140,12 @@ const ModalAddTransactions = ({ onClose }) => {
       })();
       onClose();
     },
-    [category, comment, sum, checked, onClose, dispatch]
+    [onClose, sum, dispatch, selectedDate, comment, checked, category]
   );
-
+  //  let smallSum = document.querySelector('#sumarization');
+  //   smallSum.oninput = function(){
+  //     this.value = this.value.substr(0, 7);
+  // }
   return (
     <Modal onClose={onClose}>
       <CloseAddModal as="button" type="button" onClick={onClose}>
@@ -154,7 +166,6 @@ const ModalAddTransactions = ({ onClose }) => {
             Income
           </CheckboxSpan>
           <MySwitch
-            // style={{backgroundColor: '#FFf', margin: '0 15px 20px 15px'}}
             styles={{ margin: '0 15px 20px 15px' }}
             onColor={'#fff'}
             offColor={'#fff'}
@@ -209,6 +220,7 @@ const ModalAddTransactions = ({ onClose }) => {
               placeholder="Select a category"
               styles={initialSelectStyles}
               options={selection}
+              required
             />
             <ChooseIcon
               as="svg"
@@ -227,18 +239,23 @@ const ModalAddTransactions = ({ onClose }) => {
           <FormSum as="label">
             <SumInput
               as="input"
+              id="sumarization"
               name="sum"
               value={sum}
-              // title="Add sum"
               required
-              min="0.00"
+              // step="1.00"
+              title="input proper values, like: 0.50, 5.55, 50.50"
               step="0.01"
+              min="0.01"
               type="number"
+              inputMode="numeric"
+              // pattern="[0-9]{5}"
               placeholder="0.00"
               autoComplete="off"
               onChange={handleChange}
               maxLength="6"
-              pattern="^[ 0-9]+$"
+              pattern="/^\d+$/"
+              autoFocus
             ></SumInput>
           </FormSum>
 
@@ -253,7 +270,7 @@ const ModalAddTransactions = ({ onClose }) => {
                 onChange={handleDateChange}
                 timeFormat={false}
                 dateFormat="DD.MM.YYYY"
-                required
+                required={true}
               />
               <DateIcon
                 as="svg"
@@ -279,7 +296,6 @@ const ModalAddTransactions = ({ onClose }) => {
             type="text"
             onChange={handleChange}
             value={comment}
-            // title="Add comment"
             placeholder="Comment"
             autoComplete="off"
             maxLength="500"
@@ -291,10 +307,12 @@ const ModalAddTransactions = ({ onClose }) => {
           ></CommentInput>
         </TextForm>
         {/* Two modal btns */}
-        <TwoBtns as="div">
-          <SubmitBtn btnText={'Add'}></SubmitBtn>
-          <StyledNavLink onClick={onClose} btnText={'Cancel'}></StyledNavLink>
-        </TwoBtns>
+        <SubmitBtn btnText={'Add'} minWidth={'300px'}></SubmitBtn>
+        <StyledNavLink
+          onClick={onClose}
+          btnText={'Cancel'}
+          minWidth={'300px'}
+        ></StyledNavLink>
       </TransactionAddForm>
     </Modal>
   );
