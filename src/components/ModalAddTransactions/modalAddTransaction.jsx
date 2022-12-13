@@ -131,7 +131,7 @@ const ModalAddTransactions = ({ onClose }) => {
           postTransaction({
             date: selectedDate,
             sum: Number(userSum),
-            comment,
+            comment: comment || 'nothing to explain',
             type: !checked,
             category: category || 'Income',
           })
