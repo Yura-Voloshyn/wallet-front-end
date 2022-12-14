@@ -19,17 +19,12 @@ import {
   CommentInput,
   CheckboxSpan,
   MySwitch,
-  // CalendarIcon,
   CalendarDiv,
   DataPickerWrapper,
   MyTimePicker,
   initialSelectStyles,
 } from './modalAddTransaction.styled';
 import { postTransaction } from 'redux/transaction/transactionOperation';
-// import {
-//   transOperations,
-//   // transSelectors,
-// } from '../../services/api/transactios';
 import Modal from '../ModalAddTransactions/Modal';
 import Select from 'react-select';
 import 'react-datetime/css/react-datetime.css';
@@ -41,16 +36,12 @@ import StyledNavLink from 'components/Button/StyledNavLink';
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
   const dispatch = useDispatch();
-  // const categories = useSelector(transOperations.fetchTransactionsByCategory);
-  // console.log(categories);
-  // const momentDate = moment().format('DD.MM.YYYY');
+
   const categories = useSelector(getFilteredCategories);
 
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
-
-  // const transCategories = useSelector(transSelectors.getTransactionCategories);
 
   const selection = categories.items.map(evt => {
     return {
@@ -59,16 +50,6 @@ const ModalAddTransactions = ({ onClose }) => {
     };
   });
 
-  // const options = {
-  //   year: 'numeric',
-  //   month: 'short',
-  //   day: 'numeric',
-  // };
-  // const date = new Date().toLocaleDateString('en-US', options);
-  // const [selectedDate, setSelectedDate] = useState(date);
-  // const handleDateChange = evt => {
-  //   setSelectedDate(String(evt._d));
-  // };
 
   const [selectedDate, setSelectedDate] = useState(
     moment().format('DD.MM.YYYY')
@@ -142,10 +123,7 @@ const ModalAddTransactions = ({ onClose }) => {
     },
     [onClose, sum, dispatch, selectedDate, comment, checked, category]
   );
-  //  let smallSum = document.querySelector('#sumarization');
-  //   smallSum.oninput = function(){
-  //     this.value = this.value.substr(0, 7);
-  // }
+
   return (
     <Modal onClose={onClose}>
       <CloseAddModal as="button" type="button" onClick={onClose}>
@@ -160,8 +138,7 @@ const ModalAddTransactions = ({ onClose }) => {
       <TransactionAddForm onSubmit={handleSubmit}>
         <CheckboxWrapper as="div">
           <CheckboxSpan
-            className={`${!checked && 'active-i'}`}
-            style={{ marginRight: '20px' }}
+            className={`${!checked && 'active-i'} "right"`}
           >
             Income
           </CheckboxSpan>
@@ -205,8 +182,7 @@ const ModalAddTransactions = ({ onClose }) => {
             }
           />
           <CheckboxSpan
-            className={`${checked && 'active-e'}`}
-            style={{ marginLeft: '20px' }}
+            className={`${checked && 'active-e'}"left"`}
           >
             Expense
           </CheckboxSpan>
@@ -243,18 +219,16 @@ const ModalAddTransactions = ({ onClose }) => {
               name="sum"
               value={sum}
               required
-              // step="1.00"
               title="input proper values, like: 0.50, 5.55, 50.50"
-              step="0.01"
-              min="0.01"
+              // step="0.01"
+              // min="0.01"
               type="number"
-              inputMode="numeric"
-              // pattern="[0-9]{5}"
+              // inputMode="numeric"
               placeholder="0.00"
               autoComplete="off"
               onChange={handleChange}
               maxLength="6"
-              pattern="/^\d+$/"
+              pattern="^[ 0-9]+$"
               autoFocus
             ></SumInput>
           </FormSum>
@@ -262,19 +236,19 @@ const ModalAddTransactions = ({ onClose }) => {
           <CalendarDiv>
             <DataPickerWrapper as="label" direction="row">
               <MyTimePicker
+                closeOnSelect={true}
                 locale="ua"
                 type="date"
-                closeOnSelect={true}
                 value={selectedDate}
                 selected={selectedDate}
                 onChange={handleDateChange}
                 timeFormat={false}
                 dateFormat="DD.MM.YYYY"
                 required={true}
+                // disabledDates={}
               />
               <DateIcon
                 as="svg"
-                // id="calendar-icon"
                 width="26"
                 height="30"
                 viewBox="0 0 26 30"

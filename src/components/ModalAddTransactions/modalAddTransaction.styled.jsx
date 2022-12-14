@@ -11,6 +11,7 @@ export const MySwitch = styled(Switch)`
   margin-right: 15px;
   background-color: none;
   border: 1px solid #e0e0e0;
+  border-radius: 30px;
   box-shadow: 0px 6px 15px rgba(156, 156, 158, 0.5);
 `
 
@@ -49,11 +50,19 @@ export const TransactionAddForm = styled.form`
 `;
 
 export const CheckboxWrapper = styled.div`
+@media screen and (min-width: 768px){
   width: 280px;
+/* justify-content: space-around; */
+}
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  /* justify-content: space-between; */
   align-items: center;
+  /* text-align: center; */
   margin-bottom: 40px;
+  @media screen and (max-width: 768px){
+max-width:257px;
+  } 
 `;
 
 export const CheckboxSpan = styled.span`
@@ -63,9 +72,21 @@ export const CheckboxSpan = styled.span`
   color: ${stylistics.colors.secondaryLightText};
   &.active-i{
     color: #24CCA7;
+    
+    /* .right{
+      @media screen and (min-width: 768px){
+      margin-right: 20px;
+    }
+    } */
   }
   &.active-e{
     color: #FF6596;
+    
+    /* .left{
+      @media screen and (min-width: 768px){
+      margin-left: 20px;
+    }
+  } */
   }
 `;
 
@@ -123,23 +144,26 @@ export const FormSum = styled.label`
 
   }
   @media screen and (min-width: 768px) {
-    margin-bottom: 0;
+    margin-bottom: 40px;
   }
 `;
 
 export const SumInput = styled.input`
   outline: none;
   border: none;
-  border-bottom: 1px solid ${stylistics.colors.secondaryText};
+  border-bottom: 1px solid ${stylistics.colors.secondaryLightText};
   cursor: pointer;
   max-width: 188px; 
   height: 32px; 
   font-size: 18px;
   line-height: 27px;
   font-weight: 400;
+  margin-right: 32px;
+  padding: 0;
   
     @media screen and (max-width: 768px) {
     min-width: 280px;
+    margin: 0;
   }
   &::placeholder {
     color: ${stylistics.colors.secondaryText};
@@ -148,12 +172,11 @@ export const SumInput = styled.input`
     font-weight: 700;
     @media screen and (min-width: 768px) {
     text-align: center;
+    /* margin-right: 32px; */
+    text-align: center;
     }
   }
-
 `;
-
-
 
 export const MyTimePicker = styled(Datetime)`
 outline: none;
@@ -163,17 +186,24 @@ border-bottom: 1px solid #E0E0E0;
 `;
 
 export const CalendarDiv = styled.div`
-width: 100%;
-/* padding: 10px; */
+width: 100%; 
+margin-bottom: 40px;
+max-width: 188px; 
+  height: 30px; 
+  
+  /* border-bottom: 0.3px solid #E0E0E0; */ 
 @media screen and (min-width: 768px){
 width: 200px;
+/* margin-bottom: 40px; */
 }
 `;
 
 export const DataPickerWrapper = styled.label`
 display: flex;
+position: relative;
+/* margin-bottom: 8px; */
 flex-direction: row;
-height: 32px;
+height: 33px;
 border: none;
 outline: none;
 background-color: #fff;
@@ -181,16 +211,15 @@ background-color: #fff;
 padding: 0;
 outline: none;
 border: none;
-/* line-height: 0; */
 input,
   textarea {
     padding: 0 20px;
     font-weight: 400;
-    /* line-height: 1.5; */
+    line-height: 1.5;
     border: none;
   }
      @media screen and (max-width: 768px) {
-      margin-bottom: 40px;
+      /* margin-bottom: 40px; */
       min-width: 280px;
       height: 32px;
       padding: 18px 0px 0px 0px;
@@ -199,16 +228,16 @@ input,
 
 export const DateIcon = styled.svg`
     @media screen and (max-width: 768px) {
-      top: 95px;
+      top: 19px;
     }
     width: 24px;
     height: 24px;
     fill: ${stylistics.colors.houseExpens};
     position: absolute;
     right: 20px;
-    /* top: 7px; */
     pointer-events: none;
     vertical-align: baseline;
+    top: 3px;
 `;
 
 export const TextForm = styled.label`
@@ -219,26 +248,37 @@ export const TextForm = styled.label`
 `;
 
 export const CommentInput = styled.input`
-  width: 394px;
+  width: 390px;
   height: 32px;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
-  padding-left: 20px;
+   /* padding-left: 20px; */
   padding-bottom: 5px;
   outline: none;
   border: none;
   resize: none;
   display: block;
   position: relative;
-  border-bottom: 1px solid #BDBDBD;
+  border-bottom: 1px solid #E0E0E0;
   color: ${stylistics.colors.primaryText};
+  /* input, textarea{
+  padding: 0px;
+  } */
       &::placeholder{
     color: ${stylistics.colors.secondaryText};
+    /* padding-left: 20px; */
+    /* padding-bottom: 5px; */
+margin: 0 0 5px 20px;
     }
   @media screen and (max-width: 768px) {
      height: 84px;
-     max-width: 240px;
+     max-width: 260px;
+     margin-right: 0;
+           &::placeholder{
+    /* padding-left: 20px; */
+    /* padding-bottom: 5px; */
+    }
     }
 
   /* resize: none; */
