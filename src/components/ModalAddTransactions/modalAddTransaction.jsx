@@ -219,18 +219,16 @@ const ModalAddTransactions = ({ onClose }) => {
               name="sum"
               value={sum}
               required
-              // step="1.00"
               title="input proper values, like: 0.50, 5.55, 50.50"
               // step="0.01"
-              min="0.01"
+              // min="0.01"
               type="number"
-              inputMode="numeric"
-              // pattern="[0-9]{5}"
+              // inputMode="numeric"
               placeholder="0.00"
               autoComplete="off"
               onChange={handleChange}
               maxLength="6"
-              pattern="/^\d+$/"
+              pattern="^[ 0-9]+$"
               autoFocus
             ></SumInput>
           </FormSum>
@@ -238,15 +236,16 @@ const ModalAddTransactions = ({ onClose }) => {
           <CalendarDiv>
             <DataPickerWrapper as="label" direction="row">
               <MyTimePicker
+                closeOnSelect={true}
                 locale="ua"
                 type="date"
-                closeOnSelect={true}
                 value={selectedDate}
                 selected={selectedDate}
                 onChange={handleDateChange}
                 timeFormat={false}
                 dateFormat="DD.MM.YYYY"
                 required={true}
+                // disabledDates={}
               />
               <DateIcon
                 as="svg"
