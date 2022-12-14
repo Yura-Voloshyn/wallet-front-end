@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import localStorage from 'redux-persist/es/storage';
 import getCurrency from '../../services/api/getCurrency/getCurrency';
 import {
   CurrencyTableStyled,
@@ -22,7 +23,8 @@ const CurrencyTable = () => {
     const getData = async () => {
       try {
         const apiData = await getCurrency();
-
+        localStorage.setItem('currency', JSON.stringify(apiData));
+        console.log(apiData);
         setData(apiData);
       } catch (error) {
         console.log(error);
