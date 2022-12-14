@@ -12,7 +12,7 @@ export const MySwitch = styled(Switch)`
   border: 1px solid #e0e0e0;
   border-radius: 30px;
   box-shadow: 0px 6px 15px rgba(156, 156, 158, 0.5);
-`
+`;
 
 export const CloseAddModal = styled.button`
   position: absolute;
@@ -163,6 +163,9 @@ export const SumInput = styled.input`
     text-align: center;
     }
   }
+  /* &::input:invalid {
+    border: 2px solid red;
+} */
 `;
 
 export const MyTimePicker = styled(Datetime)`
@@ -182,7 +185,6 @@ max-width: 188px;
 height: 30px; 
  @media screen and (min-width: 768px){
 width: 200px;
-/* margin-bottom: 40px; */
 }
 `;
 

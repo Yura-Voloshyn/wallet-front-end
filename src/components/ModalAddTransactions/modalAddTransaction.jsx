@@ -22,7 +22,6 @@ import {
   CalendarDiv,
   DataPickerWrapper,
   MyTimePicker,
- 
   initialSelectStyles,
 } from './modalAddTransaction.styled';
 import { postTransaction } from 'redux/transaction/transactionOperation';
@@ -33,6 +32,7 @@ import { getFilteredCategories } from 'redux/categories/categories-selectors';
 import { fetchCategories } from 'redux/categories/categories-operations';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
+
 
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
@@ -185,7 +185,7 @@ const ModalAddTransactions = ({ onClose }) => {
             }
           />
           <CheckboxSpan
-            className={`${checked && 'active-e'}"left"`}
+            className={`${checked && 'active-e'}"left"`} 
           >
             Expense
           </CheckboxSpan>
@@ -218,21 +218,18 @@ const ModalAddTransactions = ({ onClose }) => {
           <FormSum as="label">
             <SumInput
               as="input"
-              id="sumarization"
               name="sum"
               value={sum}
               required
-              // title="input proper values, like: 0.50, 5.55, 50.50"
-              // step="0.01"
-              // min="0.01"
               type="number"
-              // inputMode="numeric"
               placeholder="0.00"
               autoComplete="off"
               onChange={handleChange}
               maxLength="6"
               pattern="^[ 0-9]+$"
-              autoFocus
+              error={sum==="-" || sum==="--"}
+              title="ENTER ONLY POSITIVE VALUES!
+                          SUM WITH (-) ISN'T COUNTING!"
             ></SumInput>
           </FormSum>
 
@@ -278,6 +275,7 @@ const ModalAddTransactions = ({ onClose }) => {
             // resize= "none"
             // minRows={1}
             // maxRows={3}
+            // size="30"
             required={false}
             pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+([-'\s][a-zA-Zа-яА-ЯІіЇїҐґ]+)*$"
           ></CommentInput>
