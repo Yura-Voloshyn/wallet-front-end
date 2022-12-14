@@ -139,7 +139,6 @@ const ModalAddTransactions = ({ onClose }) => {
         <CheckboxWrapper as="div">
           <CheckboxSpan
             className={`${!checked && 'active-i'} "right"`}
-            // style={{ marginRight: '20px' }}
           >
             Income
           </CheckboxSpan>
@@ -184,7 +183,6 @@ const ModalAddTransactions = ({ onClose }) => {
           />
           <CheckboxSpan
             className={`${checked && 'active-e'}"left"`}
-            // style={{ marginLeft: '20px' }}
           >
             Expense
           </CheckboxSpan>

@@ -24,7 +24,8 @@ const ModalContent = styled.div`
   @media screen and (max-width: 768px){
     max-height: 600px;
     width: 100%; 
-    padding: 20px 10px 268px 10px;
+    /* padding: 20px 10px 268px 10px; */
+    padding: 20px 10px 268px 0px;
   }
   @media screen and (min-width: 768px) {
     max-height: 508px;

@@ -11,6 +11,7 @@ export const MySwitch = styled(Switch)`
   margin-right: 15px;
   background-color: none;
   border: 1px solid #e0e0e0;
+  border-radius: 30px;
   box-shadow: 0px 6px 15px rgba(156, 156, 158, 0.5);
 `
 
@@ -252,7 +253,7 @@ export const CommentInput = styled.input`
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
-   padding-left: 20px;
+   /* padding-left: 20px; */
   padding-bottom: 5px;
   outline: none;
   border: none;
@@ -267,7 +268,8 @@ export const CommentInput = styled.input`
       &::placeholder{
     color: ${stylistics.colors.secondaryText};
     /* padding-left: 20px; */
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
+margin: 0 0 5px 20px;
     }
   @media screen and (max-width: 768px) {
      height: 84px;
