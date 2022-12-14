@@ -34,7 +34,6 @@ export function StatisticsPage() {
 
   const statisticsStore = useSelector(store => store.statistics);
 
-  console.log(statisticsStore);
   return (
     <StatisticsSection>
       <StatisticsWrapper>
