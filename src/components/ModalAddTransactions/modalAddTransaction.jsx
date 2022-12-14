@@ -18,6 +18,7 @@ import {
   ChooseIcon,
   CommentInput,
   CheckboxSpan,
+  CheckboxSpanB,
   MySwitch,
   CalendarDiv,
   DataPickerWrapper,
@@ -184,11 +185,11 @@ const ModalAddTransactions = ({ onClose }) => {
               </AddExpsIcon>
             }
           />
-          <CheckboxSpan
-            className={`${checked && 'active-e'}"left"`} 
+          <CheckboxSpanB
+            className={`${checked && 'active-e'}`} 
           >
             Expense
-          </CheckboxSpan>
+          </CheckboxSpanB>
         </CheckboxWrapper>
 
         {checked && (

@@ -69,10 +69,22 @@ export const CheckboxSpan = styled.span`
   &.active-i{
     color: #24CCA7;
   }
+  /* &.active-e{
+    color: #FF6596;
+  } */
+`;
+
+export const CheckboxSpanB = styled.span`
+  font-weight: 700;
+  font-style: 16px;
+  line-height: 24px;
+  color: ${stylistics.colors.secondaryLightText};
+
   &.active-e{
     color: #FF6596;
   }
 `;
+
 
 export const AddTransIcon = styled.svg`
   width: 20px;
