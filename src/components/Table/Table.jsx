@@ -1,6 +1,6 @@
 import TableHead from './TableHead';
 import TableBody from './TableBody';
-import TableNothingTransactions from './TableNothingText';
+import TableNothingTransactions from './TableNothingTransactions';
 import { TableStyle } from './Table.styled';
 import TableMobile from './TableMobile';
 
