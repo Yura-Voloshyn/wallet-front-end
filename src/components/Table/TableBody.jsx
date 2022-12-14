@@ -13,8 +13,8 @@ const TableBody = ({ items }) => {
             <td>{type === true ? '+' : '-'}</td>
             <td>{category}</td>
             <td>{<ReadMoreComment text={comment}/>}</td>
-            <td>{`${sum},00`}</td>
-            <td>{`${balance},00`}</td>
+            <td>{`${sum.toFixed(2)}`}</td>
+            <td>{`${balance.toFixed(2)}`}</td>
           </Trb>
         );
       })}
