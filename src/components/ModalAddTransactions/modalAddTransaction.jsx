@@ -22,6 +22,7 @@ import {
   CalendarDiv,
   DataPickerWrapper,
   MyTimePicker,
+ 
   initialSelectStyles,
 } from './modalAddTransaction.styled';
 import { postTransaction } from 'redux/transaction/transactionOperation';
@@ -54,9 +55,11 @@ const ModalAddTransactions = ({ onClose }) => {
   const [selectedDate, setSelectedDate] = useState(
     moment().format('DD.MM.YYYY')
   );
+
   const handleDateChange = evt => {
     setSelectedDate(moment(evt._d).format('DD.MM.YYYY'));
   };
+
   const [defaultState, setFullState] = useState({
     date: selectedDate,
     type: false,
@@ -219,7 +222,7 @@ const ModalAddTransactions = ({ onClose }) => {
               name="sum"
               value={sum}
               required
-              title="input proper values, like: 0.50, 5.55, 50.50"
+              // title="input proper values, like: 0.50, 5.55, 50.50"
               // step="0.01"
               // min="0.01"
               type="number"
@@ -236,7 +239,6 @@ const ModalAddTransactions = ({ onClose }) => {
           <CalendarDiv>
             <DataPickerWrapper as="label" direction="row">
               <MyTimePicker
-                closeOnSelect={true}
                 locale="ua"
                 type="date"
                 value={selectedDate}
@@ -245,12 +247,12 @@ const ModalAddTransactions = ({ onClose }) => {
                 timeFormat={false}
                 dateFormat="DD.MM.YYYY"
                 required={true}
-                // disabledDates={}
+                closeOnSelect={true}
               />
               <DateIcon
                 as="svg"
-                width="26"
-                height="30"
+                width="24"
+                height="24"
                 viewBox="0 0 26 30"
                 fill="none"
               >
