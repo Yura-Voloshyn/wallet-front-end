@@ -239,7 +239,6 @@ export const CommentInput = styled.input`
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
-   /* padding-left: 20px; */
   padding-bottom: 5px;
   outline: none;
   border: none;
@@ -261,6 +260,9 @@ export const CommentInput = styled.input`
     /* padding-bottom: 5px; */
     }
     }
+        &:hover,
+    &:focus {
+    box-shadow: -1px 24px 12px -15px rgba(115,217,255,0.57)}
 `;
 //--------Styles for changing initial Select from react-----------
 
