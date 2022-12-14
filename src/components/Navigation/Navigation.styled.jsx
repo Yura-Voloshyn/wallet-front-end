@@ -10,6 +10,7 @@ export const MainNav = styled.nav`
   background-color: rgba(255, 255, 255, 0.4);
 
   @media (min-width: 768px) {
+    background-color: rgba(255, 255, 255, 0);
     margin-top: 40px;
 
     flex-direction: column;
@@ -21,7 +22,7 @@ export const MainNav = styled.nav`
 export const Link = styled(NavLink)`
   height: 38px;
   border-radius: 6px;
-  background-color: ${stylistics.colors.mainBg};
+
   transition: 0.3s;
 
   &.active {
