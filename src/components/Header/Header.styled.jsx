@@ -13,7 +13,7 @@ export const HeaderWrapper = styled.header`
   }
 
   @media (min-width: 1280px) {
-    padding: 20px 16px;
+    padding: 20px 18px;
   }
 `;
 

@@ -16,8 +16,8 @@ export const HomeContainer = styled.div`
     padding-right: 32px;
   }
   @media (min-width: 1280px) {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 `;
 export const CurrencyContainer = styled.div`

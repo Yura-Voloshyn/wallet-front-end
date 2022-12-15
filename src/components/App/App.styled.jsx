@@ -7,7 +7,8 @@ export const AppWrapper = styled.div`
   color: '#010101';
 
   background-color: ${stylistics.colors.loginPageBg};
-
+  /* height: 100vh; */
+  /* background-color: '#BDBDBD'; */
   @media (min-width: 321px) {
     /* height: 100vh; */
   }
