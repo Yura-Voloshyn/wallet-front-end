@@ -14,11 +14,14 @@ import {
   fetchTransactions,
 } from 'redux/transaction/transactionOperation';
 import { useDispatch } from 'react-redux';
+import Spinner from 'components/Spinner';
 
 const Table = () => {
   const dispatch = useDispatch();
-  const { transactions } = useSelector(state => state.transactions);
-  const { totalPages } = useSelector(state => state.transactions);
+  const { transactions, totalPages, loading } = useSelector(
+    state => state.transactions
+  );
+
   const [page, setPage] = useState(2);
 
   useEffect(() => {
@@ -37,6 +40,7 @@ const Table = () => {
   };
   return (
     <>
+      {loading === true && <Spinner/>}
       {transactions.length === 0 ? (
         <TableStyle id="table">
           <TableHead />
