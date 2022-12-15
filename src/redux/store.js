@@ -49,6 +49,7 @@ export const store = configureStore({
           REGISTER,
           'statistics/transactions/fulfilled',
           'transactions/fulfilled',
+          'transactions-more/fulfilled',
         ],
       },
     }),

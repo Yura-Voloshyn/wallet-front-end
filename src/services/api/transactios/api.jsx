@@ -5,6 +5,10 @@ export const getTransactions = async () => {
   return data;
 };
 
+export const getMoreTransactions = async page => {
+  const data = await instance.get(`/api/transactions?page=${page}`);
+  return data;
+};
 //post
 export const addTransaction = async data => {
   const { data: result } = await instance.post('/api/transactions', data);
@@ -21,6 +25,7 @@ const transOperations = {
   getTransactions,
   addTransaction,
   fetchTransactionsByCategory,
+  getMoreTransactions,
 };
 
 export default transOperations;
