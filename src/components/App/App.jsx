@@ -17,17 +17,18 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <AppWrapper>
-      {/* {isLogin && (
-          <>
-            <Header />
-            <Navigation />
-            <TotalBalance />
-            <Currency />
-          </>
-        )} */}
-      <UserRoutes />
-    </AppWrapper>
+      <AppWrapper>
+        {/* {isLogin && (
+            <>
+              <Header />
+              <Navigation />
+              <TotalBalance />
+              <Currency />
+            </>
+          )} */}
+        <UserRoutes />
+      </AppWrapper>
+    
   );
 };
 export default App;

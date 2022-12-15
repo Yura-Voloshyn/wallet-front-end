@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import Modal from 'components/ModalAddTransactions/Modal';
+import ModalMoreInformations from './ModalMoreInformations';
 
 const Link = styled.a`
   margin-left: 5px;
@@ -36,9 +36,9 @@ const ReadMoreComment = ({ text }) => {
       {text.slice(0, 18)}
       <Link onClick={() => openModal()}>{'...'}</Link>
       {modalIsOpen && (
-        <Modal onClose={closeModal}>
+        <ModalMoreInformations onClose={closeModal}>
           <TextModal>{text}</TextModal>
-        </Modal>
+        </ModalMoreInformations>
       )}
     </>
   );

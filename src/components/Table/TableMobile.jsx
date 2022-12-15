@@ -1,4 +1,5 @@
 import { TableMob, Trm, Tdm, Tdhm, Tds } from './Table.styled';
+import ReadMoreComment from './ReadMoreComment';
 import { nanoid } from 'nanoid';
 
 const TableMobile = ({ items }) => {
@@ -29,9 +30,9 @@ const TableMobile = ({ items }) => {
                 <Tdm>{date}</Tdm>
                 <Tdm>{type === true ? '+' : '-'}</Tdm>
                 <Tdm>{category}</Tdm>
-                <Tdm>{comment}</Tdm>
-                <Tds color={color}>{`${sum},00`}</Tds>
-                <Tdm>{`${balance},00`}</Tdm>
+                <Tdm>{<ReadMoreComment text={comment}/>}</Tdm>
+                <Tds color={color}>{`${sum.toFixed(2)}`}</Tds>
+                <Tdm>{`${balance.toFixed(2)}`}</Tdm>
               </Trm>
               </tbody>
           </TableMob>
