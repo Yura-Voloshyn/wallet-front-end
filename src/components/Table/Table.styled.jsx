@@ -201,7 +201,7 @@ export const ButtonLoadMore = styled.button`
   padding: 5px;
   border: none;
   bottom: 0px;
-  left: 185px;
+  left: 155px;
   @media (min-width: 768px) {
     position: absolute;
     top: 320px;
