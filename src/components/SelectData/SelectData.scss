@@ -39,6 +39,12 @@
   @media (min-width: 1280px) {
     padding: 20px 14px !important;
   }
+  transition-duration: 350ms !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  &:hover,
+  &:focus {
+     border: 2px solid #4a56e2 !important;
+  }
 }
 
 .selectMonthYearPrefix__placeholder {

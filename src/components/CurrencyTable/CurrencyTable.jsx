@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import getCurrency from '../../services/api/getCurrency/getCurrency';
+import { useEffect } from 'react';
+
+import setDataFromApi from 'services/api/getCurrency/getDataCurrency';
 import {
   CurrencyTableStyled,
   CurrencyTableHead,
@@ -16,20 +17,13 @@ const convertCurrencyCode = {
 };
 
 const CurrencyTable = () => {
-  const [data, setData] = useState([]);
-
+  const data = JSON.parse(localStorage.getItem('currency'));
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const apiData = await getCurrency();
+    const interval = setInterval(() => {
+      setDataFromApi();
+    }, 3600000);
 
-        setData(apiData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getData();
+    return () => clearInterval(interval);
   }, []);
 
   return (

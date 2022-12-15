@@ -1,9 +1,9 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const TotalBalanceWrapper = styled.div`
-  margin-top: 28px;
+  /* margin-top: 28px; */
   width: 280px;
-  margin-top: 12px;
+  /* margin-top: 12px; */
   height: 80px;
   border-radius: 30px;
 
@@ -19,21 +19,21 @@ export const TotalBalanceWrapper = styled.div`
   }
 `;
 export const Title = styled.p`
-    padding-left: 40px;
-    font-family: 'Circe';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #A6A6A6;
-    margin: 0 0 12px 0;
-`
+  padding-left: 40px;
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #a6a6a6;
+  margin: 0 0 12px 0;
+`;
 export const Balance = styled.p`
-    padding-left: 40px;
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    color: #000000;
-    margin: 0;
-`
+  padding-left: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  color: #000000;
+  margin: 0;
+`;

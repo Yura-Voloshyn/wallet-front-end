@@ -4,7 +4,6 @@ import Datetime from 'react-datetime';
 import Switch from 'react-switch';
 
 
-
 export const MySwitch = styled(Switch)`
   margin: 0 20px;
   margin-left: 15px;
@@ -13,7 +12,7 @@ export const MySwitch = styled(Switch)`
   border: 1px solid #e0e0e0;
   border-radius: 30px;
   box-shadow: 0px 6px 15px rgba(156, 156, 158, 0.5);
-`
+`;
 
 export const CloseAddModal = styled.button`
   position: absolute;
@@ -52,13 +51,10 @@ export const TransactionAddForm = styled.form`
 export const CheckboxWrapper = styled.div`
 @media screen and (min-width: 768px){
   width: 280px;
-/* justify-content: space-around; */
 }
   display: flex;
   justify-content: center;
-  /* justify-content: space-between; */
   align-items: center;
-  /* text-align: center; */
   margin-bottom: 40px;
   @media screen and (max-width: 768px){
 max-width:257px;
@@ -72,23 +68,23 @@ export const CheckboxSpan = styled.span`
   color: ${stylistics.colors.secondaryLightText};
   &.active-i{
     color: #24CCA7;
-    
-    /* .right{
-      @media screen and (min-width: 768px){
-      margin-right: 20px;
-    }
-    } */
   }
+  /* &.active-e{
+    color: #FF6596;
+  } */
+`;
+
+export const CheckboxSpanB = styled.span`
+  font-weight: 700;
+  font-style: 16px;
+  line-height: 24px;
+  color: ${stylistics.colors.secondaryLightText};
+
   &.active-e{
     color: #FF6596;
-    
-    /* .left{
-      @media screen and (min-width: 768px){
-      margin-left: 20px;
-    }
-  } */
   }
 `;
+
 
 export const AddTransIcon = styled.svg`
   width: 20px;
@@ -112,8 +108,10 @@ export const SelectWrapper = styled.div`
   margin-bottom: 30px;
   outline: none;
   border: none;
-  /* border-bottom: 1px solid #BDBDBD; */
   color: ${stylistics.colors.secondaryLightText};
+    &:hover,
+    &:focus {
+    box-shadow: -1px 24px 12px -15px rgba(115,217,255,0.57)}
   @media screen and (max-width: 767px) {
     margin-bottom: 40px;
 }
@@ -141,7 +139,6 @@ export const InputSumWrapper = styled.div`
 export const FormSum = styled.label`
   @media screen and (max-width: 768px) {
     margin-bottom: 40px;
-
   }
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -160,7 +157,10 @@ export const SumInput = styled.input`
   font-weight: 400;
   margin-right: 32px;
   padding: 0;
-  
+    &:hover,
+    &:focus {
+    box-shadow: -1px 24px 12px -15px rgba(115,217,255,0.57)}
+
     @media screen and (max-width: 768px) {
     min-width: 280px;
     margin: 0;
@@ -172,10 +172,12 @@ export const SumInput = styled.input`
     font-weight: 700;
     @media screen and (min-width: 768px) {
     text-align: center;
-    /* margin-right: 32px; */
     text-align: center;
     }
   }
+  /* &::input:invalid {
+    border: 2px solid red;
+} */
 `;
 
 export const MyTimePicker = styled(Datetime)`
@@ -183,25 +185,24 @@ outline: none;
 border: none;
 width: 100%;
 border-bottom: 1px solid #E0E0E0;
+    &:hover,
+    &:focus {
+    box-shadow: -1px 24px 12px -15px rgba(115,217,255,0.57)}
 `;
 
 export const CalendarDiv = styled.div`
 width: 100%; 
 margin-bottom: 40px;
 max-width: 188px; 
-  height: 30px; 
-  
-  /* border-bottom: 0.3px solid #E0E0E0; */ 
-@media screen and (min-width: 768px){
+height: 30px; 
+ @media screen and (min-width: 768px){
 width: 200px;
-/* margin-bottom: 40px; */
 }
 `;
 
 export const DataPickerWrapper = styled.label`
 display: flex;
 position: relative;
-/* margin-bottom: 8px; */
 flex-direction: row;
 height: 33px;
 border: none;
@@ -219,7 +220,6 @@ input,
     border: none;
   }
      @media screen and (max-width: 768px) {
-      /* margin-bottom: 40px; */
       min-width: 280px;
       height: 32px;
       padding: 18px 0px 0px 0px;
@@ -248,12 +248,11 @@ export const TextForm = styled.label`
 `;
 
 export const CommentInput = styled.input`
-  width: 390px;
+  width: 396px;
   height: 32px;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
-   /* padding-left: 20px; */
   padding-bottom: 5px;
   outline: none;
   border: none;
@@ -262,14 +261,9 @@ export const CommentInput = styled.input`
   position: relative;
   border-bottom: 1px solid #E0E0E0;
   color: ${stylistics.colors.primaryText};
-  /* input, textarea{
-  padding: 0px;
-  } */
       &::placeholder{
     color: ${stylistics.colors.secondaryText};
-    /* padding-left: 20px; */
-    /* padding-bottom: 5px; */
-margin: 0 0 5px 20px;
+    margin: 0 0 5px 20px;
     }
   @media screen and (max-width: 768px) {
      height: 84px;
@@ -280,11 +274,10 @@ margin: 0 0 5px 20px;
     /* padding-bottom: 5px; */
     }
     }
-
-  /* resize: none; */
+        &:hover,
+    &:focus {
+    box-shadow: -1px 24px 12px -15px rgba(115,217,255,0.57)}
 `;
-
-
 //--------Styles for changing initial Select from react-----------
 
 export const initialSelectStyles = {
@@ -297,7 +290,7 @@ export const initialSelectStyles = {
     cursor: 'pointer',
         color: state.isSelected || state.isFocused ? '#FF6596' : '#000000',
     backgroundColor:
-      state.isSelected || state.isFocused ? '#FFFFFF' : 'inherit',
+        state.isSelected || state.isFocused ? '#FFFFFF' : 'inherit',
   }),
   menu: items => ({
     ...items,

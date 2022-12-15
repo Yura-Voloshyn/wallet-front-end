@@ -12,11 +12,12 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "@types/react": "^18.0.26",
     "axios": "^1.2.0",
     "chart.js": "^4.0.1",
     "date-fns": "^2.29.3",
     "formik": "^2.2.9",
-    "framer-motion": "^7.6.19",
+    "framer-motion": "^7.8.1",
     "moment": "^2.29.4",
     "nanoid": "^4.0.0",
     "notiflix": "^3.2.5",
@@ -44,7 +45,7 @@
     "zxcvbn": "^4.4.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
