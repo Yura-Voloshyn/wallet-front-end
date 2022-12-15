@@ -1,5 +1,5 @@
 import getCurrency from './getCurrency';
-const getData = async () => {
+const setDataFromApi = async () => {
   try {
     const apiData = await getCurrency();
     localStorage.setItem('currency', JSON.stringify(apiData));
@@ -8,4 +8,4 @@ const getData = async () => {
   }
 };
 
-export default getData;
+export default setDataFromApi;
