@@ -10,10 +10,8 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(current());
-  }, [dispatch]);
-  useEffect(() => {
     getData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <AppWrapper>
