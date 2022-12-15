@@ -199,9 +199,13 @@ export const ButtonLoadMorePrev = styled.button`
   top: 225px;
   left: 140px;
   @media (min-width: 768px) {
-    top: 630px;
+    top: 730px;
     left: 360px;
   }
+  @media (min-width: 1280px) {
+    top: 810px;
+    left: 590px;
+  } ;
 `;
 
 export const ButtonLoadMoreNext = styled.button`
@@ -212,7 +216,11 @@ export const ButtonLoadMoreNext = styled.button`
   top: 225px;
   left: 160px;
   @media (min-width: 768px) {
-    top: 630px;
+    top: 730px;
     left: 380px;
   }
+  @media (min-width: 1280px) {
+    top: 810px;
+    left: 610px;
+  } ;
 `;
