@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-// import localStorage from 'redux-persist/es/storage';
-// import getCurrency from '../../services/api/getCurrency/getCurrency';
+
 import setDataFromApi from 'services/api/getCurrency/getDataCurrency';
 import {
   CurrencyTableStyled,

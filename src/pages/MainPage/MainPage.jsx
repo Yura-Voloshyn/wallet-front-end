@@ -11,25 +11,22 @@ const MainPage = () => {
   const location = useLocation();
 
   return (
-      <MainPageWrapper>
-          <Header />
-          <Media query="(max-width: 768px)" render={() => <Navigation />} />
-          {/* <Navigation /> */}
-          {/* <TotalBalance /> */}
-          {/* <Currency /> */}
-          {location.pathname === '/home' && <Home />}
-          {location.pathname === '/home/diagram' && (
-            <Media query="(min-width: 768px)" render={() => <Home />} />
-          )}
+    <MainPageWrapper>
+      <Header />
+      <Media query="(max-width: 768px)" render={() => <Navigation />} />
 
-          {location.pathname === '/diagram' && (
-            <Media query="(max-width: 767px)" render={() => <StatisticsPage />} />
-          )}
-          {location.pathname === '/currency' && (
-            <Media query="(max-width: 767px)" render={() => <Currency />} />
-          )}
+      {location.pathname === '/home' && <Home />}
+      {location.pathname === '/home/diagram' && (
+        <Media query="(min-width: 768px)" render={() => <Home />} />
+      )}
+
+      {location.pathname === '/diagram' && (
+        <Media query="(max-width: 767px)" render={() => <StatisticsPage />} />
+      )}
+      {location.pathname === '/currency' && (
+        <Media query="(max-width: 767px)" render={() => <Currency />} />
+      )}
     </MainPageWrapper>
-    
   );
 };
 
