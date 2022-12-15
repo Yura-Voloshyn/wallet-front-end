@@ -22,7 +22,7 @@ export const MainNav = styled.nav`
 export const Link = styled(NavLink)`
   height: 38px;
   border-radius: 6px;
-
+  color: inherit;
   transition: 0.3s;
 
   &.active {
@@ -58,6 +58,7 @@ export const Link = styled(NavLink)`
       display: inline-block;
       font-family: ${stylistics.fonts.heading};
       font-size: ${stylistics.fontSizes.m};
+      font-weight: 400px;
     }
 
     &.active {
