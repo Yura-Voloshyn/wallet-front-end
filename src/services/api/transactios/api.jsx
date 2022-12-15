@@ -1,7 +1,7 @@
 import instance from '../auth';
 
-export const getTransactions = async () => {
-  const data = await instance.get('/api/transactions');
+export const getTransactions = async page => {
+  const data = await instance.get(`/api/transactions?page=${page}`);
   return data;
 };
 

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const TableStyle = styled.table`
+  position: relative;
   height: 344px;
   overflow-y: auto;
   display: none;
@@ -74,11 +75,11 @@ export const Tr = styled.tr`
 `;
 
 export const Tbody = styled.tbody`
-  & tr:last-child{
+  & tr:last-child {
     border-bottom: none;
     box-shadow: none;
   }
-`
+`;
 
 export const Trb = styled.tr`
   height: 52px;
@@ -188,6 +189,38 @@ export const TableText = styled.tr`
     font-size: 30px;
     text-align: center;
   }
-  
+`;
 
+export const ButtonLoadMorePrev = styled.button`
+  position: absolute;
+  background-color: transparent;
+  padding: 5px;
+  border: none;
+  top: 225px;
+  left: 140px;
+  @media (min-width: 768px) {
+    top: 730px;
+    left: 360px;
+  }
+  @media (min-width: 1280px) {
+    top: 810px;
+    left: 590px;
+  } ;
+`;
+
+export const ButtonLoadMoreNext = styled.button`
+  position: absolute;
+  background-color: transparent;
+  padding: 5px;
+  border: none;
+  top: 225px;
+  left: 160px;
+  @media (min-width: 768px) {
+    top: 730px;
+    left: 380px;
+  }
+  @media (min-width: 1280px) {
+    top: 810px;
+    left: 610px;
+  } ;
 `;

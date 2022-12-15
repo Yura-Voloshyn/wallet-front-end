@@ -4,13 +4,13 @@ import { getTransactions, addTransaction } from 'services/api/transactios/api';
 
 export const fetchTransactions = createAsyncThunk(
   'transactions',
-  async (_, thunkAPI) => {
+  async (page, { rejectWithValue }) => {
     try {
-      const data = await getTransactions();
+      const data = await getTransactions(page);
 
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return rejectWithValue(error);
     }
   }
 );
