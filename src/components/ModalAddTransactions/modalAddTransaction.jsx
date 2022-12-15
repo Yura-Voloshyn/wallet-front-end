@@ -229,8 +229,8 @@ const ModalAddTransactions = ({ onClose }) => {
               maxLength="6"
               pattern="^[ 0-9]+$"
               error={sum==="-" || sum==="--"}
-              title="ENTER ONLY POSITIVE VALUES!
-                          SUM WITH (-) ISN'T COUNTING!"
+              title="❗ENTER ONLY POSITIVE VALUES❗
+                   ❗SUM WITH (➖) ISN'T COUNTING❗"
             ></SumInput>
           </FormSum>
 
