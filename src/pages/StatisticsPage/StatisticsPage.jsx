@@ -14,7 +14,7 @@ import {
   StatisticsLeftPartWrapp,
 } from './StatisticsPage.styled';
 import Spinner from 'components/Spinner';
-
+import { converToMonthName } from 'helpers/convertToMonthName';
 export function StatisticsPage() {
   const currentMonth = new Date().getMonth() + 1;
   const currentYear = new Date().getFullYear();
@@ -28,7 +28,7 @@ export function StatisticsPage() {
   useEffect(() => {
     dispatch(statistics(data));
     Notify.success(
-      `Your statistics for the ${data.month} month of ${data.year}`
+      `Your statistics for ${converToMonthName[data.month]} ${data.year}`
     );
   }, [data, dispatch]);
 
