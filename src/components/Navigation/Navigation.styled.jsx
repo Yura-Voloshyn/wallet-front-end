@@ -22,7 +22,7 @@ export const MainNav = styled.nav`
 export const Link = styled(NavLink)`
   height: 38px;
   border-radius: 6px;
-
+color: inherit;
   transition: 0.3s;
 
   &.active {
