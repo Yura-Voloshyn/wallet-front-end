@@ -208,7 +208,7 @@ export const ButtonLoadMore = styled.button`
     left: 340px;
   }
   @media (min-width: 1280px) {
-    top: 300px;
+    top: 320px;
     left: 340px;
   } ;
 `;
