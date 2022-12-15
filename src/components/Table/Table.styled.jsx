@@ -191,20 +191,24 @@ export const TableText = styled.tr`
   }
 `;
 
+export const Div = styled.div`
+  position: relative;
+`;
+
 export const ButtonLoadMore = styled.button`
   position: fixed;
   background-color: transparent;
   padding: 5px;
   border: none;
   bottom: 0px;
-  left: 150px;
+  left: 185px;
   @media (min-width: 768px) {
-    top: 630px;
-    left: 360px;
+    position: absolute;
+    top: 320px;
+    left: 340px;
   }
   @media (min-width: 1280px) {
-    position: fixed;
-    top: 130px;
-    left: 900px;
+    top: 300px;
+    left: 340px;
   } ;
 `;
