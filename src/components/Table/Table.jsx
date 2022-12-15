@@ -1,8 +1,14 @@
-import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
+import { IconContext } from 'react-icons';
+import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
 import TableNothingTransactions from './TableNothingTransactions';
-import { TableStyle, ButtonLoadMore } from './Table.styled';
+import {
+  TableStyle,
+  ButtonContainer,
+  ButtonLoadMorePrev,
+  ButtonLoadMoreNext,
+} from './Table.styled';
 import TableMobile from './TableMobile';
 
 import { useEffect, useState } from 'react';
@@ -16,9 +22,6 @@ const Table = () => {
   // const [transaction, setTransaction] = useState([]);
   const [page, setPage] = useState(1);
   const { transactions } = useSelector(state => state.transactions);
-
-  console.log('page', page);
-  console.log('transactions', transactions);
 
   useEffect(() => {
     if (page >= 1 && page <= 5) {
@@ -42,21 +45,33 @@ const Table = () => {
           <TableStyle>
             <TableHead />
             <TableBody items={transactions} />
-            {transactions.length < 5 ? (
-              <ButtonLoadMore
-                onClick={() => {
-                  setPage(1);
-                }}
-              >
-                <BiChevronUp />
-              </ButtonLoadMore>
+          </TableStyle>
+          <>
+            {page > 1 ? (
+              <ButtonLoadMorePrev onClick={() => setPage(prev => prev - 1)}>
+                <IconContext.Provider
+                  value={{
+                    size: '20px',
+                    color: '#000000',
+                  }}
+                >
+                  <BiChevronLeft />
+                </IconContext.Provider>
+              </ButtonLoadMorePrev>
             ) : null}
             {transactions.length === 5 ? (
-              <ButtonLoadMore onClick={() => setPage(prev => prev + 1)}>
-                <BiChevronDown />
-              </ButtonLoadMore>
+              <ButtonLoadMoreNext onClick={() => setPage(prev => prev + 1)}>
+                <IconContext.Provider
+                  value={{
+                    size: '20px',
+                    color: '#000000',
+                  }}
+                >
+                  <BiChevronRight />
+                </IconContext.Provider>
+              </ButtonLoadMoreNext>
             ) : null}
-          </TableStyle>
+          </>
           <TableMobile items={transactions} />
         </>
       )}

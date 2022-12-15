@@ -190,13 +190,25 @@ export const TableText = styled.tr`
     text-align: center;
   }
 `;
-export const ButtonLoadMore = styled.button`
+
+export const ButtonLoadMorePrev = styled.button`
   position: absolute;
   background-color: transparent;
   padding: 5px;
   border: none;
   @media (min-width: 768px) {
-    top: 310px;
-    left: 330px;
+    top: 630px;
+    left: 360px;
+  }
+`;
+
+export const ButtonLoadMoreNext = styled.button`
+  position: absolute;
+  background-color: transparent;
+  padding: 5px;
+  border: none;
+  @media (min-width: 768px) {
+    top: 630px;
+    left: 380px;
   }
 `;
