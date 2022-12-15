@@ -40,7 +40,7 @@ const Table = () => {
   };
   return (
     <>
-      {loading === true && <Spinner/>}
+      {loading === true && <Spinner />}
       {transactions.length === 0 ? (
         <TableStyle id="table">
           <TableHead />
@@ -54,10 +54,13 @@ const Table = () => {
           </TableStyle>
           <>
             {page === totalPages ? (
-              <ButtonLoadMore onClick={() => onTop()}>
+              <ButtonLoadMore
+                onClick={() => onTop()}
+                style={{ cursor: 'pointer' }}
+              >
                 <IconContext.Provider
                   value={{
-                    size: '20px',
+                    size: '25px',
                     color: '#000000',
                   }}
                 >
@@ -66,10 +69,13 @@ const Table = () => {
               </ButtonLoadMore>
             ) : null}
             {page >= 1 && page < totalPages ? (
-              <ButtonLoadMore onClick={() => onSubmitMore()}>
+              <ButtonLoadMore
+                onClick={() => onSubmitMore()}
+                style={{ cursor: 'pointer' }}
+              >
                 <IconContext.Provider
                   value={{
-                    size: '20px',
+                    size: '25px',
                     color: '#000000',
                   }}
                 >
