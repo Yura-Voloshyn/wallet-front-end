@@ -7,7 +7,7 @@ export const TotalSumContextProvider = ({ children }) => {
   const [balance, setBalance] = useState('');
   const dispatch = useDispatch();
   const { transactions } = useSelector(state => state.transactions);
-  console.log(transactions);
+
   useEffect(() => {
     return transactions.length === 0
       ? setBalance('0,00')

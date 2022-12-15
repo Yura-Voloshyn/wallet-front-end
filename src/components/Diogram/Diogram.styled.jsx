@@ -6,15 +6,13 @@ export const ChartContainer = styled.div`
   border-radius: 100%;
 
   animation-name: stretch;
-  animation-duration: 2s;
+  animation-duration: 4s;
   animation-timing-function: ease-out;
   animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-play-state: running;
   transition: animation 5s linear;
-  &:hover {
-    animation: none;
-  }
+  
   @keyframes stretch {
     0% {
       transform: scale(0.9);
