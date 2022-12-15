@@ -5,7 +5,6 @@ import TableBody from './TableBody';
 import TableNothingTransactions from './TableNothingTransactions';
 import {
   TableStyle,
-  ButtonContainer,
   ButtonLoadMorePrev,
   ButtonLoadMoreNext,
 } from './Table.styled';
