@@ -18,6 +18,7 @@ import {
   ChooseIcon,
   CommentInput,
   CheckboxSpan,
+  CheckboxSpanB,
   MySwitch,
   CalendarDiv,
   DataPickerWrapper,
@@ -32,6 +33,7 @@ import { getFilteredCategories } from 'redux/categories/categories-selectors';
 import { fetchCategories } from 'redux/categories/categories-operations';
 import SubmitBtn from 'components/Button/SubmitBtn';
 import StyledNavLink from 'components/Button/StyledNavLink';
+
 
 //-------------Modal for new transaction adding------------
 const ModalAddTransactions = ({ onClose }) => {
@@ -54,9 +56,11 @@ const ModalAddTransactions = ({ onClose }) => {
   const [selectedDate, setSelectedDate] = useState(
     moment().format('DD.MM.YYYY')
   );
+
   const handleDateChange = evt => {
     setSelectedDate(moment(evt._d).format('DD.MM.YYYY'));
   };
+
   const [defaultState, setFullState] = useState({
     date: selectedDate,
     type: false,
@@ -181,11 +185,11 @@ const ModalAddTransactions = ({ onClose }) => {
               </AddExpsIcon>
             }
           />
-          <CheckboxSpan
-            className={`${checked && 'active-e'}"left"`}
+          <CheckboxSpanB
+            className={`${checked && 'active-e'}`} 
           >
             Expense
-          </CheckboxSpan>
+          </CheckboxSpanB>
         </CheckboxWrapper>
 
         {checked && (
@@ -215,28 +219,24 @@ const ModalAddTransactions = ({ onClose }) => {
           <FormSum as="label">
             <SumInput
               as="input"
-              id="sumarization"
               name="sum"
               value={sum}
               required
-              title="input proper values, like: 0.50, 5.55, 50.50"
-              // step="0.01"
-              // min="0.01"
               type="number"
-              // inputMode="numeric"
               placeholder="0.00"
               autoComplete="off"
               onChange={handleChange}
               maxLength="6"
               pattern="^[ 0-9]+$"
-              autoFocus
+              error={sum==="-" || sum==="--"}
+              title="ENTER ONLY POSITIVE VALUES!
+                          SUM WITH (-) ISN'T COUNTING!"
             ></SumInput>
           </FormSum>
 
           <CalendarDiv>
             <DataPickerWrapper as="label" direction="row">
               <MyTimePicker
-                closeOnSelect={true}
                 locale="ua"
                 type="date"
                 value={selectedDate}
@@ -245,12 +245,12 @@ const ModalAddTransactions = ({ onClose }) => {
                 timeFormat={false}
                 dateFormat="DD.MM.YYYY"
                 required={true}
-                // disabledDates={}
+                closeOnSelect={true}
               />
               <DateIcon
                 as="svg"
-                width="26"
-                height="30"
+                width="24"
+                height="24"
                 viewBox="0 0 26 30"
                 fill="none"
               >
@@ -276,6 +276,7 @@ const ModalAddTransactions = ({ onClose }) => {
             // resize= "none"
             // minRows={1}
             // maxRows={3}
+            // size="30"
             required={false}
             pattern="^[a-zA-Zа-яА-ЯІіЇїҐґ]+([-'\s][a-zA-Zа-яА-ЯІіЇїҐґ]+)*$"
           ></CommentInput>
