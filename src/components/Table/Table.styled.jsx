@@ -196,6 +196,8 @@ export const ButtonLoadMorePrev = styled.button`
   background-color: transparent;
   padding: 5px;
   border: none;
+  top: 225px;
+  left: 140px;
   @media (min-width: 768px) {
     top: 630px;
     left: 360px;
@@ -207,6 +209,8 @@ export const ButtonLoadMoreNext = styled.button`
   background-color: transparent;
   padding: 5px;
   border: none;
+  top: 225px;
+  left: 160px;
   @media (min-width: 768px) {
     top: 630px;
     left: 380px;
