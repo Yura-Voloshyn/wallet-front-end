@@ -35,7 +35,7 @@ const { transactions } = useSelector(state => state.transactions);
         dispatchPage(fetchMoreTransaction(page));
       }
   }
-  
+  console.log(transactions.length);
   return (
     <>
       {transactions.length === 0 ? (
