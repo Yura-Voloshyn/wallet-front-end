@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import localStorage from 'redux-persist/es/storage';
-import getCurrency from '../../services/api/getCurrency/getCurrency';
+// import localStorage from 'redux-persist/es/storage';
+// import getCurrency from '../../services/api/getCurrency/getCurrency';
+import getData from 'services/api/getCurrency/getDataCurrency';
 import {
   CurrencyTableStyled,
   CurrencyTableHead,
@@ -17,22 +18,18 @@ const convertCurrencyCode = {
 };
 
 const CurrencyTable = () => {
-  const [data, setData] = useState([]);
-
+  const [data, setData] = useState(
+    JSON.parse(localStorage.getItem('currency')) || []
+  );
+  console.log(data);
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const apiData = await getCurrency();
-        localStorage.setItem('currency', JSON.stringify(apiData));
-        console.log(apiData);
-        setData(apiData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    const interval = setInterval(() => {
+      const updateCurrency = getData();
+      setData(localStorage.setItem('currency', JSON.stringify(updateCurrency)));
+    }, 20000);
 
-    getData();
-  }, []);
+    return () => clearInterval(interval);
+  }, [setData]);
 
   return (
     <CurrencyTableStyled>
