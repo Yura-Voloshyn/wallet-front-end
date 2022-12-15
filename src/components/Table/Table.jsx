@@ -8,34 +8,40 @@ import TableMobile from './TableMobile';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { fetchTransactions } from 'redux/transaction/transactionOperation';
+import {
+  fetchMoreTransaction,
+  fetchTransactions,
+} from 'redux/transaction/transactionOperation';
 import { useDispatch } from 'react-redux';
 
 const Table = () => {
   const dispatch = useDispatch();
+  const dispatchPage = useDispatch();
   // const [transaction, setTransaction] = useState([]);
-  const [page, setPage] = useState(1);
-  const { transactions } = useSelector(state => state.transactions);
+const { transactions } = useSelector(state => state.transactions);
+  const [page, setPage] = useState(2);
 
-  console.log('page', page);
+  // console.log('page', page);
   console.log('transactions', transactions);
 
+  
   useEffect(() => {
+    dispatch(fetchTransactions());
+  }, [dispatch]);
+
+  const onSubmitMore = () => {
+    setPage(prev => prev + 1);
     if (page >= 1 && page <= 5) {
-      dispatch(fetchTransactions(page));
-    }
-
-    if (transactions.length < 5) {
-      return;
-    }
-  }, [dispatch, page]);
-
+        dispatchPage(fetchMoreTransaction(page));
+      }
+  }
+  
   return (
     <>
       {transactions.length === 0 ? (
         <TableStyle id="table">
           <TableHead />
-          <TableNothingTransactions text={"Sorry, you havn't transactions"} />
+          <TableNothingTransactions text={"Sorry, you haven't transactions"} />
         </TableStyle>
       ) : (
         <>
@@ -52,7 +58,7 @@ const Table = () => {
               </ButtonLoadMore>
             ) : null}
             {transactions.length === 5 ? (
-              <ButtonLoadMore onClick={() => setPage(prev => prev + 1)}>
+              <ButtonLoadMore onClick={() =>onSubmitMore()}>
                 <BiChevronDown />
               </ButtonLoadMore>
             ) : null}
