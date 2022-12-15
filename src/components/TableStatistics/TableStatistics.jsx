@@ -11,10 +11,14 @@ import {
   Incomes,
   NoTransactions,
 } from './TableStatistics.styled';
-
+import { motion } from 'framer-motion';
 export function TableStatistics({ categoryStatistics }) {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 1.5 } }}
+      exit={{ opacity: 0, transition: { duration: 1.5 } }}
+    >
       {categoryStatistics.data.totalCategories.length === 0 && (
         <NoTransactions>
           You hadn't transactions at that time.
@@ -38,7 +42,7 @@ export function TableStatistics({ categoryStatistics }) {
                 firtsCapLetter[0] = firtsCapLetter[0].toUpperCase();
 
                 firtsCapLetter = firtsCapLetter.join('');
-
+                
                 return (
                   <tr key={_id}>
                     <TableCategories>
@@ -47,7 +51,7 @@ export function TableStatistics({ categoryStatistics }) {
                     </TableCategories>
                     <TableCategories>
                       {Number.isInteger(totalSum)
-                        ? `${totalSum}.00`
+                        ? `${totalSum.toFixed(2)}`
                         : Math.round(totalSum * 100) / 100}
                     </TableCategories>
                   </tr>
@@ -77,6 +81,6 @@ export function TableStatistics({ categoryStatistics }) {
           </TableFoot>
         </Table>
       )}
-    </>
+    </motion.div>
   );
 }
