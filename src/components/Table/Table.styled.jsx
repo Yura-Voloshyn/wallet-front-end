@@ -191,28 +191,20 @@ export const TableText = styled.tr`
   }
 `;
 
-export const ButtonLoadMorePrev = styled.button`
-  position: absolute;
+export const ButtonLoadMore = styled.button`
+  position: fixed;
   background-color: transparent;
   padding: 5px;
   border: none;
-  top: 225px;
-  left: 140px;
+  bottom: 0px;
+  left: 150px;
   @media (min-width: 768px) {
     top: 630px;
     left: 360px;
   }
-`;
-
-export const ButtonLoadMoreNext = styled.button`
-  position: absolute;
-  background-color: transparent;
-  padding: 5px;
-  border: none;
-  top: 225px;
-  left: 160px;
-  @media (min-width: 768px) {
-    top: 630px;
-    left: 380px;
-  }
+  @media (min-width: 1280px) {
+    position: fixed;
+    top: 130px;
+    left: 900px;
+  } ;
 `;

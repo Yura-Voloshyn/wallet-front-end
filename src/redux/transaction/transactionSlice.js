@@ -10,6 +10,7 @@ const initialState = {
   transactions: [],
   loading: false,
   error: null,
+  totalPages: 0,
 };
 
 const transactionsSlice = createSlice({
@@ -22,9 +23,10 @@ const transactionsSlice = createSlice({
       store.error = null;
     },
     [fetchTransactions.fulfilled]: (store, { payload }) => {
-      console.log(payload);
+      const data = payload.data.data;
       store.loading = false;
-      store.transactions = [...payload.data.data.result];
+      store.transactions = [...data.result];
+      store.totalPages = data.totalPages;
     },
     [fetchTransactions.rejected]: (store, { payload }) => {
       store.loading = false;
@@ -48,12 +50,10 @@ const transactionsSlice = createSlice({
       store.error = null;
     },
     [fetchMoreTransaction.fulfilled]: (store, { payload }) => {
-      console.log(payload);
       store.loading = false;
       payload.data.data.result.forEach(result => {
-         store.transactions = [...store.transactions, result];
-      })
-     
+        store.transactions = [...store.transactions, result];
+      });
     },
     [fetchMoreTransaction.rejected]: (store, { payload }) => {
       store.loading = false;
