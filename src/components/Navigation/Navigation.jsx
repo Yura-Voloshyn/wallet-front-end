@@ -6,10 +6,7 @@ import { ReactComponent as HomeIcon } from 'images/icons/home-icon.svg';
 import { ReactComponent as DiagramIcon } from 'images/icons/diagram_icon.svg';
 import { ReactComponent as MoneyIcon } from 'images/icons/money_icon.svg';
 
-
 export const Navigation = () => {
-  
-  
   return (
     <MainNav>
       <Link to="/home">

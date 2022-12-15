@@ -63,6 +63,7 @@ export function Diogram({ categoryStatistics }) {
     animation: {
       animateScale: true,
       duration: 1200,
+      
     },
     plugins: {
       legend: {
@@ -74,7 +75,7 @@ export function Diogram({ categoryStatistics }) {
 
   return (
     <ChartContainer>
-      <Doughnut data={data} options={options} plugins={plugins} />
+      <Doughnut data={data} options={options} plugins={plugins}  />
     </ChartContainer>
   );
 }

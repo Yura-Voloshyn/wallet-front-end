@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-export const StatisticsSection = styled.section``;
+export const StatisticsSection = styled.section`
+  @media (min-width: 1280px){
+    padding-bottom:25px;
+  }
+`;
 
 export const StatisticsTitle = styled.h1`
   font-family: 'Poppins';

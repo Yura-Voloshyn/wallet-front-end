@@ -42,7 +42,7 @@ export const OnTanbletWrapper = styled.div`
 `;
 
 export const TableContainer = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
 
   margin-top: 32px;
 
@@ -55,7 +55,7 @@ export const TableContainer = styled.div`
   }
   @media (min-width: 1280px) {
     margin-top: 46px;
-    margin-left:auto;
+    margin-left: auto;
   }
 `;
 

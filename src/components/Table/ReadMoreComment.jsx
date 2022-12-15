@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import Modal from 'components/ModalAddTransactions/Modal';
+import ModalMoreInformations from './ModalMoreInformations';
 
 const Link = styled.a`
   margin-left: 5px;
@@ -28,21 +28,20 @@ const ReadMoreComment = ({ text }) => {
   function closeModal() {
     setIsOpen(false);
   }
-  if (text !== undefined) {
-    return text.length < 18 ? (
-      text
-    ) : (
-      <>
-        {text.slice(0, 18)}
-        <Link onClick={() => openModal()}>{'...'}</Link>
-        {modalIsOpen && (
-          <Modal onClose={closeModal}>
-            <TextModal>{text}</TextModal>
-          </Modal>
-        )}
-      </>
-    );
-  }
+
+  return text.length <= 18 ? (
+    text
+  ) : (
+    <>
+      {text.slice(0, 18)}
+      <Link onClick={() => openModal()}>{'...'}</Link>
+      {modalIsOpen && (
+        <ModalMoreInformations onClose={closeModal}>
+          <TextModal>{text}</TextModal>
+        </ModalMoreInformations>
+      )}
+    </>
+  );
 };
 
 export default ReadMoreComment;
