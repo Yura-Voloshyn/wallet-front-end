@@ -3,7 +3,7 @@ import { BiChevronUp, BiChevronDown } from 'react-icons/bi';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
 import TableNothingTransactions from './TableNothingTransactions';
-import { TableStyle, ButtonLoadMore } from './Table.styled';
+import { TableStyle, ButtonLoadMore, Div } from './Table.styled';
 import TableMobile from './TableMobile';
 
 import { useEffect, useState } from 'react';
@@ -33,6 +33,7 @@ const Table = () => {
   };
   const onTop = () => {
     setPage(1);
+    dispatch(fetchTransactions());
   };
   return (
     <>
@@ -42,7 +43,7 @@ const Table = () => {
           <TableNothingTransactions text={"Sorry, you haven't transactions"} />
         </TableStyle>
       ) : (
-        <>
+        <Div>
           <TableStyle>
             <TableHead />
             <TableBody items={transactions} />
@@ -74,7 +75,7 @@ const Table = () => {
             ) : null}
           </>
           <TableMobile items={transactions} />
-        </>
+        </Div>
       )}
     </>
   );
