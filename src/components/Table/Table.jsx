@@ -23,9 +23,9 @@ const Table = () => {
     <>
       {/* {console.log(transactions)} */}
       {transactions.length === 0 ? (
-        <TableStyle id='table'>
+        <TableStyle id="table">
           <TableHead />
-          <TableNothingTransactions text={"Sorry, you havn't transactions"}/>
+          <TableNothingTransactions text={"Sorry, you havn't transactions"} />
         </TableStyle>
       ) : (
         <>
