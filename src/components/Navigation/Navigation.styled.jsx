@@ -6,23 +6,23 @@ export const MainNav = styled.nav`
   display: flex;
   justify-content: center;
   gap: 35px;
-  margin: 12px 0;
+  padding: 12px 0;
+  background-color: rgba(255, 255, 255, 0.4);
 
   @media (min-width: 768px) {
+    background-color: rgba(255, 255, 255, 0);
     margin-top: 40px;
-    
+
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
   }
-
- 
 `;
 
 export const Link = styled(NavLink)`
   height: 38px;
   border-radius: 6px;
-  background-color: ${stylistics.colors.mainBg};
+color: inherit;
   transition: 0.3s;
 
   &.active {

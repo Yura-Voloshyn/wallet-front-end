@@ -1,17 +1,14 @@
 import styled from '@emotion/styled';
 
 export const HomeContainer = styled.div`
-
-     display: flex;
-     background-color: rgba(255, 255, 255, 0.4);
-     
-
-    @media (max-width: 768px) {
-        display: block;
-    }
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.4);
   padding-left: 20px;
   padding-right: 20px;
-  @media (min-width: 768px) and (max-width: 1280px) {
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+  @media (max-width: 1280px) {
     flex-direction: column;
   }
   @media (min-width: 768px) {
@@ -19,23 +16,16 @@ export const HomeContainer = styled.div`
     padding-right: 32px;
   }
   @media (min-width: 1280px) {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-  @media (max-width: 768px) {
-    display: block;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 `;
-
 export const CurrencyContainer = styled.div`
-  
   @media (min-width: 1280px) {
     height: 100vh;
     padding-right: 70px;
-    margin-right: 70px;
     border-right: 1px solid #e7e5f2;
-    box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
-      1px 0px 0px rgba(255, 255, 255, 0.6);
+    box-shadow: 1px 0px 0px rgb(255 255 255 / 60%);
   }
   @media (min-width: 768px) and (max-width: 1280px) {
     display: flex;
@@ -52,10 +42,7 @@ export const OnTanbletWrapper = styled.div`
 `;
 
 export const TableContainer = styled.div`
-
-    height: 100vh;
-    
-   
+  /* height: 100vh; */
 
   margin-top: 32px;
 
@@ -68,9 +55,9 @@ export const TableContainer = styled.div`
   }
   @media (min-width: 1280px) {
     margin-top: 46px;
+    margin-left: auto;
   }
 `;
-
 
 export const StatisticsContainer = styled.div`
   margin-top: 40px;
@@ -84,5 +71,6 @@ export const StatisticsContainer = styled.div`
   }
   @media (min-width: 1280px) {
     margin-top: 32px;
+    margin-left: auto;
   }
 `;

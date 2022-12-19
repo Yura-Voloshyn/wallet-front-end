@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import getCurrency from '../../services/api/getCurrency/getCurrency';
+import { useEffect } from 'react';
+
+import setDataFromApi from 'services/api/getCurrency/getDataCurrency';
 import {
   CurrencyTableStyled,
   CurrencyTableHead,
@@ -15,59 +16,14 @@ const convertCurrencyCode = {
   978: 'EUR',
 };
 
-// const Categories = () => {
-//   const categories = useSelector(getFilteredCategories);
-
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     dispatch(fetchCategories());
-//   }, [dispatch]);
-// };
-
-// const data = fetchCurrency();
-// console.log(data);
-// const data = [
-//   {
-//     ccy: 'EUR',
-//     base_ccy: 'UAH',
-//     buy: '19.20000',
-//     sale: '20.00000',
-//   },
-//   {
-//     ccy: 'USD',
-//     base_ccy: 'UAH',
-//     buy: '15.50000',
-//     sale: '15.85000',
-//   },
-//   {
-//     ccy: 'rus',
-//     base_ccy: 'UAH',
-//     buy: '0.00',
-//     sale: '0.00',
-//   },
-// ];
-// const categories = async () => {
-//   const apiCategories = await getCategories();
-//   console.log(apiCategories);
-// };
-// categories();
-
 const CurrencyTable = () => {
-  const [data, setData] = useState([]);
-
+  const data = JSON.parse(localStorage.getItem('currency'));
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const apiData = await getCurrency();
+    const interval = setInterval(() => {
+      setDataFromApi();
+    }, 3600000);
 
-        setData(apiData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getData();
+    return () => clearInterval(interval);
   }, []);
 
   return (

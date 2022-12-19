@@ -5,7 +5,7 @@ import { Diogram } from '../../components/Diogram/Diogram';
 import { SelectData } from '../../components/SelectData/SelectData';
 import { TableStatistics } from '../../components/TableStatistics/TableStatistics';
 import { statistics } from 'redux/statistics/statisticsOperation';
-// import { Notify } from 'notiflix';
+import { Notify } from 'notiflix';
 import {
   StatisticsSection,
   StatisticsTitle,
@@ -14,7 +14,7 @@ import {
   StatisticsLeftPartWrapp,
 } from './StatisticsPage.styled';
 import Spinner from 'components/Spinner';
-
+import { converToMonthName } from 'helpers/convertToMonthName';
 export function StatisticsPage() {
   const currentMonth = new Date().getMonth() + 1;
   const currentYear = new Date().getFullYear();
@@ -27,6 +27,9 @@ export function StatisticsPage() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(statistics(data));
+    Notify.success(
+      `Your statistics for ${converToMonthName[data.month]} ${data.year}`
+    );
   }, [data, dispatch]);
 
   const statisticsStore = useSelector(store => store.statistics);

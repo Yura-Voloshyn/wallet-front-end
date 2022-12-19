@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-export const StatisticsSection = styled.section``;
+export const StatisticsSection = styled.section`
+  @media (min-width: 1280px){
+    padding-bottom:25px;
+  }
+`;
 
 export const StatisticsTitle = styled.h1`
   font-family: 'Poppins';
@@ -16,29 +20,30 @@ export const StatisticsTitle = styled.h1`
 
 export const StatisticsWrapper = styled.div`
   display: flex;
-  
+
   align-items: center;
   @media (max-width: 768px) {
     flex-direction: column;
-    margin-top:40px;
+    margin-top: 40px;
   }
   @media (min-width: 768px) {
     align-items: flex-start;
-   
   }
 `;
 export const StatisticsLeftPartWrapp = styled.div`
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
-    margin-right: 30px;
-   
+    margin-right: 32px;
   }
 `;
 export const StatisticsDataWrapper = styled.div`
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 20px;
+  }
+  @media (min-width: 1280px) {
+    margin-top: 65px;
   }
 `;
